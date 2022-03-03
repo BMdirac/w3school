@@ -4,17 +4,368 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=\, initial-scale=1.0">
-    <title>rough javascript code</title>
+    <title> w3 school </title>
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <!--javascript should be writing within the head tag element-->
-    <script src="text.js"> // use script tag element without src for inline javascript
-    </script>
+    <script src="text.js"></script>
 </head>
-<!-- Responsive website is created through Events e.g onclick -->
 
 <body>
-    
-    <p id="para"></p>
-    <button id="test" onclick="changeStyle()">Hit submit for car attributes</button>
+<!-- 
+    < a href=""> </a>
+    here "a" is called a tag while "href" is called an attribute (anything in position of href here is called attributes)
+    attributes are found in a tag
+
+    <p> How are you </p>
+    Here "How are you" is called element
+
+    (1) NOTE THE FOLLOWING
+Use the "style" attribute for styling HTML elements
+Use "background-color" for background color
+Use "color" for text colors
+Use "font-family" for text fonts
+Use "font-size" for text sizes
+Use "text-align" for text alignment
+
+    (2)  HTML Formatting Elements
+<b> - Bold text
+<strong> - Important text
+<i> - Italic text
+<em> - Emphasized text
+<mark> - Marked text
+<small> - Smaller text
+<del> - Deleted text
+<ins> - Inserted text
+<sub> - Subscript text
+<sup> - Superscript text
+
+    NOTE: 3 to 8 are all quotation in html
+
+    (3) HTML <blockquote> for Quotations
+The HTML <blockquote> element defines a section that is quoted from another source.
+Browsers usually indent <blockquote> elements.
+
+Example
+<p>Here is a quote from WWF's website:</p>
+<blockquote cite="http://www.worldwildlife.org/who/index.html">
+For 50 years, WWF has been protecting the future of nature.
+The world's leading conservation organization,
+WWF works in 100 countries and is supported by
+1.2 million members in the United States and
+close to 5 million globally.
+</blockquote>
+
+    (4) HTML <q> for Short Quotations
+The HTML <q> tag defines a short quotation.
+Browsers normally insert quotation marks around the quotation.
+
+Example
+<p>WWF's goal is to: <q>Build a future where people live in harmony with nature.</q></p>
+
+    (5) HTML <abbr> for Abbreviations
+The HTML <abbr> tag defines an abbreviation or an acronym, like "HTML", "CSS", "Mr.", "Dr.", "ASAP", "ATM".
+Marking abbreviations can give useful information to browsers, translation systems and search-engines.
+Tip: Use the global title attribute to show the description for the abbreviation/acronym when you mouse over the element.  
+
+Example
+<p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+
+    (6) HTML <address> for Contact Information
+The HTML <address> tag defines the contact information for the author/owner of a document or an article.
+
+The contact information can be an email address, URL, physical address, phone number, social media handle, etc.
+
+The text in the <address> element usually renders in italic, and browsers will always add a line break before and after the <address> element.
+
+Example
+<address>
+Written by John Doe.<br>
+Visit us at:<br>
+Example.com<br>
+Box 564, Disneyland<br>
+USA
+</address>
+
+    (7) HTML <cite> for Work Title
+The HTML <cite> tag defines the title of a creative work (e.g. a book, a poem, a song, a movie, a painting, a sculpture, etc.).
+
+Note: A person's name is not the title of a work.
+
+The text in the <cite> element usually renders in italic.
+
+Example
+<p><cite>The Scream</cite> by Edvard Munch. Painted in 1893.</p>
+
+    (8) HTML <bdo> for Bi-Directional Override
+BDO stands for Bi-Directional Override.
+
+The HTML <bdo> tag is used to override the current text direction:
+
+Example
+<bdo dir="rtl">This text will be written from right to left</bdo>
+
+    (9) COLORS IN HTML
+HTML colors are specified with predefined color names, or with RGB, HEX, HSL, RGBA, or HSLA values
+
+(a) Background Color
+You can set the background color for HTML elements:
+
+Example
+<h1 style="background-color:DodgerBlue;">Hello World</h1>
+<p style="background-color:Tomato;">Lorem ipsum...</p>
+
+(b) Text Color
+You can set the color of text:
+
+Example
+<h1 style="color:Tomato;">Hello World</h1>
+<p style="color:DodgerBlue;">Lorem ipsum...</p>
+<p style="color:MediumSeaGreen;">Ut wisi enim...</p>
+
+(c) Border Color
+You can set the color of borders:
+
+Example
+<h1 style="border:2px solid Tomato;">Hello World</h1>
+<h1 style="border:2px solid DodgerBlue;">Hello World</h1>
+<h1 style="border:2px solid Violet;">Hello World</h1>
+
+    (10) Internal CSS
+An internal CSS is used to define a style for a single HTML page.
+
+An internal CSS is defined in the <head> section of an HTML page, within a <style> element.
+
+Example
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+</style>
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+
+    (11) CSS (Cascading stylesheet)
+(a) Colors, Fonts and Sizes
+The CSS color property defines the text color to be used.
+
+The CSS font-family property defines the font to be used.
+
+The CSS font-size property defines the text size to be used.
+
+(b) CSS Border
+The CSS border property defines a border around an HTML element.
+
+Tip: You can define a border for nearly all HTML elements.
+
+(c) CSS Padding
+The CSS padding property defines a padding (space) between the text and the border.
+
+(d) CSS Margin
+The CSS margin property defines a margin (space) outside the border.
+
+    (12) Link to External CSS
+External style sheets can be referenced with a full URL or with a path relative to the current web page.
+(a) Example
+This example uses a full URL to link to a style sheet:
+
+<link rel="stylesheet" href="https://www.w3schools.com/html/styles.css">
+
+(b) Example
+This example links to a style sheet located in the html folder on the current web site: 
+
+<link rel="stylesheet" href="/html/styles.css">
+
+(c) Example
+This example links to a style sheet located in the same folder as the current page:
+
+<link rel="stylesheet" href="styles.css">
+
+    (13) HTML Links
+(a) HTML Links - Syntax
+The most important attribute of the <a> element is the href attribute, which indicates the link's destination.
+
+    Example
+This example shows how to create a link to W3Schools.com:
+
+<a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
+
+(b) HTML Links - The target Attribute
+By default, the linked page will be displayed in the current browser window. To change this, you must specify another target for the link.
+
+The target attribute specifies where to open the linked document.
+
+The target attribute can have one of the following values:
+
+_self - Default. Opens the document in the same window/tab as it was clicked
+_blank - Opens the document in a new window or tab
+_parent - Opens the document in the parent frame
+_top - Opens the document in the full body of the window
+
+Example
+Use target="_blank" to open the linked document in a new browser window or tab:
+
+<a href="https://www.w3schools.com/" target="_blank">Visit W3Schools!</a>
+
+(c) Absolute URLs vs. Relative URLs
+Both examples above are using an absolute URL (a full web address) in the href attribute.
+
+A local link (a link to a page within the same website) is specified with a relative URL (without the "https://www" part):
+
+Example
+<h2>Absolute URLs</h2>
+<p><a href="https://www.w3.org/">W3C</a></p>
+<p><a href="https://www.google.com/">Google</a></p>
+
+<h2>Relative URLs</h2>
+<p><a href="html_images.asp">HTML Images</a></p>
+<p><a href="/css/default.asp">CSS Tutorial</a></p>
+
+(d) Link to an Email Address
+Use mailto: inside the href attribute to create a link that opens the user's email program (to let them send a new email):
+
+Example
+<a href="mailto:someone@example.com">Send email</a>
+
+(e) Button as a Link
+To use an HTML button as a link, you have to add some JavaScript code.
+
+JavaScript allows you to specify what happens at certain events, such as a click of a button:
+
+Example
+<button onclick="document.location='default.asp'">HTML Tutorial</button>
+
+(f) Link Titles
+The title attribute specifies extra information about an element. The information is most often shown as a tooltip text when the mouse moves over the element.
+
+Example
+<a href="https://www.w3schools.com/html/" title="Go to W3Schools HTML section">Visit our HTML Tutorial</a>
+
+(g) More on Absolute URLs and Relative URLs
+Example
+Use a full URL to link to a web page: 
+
+<a href="https://www.w3schools.com/html/default.asp">HTML tutorial</a>
+
+Example
+Link to a page located in the html folder on the current web site: 
+
+<a href="/html/default.asp">HTML tutorial</a>
+
+Example
+Link to a page located in the same folder as the current page: 
+
+<a href="default.asp">HTML tutorial</a>
+
+    (14) HTML Link Colors
+(a) By default, a link will appear like this (in all browsers):
+
+An unvisited link is underlined and blue
+A visited link is underlined and purple
+An active link is underlined and red
+You can change the link state colors, by using CSS:
+
+Example
+Here, an unvisited link will be green with no underline. A visited link will be pink with no underline. An active link will be yellow and underlined. In addition, when mousing over a link (a:hover) it will become red and underlined:
+
+<style>
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+</style>
+
+(b) Link Buttons
+A link can also be styled as a button, by using CSS:
+
+Example
+<style>
+a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
+</style>
+
+    (15) HTML Links - Create Bookmarks
+HTML links can be used to create bookmarks, so that readers can jump to specific parts of a web page.
+
+Create a Bookmark in HTML
+Bookmarks can be useful if a web page is very long.
+
+To create a bookmark - first create the bookmark, then add a link to it.
+
+When the link is clicked, the page will scroll down or up to the location with the bookmark.
+
+Example
+First, use the id attribute to create a bookmark:
+
+<h2 id="C4">Chapter 4</h2>
+Then, add a link to the bookmark ("Jump to Chapter 4"), from within the same page:
+
+Example
+<a href="#C4">Jump to Chapter 4</a>
+You can also add a link to a bookmark on another page:
+
+<a href="html_demo.html#C4">Jump to Chapter 4</a>
+
+Chapter Summary
+Use the id attribute (id="value") to define bookmarks in a page
+Use the href attribute (href="#value") to link to the bookmark
+
+    (16) Common Image Formats
+Here are the most common image file types, which are supported in all browsers (Chrome, Edge, Firefox, Safari, Opera):
+
+Abbreviation	File Format	                            File Extension
+APNG	        Animated Portable Network Graphics	        .apng
+GIF	            Graphics Interchange Format	                .gif
+ICO            	Microsoft Icon	                            .ico, .cur
+JPEG	        Joint Photographic Expert Group image	    .jpg, .jpeg, .jfif, .pjpeg, .pjp
+PNG         	Portable Network Graphics	                 .png
+SVG	            Scalable Vector Graphics	                .svg
+
+Chapter Summary
+Use the HTML <img> element to define an image
+Use the HTML src attribute to define the URL of the image
+Use the HTML alt attribute to define an alternate text for an image, if it cannot be displayed
+Use the HTML width and height attributes or the CSS width and height properties to define the size of the image
+Use the CSS float property to let the image float to the left or to the right
+
+    (17) Continue from html image (background image)
+
+-->
     
 </body>
