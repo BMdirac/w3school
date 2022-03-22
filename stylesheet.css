@@ -1,5 +1,6 @@
-content
+
                 /*  CHAPTER 1  ************************************************************************************************** */
+                
 Why Use CSS?
 CSS is used to define styles for your web pages, including the design, layout and variations in display for different devices and screen sizes.
 
@@ -866,3 +867,230 @@ The CSS Background Image Property
 Property	Description
 background-image	Sets the background image for an element
 
+CSS Background Image Repeat
+CSS background-repeat
+By default, the background-image property repeats an image both horizontally and vertically.
+
+Some images should be repeated only horizontally or vertically, or they will look strange, like this:
+
+Example
+body {
+  background-image: url("gradient_bg.png");
+}
+If the image above is repeated only horizontally (background-repeat: repeat-x;), the background will look better:
+
+Example
+body {
+  background-image: url("gradient_bg.png");
+  background-repeat: repeat-x;
+}
+Tip: To repeat an image vertically, set background-repeat: repeat-y;
+
+CSS background-repeat: no-repeat
+Showing the background image only once is also specified by the background-repeat property:
+
+Example
+Show the background image only once:
+
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+}
+In the example above, the background image is placed in the same place as the text. We want to change the position of the image, so that it does not disturb the text too much.
+
+CSS background-position
+The background-position property is used to specify the position of the background image.
+
+Example
+Position the background image in the top-right corner: 
+
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+The CSS Background Repeat and Position Properties
+Property	Description
+background-position	Sets the starting position of a background image
+background-repeat	Sets how a background image will be repeated
+
+CSS Background Attachment
+CSS background-attachment
+The background-attachment property specifies whether the background image should scroll or be fixed (will not scroll with the rest of the page):
+
+Example
+Specify that the background image should be fixed:
+
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+}
+Example
+Specify that the background image should scroll with the rest of the page:
+
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: scroll;
+}
+The CSS Background Attachment Property
+Property	Description
+background-attachment	Sets whether a background image is fixed or scrolls with the rest of the page
+
+CSS Background Shorthand
+CSS background - Shorthand property
+To shorten the code, it is also possible to specify all the background properties in one single property. This is called a shorthand property.
+
+Instead of writing:
+
+body {
+  background-color: #ffffff;
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+You can use the shorthand property background:
+
+Example
+Use the shorthand property to set the background properties in one declaration:
+
+body {
+  background: #ffffff url("img_tree.png") no-repeat right top;
+}
+When using the shorthand property the order of the property values is:
+
+background-color
+background-image
+background-repeat
+background-attachment
+background-position
+It does not matter if one of the property values is missing, as long as the other ones are in this order. Note that we do not use the background-attachment property in the examples above, as it does not have a value.
+
+CSS Borders
+The CSS border properties allow you to specify the style, width, and color of an element's border.
+
+I have borders on all sides.
+
+
+I have a red bottom border.
+
+
+I have rounded borders.
+
+
+I have a blue left border.
+
+CSS Border Style
+The border-style property specifies what kind of border to display.
+
+The following values are allowed:
+
+dotted - Defines a dotted border
+dashed - Defines a dashed border
+solid - Defines a solid border
+double - Defines a double border
+groove - Defines a 3D grooved border. The effect depends on the border-color value
+ridge - Defines a 3D ridged border. The effect depends on the border-color value
+inset - Defines a 3D inset border. The effect depends on the border-color value
+outset - Defines a 3D outset border. The effect depends on the border-color value
+none - Defines no border
+hidden - Defines a hidden border
+The border-style property can have from one to four values (for the top border, right border, bottom border, and the left border).
+
+Example
+Demonstration of the different border styles:
+
+p.dotted {border-style: dotted;}
+p.dashed {border-style: dashed;}
+p.solid {border-style: solid;}
+p.double {border-style: double;}
+p.groove {border-style: groove;}
+p.ridge {border-style: ridge;}
+p.inset {border-style: inset;}
+p.outset {border-style: outset;}
+p.none {border-style: none;}
+p.hidden {border-style: hidden;}
+p.mix {border-style: dotted dashed solid double;}
+Result:
+
+A dotted border.
+
+A dashed border.
+
+A solid border.
+
+A double border.
+
+A groove border. The effect depends on the border-color value.
+
+A ridge border. The effect depends on the border-color value.
+
+An inset border. The effect depends on the border-color value.
+
+An outset border. The effect depends on the border-color value.
+
+No border.
+
+A hidden border.
+
+A mixed border.
+
+Note: None of the OTHER CSS border properties (which you will learn more about in the next chapters) will have ANY effect unless the border-style property is set!
+
+CSS Border Width
+CSS Border Width
+The border-width property specifies the width of the four borders.
+
+The width can be set as a specific size (in px, pt, cm, em, etc) or by using one of the three pre-defined values: thin, medium, or thick:
+
+Example
+Demonstration of the different border widths:
+
+p.one {
+  border-style: solid;
+  border-width: 5px;
+}
+
+p.two {
+  border-style: solid;
+  border-width: medium;
+}
+
+p.three {
+  border-style: dotted;
+  border-width: 2px;
+}
+
+p.four {
+  border-style: dotted;
+  border-width: thick;
+}
+Result:
+
+5px border-width
+medium border-width
+2px border-width
+thick border-width
+Specific Side Widths
+The border-width property can have from one to four values (for the top border, right border, bottom border, and the left border):
+
+Example
+p.one {
+  border-style: solid;
+  border-width: 5px 20px; /* 5px top and bottom, 20px on the sides */
+}
+
+p.two {
+  border-style: solid;
+  border-width: 20px 5px; /* 20px top and bottom, 5px on the sides */
+}
+
+p.three {
+  border-style: solid;
+  border-width: 25px 10px 4px 35px; /* 25px top, 10px right, 4px bottom and 35px left */
+}
+
+continue from: border color 
