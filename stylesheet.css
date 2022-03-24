@@ -1562,4 +1562,1226 @@ div {
   box-sizing: border-box;
 }
 
-continue from css height and width
+                /*  CHAPTER 3  ************************************************************************************************** */
+
+CSS Height, Width and Max-width
+The CSS height and width properties are used to set the height and width of an element.
+
+The CSS max-width property is used to set the maximum width of an element.
+
+This element has a height of 50 pixels and a width of 100%.
+
+CSS Setting height and width
+The height and width properties are used to set the height and width of an element.
+
+The height and width properties do not include padding, borders, or margins. It sets the height/width of the area inside the padding, border, and margin of the element.
+
+CSS height and width Values
+The height and width properties may have the following values:
+
+auto - This is default. The browser calculates the height and width
+length - Defines the height/width in px, cm etc.
+% - Defines the height/width in percent of the containing block
+initial - Sets the height/width to its default value
+inherit - The height/width will be inherited from its parent value
+CSS height and width Examples
+This element has a height of 200 pixels and a width of 50%
+Example
+Set the height and width of a <div> element:
+
+div {
+  height: 200px;
+  width: 50%;
+  background-color: powderblue;
+}
+
+This element has a height of 100 pixels and a width of 500 pixels.
+Example
+Set the height and width of another <div> element:
+
+div {
+  height: 100px;
+  width: 500px;
+  background-color: powderblue;
+}
+
+Note: Remember that the height and width properties do not include padding, borders, or margins! They set the height/width of the area inside the padding, border, and margin of the element!
+
+ADVERTISEMENT
+
+Setting max-width
+The max-width property is used to set the maximum width of an element.
+
+The max-width can be specified in length values, like px, cm, etc., or in percent (%) of the containing block, or set to none (this is default. Means that there is no maximum width).
+
+The problem with the <div> above occurs when the browser window is smaller than the width of the element (500px). The browser then adds a horizontal scrollbar to the page.
+
+Using max-width instead, in this situation, will improve the browser's handling of small windows.
+
+Tip: Drag the browser window to smaller than 500px wide, to see the difference between the two divs!
+
+This element has a height of 100 pixels and a max-width of 500 pixels.
+Note: If you for some reason use both the width property and the max-width property on the same element, and the value of the width property is larger than the max-width property; the max-width property will be used (and the width property will be ignored).
+
+Example
+This <div> element has a height of 100 pixels and a max-width of 500 pixels: 
+
+div {
+  max-width: 500px;
+  height: 100px;
+  background-color: powderblue;
+}
+
+Try it Yourself - Examples
+Set the height and width of elements
+This example demonstrates how to set the height and width of different elements.
+
+Set the height and width of an image using percent
+This example demonstrates how to set the height and width of an image using a percent value.
+
+Set min-width and max-width of an element
+This example demonstrates how to set a minimum width and a maximum width of an element using a pixel value.
+
+Set min-height and max-height of an element
+This example demonstrates how to set a minimum height and a maximum height of an element using a pixel value.
+
+All CSS Dimension Properties
+Property	Description
+height	Sets the height of an element
+max-height	Sets the maximum height of an element
+max-width	Sets the maximum width of an element
+min-height	Sets the minimum height of an element
+min-width	Sets the minimum width of an element
+width	Sets the width of an element
+
+CSS Box Model
+All HTML elements can be considered as boxes.
+
+The CSS Box Model
+In CSS, the term "box model" is used when talking about design and layout.
+
+The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content. The image below illustrates the box model:
+
+Explanation of the different parts:
+
+Content - The content of the box, where text and images appear
+Padding - Clears an area around the content. The padding is transparent
+Border - A border that goes around the padding and content
+Margin - Clears an area outside the border. The margin is transparent
+The box model allows us to add a border around elements, and to define space between elements. 
+
+Example
+Demonstration of the box model:
+
+div {
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+
+Width and Height of an Element
+In order to set the width and height of an element correctly in all browsers, you need to know how the box model works.
+
+Important: When you set the width and height properties of an element with CSS, you just set the width and height of the content area. To calculate the full size of an element, you must also add padding, borders and margins.
+
+Example
+This <div> element will have a total width of 350px: 
+
+div {
+  width: 320px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+}
+Here is the calculation:
+320px (width)
++ 20px (left + right padding)
++ 10px (left + right border)
++ 0px (left + right margin)
+= 350px
+The total width of an element should be calculated like this:
+
+Total element width = width + left padding + right padding + left border + right border + left margin + right margin
+
+The total height of an element should be calculated like this:
+
+Total element height = height + top padding + bottom padding + top border + bottom border + top margin + bottom margin
+
+CSS Outline
+An outline is a line drawn outside the element's border.
+
+This element has a black border and a green outline with a width of 10px.
+
+CSS Outline
+An outline is a line that is drawn around elements, OUTSIDE the borders, to make the element "stand out".
+
+CSS has the following outline properties:
+
+outline-style
+outline-color
+outline-width
+outline-offset
+outline
+Note: Outline differs from borders! Unlike border, the outline is drawn outside the element's border, and may overlap other content. Also, the outline is NOT a part of the element's dimensions; the element's total width and height is not affected by the width of the outline.
+
+CSS Outline Style
+The outline-style property specifies the style of the outline, and can have one of the following values:
+
+dotted - Defines a dotted outline
+dashed - Defines a dashed outline
+solid - Defines a solid outline
+double - Defines a double outline
+groove - Defines a 3D grooved outline
+ridge - Defines a 3D ridged outline
+inset - Defines a 3D inset outline
+outset - Defines a 3D outset outline
+none - Defines no outline
+hidden - Defines a hidden outline
+The following example shows the different outline-style values:
+
+Example
+Demonstration of the different outline styles:
+
+p.dotted {outline-style: dotted;}
+p.dashed {outline-style: dashed;}
+p.solid {outline-style: solid;}
+p.double {outline-style: double;}
+p.groove {outline-style: groove;}
+p.ridge {outline-style: ridge;}
+p.inset {outline-style: inset;}
+p.outset {outline-style: outset;}
+Result:
+
+A dotted outline.
+
+A dashed outline.
+
+A solid outline.
+
+A double outline.
+
+A groove outline. The effect depends on the outline-color value.
+
+A ridge outline. The effect depends on the outline-color value.
+
+An inset outline. The effect depends on the outline-color value.
+
+An outset outline. The effect depends on the outline-color value.
+
+Note: None of the other outline properties (which you will learn more about in the next chapters) will have ANY effect unless the outline-style property is set!
+
+CSS Outline Width
+CSS Outline Width
+The outline-width property specifies the width of the outline, and can have one of the following values:
+
+thin (typically 1px)
+medium (typically 3px)
+thick (typically 5px)
+A specific size (in px, pt, cm, em, etc)
+The following example shows some outlines with different widths:
+
+A thin outline.
+
+A medium outline.
+
+A thick outline.
+
+A 4px thick outline.
+
+Example
+p.ex1 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: thin;
+}
+
+p.ex2 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: medium;
+}
+
+p.ex3 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: thick;
+}
+
+p.ex4 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: 4px;
+}
+
+CSS Outline Color
+CSS Outline Color
+The outline-color property is used to set the color of the outline.
+
+The color can be set by:
+
+name - specify a color name, like "red"
+HEX - specify a hex value, like "#ff0000"
+RGB - specify a RGB value, like "rgb(255,0,0)"
+HSL - specify a HSL value, like "hsl(0, 100%, 50%)"
+invert - performs a color inversion (which ensures that the outline is visible, regardless of color background)
+The following example shows some different outlines with different colors. Also notice that these elements also have a thin black border inside the outline:
+
+A solid red outline.
+
+A dotted blue outline.
+
+An outset grey outline.
+
+Example
+p.ex1 {
+  border: 2px solid black;
+  outline-style: solid;
+  outline-color: red;
+}
+
+p.ex2 {
+  border: 2px solid black;
+  outline-style: dotted;
+  outline-color: blue;
+}
+
+p.ex3 {
+  border: 2px solid black;
+  outline-style: outset;
+  outline-color: grey;
+}
+HEX Values
+The outline color can also be specified using a hexadecimal value (HEX):
+
+Example
+p.ex1 {
+  outline-style: solid;
+  outline-color: #ff0000; /* red */
+}
+
+RGB Values
+Or by using RGB values:
+
+Example
+p.ex1 {
+  outline-style: solid;
+  outline-color: rgb(255, 0, 0); /* red */
+}
+HSL Values
+You can also use HSL values:
+
+Example
+p.ex1 {
+  outline-style: solid;
+  outline-color: hsl(0, 100%, 50%); /* red */
+}
+
+CSS Outline Shorthand
+CSS Outline - Shorthand property
+The outline property is a shorthand property for setting the following individual outline properties:
+
+outline-width
+outline-style (required)
+outline-color
+The outline property is specified as one, two, or three values from the list above. The order of the values does not matter.
+
+The following example shows some outlines specified with the shorthand outline property:
+
+A dashed outline.
+
+A dotted red outline.
+
+A 5px solid yellow outline.
+
+A thick ridge pink outline.
+
+Example
+p.ex1 {outline: dashed;}
+p.ex2 {outline: dotted red;}
+p.ex3 {outline: 5px solid yellow;}
+p.ex4 {outline: thick ridge pink;}
+
+CSS Outline Offset
+CSS Outline Offset
+The outline-offset property adds space between an outline and the edge/border of an element. The space between an element and its outline is transparent.
+
+The following example specifies an outline 15px outside the border edge:
+
+This paragraph has an outline 15px outside the border edge.
+
+Example
+p {
+  margin: 30px;
+  border: 1px solid black;
+  outline: 1px solid red;
+  outline-offset: 15px;
+}
+
+Example
+p {
+  margin: 30px;
+  background: yellow;
+  border: 1px solid black;
+  outline: 1px solid red;
+  outline-offset: 15px;
+}
+All CSS Outline Properties
+Property	Description
+outline	A shorthand property for setting outline-width, outline-style, and outline-color in one declaration
+outline-color	Sets the color of an outline
+outline-offset	Specifies the space between an outline and the edge or border of an element
+outline-style	Sets the style of an outline
+outline-width	Sets the width of an outline
+
+CSS Text
+CSS has a lot of properties for formatting text.
+
+TEXT FORMATTING
+This text is styled with some of the text formatting properties. The heading uses the text-align, text-transform, and color properties. The paragraph is indented, aligned, and the space between characters is specified. The underline is removed from this colored "Try it Yourself" link.
+
+Text Color
+The color property is used to set the color of the text. The color is specified by:
+
+a color name - like "red"
+a HEX value - like "#ff0000"
+an RGB value - like "rgb(255,0,0)"
+Look at CSS Color Values for a complete list of possible color values.
+
+The default text color for a page is defined in the body selector.
+
+Example
+body {
+  color: blue;
+}
+
+h1 {
+  color: green;
+}
+Text Color and Background Color
+In this example, we define both the background-color property and the color property:
+
+Example
+body {
+  background-color: lightgrey;
+  color: blue;
+}
+
+h1 {
+  background-color: black;
+  color: white;
+}
+
+div {
+  background-color: blue;
+  color: white;
+}
+Important: High contrast is very important for people with vision problems. So, always ensure that the contrast between the text color and the background color (or background image) is good!
+
+The CSS Text Color Property
+Property	Description
+color	Specifies the color of text
+
+CSS Text Alignment
+CSS Text Alignment and Text Direction
+In this chapter you will learn about the following properties:
+
+text-align
+text-align-last
+direction
+unicode-bidi
+vertical-align
+Text Alignment
+The text-align property is used to set the horizontal alignment of a text.
+
+A text can be left or right aligned, centered, or justified.
+
+The following example shows center aligned, and left and right aligned text (left alignment is default if text direction is left-to-right, and right alignment is default if text direction is right-to-left):
+
+Example
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: left;
+}
+
+h3 {
+  text-align: right;
+}
+When the text-align property is set to "justify", each line is stretched so that every line has equal width, and the left and right margins are straight (like in magazines and newspapers):
+
+Example
+div {
+  text-align: justify;
+}
+Text Align Last
+The text-align-last property specifies how to align the last line of a text.
+
+Example
+Align the last line of text in three <p> elements:
+
+p.a {
+  text-align-last: right;
+}
+
+p.b {
+  text-align-last: center;
+}
+
+p.c {
+  text-align-last: justify;
+}
+
+Text Direction
+The direction and unicode-bidi properties can be used to change the text direction of an element:
+
+Example
+p {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+Vertical Alignment
+The vertical-align property sets the vertical alignment of an element.
+
+Example
+Set the vertical alignment of an image in a text: 
+
+img.a {
+  vertical-align: baseline;
+}
+
+img.b {
+  vertical-align: text-top;
+}
+
+img.c {
+  vertical-align: text-bottom;
+}
+
+img.d {
+  vertical-align: sub;
+}
+
+img.e {
+  vertical-align: super;
+}
+
+The CSS Text Alignment/Direction Properties
+Property	Description
+direction	Specifies the text direction/writing direction
+text-align	Specifies the horizontal alignment of text
+text-align-last	Specifies how to align the last line of a text
+unicode-bidi	Used together with the direction property to set or return whether the text should be overridden to support multiple languages in the same document
+vertical-align	Sets the vertical alignment of an element
+
+CSS Text Decoration
+CSS Text Decoration
+In this chapter you will learn about the following properties:
+
+text-decoration-line
+text-decoration-color
+text-decoration-style
+text-decoration-thickness
+text-decoration
+Add a Decoration Line to Text
+The text-decoration-line property is used to add a decoration line to text.
+
+Tip: You can combine more than one value, like overline and underline to display lines both over and under a text.
+
+Example
+h1 {
+  text-decoration-line: overline;
+}
+
+h2 {
+  text-decoration-line: line-through;
+}
+
+h3 {
+  text-decoration-line: underline;
+}
+
+p {
+  text-decoration-line: overline underline;
+}
+Note: It is not recommended to underline text that is not a link, as this often confuses the reader.
+
+Specify a Color for the Decoration Line
+The text-decoration-color property is used to set the color of the decoration line.
+
+Example
+h1 {
+  text-decoration-line: overline;
+  text-decoration-color: red;
+}
+
+h2 {
+  text-decoration-line: line-through;
+  text-decoration-color: blue;
+}
+
+h3 {
+  text-decoration-line: underline;
+  text-decoration-color: green;
+}
+
+p {
+  text-decoration-line: overline underline;
+  text-decoration-color: purple;
+}
+
+Specify a Style for the Decoration Line
+The text-decoration-style property is used to set the style of the decoration line.
+
+Example
+h1 {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+}
+
+h2 {
+  text-decoration-line: underline;
+  text-decoration-style: double;
+}
+
+h3 {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+
+p.ex1 {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+}
+
+p.ex2 {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
+
+p.ex3 {
+  text-decoration-line: underline;
+  text-decoration-color: red;
+  text-decoration-style: wavy;
+}
+Specify the Thickness for the Decoration Line
+The text-decoration-thickness property is used to set the thickness of the decoration line.
+
+Example
+h1 {
+  text-decoration-line: underline;
+  text-decoration-thickness: auto;
+}
+
+h2 {
+  text-decoration-line: underline;
+  text-decoration-thickness: 5px;
+}
+
+h3 {
+  text-decoration-line: underline;
+  text-decoration-thickness: 25%;
+}
+
+p {
+  text-decoration-line: underline;
+  text-decoration-color: red;
+  text-decoration-style: double;
+  text-decoration-thickness: 5px;
+}
+
+The Shorthand Property
+The text-decoration property is a shorthand property for:
+
+text-decoration-line (required)
+text-decoration-color (optional)
+text-decoration-style (optional)
+text-decoration-thickness (optional)
+Example
+h1 {
+  text-decoration: underline;
+}
+
+h2 {
+  text-decoration: underline red;
+}
+
+h3 {
+  text-decoration: underline red double;
+}
+
+p {
+  text-decoration: underline red double 5px;
+}
+A Small Tip
+All links in HTML are underlined by default. Sometimes you see that links are styled with no underline. The text-decoration: none; is used to remove the underline from links, like this:
+
+Example
+a {
+  text-decoration: none;
+}
+
+All CSS text-decoration Properties
+Property	Description
+text-decoration	Sets all the text-decoration properties in one declaration
+text-decoration-color	Specifies the color of the text-decoration
+text-decoration-line	Specifies the kind of text decoration to be used (underline, overline, etc.)
+text-decoration-style	Specifies the style of the text decoration (solid, dotted, etc.)
+text-decoration-thickness	Specifies the thickness of the text decoration line
+
+CSS Text Transformation
+Text Transformation
+The text-transform property is used to specify uppercase and lowercase letters in a text.
+
+It can be used to turn everything into uppercase or lowercase letters, or capitalize the first letter of each word:
+
+Example
+p.uppercase {
+  text-transform: uppercase;
+}
+
+p.lowercase {
+  text-transform: lowercase;
+}
+
+p.capitalize {
+  text-transform: capitalize;
+}
+
+The CSS Text Transformation Property
+Property	Description
+text-transform	Controls the capitalization of text
+
+CSS Text Spacing
+CSS Text Indentation, Letter Spacing, Line Height, Word Spacing, and White Space
+In this chapter you will learn about the following properties:
+
+text-indent
+letter-spacing
+line-height
+word-spacing
+white-space
+Text Indentation
+The text-indent property is used to specify the indentation of the first line of a text:
+
+Example
+p {
+  text-indent: 50px;
+}
+Letter Spacing
+The letter-spacing property is used to specify the space between the characters in a text.
+
+The following example demonstrates how to increase or decrease the space between characters:
+
+Example
+h1 {
+  letter-spacing: 5px;
+}
+
+h2 {
+  letter-spacing: -2px;
+}
+Line Height
+The line-height property is used to specify the space between lines:
+
+Example
+p.small {
+  line-height: 0.8;
+}
+
+p.big {
+  line-height: 1.8;
+}
+ADVERTISEMENT
+
+Word Spacing
+The word-spacing property is used to specify the space between the words in a text.
+
+The following example demonstrates how to increase or decrease the space between words:
+
+Example
+p.one {
+  word-spacing: 10px;
+}
+
+p.two {
+  word-spacing: -2px;
+}
+White Space
+The white-space property specifies how white-space inside an element is handled.
+
+This example demonstrates how to disable text wrapping inside an element:
+
+Example
+p {
+  white-space: nowrap;
+}
+The CSS Text Spacing Properties
+Property	Description
+letter-spacing	Specifies the space between characters in a text
+line-height	Specifies the line height
+text-indent	Specifies the indentation of the first line in a text-block
+white-space	Specifies how to handle white-space inside an element
+word-spacing	Specifies the space between words in a text
+
+CSS Text Shadow
+Text Shadow
+The text-shadow property adds shadow to text.
+
+In its simplest use, you only specify the horizontal shadow (2px) and the vertical shadow (2px):
+
+Text shadow effect!
+Example
+h1 {
+  text-shadow: 2px 2px;
+}
+Next, add a color (red) to the shadow:
+
+Text shadow effect!
+Example
+h1 {
+  text-shadow: 2px 2px red;
+}
+Then, add a blur effect (5px) to the shadow:
+
+Text shadow effect!
+Example
+h1 {
+  text-shadow: 2px 2px 5px red;
+}
+More Text Shadow Examples
+Example 1
+Text-shadow on a white text:
+
+h1 {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+Example 2
+Text-shadow with red neon glow:
+
+h1 {
+  text-shadow: 0 0 3px #ff0000;
+}
+Example 3
+Text-shadow with red and blue neon glow:
+
+h1 {
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+}
+Example 4
+h1 {
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+Tip: Go to our CSS Fonts chapter to learn about how to change fonts, text size and the style of a text.
+
+Tip: Go to our CSS Text Effects chapter to learn about different text effects.
+
+The CSS Text Shadow Property
+Property	Description
+text-shadow	Specifies the shadow effect added to text
+
+                     /*  CHAPTER 4  ************************************************************************************************** */
+CSS Fonts
+Choosing the right font for your website is important!
+
+Font Selection is Important
+Choosing the right font has a huge impact on how the readers experience a website.
+
+The right font can create a strong identity for your brand.
+
+Using a font that is easy to read is important. The font adds value to your text. It is also important to choose the correct color and text size for the font.
+
+Generic Font Families
+In CSS there are five generic font families:
+
+Serif fonts have a small stroke at the edges of each letter. They create a sense of formality and elegance.
+Sans-serif fonts have clean lines (no small strokes attached). They create a modern and minimalistic look.
+Monospace fonts - here all the letters have the same fixed width. They create a mechanical look. 
+Cursive fonts imitate human handwriting.
+Fantasy fonts are decorative/playful fonts.
+All the different font names belong to one of the generic font families. 
+
+Difference Between Serif and Sans-serif Fonts
+Serif vs. Sans-serif
+Note: On computer screens, sans-serif fonts are considered easier to read than serif fonts.
+
+Some Font Examples
+Generic Font Family	Examples of Font Names
+Serif	Times New Roman
+Georgia
+Garamond
+Sans-serif	Arial
+Verdana
+Helvetica
+Monospace	Courier New
+Lucida Console
+Monaco
+Cursive	Brush Script MT
+Lucida Handwriting
+Fantasy	Copperplate
+Papyrus
+ADVERTISEMENT
+
+The CSS font-family Property
+In CSS, we use the font-family property to specify the font of a text.
+
+Note: If the font name is more than one word, it must be in quotation marks, like: "Times New Roman".
+
+Tip: The font-family property should hold several font names as a "fallback" system, to ensure maximum compatibility between browsers/operating systems. Start with the font you want, and end with a generic family (to let the browser pick a similar font in the generic family, if no other fonts are available). The font names should be separated with comma. Read more about fallback fonts in the next chapter.
+
+Example
+Specify some different fonts for three paragraphs:
+
+.p1 {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.p2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.p3 {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+CSS Web Safe Fonts
+What are Web Safe Fonts?
+Web safe fonts are fonts that are universally installed across all browsers and devices.
+
+Fallback Fonts
+However, there are no 100% completely web safe fonts. There is always a chance that a font is not found or is not installed properly.
+
+Therefore, it is very important to always use fallback fonts.
+
+This means that you should add a list of similar "backup fonts" in the font-family property. If the first font does not work, the browser will try the next one, and the next one, and so on. Always end the list with a generic font family name.
+
+Example
+Here, there are three font types: Tahoma, Verdana, and sans-serif. The second and third fonts are backups, in case the first one is not found.
+
+p {
+font-family: Tahoma, Verdana, sans-serif;
+}
+Best Web Safe Fonts for HTML and CSS
+The following list are the best web safe fonts for HTML and CSS:
+
+Arial (sans-serif)
+Verdana (sans-serif)
+Helvetica (sans-serif)
+Tahoma (sans-serif)
+Trebuchet MS (sans-serif)
+Times New Roman (serif)
+Georgia (serif)
+Garamond (serif)
+Courier New (monospace)
+Brush Script MT (cursive)
+Note: Before you publish your website, always check how your fonts appear on different browsers and devices, and always use fallback fonts!
+
+ADVERTISEMENT
+
+Arial (sans-serif)
+Arial is the most widely used font for both online and printed media. Arial is also the default font in Google Docs.
+
+Arial is one of the safest web fonts, and it is available on all major operating systems.
+
+Example
+Lorem ipsum dolor sit amet
+Lorem ipsum dolor sit amet.
+
+0 1 2 3 4 5 6 7 8 9
+
+Verdana (sans-serif)
+Verdana is a very popular font. Verdana is easily readable even for small font sizes.
+
+Example
+Lorem ipsum dolor sit amet
+Lorem ipsum dolor sit amet.
+
+0 1 2 3 4 5 6 7 8 9
+
+Helvetica (sans-serif)
+The Helvetica font is loved by designers. It is suitable for many types of business.
+
+Example
+Lorem ipsum dolor sit amet
+Lorem ipsum dolor sit amet.
+
+0 1 2 3 4 5 6 7 8 9
+
+Tahoma (sans-serif)
+The Tahoma font has less space between the characters.
+
+Example
+Lorem ipsum dolor sit amet
+Lorem ipsum dolor sit amet.
+
+0 1 2 3 4 5 6 7 8 9
+
+Trebuchet MS (sans-serif)
+Trebuchet MS was designed by Microsoft in 1996. Use this font carefully. Not supported by all mobile operating systems.
+
+Example
+Lorem ipsum dolor sit amet
+Lorem ipsum dolor sit amet.
+
+0 1 2 3 4 5 6 7 8 9
+
+Times New Roman (serif)
+Times New Roman is one of the most recognizable fonts in the world. It looks professional and is used in many newspapers and "news" websites. It is also the primary font for Windows devices and applications.
+
+Example
+Lorem ipsum dolor sit amet
+Lorem ipsum dolor sit amet.
+
+0 1 2 3 4 5 6 7 8 9
+
+Georgia (serif)
+Georgia is an elegant serif font. It is very readable at different font sizes, so it is a good candidate for mobile-responsive design.
+
+Example
+Lorem ipsum dolor sit amet
+Lorem ipsum dolor sit amet.
+
+0 1 2 3 4 5 6 7 8 9
+
+Garamond (serif)
+Garamond is a classical font used for many printed books. It has a timeless look and good readability.
+
+Example
+Lorem ipsum dolor sit amet
+Lorem ipsum dolor sit amet.
+
+0 1 2 3 4 5 6 7 8 9
+
+Courier New (monospace)
+Courier New is the most widely used monospace serif font. Courier New is often used with coding displays, and many email providers use it as their default font. Courier New is also the standard font for movie screenplays.
+
+Example
+Lorem ipsum dolor sit amet
+Lorem ipsum dolor sit amet.
+
+0 1 2 3 4 5 6 7 8 9
+
+Brush Script MT (cursive)
+The Brush Script MT font was designed to mimic handwriting. It is elegant and sophisticated, but can be hard to read. Use it carefully.
+
+Example
+Lorem ipsum dolor sit amet
+Lorem ipsum dolor sit amet.
+
+0 1 2 3 4 5 6 7 8 9
+
+Tip: Also check out all available Google Fonts and how to use them.
+
+CSS Font Fallbacks
+Commonly Used Font Fallbacks
+Below are some commonly used font fallbacks, organized by the 5 generic font families:
+
+Serif
+Sans-serif
+Monospace
+Cursive
+Fantasy
+Serif Fonts
+font-family	Example text	Code
+"Times New Roman", Times, serif	
+This is a Heading
+This is a paragraph.
+
+Georgia, serif	
+This is a Heading
+This is a paragraph.
+
+Garamond, serif	
+This is a Heading
+This is a paragraph.
+
+Sans-Serif Fonts
+font-family	Example text	Code
+Arial, Helvetica, sans-serif	
+This is a Heading
+This is a paragraph.
+
+Tahoma, Verdana, sans-serif	
+This is a Heading
+This is a paragraph.
+
+"Trebuchet MS", Helvetica, sans-serif	
+This is a Heading
+This is a paragraph.
+
+Geneva, Verdana, sans-serif	
+This is a Heading
+This is a paragraph.
+
+ADVERTISEMENT
+
+Monospace Fonts
+font-family	Example text	Code
+"Courier New", Courier, monospace	
+This is a Heading
+This is a paragraph.
+
+Cursive Fonts
+font-family	Example text	Code
+"Brush Script MT", cursive	
+This is a Heading
+This is a paragraph.
+
+Fantasy Fonts
+font-family	Example text	Code
+Copperplate, Papyrus, fantasy	
+This is a Heading
+This is a paragraph.
+
+Tip: Also check out all available Google Fonts and how to use them.
+
+CSS Font Style
+Font Style
+The font-style property is mostly used to specify italic text.
+
+This property has three values:
+
+normal - The text is shown normally
+italic - The text is shown in italics
+oblique - The text is "leaning" (oblique is very similar to italic, but less supported)
+Example
+p.normal {
+  font-style: normal;
+}
+
+p.italic {
+  font-style: italic;
+}
+
+p.oblique {
+  font-style: oblique;
+}
+Font Weight
+The font-weight property specifies the weight of a font:
+
+Example
+p.normal {
+  font-weight: normal;
+}
+
+p.thick {
+  font-weight: bold;
+}
+Font Variant
+The font-variant property specifies whether or not a text should be displayed in a small-caps font.
+
+In a small-caps font, all lowercase letters are converted to uppercase letters. However, the converted uppercase letters appears in a smaller font size than the original uppercase letters in the text.
+
+Example
+p.normal {
+  font-variant: normal;
+}
+
+p.small {
+  font-variant: small-caps;
+}
+
+CSS Font Size
+Font Size
+The font-size property sets the size of the text.
+
+Being able to manage the text size is important in web design. However, you should not use font size adjustments to make paragraphs look like headings, or headings look like paragraphs.
+
+Always use the proper HTML tags, like <h1> - <h6> for headings and <p> for paragraphs.
+
+The font-size value can be an absolute, or relative size.
+
+Absolute size:
+
+Sets the text to a specified size
+Does not allow a user to change the text size in all browsers (bad for accessibility reasons)
+Absolute size is useful when the physical size of the output is known
+Relative size:
+
+Sets the size relative to surrounding elements
+Allows a user to change the text size in browsers
+Note: If you do not specify a font size, the default size for normal text, like paragraphs, is 16px (16px=1em).
+
+Set Font Size With Pixels
+Setting the text size with pixels gives you full control over the text size:
+
+Example
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 14px;
+}
+Tip: If you use pixels, you can still use the zoom tool to resize the entire page.
+
+Set Font Size With Em
+To allow users to resize the text (in the browser menu), many developers use em instead of pixels.
+
+1em is equal to the current font size. The default text size in browsers is 16px. So, the default size of 1em is 16px.
+
+The size can be calculated from pixels to em using this formula: pixels/16=em
+
+Example
+h1 {
+  font-size: 2.5em; /* 40px/16=2.5em */
+}
+
+h2 {
+  font-size: 1.875em; /* 30px/16=1.875em */
+}
+
+p {
+  font-size: 0.875em; /* 14px/16=0.875em */
+}
+In the example above, the text size in em is the same as the previous example in pixels. However, with the em size, it is possible to adjust the text size in all browsers.
+
+Unfortunately, there is still a problem with older versions of Internet Explorer. The text becomes larger than it should when made larger, and smaller than it should when made smaller.
+
+ADVERTISEMENT
+
+Use a Combination of Percent and Em
+The solution that works in all browsers, is to set a default font-size in percent for the <body> element:
+
+Example
+body {
+  font-size: 100%;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.875em;
+}
+
+p {
+  font-size: 0.875em;
+}
+Our code now works great! It shows the same text size in all browsers, and allows all browsers to zoom or resize the text!
+
+Responsive Font Size
+The text size can be set with a vw unit, which means the "viewport width".
+
+That way the text size will follow the size of the browser window:
+
+Hello World
+Resize the browser window to see how the font size scales.
+
+Example
+<h1 style="font-size:10vw">Hello World</h1>
+Viewport is the browser window size. 1vw = 1% of viewport width. If the viewport is 50cm wide, 1vw is 0.5cm.
