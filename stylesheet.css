@@ -26,7 +26,9 @@ The style definitions are normally saved in external .css files.
 
 With an external stylesheet file, you can change the look of an entire website by changing just one file!
 
-CSS Syntax
+                                                            
+                                                  CSS Syntax
+
 A CSS rule consists of a selector and a declaration block.
 
 CSS Syntax
@@ -47,13 +49,16 @@ p {
   color: red;
   text-align: center;
 }
+
 Example Explained
 p is a selector in CSS (it points to the HTML element you want to style: <p>).
 color is a property, and red is the property value
 text-align is a property, and center is the property value
 You will learn much more about CSS selectors and CSS properties in the next chapters!
 
-CSS Selectors
+                                        
+                                                    CSS Selectors
+
 A CSS selector selects the HTML element(s) you want to style.
 
 CSS Selectors
@@ -93,8 +98,6 @@ The CSS rule below will be applied to the HTML element with id="para1":
   color: red;
 }
 Note: An id name cannot start with a number!
-
-ADVERTISEMENT
 
 The CSS class Selector
 The class selector selects HTML elements with a specific class attribute.
@@ -186,7 +189,8 @@ element.class	p.intro	Selects only <p> elements with class="intro"
 element	p	Selects all <p> elements
 element,element,..	div, p	Selects all <div> elements and all <p> elements
 
-How To Add CSS
+                                                How To Add CSS
+
 When a browser reads a style sheet, it will format the HTML document according to the information in the style sheet.
 
 Three Ways to Insert CSS
@@ -231,11 +235,10 @@ h1 {
   color: navy;
   margin-left: 20px;
 }
+
 Note: Do not add a space between the property value and the unit:
 Incorrect (space): margin-left: 20 px;
 Correct (nospace): margin-left: 20px;
-
-ADVERTISEMENT
 
 Internal CSS
 An internal style sheet may be used if one single HTML page has a unique style.
@@ -365,7 +368,8 @@ p {
   color: red;
 }
 
-HTML and CSS Comments
+                                        HTML and CSS Comments
+
 From the HTML tutorial, you learned that you can add comments to your HTML source by using the <!--...--> syntax.
 
 In the following example, we use a combination of HTML and CSS comments:
@@ -392,7 +396,8 @@ p {
 </body>
 </html>
 
-CSS Colors
+                                            CSS Colors
+
 Colors are specified using predefined color names, or RGB, HEX, HSL, RGBA, HSLA values.
 
 CSS Color Names
@@ -433,7 +438,6 @@ Example
 <h1 style="color:Tomato;">Hello World</h1>
 <p style="color:DodgerBlue;">Lorem ipsum...</p>
 <p style="color:MediumSeaGreen;">Ut wisi enim...</p>
-ADVERTISEMENT
 
 CSS Border Color
 You can set the color of borders:
@@ -515,8 +519,6 @@ rgb(120, 120, 120)
 rgb(180, 180, 180)
 rgb(210, 210, 210)
 rgb(240, 240, 240)
-
-ADVERTISEMENT
 
 RGBA Value
 RGBA color values are an extension of RGB color values with an alpha channel - which specifies the opacity for a color.
@@ -604,8 +606,6 @@ Example
 #b4b4b4
 #f0f0f0
 #f9f9f9
-
-ADVERTISEMENT
 
 3 Digit HEX Value
 Sometimes you will see a 3-digit hex code in the CSS source.
@@ -749,7 +749,8 @@ hsla(9, 100%, 64%, 0.6)
 hsla(9, 100%, 64%, 0.8)
 hsla(9, 100%, 64%, 1)
 
-CSS Backgrounds
+                                    CSS Backgrounds
+
 The CSS background properties are used to add background effects for elements.
 
 In these chapters, you will learn about the following CSS background properties:
@@ -794,7 +795,6 @@ div {
 p {
   background-color: yellow;
 }
-ADVERTISEMENT
 
 Opacity / Transparency
 The opacity property specifies the opacity/transparency of an element. It can take a value from 0.0 - 1.0. The lower value, the more transparent:
@@ -1100,7 +1100,7 @@ p.three {
 
               /*  CHAPTER 2  ************************************************************************************************** */
 
-Continuation on border
+                                      Continuation on border
 
 CSS Border Color
 CSS Border Color
@@ -1145,7 +1145,6 @@ p.one {
   border-style: solid;
   border-color: red green blue yellow; /* red top, green right, blue bottom and yellow left */
 }
-ADVERTISEMENT
 
 HEX Values
 The color of the border can also be specified using a hexadecimal value (HEX):
@@ -1296,7 +1295,8 @@ p {
   border-radius: 5px;
 }
 
-CSS Margins
+                              CSS Margins
+
 Margins are used to create space around elements, outside of any defined borders.
 
 This element has a margin of 70px.
@@ -1329,7 +1329,6 @@ p {
   margin-right: 150px;
   margin-left: 80px;
 }
-ADVERTISEMENT
 
 Margin - Shorthand Property
 To shorten the code, it is possible to specify all the margin properties in one property.
@@ -1447,7 +1446,8 @@ In the example above, the <h1> element has a bottom margin of 50px and the <h2> 
 
 Common sense would seem to suggest that the vertical margin between the <h1> and the <h2> would be a total of 70px (50px + 20px). But due to margin collapse, the actual margin ends up being 50px.
 
-CSS Padding
+                                      CSS Padding
+
 Padding is used to create space around an element's content, inside of any defined borders.
 
 This element has a padding of 70px.
@@ -1480,7 +1480,6 @@ div {
   padding-bottom: 50px;
   padding-left: 80px;
 }
-ADVERTISEMENT
 
 Padding - Shorthand Property
 To shorten the code, it is possible to specify all the padding properties in one property.
@@ -1564,7 +1563,8 @@ div {
 
                 /*  CHAPTER 3  ************************************************************************************************** */
 
-CSS Height, Width and Max-width
+                                          CSS Height, Width and Max-width
+
 The CSS height and width properties are used to set the height and width of an element.
 
 The CSS max-width property is used to set the maximum width of an element.
@@ -1606,8 +1606,6 @@ div {
 }
 
 Note: Remember that the height and width properties do not include padding, borders, or margins! They set the height/width of the area inside the padding, border, and margin of the element!
-
-ADVERTISEMENT
 
 Setting max-width
 The max-width property is used to set the maximum width of an element.
@@ -1654,7 +1652,8 @@ min-height	Sets the minimum height of an element
 min-width	Sets the minimum width of an element
 width	Sets the width of an element
 
-CSS Box Model
+                                              CSS Box Model
+
 All HTML elements can be considered as boxes.
 
 The CSS Box Model
@@ -1708,7 +1707,8 @@ The total height of an element should be calculated like this:
 
 Total element height = height + top padding + bottom padding + top border + bottom border + top margin + bottom margin
 
-CSS Outline
+                                                  CSS Outline
+
 An outline is a line drawn outside the element's border.
 
 This element has a black border and a green outline with a width of 10px.
@@ -1938,7 +1938,8 @@ outline-offset	Specifies the space between an outline and the edge or border of 
 outline-style	Sets the style of an outline
 outline-width	Sets the width of an outline
 
-CSS Text
+                                              CSS Text
+
 CSS has a lot of properties for formatting text.
 
 TEXT FORMATTING
@@ -2220,6 +2221,7 @@ h3 {
 p {
   text-decoration: underline red double 5px;
 }
+
 A Small Tip
 All links in HTML are underlined by default. Sometimes you see that links are styled with no underline. The text-decoration: none; is used to remove the underline from links, like this:
 
@@ -2268,6 +2270,7 @@ letter-spacing
 line-height
 word-spacing
 white-space
+
 Text Indentation
 The text-indent property is used to specify the indentation of the first line of a text:
 
@@ -2299,7 +2302,6 @@ p.small {
 p.big {
   line-height: 1.8;
 }
-ADVERTISEMENT
 
 Word Spacing
 The word-spacing property is used to specify the space between the words in a text.
@@ -2390,7 +2392,8 @@ Property	Description
 text-shadow	Specifies the shadow effect added to text
 
                      /*  CHAPTER 4  ************************************************************************************************** */
-CSS Fonts
+                                                    CSS Fonts
+
 Choosing the right font for your website is important!
 
 Font Selection is Important
@@ -3094,10 +3097,6 @@ Oswald and Noto Sans
 Example
 Use the "Oswald" font for headings, and "Noto Sans" for text:
 
-Beautiful Norway
-Norway has a total area of 385,252 square kilometers and a population of 5,438,657 (December 2020). Norway is bordered by Sweden, Finland and Russia to the north-east, and the Skagerrak to the south, with Denmark on the other side.
-
-Norway has beautiful mountains, glaciers and stunning fjords. Oslo, the capital, is a city of green spaces and museums. Bergen, with colorful wooden houses, is the starting point for cruises to the dramatic Sognefjord. Norway is also known for fishing, hiking and skiing.
 
 For a list of all free Google Fonts, visit our How To - Google Fonts Tutorial.
 
@@ -3124,8 +3123,6 @@ p.a {
 p.b {
   font: italic small-caps bold 12px/30px Georgia, serif;
 }
-Test Yourself With Exercises
-Exercise:
 Set the font for <h1> to "Verdana".
 
 <style>
@@ -3151,7 +3148,7 @@ font-style	Specifies the font style for text
 font-variant	Specifies whether or not a text should be displayed in a small-caps font
 font-weight	Specifies the weight of a font
 
-CSS Icons
+                                                      CSS Icons
 Icons can easily be added to your HTML page, by using an icon library.
 
       
@@ -3187,12 +3184,6 @@ Example
 
 </body>
 </html>
-Result:
-
-    
-For a complete reference of all Font Awesome icons, visit our Icon Reference.
-
-ADVERTISEMENT
 
 Bootstrap Icons
 To use the Bootstrap glyphicons, add the following line inside the <head> section of your HTML page:
@@ -3217,8 +3208,6 @@ Example
 
 </body>
 </html>
-Result:
-
 
 Google Icons
 To use the Google icons, add the following line inside the <head> section of your HTML page:
@@ -3243,9 +3232,704 @@ Example
 
 </body>
 </html>
+
+                                                          CSS Lists
+
+Unordered Lists:
+Coffee
+Tea
+Coca Cola
+Coffee
+Tea
+Coca Cola
+Ordered Lists:
+Coffee
+Tea
+Coca Cola
+Coffee
+Tea
+Coca Cola
+HTML Lists and CSS List Properties
+In HTML, there are two main types of lists:
+
+unordered lists (<ul>) - the list items are marked with bullets
+ordered lists (<ol>) - the list items are marked with numbers or letters
+The CSS list properties allow you to:
+
+Set different list item markers for ordered lists
+Set different list item markers for unordered lists
+Set an image as the list item marker
+Add background colors to lists and list items
+Different List Item Markers
+The list-style-type property specifies the type of list item marker.
+
+The following example shows some of the available list item markers:
+
+Example
+ul.a {
+  list-style-type: circle;
+}
+
+ul.b {
+  list-style-type: square;
+}
+
+ol.c {
+  list-style-type: upper-roman;
+}
+
+ol.d {
+  list-style-type: lower-alpha;
+}
+Note: Some of the values are for unordered lists, and some for ordered lists.
+
+An Image as The List Item Marker
+The list-style-image property specifies an image as the list item marker:
+
+Example
+ul {
+  list-style-image: url('sqpurple.gif');
+}
+Position The List Item Markers
+The list-style-position property specifies the position of the list-item markers (bullet points).
+
+"list-style-position: outside;" means that the bullet points will be outside the list item. The start of each line of a list item will be aligned vertically. This is default:
+
+Coffee - A brewed drink prepared from roasted coffee beans...
+Tea
+Coca-cola
+"list-style-position: inside;" means that the bullet points will be inside the list item. As it is part of the list item, it will be part of the text and push the text at the start:
+
+Coffee - A brewed drink prepared from roasted coffee beans...
+Tea
+Coca-cola
+Example
+ul.a {
+  list-style-position: outside;
+}
+
+ul.b {
+  list-style-position: inside;
+}
+Remove Default Settings
+The list-style-type:none property can also be used to remove the markers/bullets. Note that the list also has default margin and padding. To remove this, add margin:0 and padding:0 to <ul> or <ol>:
+
+Example
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+List - Shorthand property
+The list-style property is a shorthand property. It is used to set all the list properties in one declaration:
+
+Example
+ul {
+  list-style: square inside url("sqpurple.gif");
+}
+When using the shorthand property, the order of the property values are:
+
+list-style-type (if a list-style-image is specified, the value of this property will be displayed if the image for some reason cannot be displayed)
+list-style-position (specifies whether the list-item markers should appear inside or outside the content flow)
+list-style-image (specifies an image as the list item marker)
+If one of the property values above are missing, the default value for the missing property will be inserted, if any.
+
+Styling List With Colors
+We can also style lists with colors, to make them look a little more interesting.
+
+Anything added to the <ol> or <ul> tag, affects the entire list, while properties added to the <li> tag will affect the individual list items:
+
+Example
+ol {
+  background: #ff9999;
+  padding: 20px;
+}
+
+ul {
+  background: #3399ff;
+  padding: 20px;
+}
+
+ol li {
+  background: #ffe5e5;
+  color: darkred;
+  padding: 5px;
+  margin-left: 35px;
+}
+
+ul li {
+  background: #cce5ff;
+  color: darkblue;
+  margin: 5px;
+}
 Result:
 
+Coffee
+Tea
+Coca Cola
+Coffee
+Tea
+Coca Cola
+More Examples
+Customized list with a red left border
+This example demonstrates how to create a list with a red left border.
 
-For a complete list of all icons, visit our Icon Tutorial.
+Full-width bordered list
+This example demonstrates how to create a bordered list without bullets.
 
-continue from css links
+All the different list-item markers for lists
+This example demonstrates all the different list-item markers in CSS.
+
+All CSS List Properties
+Property	Description
+list-style	Sets all the properties for a list in one declaration
+list-style-image	Specifies an image as the list-item marker
+list-style-position	Specifies the position of the list-item markers (bullet points)
+list-style-type	Specifies the type of list-item marker
+
+                                        /*  CHAPTER 5  ************************************************************************************************** */
+
+                                                  CSS Links
+
+With CSS, links can be styled in many different ways.
+
+Text Link Text Link Link Button Link Button
+Styling Links
+Links can be styled with any CSS property (e.g. color, font-family, background, etc.).
+
+Example
+a {
+  color: hotpink;
+}
+In addition, links can be styled differently depending on what state they are in.
+
+The four links states are:
+
+a:link - a normal, unvisited link
+a:visited - a link the user has visited
+a:hover - a link when the user mouses over it
+a:active - a link the moment it is clicked
+Example
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+When setting the style for several link states, there are some order rules:
+
+a:hover MUST come after a:link and a:visited
+a:active MUST come after a:hover
+ADVERTISEMENT
+
+Text Decoration
+The text-decoration property is mostly used to remove underlines from links:
+
+Example
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+Background Color
+The background-color property can be used to specify a background color for links:
+
+Example
+a:link {
+  background-color: yellow;
+}
+
+a:visited {
+  background-color: cyan;
+}
+
+a:hover {
+  background-color: lightgreen;
+}
+
+a:active {
+  background-color: hotpink;
+} 
+Link Buttons
+This example demonstrates a more advanced example where we combine several CSS properties to display links as boxes/buttons:
+
+Example
+a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
+More Examples
+Example
+This example demonstrates how to add other styles to hyperlinks:
+
+a.one:link {color: #ff0000;}
+a.one:visited {color: #0000ff;}
+a.one:hover {color: #ffcc00;}
+
+a.two:link {color: #ff0000;}
+a.two:visited {color: #0000ff;}
+a.two:hover {font-size: 150%;}
+
+a.three:link {color: #ff0000;}
+a.three:visited {color: #0000ff;}
+a.three:hover {background: #66ff66;}
+
+a.four:link {color: #ff0000;}
+a.four:visited {color: #0000ff;}
+a.four:hover {font-family: monospace;}
+
+a.five:link {color: #ff0000; text-decoration: none;}
+a.five:visited {color: #0000ff; text-decoration: none;}
+a.five:hover {text-decoration: underline;}
+Example
+Another example of how to create link boxes/buttons:
+
+a:link, a:visited {
+  background-color: white;
+  color: black;
+  border: 2px solid green;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: green;
+  color: white;
+}
+Example
+This example demonstrates the different types of cursors (can be useful for links):
+
+<span style="cursor: auto">auto</span><br>
+<span style="cursor: crosshair">crosshair</span><br>
+<span style="cursor: default">default</span><br>
+<span style="cursor: e-resize">e-resize</span><br>
+<span style="cursor: help">help</span><br>
+<span style="cursor: move">move</span><br>
+<span style="cursor: n-resize">n-resize</span><br>
+<span style="cursor: ne-resize">ne-resize</span><br>
+<span style="cursor: nw-resize">nw-resize</span><br>
+<span style="cursor: pointer">pointer</span><br>
+<span style="cursor: progress">progress</span><br>
+<span style="cursor: s-resize">s-resize</span><br>
+<span style="cursor: se-resize">se-resize</span><br>
+<span style="cursor: sw-resize">sw-resize</span><br>
+<span style="cursor: text">text</span><br>
+<span style="cursor: w-resize">w-resize</span><br>
+<span style="cursor: wait">wait</span>
+Test Yourself With Exercises
+Exercise:
+Set the color of links to "red".
+
+<style>
+ {
+  color: red;
+}
+</style>
+
+<body>
+  <h1>This is a heading</h1>
+  <p>This is a paragraph</p>
+  <a href="http://w3schools.com">This is a link</a>
+</body>
+
+CSS Tables
+The look of an HTML table can be greatly improved with CSS:
+
+Company	Contact	Country
+Alfreds Futterkiste	Maria Anders	Germany
+Berglunds snabbköp	Christina Berglund	Sweden
+Centro comercial Moctezuma	Francisco Chang	Mexico
+Ernst Handel	Roland Mendel	Austria
+Island Trading	Helen Bennett	UK
+Königlich Essen	Philip Cramer	Germany
+Laughing Bacchus Winecellars	Yoshi Tannamuri	Canada
+Magazzini Alimentari Riuniti	Giovanni Rovelli	Italy
+
+Table Borders
+To specify table borders in CSS, use the border property.
+
+The example below specifies a solid border for <table>, <th>, and <td> elements:
+
+Firstname	Lastname
+Peter	Griffin
+Lois	Griffin
+Example
+table, th, td {
+  border: 1px solid;
+}
+ADVERTISEMENT
+
+Full-Width Table
+The table above might seem small in some cases. If you need a table that should span the entire screen (full-width), add width: 100% to the <table> element:
+
+Firstname	Lastname
+Peter	Griffin
+Lois	Griffin
+Example
+table {
+  width: 100%;
+}
+Double Borders
+Notice that the table in the examples above have double borders. This is because both the table and the <th> and <td> elements have separate borders.
+
+To remove double borders, take a look at the example below.
+
+Collapse Table Borders
+The border-collapse property sets whether the table borders should be collapsed into a single border:
+
+Firstname	Lastname
+Peter	Griffin
+Lois	Griffin
+Example
+table {
+  border-collapse: collapse;
+}
+If you only want a border around the table, only specify the border property for <table>:
+
+Firstname	Lastname
+Peter	Griffin
+Lois	Griffin
+Example
+table {
+  border: 1px solid;
+}
+
+CSS Table Size
+Table Width and Height
+The width and height of a table are defined by the width and height properties.
+
+The example below sets the width of the table to 100%, and the height of the <th> elements to 70px:
+
+Firstname	Lastname	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example
+table {
+  width: 100%;
+}
+
+th {
+  height: 70px;
+}
+To create a table that should only span half the page, use width: 50%:
+
+Firstname	Lastname	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example
+table {
+  width: 50%;
+}
+
+CSS Table Alignment
+Horizontal Alignment
+The text-align property sets the horizontal alignment (like left, right, or center) of the content in <th> or <td>.
+
+By default, the content of <th> elements are center-aligned and the content of <td> elements are left-aligned.
+
+To center-align the content of  <td> elements as well, use text-align: center:
+
+Firstname	Lastname	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example
+td {
+  text-align: center;
+}
+To left-align the content, force the alignment of <th> elements to be left-aligned, with the text-align: left property:
+
+Firstname	Lastname	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example
+th {
+  text-align: left;
+}
+Vertical Alignment
+The vertical-align property sets the vertical alignment (like top, bottom, or middle) of the content in <th> or <td>.
+
+By default, the vertical alignment of the content in a table is middle (for both <th> and <td> elements).
+
+The following example sets the vertical text alignment to bottom for <td> elements:
+
+Firstname	Lastname	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example
+td {
+  height: 50px;
+  vertical-align: bottom;
+}
+
+CSS Table Style
+Table Padding
+To control the space between the border and the content in a table, use the padding property on <td> and <th> elements:
+
+First Name	Last Name	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+Horizontal Dividers
+First Name	Last Name	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Add the border-bottom property to <th> and <td> for horizontal dividers:
+
+Example
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+Hoverable Table
+Use the :hover selector on <tr> to highlight table rows on mouse over:
+
+First Name	Last Name	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example
+tr:hover {background-color: coral;}
+ADVERTISEMENT
+
+Striped Tables
+First Name	Last Name	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+For zebra-striped tables, use the nth-child() selector and add a background-color to all even (or odd) table rows:
+
+Example
+tr:nth-child(even) {background-color: #f2f2f2;}
+Table Color
+The example below specifies the background color and text color of <th> elements:
+
+First Name	Last Name	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+
+CSS Responsive Table
+Responsive Table
+A responsive table will display a horizontal scroll bar if the screen is too small to display the full content:
+
+First Name	Last Name	Points	Points	Points	Points	Points	Points	Points	Points	Points	Points	Points	Points
+Jill	Smith	50	50	50	50	50	50	50	50	50	50	50	50
+Eve	Jackson	94	94	94	94	94	94	94	94	94	94	94	94
+Adam	Johnson	67	67	67	67	67	67	67	67	67	67	67	67
+Add a container element (like <div>) with overflow-x:auto around the <table> element to make it responsive:
+
+Example
+<div style="overflow-x:auto;">
+
+<table>
+... table content ...
+</table>
+
+</div>
+Note: In OS X Lion (on Mac), scrollbars are hidden by default and only shown when being used (even though "overflow:scroll" is set).
+
+More Examples
+Make a fancy table
+This example demonstrates how to create a fancy table.
+
+Set the position of the table caption
+This example demonstrates how to position the table caption.
+
+CSS Table Properties
+Property	Description
+border	Sets all the border properties in one declaration
+border-collapse	Specifies whether or not table borders should be collapsed
+border-spacing	Specifies the distance between the borders of adjacent cells
+caption-side	Specifies the placement of a table caption
+empty-cells	Specifies whether or not to display borders and background on empty cells in a table
+table-layout	Sets the layout algorithm to be used for a table
+
+                                              CSS Layout - The display Property
+
+The display property is the most important CSS property for controlling layout.
+
+The display Property
+The display property specifies if/how an element is displayed.
+
+Every HTML element has a default display value depending on what type of element it is. The default display value for most elements is block or inline.
+
+Click to show panel
+
+This panel contains a <div> element, which is hidden by default (display: none).
+
+It is styled with CSS, and we use JavaScript to show it (change it to (display: block).
+
+Block-level Elements
+A block-level element always starts on a new line and takes up the full width available (stretches out to the left and right as far as it can).
+
+The <div> element is a block-level element.
+Examples of block-level elements:
+
+<div>
+<h1> - <h6>
+<p>
+<form>
+<header>
+<footer>
+<section>
+Inline Elements
+An inline element does not start on a new line and only takes up as much width as necessary.
+
+This is an inline <span> element inside a paragraph.
+
+Examples of inline elements:
+
+<span>
+<a>
+<img>
+Display: none;
+display: none; is commonly used with JavaScript to hide and show elements without deleting and recreating them. Take a look at our last example on this page if you want to know how this can be achieved.
+
+The <script> element uses display: none; as default. 
+
+ADVERTISEMENT
+
+Override The Default Display Value
+As mentioned, every element has a default display value. However, you can override this.
+
+Changing an inline element to a block element, or vice versa, can be useful for making the page look a specific way, and still follow the web standards.
+
+A common example is making inline <li> elements for horizontal menus:
+
+Example
+li {
+  display: inline;
+}
+Note: Setting the display property of an element only changes how the element is displayed, NOT what kind of element it is. So, an inline element with display: block; is not allowed to have other block elements inside it.
+
+The following example displays <span> elements as block elements:
+
+Example
+span {
+  display: block;
+}
+The following example displays <a> elements as block elements:
+
+Example
+a {
+  display: block;
+}
+Hide an Element - display:none or visibility:hidden?
+display:none
+
+Italy
+
+visibility:hidden
+
+Forest
+
+Reset
+
+Lights
+
+Hiding an element can be done by setting the display property to none. The element will be hidden, and the page will be displayed as if the element is not there:
+
+Example
+h1.hidden {
+  display: none;
+}
+visibility:hidden; also hides an element.
+
+However, the element will still take up the same space as before. The element will be hidden, but still affect the layout:
+
+Example
+h1.hidden {
+  visibility: hidden;
+}
+More Examples
+Differences between display: none; and visibility: hidden;
+This example demonstrates display: none; versus visibility: hidden;
+
+Using CSS together with JavaScript to show content
+This example demonstrates how to use CSS and JavaScript to show an element on click.
+
+CSS Display/Visibility Properties
+Property	Description
+display	Specifies how an element should be displayed
+visibility	Specifies whether or not an element should be visible
+
+                                                          CSS Layout - width and max-width
+
+Using width, max-width and margin: auto;
+As mentioned in the previous chapter; a block-level element always takes up the full width available (stretches out to the left and right as far as it can).
+
+Setting the width of a block-level element will prevent it from stretching out to the edges of its container. Then, you can set the margins to auto, to horizontally center the element within its container. The element will take up the specified width, and the remaining space will be split equally between the two margins:
+
+This <div> element has a width of 500px, and margin set to auto.
+
+Note: The problem with the <div> above occurs when the browser window is smaller than the width of the element. The browser then adds a horizontal scrollbar to the page.
+
+Using max-width instead, in this situation, will improve the browser's handling of small windows. This is important when making a site usable on small devices:
+
+This <div> element has a max-width of 500px, and margin set to auto.
+
+Tip: Resize the browser window to less than 500px wide, to see the difference between the two divs!
+
+Here is an example of the two divs above:
+
+Example
+div.ex1 {
+  width: 500px;
+  margin: auto;
+  border: 3px solid #73AD21;
+}
+
+div.ex2 {
+  max-width: 500px;
+  margin: auto;
+  border: 3px solid #73AD21;
+}
+
