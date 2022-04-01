@@ -4535,4 +4535,705 @@ overflow	Specifies what happens if content overflows an element's box
 overflow-x	Specifies what to do with the left/right edges of the content if it overflows the element's content area
 overflow-y	Specifies what to do with the top/bottom edges of the content if it overflows the element's content area
 
-continue from css inline-block
+                               /*  CHAPTER 6  ************************************************************************************************** */
+
+                                                CSS Layout - display: inline-block
+
+The display: inline-block Value
+Compared to display: inline, the major difference is that display: inline-block allows to set a width and height on the element.
+
+Also, with display: inline-block, the top and bottom margins/paddings are respected, but with display: inline they are not.
+
+Compared to display: block, the major difference is that display: inline-block does not add a line-break after the element, so the element can sit next to other elements.
+
+The following example shows the different behavior of display: inline, display: inline-block and display: block:
+
+Example
+span.a {
+  display: inline; /* the default for span */
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;
+  background-color: yellow;
+}
+
+span.b {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;
+  background-color: yellow;
+}
+
+span.c {
+  display: block;
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;
+  background-color: yellow;
+}
+Using inline-block to Create Navigation Links
+One common use for display: inline-block is to display list items horizontally instead of vertically. The following example creates horizontal navigation links:
+
+Example
+.nav {
+  background-color: yellow;
+  list-style-type: none;
+  text-align: center; 
+  padding: 0;
+  margin: 0;
+}
+
+.nav li {
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
+}
+
+                                                CSS Layout - Horizontal & Vertical Align
+
+
+▲▼
+◀►
+Center elements
+horizontally and vertically
+Center Align Elements
+To horizontally center a block element (like <div>), use margin: auto;
+
+Setting the width of the element will prevent it from stretching out to the edges of its container.
+
+The element will then take up the specified width, and the remaining space will be split equally between the two margins:
+
+This div element is centered.
+
+Example
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+Note: Center aligning has no effect if the width property is not set (or set to 100%).
+
+Center Align Text
+To just center the text inside an element, use text-align: center;
+
+This text is centered.
+
+Example
+.center {
+  text-align: center;
+  border: 3px solid green;
+}
+Tip: For more examples on how to align text, see the CSS Text chapter.
+
+ADVERTISEMENT
+
+Center an Image
+To center an image, set left and right margin to auto and make it into a block element:
+
+Paris
+Example
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+Left and Right Align - Using position
+One method for aligning elements is to use position: absolute;:
+
+In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.
+
+Example
+.right {
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+Note: Absolute positioned elements are removed from the normal flow, and can overlap elements.
+
+Left and Right Align - Using float
+Another method for aligning elements is to use the float property:
+
+Example
+.right {
+  float: right;
+  width: 300px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+The clearfix Hack
+Note: If an element is taller than the element containing it, and it is floated, it will overflow outside of its container. You can use the "clearfix hack" to fix this (see example below).
+
+Without Clearfix
+
+With Clearfix
+
+Then we can add the clearfix hack to the containing element to fix this problem:
+
+Example
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+Center Vertically - Using padding
+There are many ways to center an element vertically in CSS. A simple solution is to use top and bottom padding:
+
+I am vertically centered.
+
+Example
+.center {
+  padding: 70px 0;
+  border: 3px solid green;
+}
+To center both vertically and horizontally, use padding and text-align: center:
+
+I am vertically and horizontally centered.
+
+Example
+.center {
+  padding: 70px 0;
+  border: 3px solid green;
+  text-align: center;
+}
+Center Vertically - Using line-height
+Another trick is to use the line-height property with a value that is equal to the height property:
+
+I am vertically and horizontally centered.
+Example
+.center {
+  line-height: 200px;
+  height: 200px;
+  border: 3px solid green;
+  text-align: center;
+}
+
+/* If the text has multiple lines, add the following: */
+.center p {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+}
+Center Vertically - Using position & transform
+If padding and line-height are not options, another solution is to use positioning and the transform property:
+
+I am vertically and horizontally centered.
+Example
+.center {
+  height: 200px;
+  position: relative;
+  border: 3px solid green;
+}
+
+.center p {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+Tip: You will learn more about the transform property in our 2D Transforms Chapter.
+
+Center Vertically - Using Flexbox
+You can also use flexbox to center things. Just note that flexbox is not supported in IE10 and earlier versions:
+
+I am vertically and horizontally centered.
+Example
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  border: 3px solid green;
+}
+Tip: You will learn more about Flexbox in our CSS Flexbox Chapter.
+
+                                                                  CSS Combinators
+
+CSS Combinators
+A combinator is something that explains the relationship between the selectors.
+
+A CSS selector can contain more than one simple selector. Between the simple selectors, we can include a combinator.
+
+There are four different combinators in CSS:
+
+descendant selector (space)
+child selector (>)
+adjacent sibling selector (+)
+general sibling selector (~)
+Descendant Selector
+The descendant selector matches all elements that are descendants of a specified element.
+
+The following example selects all <p> elements inside <div> elements: 
+
+Example
+div p {
+  background-color: yellow;
+}
+Child Selector (>)
+The child selector selects all elements that are the children of a specified element.
+
+The following example selects all <p> elements that are children of a <div> element:
+
+Example
+div > p {
+  background-color: yellow;
+}
+ADVERTISEMENT
+
+Adjacent Sibling Selector (+)
+The adjacent sibling selector is used to select an element that is directly after another specific element.
+
+Sibling elements must have the same parent element, and "adjacent" means "immediately following".
+
+The following example selects the first <p> element that are placed immediately after <div> elements:
+
+Example
+div + p {
+  background-color: yellow;
+}
+General Sibling Selector (~)
+The general sibling selector selects all elements that are next siblings of a specified element.
+
+The following example selects all <p> elements that are next siblings of <div> elements: 
+
+Example
+div ~ p {
+  background-color: yellow;
+}
+Test Yourself With Exercises
+Exercise:
+Change the color of all <p> elements, that are descendants of <div> elements, to "red".
+
+<style>
+ {
+  color: red;
+}
+</style>
+
+<body>
+
+<div>
+  <p>This is a paragraph.</p>
+  <p>This is a paragraph.</p>
+</div>
+<p>This is a paragraph.</p>
+<p>This is a paragraph.</p>
+
+</body>
+
+Start the Exercise
+
+All CSS Combinator Selectors
+Selector	Example	Example description
+element element	div p	Selects all <p> elements inside <div> elements
+element>element	div > p	Selects all <p> elements where the parent is a <div> element
+element+element	div + p	Selects the first <p> element that are placed immediately after <div> elements
+element1~element2	p ~ ul	Selects every <ul> element that are preceded by a <p> element
+
+                                                              CSS Pseudo-classes
+
+What are Pseudo-classes?
+A pseudo-class is used to define a special state of an element.
+
+For example, it can be used to:
+
+Style an element when a user mouses over it
+Style visited and unvisited links differently
+Style an element when it gets focus
+Mouse Over Me
+
+Click Me To Get Focus
+Syntax
+The syntax of pseudo-classes:
+
+selector:pseudo-class {
+  property: value;
+}
+Anchor Pseudo-classes
+Links can be displayed in different ways:
+
+Example
+/* unvisited link */
+a:link {
+  color: #FF0000;
+}
+
+/* visited link */
+a:visited {
+  color: #00FF00;
+}
+
+/* mouse over link */
+a:hover {
+  color: #FF00FF;
+}
+
+/* selected link */
+a:active {
+  color: #0000FF;
+}
+
+Note: a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective! a:active MUST come after a:hover in the CSS definition in order to be effective! Pseudo-class names are not case-sensitive.
+
+ADVERTISEMENT
+
+Pseudo-classes and HTML Classes
+Pseudo-classes can be combined with HTML classes:
+
+When you hover over the link in the example, it will change color:
+
+Example
+a.highlight:hover {
+  color: #ff0000;
+}
+Hover on <div>
+An example of using the :hover pseudo-class on a <div> element:
+
+Example
+div:hover {
+  background-color: blue;
+}
+
+Simple Tooltip Hover
+Hover over a <div> element to show a <p> element (like a tooltip):
+
+Hover over me to show the <p> element.
+Example
+p {
+  display: none;
+  background-color: yellow;
+  padding: 20px;
+}
+
+div:hover p {
+  display: block;
+}
+
+CSS - The :first-child Pseudo-class
+The :first-child pseudo-class matches a specified element that is the first child of another element.
+
+Match the first <p> element
+In the following example, the selector matches any <p> element that is the first child of any element:
+
+Example
+p:first-child {
+  color: blue;
+}
+Match the first <i> element in all <p> elements
+In the following example, the selector matches the first <i> element in all <p> elements:
+
+Example
+p i:first-child {
+  color: blue;
+}
+Match all <i> elements in all first child <p> elements
+In the following example, the selector matches all <i> elements in <p> elements that are the first child of another element:
+
+Example
+p:first-child i {
+  color: blue;
+}
+CSS - The :lang Pseudo-class
+The :lang pseudo-class allows you to define special rules for different languages.
+
+In the example below, :lang defines the quotation marks for <q> elements with lang="no":
+
+Example
+<html>
+<head>
+<style>
+q:lang(no) {
+  quotes: "~" "~";
+}
+</style>
+</head>
+<body>
+
+<p>Some text <q lang="no">A quote in a paragraph</q> Some text.</p>
+
+</body>
+</html>
+More Examples
+Add different styles to hyperlinks
+This example demonstrates how to add other styles to hyperlinks.
+
+Use of :focus
+This example demonstrates how to use the :focus pseudo-class.
+
+Test Yourself With Exercises
+Exercise:
+Set the background-color to red, when you mouse over a link.
+
+<style>
+ {
+  background-color: red;
+}
+</style>
+
+<body>
+
+<h1>This is a header.</h1>
+<p>This is a paragraph.</p>
+<a href="https://w3schools.com">This is a link.</a>
+
+</body>
+
+Start the Exercise
+
+All CSS Pseudo Classes
+Selector	Example	Example description
+:active	a:active	Selects the active link
+:checked	input:checked	Selects every checked <input> element
+:disabled	input:disabled	Selects every disabled <input> element
+:empty	p:empty	Selects every <p> element that has no children
+:enabled	input:enabled	Selects every enabled <input> element
+:first-child	p:first-child	Selects every <p> elements that is the first child of its parent
+:first-of-type	p:first-of-type	Selects every <p> element that is the first <p> element of its parent
+:focus	input:focus	Selects the <input> element that has focus
+:hover	a:hover	Selects links on mouse over
+:in-range	input:in-range	Selects <input> elements with a value within a specified range
+:invalid	input:invalid	Selects all <input> elements with an invalid value
+:lang(language)	p:lang(it)	Selects every <p> element with a lang attribute value starting with "it"
+:last-child	p:last-child	Selects every <p> elements that is the last child of its parent
+:last-of-type	p:last-of-type	Selects every <p> element that is the last <p> element of its parent
+:link	a:link	Selects all unvisited links
+:not(selector)	:not(p)	Selects every element that is not a <p> element
+:nth-child(n)	p:nth-child(2)	Selects every <p> element that is the second child of its parent
+:nth-last-child(n)	p:nth-last-child(2)	Selects every <p> element that is the second child of its parent, counting from the last child
+:nth-last-of-type(n)	p:nth-last-of-type(2)	Selects every <p> element that is the second <p> element of its parent, counting from the last child
+:nth-of-type(n)	p:nth-of-type(2)	Selects every <p> element that is the second <p> element of its parent
+:only-of-type	p:only-of-type	Selects every <p> element that is the only <p> element of its parent
+:only-child	p:only-child	Selects every <p> element that is the only child of its parent
+:optional	input:optional	Selects <input> elements with no "required" attribute
+:out-of-range	input:out-of-range	Selects <input> elements with a value outside a specified range
+:read-only	input:read-only	Selects <input> elements with a "readonly" attribute specified
+:read-write	input:read-write	Selects <input> elements with no "readonly" attribute
+:required	input:required	Selects <input> elements with a "required" attribute specified
+:root	root	Selects the document's root element
+:target	#news:target	Selects the current active #news element (clicked on a URL containing that anchor name)
+:valid	input:valid	Selects all <input> elements with a valid value
+:visited	a:visited	Selects all visited links
+All CSS Pseudo Elements
+Selector	Example	Example description
+::after	p::after	Insert content after every <p> element
+::before	p::before	Insert content before every <p> element
+::first-letter	p::first-letter	Selects the first letter of every <p> element
+::first-line	p::first-line	Selects the first line of every <p> element
+::selection	p::selection	Selects the portion of an element that is selected by a user
+
+                                                                    CSS Pseudo-elements
+
+What are Pseudo-Elements?
+A CSS pseudo-element is used to style specified parts of an element.
+
+For example, it can be used to:
+
+Style the first letter, or line, of an element
+Insert content before, or after, the content of an element
+Syntax
+The syntax of pseudo-elements:
+
+selector::pseudo-element {
+  property: value;
+}
+The ::first-line Pseudo-element
+The ::first-line pseudo-element is used to add a special style to the first line of a text.
+
+The following example formats the first line of the text in all <p> elements:
+
+Example 
+p::first-line {
+  color: #ff0000;
+  font-variant: small-caps;
+}
+Note: The ::first-line pseudo-element can only be applied to block-level elements.
+
+The following properties apply to the ::first-line pseudo-element:
+
+font properties
+color properties
+background properties
+word-spacing
+letter-spacing
+text-decoration
+vertical-align
+text-transform
+line-height
+clear
+Notice the double colon notation - ::first-line versus :first-line
+
+The double colon replaced the single-colon notation for pseudo-elements in CSS3. This was an attempt from W3C to distinguish between pseudo-classes and pseudo-elements.
+
+The single-colon syntax was used for both pseudo-classes and pseudo-elements in CSS2 and CSS1.
+
+For backward compatibility, the single-colon syntax is acceptable for CSS2 and CSS1 pseudo-elements.
+
+ADVERTISEMENT
+
+The ::first-letter Pseudo-element
+The ::first-letter pseudo-element is used to add a special style to the first letter of a text.
+
+The following example formats the first letter of the text in all <p> elements: 
+
+Example
+p::first-letter {
+  color: #ff0000;
+  font-size: xx-large;
+}
+Note: The ::first-letter pseudo-element can only be applied to block-level elements.
+
+The following properties apply to the ::first-letter pseudo- element: 
+
+font properties
+color properties 
+background properties
+margin properties
+padding properties
+border properties
+text-decoration
+vertical-align (only if "float" is "none")
+text-transform
+line-height
+float
+clear
+Pseudo-elements and HTML Classes
+Pseudo-elements can be combined with HTML classes: 
+
+Example
+p.intro::first-letter {
+  color: #ff0000;
+  font-size: 200%;
+}
+The example above will display the first letter of paragraphs with class="intro", in red and in a larger size.
+
+Multiple Pseudo-elements
+Several pseudo-elements can also be combined.
+
+In the following example, the first letter of a paragraph will be red, in an xx-large font size. The rest of the first line will be blue, and in small-caps. The rest of the paragraph will be the default font size and color:
+
+Example
+p::first-letter {
+  color: #ff0000;
+  font-size: xx-large;
+}
+
+p::first-line {
+  color: #0000ff;
+  font-variant: small-caps;
+}
+CSS - The ::before Pseudo-element
+The ::before pseudo-element can be used to insert some content before the content of an element.
+
+The following example inserts an image before the content of each <h1> element:
+
+Example
+h1::before {
+  content: url(smiley.gif);
+}
+CSS - The ::after Pseudo-element
+The ::after pseudo-element can be used to insert some content after the content of an element.
+
+The following example inserts an image after the content of each <h1> element:
+
+Example
+h1::after {
+  content: url(smiley.gif);
+}
+CSS - The ::marker Pseudo-element
+The ::marker pseudo-element selects the markers of list items.
+
+The following example styles the markers of list items:
+
+Example
+::marker {
+  color: red;
+  font-size: 23px;
+}
+CSS - The ::selection Pseudo-element
+The ::selection pseudo-element matches the portion of an element that is selected by a user.
+
+The following CSS properties can be applied to ::selection: color, background, cursor, and outline.
+
+The following example makes the selected text red on a yellow background:
+
+Example
+::selection {
+  color: red;
+  background: yellow;
+}
+Test Yourself With Exercises
+Exercise:
+Set the background-color to red, of the first line of the paragraph.
+
+<style>
+ {
+  background-color: red;
+}
+</style>
+
+<body>
+
+<p class="intro">
+In my younger and more vulnerable years
+my father gave me some advice that I've
+been turning over in my mind ever since.
+'Whenever you feel like criticizing anyone,' he told me,
+'just remember that all the people in this world
+haven't had the advantages that you've had.'
+</p>
+
+</body>
+
+Start the Exercise
+
+All CSS Pseudo Elements
+Selector	Example	Example description
+::after	p::after	Insert something after the content of each <p> element
+::before	p::before	Insert something before the content of each <p> element
+::first-letter	p::first-letter	Selects the first letter of each <p> element
+::first-line	p::first-line	Selects the first line of each <p> element
+::marker	::marker	Selects the markers of list items
+::selection	p::selection	Selects the portion of an element that is selected by a user
+All CSS Pseudo Classes
+Selector	Example	Example description
+:active	a:active	Selects the active link
+:checked	input:checked	Selects every checked <input> element
+:disabled	input:disabled	Selects every disabled <input> element
+:empty	p:empty	Selects every <p> element that has no children
+:enabled	input:enabled	Selects every enabled <input> element
+:first-child	p:first-child	Selects every <p> elements that is the first child of its parent
+:first-of-type	p:first-of-type	Selects every <p> element that is the first <p> element of its parent
+:focus	input:focus	Selects the <input> element that has focus
+:hover	a:hover	Selects links on mouse over
+:in-range	input:in-range	Selects <input> elements with a value within a specified range
+:invalid	input:invalid	Selects all <input> elements with an invalid value
+:lang(language)	p:lang(it)	Selects every <p> element with a lang attribute value starting with "it"
+:last-child	p:last-child	Selects every <p> elements that is the last child of its parent
+:last-of-type	p:last-of-type	Selects every <p> element that is the last <p> element of its parent
+:link	a:link	Selects all unvisited links
+:not(selector)	:not(p)	Selects every element that is not a <p> element
+:nth-child(n)	p:nth-child(2)	Selects every <p> element that is the second child of its parent
+:nth-last-child(n)	p:nth-last-child(2)	Selects every <p> element that is the second child of its parent, counting from the last child
+:nth-last-of-type(n)	p:nth-last-of-type(2)	Selects every <p> element that is the second <p> element of its parent, counting from the last child
+:nth-of-type(n)	p:nth-of-type(2)	Selects every <p> element that is the second <p> element of its parent
+:only-of-type	p:only-of-type	Selects every <p> element that is the only <p> element of its parent
+:only-child	p:only-child	Selects every <p> element that is the only child of its parent
+:optional	input:optional	Selects <input> elements with no "required" attribute
+:out-of-range	input:out-of-range	Selects <input> elements with a value outside a specified range
+:read-only	input:read-only	Selects <input> elements with a "readonly" attribute specified
+:read-write	input:read-write	Selects <input> elements with no "readonly" attribute
+:required	input:required	Selects <input> elements with a "required" attribute specified
+:root	root	Selects the document's root element
+:target	#news:target	Selects the current active #news element (clicked on a URL containing that anchor name)
+:valid	input:valid	Selects all <input> elements with a valid value
+:visited	a:visited	Selects all visited links
+
+Continue from css opacity
