@@ -3960,7 +3960,7 @@ This <div> element has position: static;
 Here is the CSS that is used:
 
 Example
-div.static {
+div.static {                    /* do not add .static its just for explanation sake */
   position: static;
   border: 3px solid #73AD21;
 }
@@ -3973,7 +3973,7 @@ This <div> element has position: relative;
 Here is the CSS that is used:
 
 Example
-div.relative {
+div.relative {              /* do not add .relative its just for explanation sake */
   position: relative;
   left: 30px;
   border: 3px solid #73AD21;
@@ -3988,7 +3988,7 @@ A fixed element does not leave a gap in the page where it would normally have be
 Notice the fixed element in the lower-right corner of the page. Here is the CSS that is used:
 
 Example
-div.fixed {
+div.fixed {           /* do not add .fixed its just for explanation sake */
   position: fixed;
   bottom: 0;
   right: 0;
@@ -4009,14 +4009,14 @@ This <div> element has position: relative;This <div> element has position: absol
 Here is the CSS that is used:
 
 Example
-div.relative {
+div.relative {      /* do not add .relative its just for explanation sake */
   position: relative;
   width: 400px;
   height: 200px;
   border: 3px solid #73AD21;
 }
 
-div.absolute {
+div.absolute {            /* do not add .absolute its just for explanation sake */
   position: absolute;
   top: 80px;
   right: 0;
@@ -4035,7 +4035,7 @@ Note: Internet Explorer does not support sticky positioning. Safari requires a -
 In this example, the sticky element sticks to the top of the page (top: 0), when you reach its scroll position.
 
 Example
-div.sticky {
+div.sticky {                                    /* do not add .sticky its just for explanation sake */
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
@@ -4808,28 +4808,7 @@ Example
 div ~ p {
   background-color: yellow;
 }
-Test Yourself With Exercises
-Exercise:
-Change the color of all <p> elements, that are descendants of <div> elements, to "red".
 
-<style>
- {
-  color: red;
-}
-</style>
-
-<body>
-
-<div>
-  <p>This is a paragraph.</p>
-  <p>This is a paragraph.</p>
-</div>
-<p>This is a paragraph.</p>
-<p>This is a paragraph.</p>
-
-</body>
-
-Start the Exercise
 
 All CSS Combinator Selectors
 Selector	Example	Example description
@@ -4967,26 +4946,6 @@ This example demonstrates how to add other styles to hyperlinks.
 
 Use of :focus
 This example demonstrates how to use the :focus pseudo-class.
-
-Test Yourself With Exercises
-Exercise:
-Set the background-color to red, when you mouse over a link.
-
-<style>
- {
-  background-color: red;
-}
-</style>
-
-<body>
-
-<h1>This is a header.</h1>
-<p>This is a paragraph.</p>
-<a href="https://w3schools.com">This is a link.</a>
-
-</body>
-
-Start the Exercise
 
 All CSS Pseudo Classes
 Selector	Example	Example description
@@ -5169,17 +5128,6 @@ Example
   color: red;
   background: yellow;
 }
-Test Yourself With Exercises
-Exercise:
-Set the background-color to red, of the first line of the paragraph.
-
-<style>
- {
-  background-color: red;
-}
-</style>
-
-<body>
 
 <p class="intro">
 In my younger and more vulnerable years
@@ -5192,8 +5140,6 @@ haven't had the advantages that you've had.'
 
 </body>
 
-Start the Exercise
-
 All CSS Pseudo Elements
 Selector	Example	Example description
 ::after	p::after	Insert something after the content of each <p> element
@@ -5202,6 +5148,7 @@ Selector	Example	Example description
 ::first-line	p::first-line	Selects the first line of each <p> element
 ::marker	::marker	Selects the markers of list items
 ::selection	p::selection	Selects the portion of an element that is selected by a user
+
 All CSS Pseudo Classes
 Selector	Example	Example description
 :active	a:active	Selects the active link
@@ -5236,4 +5183,459 @@ Selector	Example	Example description
 :valid	input:valid	Selects all <input> elements with a valid value
 :visited	a:visited	Selects all visited links
 
-Continue from css opacity
+                                      /*  CHAPTER 7  ************************************************************************************************** */           
+                      
+                                                              CSS Opacity / Transparency
+
+The opacity property specifies the opacity/transparency of an element.
+
+Transparent Image
+The opacity property can take a value from 0.0 - 1.0. The lower value, the more transparent:
+
+Forest
+opacity 0.2
+
+Forest
+opacity 0.5
+
+Forest
+opacity 1
+(default)
+
+Example
+img {
+  opacity: 0.5;
+}
+Transparent Hover Effect
+The opacity property is often used together with the :hover selector to change the opacity on mouse-over:
+
+Northern LightsMountainsItaly
+Example
+img {
+  opacity: 0.5;
+}
+
+img:hover {
+  opacity: 1.0;
+}
+Example explained
+The first CSS block is similar to the code in Example 1. In addition, we have added what should happen when a user hovers over one of the images. In this case we want the image to NOT be transparent when the user hovers over it. The CSS for this is opacity:1;.
+
+When the mouse pointer moves away from the image, the image will be transparent again.
+
+An example of reversed hover effect:
+
+Northern LightsMountainsItaly
+Example
+img:hover {
+  opacity: 0.5;
+}
+ADVERTISEMENT
+
+Transparent Box
+When using the opacity property to add transparency to the background of an element, all of its child elements inherit the same transparency. This can make the text inside a fully transparent element hard to read:
+
+opacity 1
+
+opacity 0.6
+
+opacity 0.3
+
+opacity 0.1
+
+Example
+div {
+  opacity: 0.3;
+}
+Transparency using RGBA
+If you do not want to apply opacity to child elements, like in our example above, use RGBA color values. The following example sets the opacity for the background color and not the text:
+
+100% opacity
+
+60% opacity
+
+30% opacity
+
+10% opacity
+
+You learned from our CSS Colors Chapter, that you can use RGB as a color value. In addition to RGB, you can use an RGB color value with an alpha channel (RGBA) - which specifies the opacity for a color.
+
+An RGBA color value is specified with: rgba(red, green, blue, alpha). The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque).
+
+Tip: You will learn more about RGBA Colors in our CSS Colors Chapter.
+
+Example
+div {
+  background: rgba(76, 175, 80, 0.3) /* Green background with 30% opacity */
+}
+Text in Transparent Box
+This is some text that is placed in the transparent box.
+
+Example
+<html>
+<head>
+<style>
+div.background {
+  background: url(klematis.jpg) repeat;
+  border: 2px solid black;
+}
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+</style>
+</head>
+<body>
+
+<div class="background">
+  <div class="transbox">
+    <p>This is some text that is placed in the transparent box.</p>
+  </div>
+</div>
+
+</body>
+</html>
+Example explained
+First, we create a <div> element (class="background") with a background image, and a border.
+
+Then we create another <div> (class="transbox") inside the first <div>.
+
+The <div class="transbox"> have a background color, and a border - the div is transparent.
+
+Inside the transparent <div>, we add some text inside a <p> element.
+
+CSS Navigation Bar
+Demo: Navigation Bars
+Vertical
+
+Home
+News
+Contact
+About
+Horizontal
+
+HomeNewsContactAbout
+Home
+News
+Contact
+About
+Navigation Bars
+Having easy-to-use navigation is important for any web site.
+
+With CSS you can transform boring HTML menus into good-looking navigation bars.
+
+Navigation Bar = List of Links
+A navigation bar needs standard HTML as a base.
+
+In our examples we will build the navigation bar from a standard HTML list.
+
+A navigation bar is basically a list of links, so using the <ul> and <li> elements makes perfect sense:
+
+Example
+<ul>
+  <li><a href="default.asp">Home</a></li>
+  <li><a href="news.asp">News</a></li>
+  <li><a href="contact.asp">Contact</a></li>
+  <li><a href="about.asp">About</a></li>
+</ul>
+Now let's remove the bullets and the margins and padding from the list:
+
+Example
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+Example explained:
+
+list-style-type: none; - Removes the bullets. A navigation bar does not need list markers
+Set margin: 0; and padding: 0; to remove browser default settings
+The code in the example above is the standard code used in both vertical, and horizontal navigation bars, which you will learn more about in the next chapters.
+
+CSS Vertical Navigation Bar
+Vertical Navigation Bar
+Home
+News
+Contact
+About
+To build a vertical navigation bar, you can style the <a> elements inside the list, in addition to the code from the previous page:
+
+Example
+li a {
+  display: block;
+  width: 60px;
+}
+Example explained:
+
+display: block; - Displaying the links as block elements makes the whole link area clickable (not just the text), and it allows us to specify the width (and padding, margin, height, etc. if you want)
+width: 60px; - Block elements take up the full width available by default. We want to specify a 60 pixels width
+You can also set the width of <ul>, and remove the width of <a>, as they will take up the full width available when displayed as block elements. This will produce the same result as our previous example:
+
+Example
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 60px;
+}
+
+li a {
+  display: block;
+}
+ADVERTISEMENT
+
+Vertical Navigation Bar Examples
+Create a basic vertical navigation bar with a gray background color and change the background color of the links when the user moves the mouse over them:
+
+Home
+News
+Contact
+About
+Example
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+Active/Current Navigation Link
+Add an "active" class to the current link to let the user know which page he/she is on:
+
+Home
+News
+Contact
+About
+Example
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
+Center Links & Add Borders
+Add text-align:center to <li> or <a> to center the links.
+
+Add the border property to <ul> add a border around the navbar. If you also want borders inside the navbar, add a border-bottom to all <li> elements, except for the last one:
+
+Home
+News
+Contact
+About
+Example
+ul {
+  border: 1px solid #555;
+}
+
+li {
+  text-align: center;
+  border-bottom: 1px solid #555;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+Full-height Fixed Vertical Navbar
+Create a full-height, "sticky" side navigation:
+
+
+Example
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  height: 100%; /* Full height */
+  position: fixed; /* Make it stick, even on scroll */
+  overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+Note: This example might not work properly on mobile devices.
+
+CSS Horizontal Navigation Bar
+Horizontal Navigation Bar
+HomeNewsContactAbout
+There are two ways to create a horizontal navigation bar. Using inline or floating list items.
+
+Inline List Items
+One way to build a horizontal navigation bar is to specify the <li> elements as inline, in addition to the "standard" code from the previous page:
+
+Example
+li {
+  display: inline;
+}
+Example explained:
+
+display: inline; - By default, <li> elements are block elements. Here, we remove the line breaks before and after each list item, to display them on one line
+Floating List Items
+Another way of creating a horizontal navigation bar is to float the <li> elements, and specify a layout for the navigation links:
+
+Example
+li {
+  float: left;
+}
+
+a {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+}
+Example explained:
+
+float: left; - Use float to get block elements to float next to each other
+display: block; - Allows us to specify padding (and height, width, margins, etc. if you want)
+padding: 8px; - Specify some padding between each <a> element, to make them look good
+background-color: #dddddd; - Add a gray background-color to each <a> element
+Tip: Add the background-color to <ul> instead of each <a> element if you want a full-width background color:
+
+Example
+ul {
+  background-color: #dddddd;
+}
+Horizontal Navigation Bar Examples
+Create a basic horizontal navigation bar with a dark background color and change the background color of the links when the user moves the mouse over them:
+
+HomeNewsContactAbout
+Example
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+Active/Current Navigation Link
+Add an "active" class to the current link to let the user know which page he/she is on:
+
+HomeNewsContactAbout
+Example
+.active {
+  background-color: #04AA6D;
+}
+Right-Align Links
+Right-align links by floating the list items to the right (float:right;):
+
+HomeNewsContactAbout
+Example
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li style="float:right"><a class="active" href="#about">About</a></li>
+</ul>
+Border Dividers
+Add the border-right property to <li> to create link dividers:
+
+HomeNewsContactAbout
+Example
+/* Add a gray right border to all list items, except the last item (last-child) */
+li {
+  border-right: 1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+Fixed Navigation Bar
+Make the navigation bar stay at the top or the bottom of the page, even when the user scrolls the page:
+
+
+Fixed Top
+ul {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+Fixed Bottom
+ul {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+Note: Fixed position might not work properly on mobile devices.
+
+Gray Horizontal Navbar
+An example of a gray horizontal navigation bar with a thin gray border:
+
+HomeNewsContactAbout
+Example
+ul {
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+li a {
+  color: #666;
+}
+Sticky Navbar
+Add position: sticky; to <ul> to create a sticky navbar.
+
+A sticky element toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed).
+
+
+Example
+ul {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+Note: Internet Explorer do not support sticky positioning. Safari requires a -webkit- prefix (see example above). You must also specify at least one of top, right, bottom or left for sticky positioning to work.
+
+ADVERTISEMENT
+
+More Examples
+Responsive Topnav
+How to use CSS media queries to create a responsive top navigation.
+
+
+Responsive Sidenav
+How to use CSS media queries to create a responsive side navigation.
+
+
+Dropdown Navbar
+How to add a dropdown menu inside a navigation bar.
+
+
+Ever heard about W3Schools Spaces? Here you can create your website from scratch or use a template, and host it for free.
+
+* no credit card required
+
+/* Continue from css Dropdowns */
