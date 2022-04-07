@@ -8238,8 +8238,9 @@ A repeating linear gradient:
 
 #grad {
   background-image: repeating-linear-gradient(red, yellow 10%, green 20%);
-
-  CSS Radial Gradients
+}
+  
+CSS Radial Gradients
   CSS Radial Gradients
   A radial gradient is defined by its center.
   
@@ -8581,4 +8582,675 @@ Property	Description
 box-shadow	Adds one or more shadows to an element
 text-shadow	Adds one or more shadows to a text
 
-Continue from css text effects
+                                    
+                    /*  CHAPTER 10    CSS ADVANCED ********************************************************************* */  
+
+                                                CSS Text Effects
+
+CSS Text Overflow, Word Wrap, Line Breaking Rules, and Writing Modes
+In this chapter you will learn about the following properties:
+
+text-overflow
+word-wrap
+word-break
+writing-mode
+CSS Text Overflow
+The CSS text-overflow property specifies how overflowed content that is not displayed should be signaled to the user.
+
+It can be clipped:
+
+This is some long text that will not fit in the box
+
+or it can be rendered as an ellipsis (...):
+
+This is some long text that will not fit in the box
+
+The CSS code is as follows:
+
+Example
+p.test1 {
+  white-space: nowrap;
+  width: 200px;
+  border: 1px solid #000000;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+p.test2 {
+  white-space: nowrap;
+  width: 200px;
+  border: 1px solid #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+The following example shows how you can display the overflowed content when hovering over the element:
+
+Example
+div.test:hover {
+  overflow: visible;
+}
+ADVERTISEMENT
+
+CSS Word Wrapping
+The CSS word-wrap property allows long words to be able to be broken and wrap onto the next line. 
+
+If a word is too long to fit within an area, it expands outside:
+
+This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.
+
+The word-wrap property allows you to force the text to wrap - even if it means splitting it in the middle of a word:
+
+This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.
+
+The CSS code is as follows:
+
+Example
+Allow long words to be able to be broken and wrap onto the next line:
+
+p {
+  word-wrap: break-word;
+}
+CSS Word Breaking
+The CSS word-break property specifies line breaking rules.
+
+This paragraph contains some text. This line will-break-at-hyphens.
+
+This paragraph contains some text. The lines will break at any character.
+
+The CSS code is as follows:
+
+Example
+p.test1 {
+  word-break: keep-all;
+}
+
+p.test2 {
+  word-break: break-all;
+}
+CSS Writing Mode
+The CSS writing-mode property specifies whether lines of text are laid out horizontally or vertically.
+
+Some text with a span element with a vertical-rl writing-mode.
+
+The following example shows some different writing modes:
+
+Example
+p.test1 {
+  writing-mode: horizontal-tb;
+}
+
+span.test2 {
+  writing-mode: vertical-rl;
+}
+
+p.test2 {
+  writing-mode: vertical-rl;
+}
+
+CSS Text Effect Properties
+The following table lists the CSS text effect properties:
+
+Property	Description
+text-justify	Specifies how justified text should be aligned and spaced
+text-overflow	Specifies how overflowed content that is not displayed should be signaled to the user
+word-break	Specifies line breaking rules for non-CJK scripts
+word-wrap	Allows long words to be able to be broken and wrap onto the next line
+writing-mode	Specifies whether lines of text are laid out horizontally or vertically
+
+CSS Web Fonts
+The CSS @font-face Rule
+Web fonts allow Web designers to use fonts that are not installed on the user's computer.
+
+When you have found/bought the font you wish to use, just include the font file on your web server, and it will be automatically downloaded to the user when needed.
+
+Your "own" fonts are defined within the CSS @font-face rule.
+
+Different Font Formats
+TrueType Fonts (TTF)
+
+TrueType is a font standard developed in the late 1980s, by Apple and Microsoft. TrueType is the most common font format for both the Mac OS and Microsoft Windows operating systems.
+
+OpenType Fonts (OTF)
+
+OpenType is a format for scalable computer fonts. It was built on TrueType, and is a registered trademark of Microsoft. OpenType fonts are used commonly today on the major computer platforms.
+
+The Web Open Font Format (WOFF)
+
+WOFF is a font format for use in web pages. It was developed in 2009, and is now a W3C Recommendation. WOFF is essentially OpenType or TrueType with compression and additional metadata. The goal is to support font distribution from a server to a client over a network with bandwidth constraints.
+
+The Web Open Font Format (WOFF 2.0)
+
+TrueType/OpenType font that provides better compression than WOFF 1.0.
+
+SVG Fonts/Shapes
+
+SVG fonts allow SVG to be used as glyphs when displaying text. The SVG 1.1 specification define a font module that allows the creation of fonts within an SVG document. You can also apply CSS to SVG documents, and the @font-face rule can be applied to text in SVG documents.
+
+Embedded OpenType Fonts (EOT)
+
+EOT fonts are a compact form of OpenType fonts designed by Microsoft for use as embedded fonts on web pages.
+
+ADVERTISEMENT
+
+Browser Support for Font Formats
+The numbers in the table specifies the first browser version that fully supports the font format.
+
+Font format					
+TTF/OTF	9.0*	4.0	3.5	3.1	10.0
+WOFF	9.0	5.0	3.6	5.1	11.1
+WOFF2	14.0	36.0	39.0	10.0	26.0
+SVG	Not supported	Not supported	Not supported	3.2	Not supported
+EOT	6.0	Not supported	Not supported	Not supported	Not supported
+*IE: The font format only works when set to be "installable".
+
+Using The Font You Want
+In the @font-face rule; first define a name for the font (e.g. myFirstFont) and then point to the font file.
+
+Tip: Always use lowercase letters for the font URL. Uppercase letters can give unexpected results in IE.
+
+To use the font for an HTML element, refer to the name of the font (myFirstFont) through the font-family property:
+
+Example
+@font-face {
+  font-family: myFirstFont;
+  src: url(sansation_light.woff);
+}
+
+div {
+  font-family: myFirstFont;
+}
+Using Bold Text
+You must add another @font-face rule containing descriptors for bold text:
+
+Example
+
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+@font-face {
+   font-family: myFirstFont;
+   src: url(sansation_light.woff);
+}
+
+@font-face {
+   font-family: myFirstFont;
+   src: url(sansation_bold.woff);
+   font-weight: bold;
+}
+
+* {
+   font-family: myFirstFont;
+}
+</style>
+</head>
+<body>
+
+<h1>The @font-face Rule</h1>
+
+<div>
+With CSS, websites can use <b>fonts other than the pre-selected "web-safe" fonts</b>.
+</div>
+
+</body>
+</html>
+
+
+The file "sansation_bold.woff" is another font file, that contains the bold characters for the Sansation font.
+
+Browsers will use this whenever a piece of text with the font-family "myFirstFont" should render as bold.
+
+This way you can have many @font-face rules for the same font.
+
+CSS Font Descriptors
+The following table lists all the font descriptors that can be defined inside the @font-face rule:
+
+Descriptor	Values	Description
+font-family	name	Required. Defines a name for the font
+src	URL	Required. Defines the URL of the font file
+font-stretch	normal
+condensed
+ultra-condensed
+extra-condensed
+semi-condensed
+expanded
+semi-expanded
+extra-expanded
+ultra-expanded	Optional. Defines how the font should be stretched. Default is "normal"
+font-style	normal
+italic
+oblique	Optional. Defines how the font should be styled. Default is "normal"
+font-weight	normal
+bold
+100
+200
+300
+400
+500
+600
+700
+800
+900	Optional. Defines the boldness of the font. Default is "normal"
+unicode-range	unicode-range	Optional. Defines the range of UNICODE characters the font supports. Default is "U+0-10FFFF"
+
+                                                  CSS 2D Transforms
+
+CSS 2D Transforms
+CSS transforms allow you to move, rotate, scale, and skew elements.
+
+Mouse over the element below to see a 2D transformation:
+
+2D rotate
+In this chapter you will learn about the following CSS property:
+
+transform
+Browser Support
+The numbers in the table specify the first browser version that fully supports the property.
+
+Property					
+transform	36.0
+10.0
+16.0
+9.0
+23.0
+CSS 2D Transforms Methods
+With the CSS transform property you can use the following 2D transformation methods:
+
+translate()
+rotate()
+scaleX()
+scaleY()
+scale()
+skewX()
+skewY()
+skew()
+matrix()
+Tip: You will learn about 3D transformations in the next chapter.
+
+The translate() Method
+Translate
+The translate() method moves an element from its current position (according to the parameters given for the X-axis and the Y-axis).
+
+The following example moves the <div> element 50 pixels to the right, and 100 pixels down from its current position:
+
+Example
+
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+  width: 300px;
+  height: 100px;
+  background-color: yellow;
+  border: 1px solid black;
+  transform: translate(50px,100px);
+}
+</style>
+</head>
+<body>
+
+<h1>The translate() Method</h1>
+<p>The translate() method moves an element from its current position:</p>
+
+<div>
+This div element is moved 50 pixels to the right, and 100 pixels down from its current position.
+</div>
+
+</body>
+</html>
+
+
+The rotate() Method
+Rotate
+The rotate() method rotates an element clockwise or counter-clockwise according to a given degree.
+
+The following example rotates the <div> element clockwise with 20 degrees:
+
+Example
+div {
+  transform: rotate(20deg);
+}
+Using negative values will rotate the element counter-clockwise.
+
+The following example rotates the <div> element counter-clockwise with 20 degrees:
+
+Example
+div {
+  transform: rotate(-20deg);
+}
+ADVERTISEMENT
+
+The scale() Method
+Scale
+The scale() method increases or decreases the size of an element (according to the parameters given for the width and height).
+
+The following example increases the <div> element to be two times of its original width, and three times of its original height: 
+
+Example
+div {
+  transform: scale(2, 3);
+}
+The following example decreases the <div> element to be half of its original width and height: 
+
+Example
+div {
+  transform: scale(0.5, 0.5);
+}
+The scaleX() Method
+The scaleX() method increases or decreases the width of an element.
+
+The following example increases the <div> element to be two times of its original width: 
+
+Example
+div {
+  transform: scaleX(2);
+}
+The following example decreases the <div> element to be half of its original width: 
+
+Example
+div {
+  transform: scaleX(0.5);
+}
+The scaleY() Method
+The scaleY() method increases or decreases the height of an element.
+
+The following example increases the <div> element to be three times of its original height: 
+
+Example
+div {
+  transform: scaleY(3);
+}
+The following example decreases the <div> element to be half of its original height: 
+
+Example
+div {
+  transform: scaleY(0.5);
+}
+The skewX() Method
+The skewX() method skews an element along the X-axis by the given angle.
+
+The following example skews the <div> element 20 degrees along the X-axis:
+
+Example
+div {
+  transform: skewX(20deg);
+}
+The skewY() Method
+The skewY() method skews an element along the Y-axis by the given angle.
+
+The following example skews the <div> element 20 degrees along the Y-axis:
+
+Example
+div {
+  transform: skewY(20deg);
+}
+The skew() Method
+The skew() method skews an element along the X and Y-axis by the given angles.
+
+The following example skews the <div> element 20 degrees along the X-axis, and 10 degrees along the Y-axis:
+
+Example
+div {
+  transform: skew(20deg, 10deg);
+}
+If the second parameter is not specified, it has a zero value. So, the following example skews the <div> element 20 degrees along the X-axis:
+
+Example
+div {
+  transform: skew(20deg);
+}
+The matrix() Method
+Rotate
+The matrix() method combines all the 2D transform methods into one.
+
+The matrix() method take six parameters, containing mathematic functions, which allows you to rotate, scale, move (translate), and skew elements.
+
+The parameters are as follow: matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY())
+
+Example
+div {
+  transform: matrix(1, -0.3, 0, 1, 0, 0);
+}
+
+CSS Transform Properties
+The following table lists all the 2D transform properties:
+
+Property	Description
+transform	Applies a 2D or 3D transformation to an element
+transform-origin	Allows you to change the position on transformed elements
+CSS 2D Transform Methods
+Function	Description
+matrix(n,n,n,n,n,n)	Defines a 2D transformation, using a matrix of six values
+translate(x,y)	Defines a 2D translation, moving the element along the X- and the Y-axis
+translateX(n)	Defines a 2D translation, moving the element along the X-axis
+translateY(n)	Defines a 2D translation, moving the element along the Y-axis
+scale(x,y)	Defines a 2D scale transformation, changing the elements width and height
+scaleX(n)	Defines a 2D scale transformation, changing the element's width
+scaleY(n)	Defines a 2D scale transformation, changing the element's height
+rotate(angle)	Defines a 2D rotation, the angle is specified in the parameter
+skew(x-angle,y-angle)	Defines a 2D skew transformation along the X- and the Y-axis
+skewX(angle)	Defines a 2D skew transformation along the X-axis
+skewY(angle)	Defines a 2D skew transformation along the Y-axis
+
+                                                  CSS 3D Transforms
+
+CSS 3D Transforms
+CSS also supports 3D transformations.
+
+Mouse over the elements below to see the difference between a 2D and a 3D transformation:
+
+2D rotate3D rotate
+In this chapter you will learn about the following CSS property:
+
+transform
+Browser Support
+The numbers in the table specify the first browser version that fully supports the property.
+
+Property					
+transform	36.0
+10.0
+16.0
+9.0
+23.0
+CSS 3D Transforms Methods
+With the CSS transform property you can use the following 3D transformation methods:
+
+rotateX()
+rotateY()
+rotateZ()
+The rotateX() Method
+Rotate X
+The rotateX() method rotates an element around its X-axis at a given degree:
+
+Example
+#myDiv {
+  transform: rotateX(150deg);
+}
+The rotateY() Method
+Rotate Y
+The rotateY() method rotates an element around its Y-axis at a given degree:
+
+Example
+#myDiv {
+  transform: rotateY(150deg);
+}
+The rotateZ() Method
+The rotateZ() method rotates an element around its Z-axis at a given degree:
+
+Example
+#myDiv {
+  transform: rotateZ(90deg);
+}
+
+CSS Transform Properties
+The following table lists all the 3D transform properties:
+
+Property	Description
+transform	Applies a 2D or 3D transformation to an element
+transform-origin	Allows you to change the position on transformed elements
+transform-style	Specifies how nested elements are rendered in 3D space
+perspective	Specifies the perspective on how 3D elements are viewed
+perspective-origin	Specifies the bottom position of 3D elements
+backface-visibility	Defines whether or not an element should be visible when not facing the screen
+CSS 3D Transform Methods
+Function	Description
+matrix3d
+(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)	Defines a 3D transformation, using a 4x4 matrix of 16 values
+translate3d(x,y,z)	Defines a 3D translation
+translateX(x)	Defines a 3D translation, using only the value for the X-axis
+translateY(y)	Defines a 3D translation, using only the value for the Y-axis
+translateZ(z)	Defines a 3D translation, using only the value for the Z-axis
+scale3d(x,y,z)	Defines a 3D scale transformation
+scaleX(x)	Defines a 3D scale transformation by giving a value for the X-axis
+scaleY(y)	Defines a 3D scale transformation by giving a value for the Y-axis
+scaleZ(z)	Defines a 3D scale transformation by giving a value for the Z-axis
+rotate3d(x,y,z,angle)	Defines a 3D rotation
+rotateX(angle)	Defines a 3D rotation along the X-axis
+rotateY(angle)	Defines a 3D rotation along the Y-axis
+rotateZ(angle)	Defines a 3D rotation along the Z-axis
+perspective(n)	Defines a perspective view for a 3D transformed element
+
+                                            CSS Transitions
+
+CSS Transitions
+CSS transitions allows you to change property values smoothly, over a given duration.
+
+Mouse over the element below to see a CSS transition effect:
+
+CSS
+In this chapter you will learn about the following properties:
+
+transition
+transition-delay
+transition-duration
+transition-property
+transition-timing-function
+
+How to Use CSS Transitions?
+To create a transition effect, you must specify two things:
+
+the CSS property you want to add an effect to
+the duration of the effect
+Note: If the duration part is not specified, the transition will have no effect, because the default value is 0.
+
+The following example shows a 100px * 100px red <div> element. The <div> element has also specified a transition effect for the width property, with a duration of 2 seconds:
+
+Example
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: width 2s;
+}
+
+The transition effect will start when the specified CSS property (width) changes value.
+
+Now, let us specify a new value for the width property when a user mouses over the <div> element:
+
+Example
+div:hover {
+  width: 300px;
+}
+
+Examples combine
+
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: width 2s;
+}
+
+div:hover {
+  width: 300px;
+}
+</style>
+</head>
+<body>
+
+<h1>The transition Property</h1>
+
+<p>Hover over the div element below, to see the transition effect:</p>
+<div></div>
+
+</body>
+</html>
+
+Notice that when the cursor mouses out of the element, it will gradually change back to its original style.
+
+Change Several Property Values
+The following example adds a transition effect for both the width and height property, with a duration of 2 seconds for the width and 4 seconds for the height:
+
+Example
+div {
+  transition: width 2s, height 4s;
+}
+ADVERTISEMENT
+
+Specify the Speed Curve of the Transition
+The transition-timing-function property specifies the speed curve of the transition effect.
+
+The transition-timing-function property can have the following values:
+
+ease - specifies a transition effect with a slow start, then fast, then end slowly (this is default)
+linear - specifies a transition effect with the same speed from start to end
+ease-in - specifies a transition effect with a slow start
+ease-out - specifies a transition effect with a slow end
+ease-in-out - specifies a transition effect with a slow start and end
+cubic-bezier(n,n,n,n) - lets you define your own values in a cubic-bezier function
+The following example shows some of the different speed curves that can be used:
+
+Example
+#div1 {transition-timing-function: linear;}
+#div2 {transition-timing-function: ease;}
+#div3 {transition-timing-function: ease-in;}
+#div4 {transition-timing-function: ease-out;}
+#div5 {transition-timing-function: ease-in-out;}
+Delay the Transition Effect
+The transition-delay property specifies a delay (in seconds) for the transition effect.
+
+The following example has a 1 second delay before starting:
+
+Example
+div {
+  transition-delay: 1s;
+}
+Transition + Transformation
+The following example adds a transition effect to the transformation:
+
+Example
+div {
+  transition: width 2s, height 2s, transform 2s;
+}
+More Transition Examples
+The CSS transition properties can be specified one by one, like this:
+
+Example
+div {
+  transition-property: width;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+  transition-delay: 1s;
+}
+or by using the shorthand property transition:
+
+Example
+div {
+  transition: width 2s linear 1s;
+}
+
+CSS Transition Properties
+The following table lists all the CSS transition properties:
+
+Property	Description
+transition	A shorthand property for setting the four transition properties into a single property
+transition-delay	Specifies a delay (in seconds) for the transition effect
+transition-duration	Specifies how many seconds or milliseconds a transition effect takes to complete
+transition-property	Specifies the name of the CSS property the transition effect is for
+transition-timing-function	Specifies the speed curve of the transition effect
+
