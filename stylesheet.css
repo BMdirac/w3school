@@ -7578,5 +7578,1007 @@ Example
   background-color: yellow;
 }
 
-                    /*  CHAPTER 9  ************************************************************************************************** */                 
+                    /*  CHAPTER 9    CSS ADVANCED ********************************************************************* */                 
 
+                                                  CSS Rounded Corners
+
+CSS Rounded Corners
+With the CSS border-radius property, you can give any element "rounded corners".
+
+CSS border-radius Property
+The CSS border-radius property defines the radius of an element's corners.
+
+Tip: This property allows you to add rounded corners to elements!
+
+Here are three examples:
+
+1. Rounded corners for an element with a specified background color:
+
+Rounded corners!
+
+2. Rounded corners for an element with a border:
+
+Rounded corners!
+
+3. Rounded corners for an element with a background image:
+
+Rounded corners!
+
+Here is the code:
+
+Example
+#rcorners1 {
+  border-radius: 25px;
+  background: #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+#rcorners2 {
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+#rcorners3 {
+  border-radius: 25px;
+  background: url(paper.gif);
+  background-position: left top;
+  background-repeat: repeat;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+Tip: The border-radius property is actually a shorthand property for the border-top-left-radius, border-top-right-radius, border-bottom-right-radius and border-bottom-left-radius properties.
+
+ADVERTISEMENT
+
+CSS border-radius - Specify Each Corner
+The border-radius property can have from one to four values. Here are the rules:
+
+Four values - border-radius: 15px 50px 30px 5px; (first value applies to top-left corner, second value applies to top-right corner, third value applies to bottom-right corner, and fourth value applies to bottom-left corner): 
+
+Three values - border-radius: 15px 50px 30px; (first value applies to top-left corner, second value applies to top-right and bottom-left corners, and third value applies to bottom-right corner):
+
+Two values - border-radius: 15px 50px; (first value applies to top-left and bottom-right corners, and the second value applies to top-right and bottom-left corners):
+
+One value - border-radius: 15px; (the value applies to all four corners, which are rounded equally:
+
+Here is the code:
+
+Example
+#rcorners1 {
+  border-radius: 15px 50px 30px 5px;
+  background: #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+#rcorners2 {
+  border-radius: 15px 50px 30px;
+  background: #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+#rcorners3 {
+  border-radius: 15px 50px;
+  background: #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+#rcorners4 {
+  border-radius: 15px;
+  background: #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+You could also create elliptical corners:
+
+Example
+#rcorners1 {
+  border-radius: 50px / 15px;
+  background: #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+#rcorners2 {
+  border-radius: 15px / 50px;
+  background: #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+#rcorners3 {
+  border-radius: 50%;
+  background: #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+CSS Rounded Corners Properties
+
+Property	Description
+border-radius	A shorthand property for setting all the four border-*-*-radius properties
+border-top-left-radius	Defines the shape of the border of the top-left corner
+border-top-right-radius	Defines the shape of the border of the top-right corner
+border-bottom-right-radius	Defines the shape of the border of the bottom-right corner
+border-bottom-left-radius	Defines the shape of the border of the bottom-left corner
+
+                                              CSS Border Images
+                                              
+CSS Border Images
+With the CSS border-image property, you can set an image to be used as the border around an element.
+
+CSS border-image Property
+The CSS border-image property allows you to specify an image to be used instead of the normal border around an element.
+
+The property has three parts:
+
+The image to use as the border
+Where to slice the image
+Define whether the middle sections should be repeated or stretched
+We will use the following image (called "border.png"):
+
+Border
+
+The border-image property takes the image and slices it into nine sections, like a tic-tac-toe board. It then places the corners at the corners, and the middle sections are repeated or stretched as you specify.
+
+Note: For border-image to work, the element also needs the border property set!
+
+Here, the middle sections of the image are repeated to create the border:
+
+An image as a border!
+
+Here is the code:
+
+Example
+#borderimg {
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url(border.png) 30 round;
+}
+Here, the middle sections of the image are stretched to create the border:
+
+An image as a border!
+
+Here is the code:
+
+Example
+#borderimg {
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url(border.png) 30 stretch;
+}
+Tip: The border-image property is actually a shorthand property for the border-image-source, border-image-slice, border-image-width, border-image-outset and border-image-repeat properties.
+
+CSS border-image - Different Slice Values
+Different slice values completely changes the look of the border:
+
+Example 1:
+
+border-image: url(border.png) 50 round;
+
+Example 2:
+
+border-image: url(border.png) 20% round;
+
+Example 3:
+
+border-image: url(border.png) 30% round;
+
+Here is the code:
+
+Example
+#borderimg1 {
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url(border.png) 50 round;
+}
+
+#borderimg2 {
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url(border.png) 20% round;
+}
+
+#borderimg3 {
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url(border.png) 30% round;
+}
+
+CSS Border Image Properties
+Property	Description
+border-image	A shorthand property for setting all the border-image-* properties
+border-image-source	Specifies the path to the image to be used as a border
+border-image-slice	Specifies how to slice the border image
+border-image-width	Specifies the widths of the border image
+border-image-outset	Specifies the amount by which the border image area extends beyond the border box
+border-image-repeat	Specifies whether the border image should be repeated, rounded or stretched
+
+CSS Multiple Backgrounds
+In this chapter you will learn how to add multiple background images to one element.
+
+You will also learn about the following properties:
+
+background-size
+background-origin
+background-clip
+CSS Multiple Backgrounds
+CSS allows you to add multiple background images for an element, through the background-image property.
+
+The different background images are separated by commas, and the images are stacked on top of each other, where the first image is closest to the viewer.
+
+The following example has two background images, the first image is a flower (aligned to the bottom and right) and the second image is a paper background (aligned to the top-left corner):
+
+Example
+
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+#example1 {
+  background-image: url(img_flwr.gif), url(paper.gif);
+  background-position: right bottom, left top;
+  background-repeat: no-repeat, repeat;
+  padding: 15px;
+}
+</style>
+</head>
+<body>
+
+<h1>Multiple Backgrounds</h1>
+<p>The following div element has two background images:</p>
+
+<div id="example1">
+  <h1>Lorem Ipsum Dolor</h1>
+  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+  <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+</div>
+
+</body>
+</html>
+
+Multiple background images can be specified using either the individual background properties (as above) or the background shorthand property.
+
+The following example uses the background shorthand property (same result as example above):
+
+Example
+#example1 {
+  background: url(img_flwr.gif) right bottom no-repeat, url(paper.gif) left top repeat;
+}
+ADVERTISEMENT
+
+CSS Background Size
+The CSS background-size property allows you to specify the size of background images.
+
+The size can be specified in lengths, percentages, or by using one of the two keywords: contain or cover.
+
+The following example resizes a background image to much smaller than the original image (using pixels):
+
+Lorem Ipsum Dolor
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+Here is the code:
+
+Example
+#div1 {
+  background: url(img_flower.jpg);
+  background-size: 100px 80px;
+  background-repeat: no-repeat;
+}
+The two other possible values for background-size are contain and cover.
+
+The contain keyword scales the background image to be as large as possible (but both its width and its height must fit inside the content area). As such, depending on the proportions of the background image and the background positioning area, there may be some areas of the background which are not covered by the background image.
+
+The cover keyword scales the background image so that the content area is completely covered by the background image (both its width and height are equal to or exceed the content area). As such, some parts of the background image may not be visible in the background positioning area.
+
+The following example illustrates the use of contain and cover:
+
+Example
+#div1 {
+  background: url(img_flower.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#div2 {
+  background: url(img_flower.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+Define Sizes of Multiple Background Images
+The background-size property also accepts multiple values for background size (using a comma-separated list), when working with multiple backgrounds.
+
+The following example has three background images specified, with different background-size value for each image:
+
+Example
+#example1 {
+  background: url(img_tree.gif) left top no-repeat, url(img_flwr.gif) right bottom no-repeat, url(paper.gif) left top repeat;
+  background-size: 50px, 130px, auto;
+}
+Full Size Background Image
+Now we want to have a background image on a website that covers the entire browser window at all times.
+
+The requirements are as follows:
+
+Fill the entire page with the image (no white space)
+Scale image as needed
+Center image on page
+Do not cause scrollbars
+The following example shows how to do it; Use the <html> element (the <html> element is always at least the height of the browser window). Then set a fixed and centered background on it. Then adjust its size with the background-size property:
+
+Example
+html {
+  background: url(img_man.jpg) no-repeat center fixed;
+  background-size: cover;
+}
+Hero Image
+You could also use different background properties on a <div> to create a hero image (a large image with text), and place it where you want.
+
+Example
+.hero-image {
+  background: url(img_man.jpg) no-repeat center;
+  background-size: cover;
+  height: 500px;
+  position: relative;
+}
+CSS background-origin Property
+The CSS background-origin property specifies where the background image is positioned.
+
+The property takes three different values:
+
+border-box - the background image starts from the upper left corner of the border
+padding-box - (default) the background image starts from the upper left corner of the padding edge
+content-box - the background image starts from the upper left corner of the content
+The following example illustrates the background-origin property:
+
+Example
+#example1 {
+  border: 10px solid black;
+  padding: 35px;
+  background: url(img_flwr.gif);
+  background-repeat: no-repeat;
+  background-origin: content-box;
+}
+CSS background-clip Property
+The CSS background-clip property specifies the painting area of the background.
+
+The property takes three different values:
+
+border-box - (default) the background is painted to the outside edge of the border
+padding-box - the background is painted to the outside edge of the padding
+content-box - the background is painted within the content box
+The following example illustrates the background-clip property:
+
+Example
+#example1 {
+  border: 10px dotted black;
+  padding: 35px;
+  background: yellow;
+  background-clip: content-box;
+}
+
+CSS Advanced Background Properties
+Property	Description
+background	A shorthand property for setting all the background properties in one declaration
+background-clip	Specifies the painting area of the background
+background-image	Specifies one or more background images for an element
+background-origin	Specifies where the background image(s) is/are positioned
+background-size	Specifies the size of the background image(s)
+
+                                                  CSS Colors
+
+CSS supports 140+ color names, HEX values, RGB values, RGBA values, HSL values, HSLA values, and opacity.
+
+RGBA Colors
+RGBA color values are an extension of RGB color values with an alpha channel - which specifies the opacity for a color.
+
+An RGBA color value is specified with: rgba(red, green, blue, alpha). The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque).
+
+rgba(255, 0, 0, 0.2);
+rgba(255, 0, 0, 0.4);
+rgba(255, 0, 0, 0.6);
+rgba(255, 0, 0, 0.8);
+The following example defines different RGBA colors:
+
+Example
+#p1 {background-color: rgba(255, 0, 0, 0.3);}  /* red with opacity */
+#p2 {background-color: rgba(0, 255, 0, 0.3);}  /* green with opacity */
+#p3 {background-color: rgba(0, 0, 255, 0.3);}  /* blue with opacity */
+ADVERTISEMENT
+
+HSL Colors
+HSL stands for Hue, Saturation and Lightness.
+
+An HSL color value is specified with: hsl(hue, saturation, lightness).
+
+Hue is a degree on the color wheel (from 0 to 360):
+0 (or 360) is red
+120 is green
+240 is blue
+Saturation is a percentage value: 100% is the full color.
+Lightness is also a percentage; 0% is dark (black) and 100% is white.
+hsl(0, 100%, 30%);
+hsl(0, 100%, 50%);
+hsl(0, 100%, 70%);
+hsl(0, 100%, 90%);
+The following example defines different HSL colors:
+
+Example
+#p1 {background-color: hsl(120, 100%, 50%);}  /* green */
+#p2 {background-color: hsl(120, 100%, 75%);}  /* light green */
+#p3 {background-color: hsl(120, 100%, 25%);}  /* dark green */
+#p4 {background-color: hsl(120, 60%, 70%);}   /* pastel green */
+HSLA Colors
+HSLA color values are an extension of HSL color values with an alpha channel - which specifies the opacity for a color.
+
+An HSLA color value is specified with: hsla(hue, saturation, lightness, alpha), where the alpha parameter defines the opacity. The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque).
+
+hsla(0, 100%, 30%, 0.3);
+hsla(0, 100%, 50%, 0.3);
+hsla(0, 100%, 70%, 0.3);
+hsla(0, 100%, 90%, 0.3);
+The following example defines different HSLA colors:
+
+Example
+#p1 {background-color: hsla(120, 100%, 50%, 0.3);}  /* green with opacity */
+#p2 {background-color: hsla(120, 100%, 75%, 0.3);}  /* light green with opacity */
+#p3 {background-color: hsla(120, 100%, 25%, 0.3);}  /* dark green with opacity */
+#p4 {background-color: hsla(120, 60%, 70%, 0.3);}   /* pastel green with opacity */
+Opacity
+The CSS opacity property sets the opacity for the whole element (both background color and text will be opaque/transparent).
+
+The opacity property value must be a number between 0.0 (fully transparent) and 1.0 (fully opaque).
+
+rgb(255, 0, 0);opacity:0.2;
+rgb(255, 0, 0);opacity:0.4;
+rgb(255, 0, 0);opacity:0.6;
+rgb(255, 0, 0);opacity:0.8;
+Notice that the text above will also be transparent/opaque!
+
+The following example shows different elements with opacity:
+
+Example
+#p1 {background-color:rgb(255,0,0);opacity:0.6;}  /* red with opacity */
+#p2 {background-color:rgb(0,255,0);opacity:0.6;}  /* green with opacity */
+#p3 {background-color:rgb(0,0,255);opacity:0.6;}  /* blue with opacity */
+
+                                              CSS Color Keywords
+
+This page will explain the transparent, currentcolor, and inherit keywords.
+
+The transparent Keyword
+The transparent keyword is used to make a color transparent. This is often used to make a transparent background color for an element.
+
+Example
+Here, the background color of the <div> element will be fully transparent, and the background image will show through:
+
+body {
+  background-image: url("paper.gif");
+}
+
+div {
+  background-color: transparent;
+}
+Note: The transparent keyword is equivalent to rgba(0,0,0,0). RGBA color values are an extension of RGB color values with an alpha channel - which specifies the opacity for a color. Read more in our CSS RGB chapter and in our CSS Colors chapter.
+
+The currentcolor Keyword
+The currentcolor keyword is like a variable that holds the current value of the color property of an element.
+
+This keyword can be useful if you want a specific color to be consistent in an element or a page.
+
+Example
+In this example the border color of the <div> element will be blue, because the text color of the <div> element is blue:
+
+div {
+  color: blue;
+  border: 10px solid currentcolor;
+}
+Example
+In this example the <div>'s background color is set to the current color value of the body element:
+
+body {
+  color: purple;
+}
+
+div {
+  background-color: currentcolor;
+}
+Example
+In this example the <div>'s border color and shadow color is set to the current color value of the body element:
+
+body {
+ color: green;
+}
+
+div {
+  box-shadow: 0px 0px 15px currentcolor;
+  border: 5px solid currentcolor;
+}
+The inherit Keyword
+The inherit keyword specifies that a property should inherit its value from its parent element.
+
+The inherit keyword can be used for any CSS property, and on any HTML element.
+
+Example
+In this example the <span>'s border settings will be inherited from the parent element: 
+
+div {
+  border: 2px solid red;
+}
+
+span {
+  border: inherit;
+}
+
+                                                      CSS Gradients
+
+Gradient Backgrounds
+CSS gradients let you display smooth transitions between two or more specified colors.
+
+CSS defines three types of gradients:
+
+Linear Gradients (goes down/up/left/right/diagonally)
+Radial Gradients (defined by their center)
+Conic Gradients (rotated around a center point)
+CSS Linear Gradients
+To create a linear gradient you must define at least two color stops. Color stops are the colors you want to render smooth transitions among. You can also set a starting point and a direction (or an angle) along with the gradient effect.
+
+Syntax
+background-image: linear-gradient(direction, color-stop1, color-stop2, ...);
+Direction - Top to Bottom (this is default)
+
+The following example shows a linear gradient that starts at the top. It starts red, transitioning to yellow:
+
+top to bottom (default)
+
+Example
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#grad1 {
+  height: 200px;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(red, yellow);
+}
+</style>
+</head>
+<body>
+
+<h1>Linear Gradient - Top to Bottom</h1>
+<p>This linear gradient starts red at the top, transitioning to yellow at the bottom:</p>
+
+<div id="grad1"></div>
+
+</body>
+</html>
+
+Direction - Left to Right
+
+The following example shows a linear gradient that starts from the left. It starts red, transitioning to yellow:
+
+left to right
+Example
+#grad {
+  background-image: linear-gradient(to right, red , yellow);
+}
+Direction - Diagonal
+
+You can make a gradient diagonally by specifying both the horizontal and vertical starting positions.
+
+The following example shows a linear gradient that starts at top left (and goes to bottom right). It starts red, transitioning to yellow:
+
+top left to bottom right
+Example
+#grad {
+  background-image: linear-gradient(to bottom right, red, yellow);
+}
+ADVERTISEMENT
+
+Using Angles
+If you want more control over the direction of the gradient, you can define an angle, instead of the predefined directions (to bottom, to top, to right, to left, to bottom right, etc.). A value of 0deg is equivalent to "to top". A value of 90deg is equivalent to "to right". A value of 180deg is equivalent to "to bottom".
+
+Syntax
+background-image: linear-gradient(angle, color-stop1, color-stop2);
+The following example shows how to use angles on linear gradients:
+
+180deg
+Example
+#grad {
+  background-image: linear-gradient(180deg, red, yellow);
+}
+Using Multiple Color Stops
+The following example shows a linear gradient (from top to bottom) with multiple color stops:
+
+Example
+#grad {
+  background-image: linear-gradient(red, yellow, green);
+}
+The following example shows how to create a linear gradient (from left to right) with the color of the rainbow and some text:
+
+Rainbow Background
+Example
+#grad {
+  background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+}
+Using Transparency
+CSS gradients also support transparency, which can be used to create fading effects.
+
+To add transparency, we use the rgba() function to define the color stops. The last parameter in the rgba() function can be a value from 0 to 1, and it defines the transparency of the color: 0 indicates full transparency, 1 indicates full color (no transparency).
+
+The following example shows a linear gradient that starts from the left. It starts fully transparent, transitioning to full color red:
+
+Example
+#grad {
+  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+}
+Repeating a linear-gradient
+The repeating-linear-gradient() function is used to repeat linear gradients:
+
+Example
+A repeating linear gradient:
+
+#grad {
+  background-image: repeating-linear-gradient(red, yellow 10%, green 20%);
+
+  CSS Radial Gradients
+  CSS Radial Gradients
+  A radial gradient is defined by its center.
+  
+  To create a radial gradient you must also define at least two color stops.
+  
+  Syntax
+  background-image: radial-gradient(shape size at position, start-color, ..., last-color);
+  By default, shape is ellipse, size is farthest-corner, and position is center.
+  
+  Radial Gradient - Evenly Spaced Color Stops (this is default)
+  
+  The following example shows a radial gradient with evenly spaced color stops:
+  
+  Example
+  #grad {
+    background-image: radial-gradient(red, yellow, green);
+  }
+  Radial Gradient - Differently Spaced Color Stops
+  
+  The following example shows a radial gradient with differently spaced color stops:
+  
+  Example
+  #grad {
+    background-image: radial-gradient(red 5%, yellow 15%, green 60%);
+  }
+  Set Shape
+  The shape parameter defines the shape. It can take the value circle or ellipse. The default value is ellipse.
+  
+  The following example shows a radial gradient with the shape of a circle:
+  
+  Example
+  #grad {
+    background-image: radial-gradient(circle, red, yellow, green);
+  }
+  
+  Use of Different Size Keywords
+  The size parameter defines the size of the gradient. It can take four values:
+  
+  closest-side
+  farthest-side
+  closest-corner
+  farthest-corner
+  Example
+  A radial gradient with different size keywords:
+  
+  #grad1 {
+    background-image: radial-gradient(closest-side at 60% 55%, red, yellow, black);
+  }
+  
+  #grad2 {
+    background-image: radial-gradient(farthest-side at 60% 55%, red, yellow, black);
+  }
+  Repeating a radial-gradient
+  The repeating-radial-gradient() function is used to repeat radial gradients:
+  
+  Example
+  A repeating radial gradient:
+  
+  #grad {
+    background-image: repeating-radial-gradient(red, yellow 10%, green 15%);
+  }
+
+  CSS Conic Gradients
+  CSS Conic Gradients
+  A conic gradient is a gradient with color transitions rotated around a center point.
+  
+  To create a conic gradient you must define at least two colors.
+  
+  Syntax
+  background-image: conic-gradient([from angle] [at position,] color [degree], color [degree], ...);
+  By default, angle is 0deg and position is center.
+  
+  If no degree is specified, the colors will be spread equally around the center point.
+  
+  Conic Gradient: Three Colors
+  The following example shows a conic gradient with three colors:
+  
+  Example
+  A conic gradient with three colors:
+  
+  #grad {
+    background-image: conic-gradient(red, yellow, green);
+  }
+  Conic Gradient: Five Colors
+  The following example shows a conic gradient with five colors:
+  
+  Example
+  A conic gradient with five colors:
+  
+  #grad {
+    background-image: conic-gradient(red, yellow, green, blue, black);
+  }
+  
+  Conic Gradient: Three Colors and Degrees
+  The following example shows a conic gradient with three colors and a degree for each color:
+  
+  Example
+  A conic gradient with three colors and a degree for each color:
+  
+  #grad {
+    background-image: conic-gradient(red 45deg, yellow 90deg, green 210deg);
+  }
+  ADVERTISEMENT
+  
+  Create Pie Charts
+  Just add border-radius: 50% to make the conic gradient look like a pie:
+  
+  Example
+  #grad {
+    background-image: conic-gradient(red, yellow, green, blue, black);
+    border-radius: 50%;
+  }
+  Here is another pie chart with defined degrees for all the colors:
+  
+  Example
+  #grad {
+    background-image: conic-gradient(red 0deg, red 90deg, yellow 90deg, yellow 180deg, green 180deg, green 270deg, blue 270deg);
+    border-radius: 50%;
+  }
+  Conic Gradient With Specified From Angle
+  The [from angle] specifies an angle that the entire conic gradient is rotated by.
+  
+  The following example shows a conic gradient with a from angle of 90deg:
+  
+  Example
+  A conic gradient with a from angle:
+  
+  #grad {
+    background-image: conic-gradient(from 90deg, red, yellow, green);
+  }
+  Conic Gradient With Specified Center Position
+  The [at position] specifies the center of the conic gradient.
+  
+  The following example shows a conic gradient with a center position of 60% 45%:
+  
+  Example
+  A conic gradient with a specified center position:
+  
+  #grad {
+    background-image: conic-gradient(at 60% 45%, red, yellow, green);
+  }
+  Repeating a Conic Gradient
+  The repeating-conic-gradient() function is used to repeat conic gradients:
+  
+  Example
+  A repeating conic gradient:
+  
+  #grad {
+    background-image: repeating-conic-gradient(red 10%, yellow 20%);
+    border-radius: 50%;
+  }
+  Here is a repeating conic gradient with defined color-starts and color-stops:
+  
+  Example
+  A repeating conic gradient with defined color-starts and color-stops:
+  
+  #grad {
+    background-image: repeating-conic-gradient(red 0deg 10deg, yellow 10deg 20deg, blue 20deg 30deg);
+    border-radius: 50%;
+  }
+  CSS Gradient Functions
+  The following table lists the CSS gradient functions:
+  
+  Function	Description
+  conic-gradient()	Creates a conic gradient. Define at least two colors (around a center point)
+  linear-gradient()	Creates a linear gradient. Define at least two colors (top to bottom)
+  radial-gradient()	Creates a radial gradient. Define at least two colors (center to edges)
+  repeating-conic-gradient()	Repeats a conic gradient
+  repeating-linear-gradient()	Repeats a linear gradient
+  repeating-radial-gradient()	Repeats a radial gradient
+
+
+                                                              CSS Shadow Effects
+
+Norway
+Shadows
+
+With CSS you can create shadow effects!
+
+Hover over me!
+CSS Shadow Effects
+With CSS you can add shadow to text and to elements.
+
+In these chapters you will learn about the following properties:
+
+text-shadow
+box-shadow
+CSS Text Shadow
+The CSS text-shadow property applies shadow to text.
+
+In its simplest use, you only specify the horizontal shadow (2px) and the vertical shadow (2px):
+
+Text shadow effect!
+Example
+h1 {
+  text-shadow: 2px 2px;
+}
+Next, add a color to the shadow:
+
+Text shadow effect!
+Example
+h1 {
+  text-shadow: 2px 2px red;
+}
+Then, add a blur effect to the shadow:
+
+Text shadow effect!
+Example
+h1 {
+  text-shadow: 2px 2px 5px red;
+}
+The following example shows a white text with black shadow:
+
+Text shadow effect!
+Example
+h1 {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+The following example shows a red neon glow shadow:
+
+Text shadow effect!
+Example
+h1 {
+  text-shadow: 0 0 3px #FF0000;
+}
+ADVERTISEMENT
+
+Multiple Shadows
+To add more than one shadow to the text, you can add a comma-separated list of shadows.
+
+The following example shows a red and blue neon glow shadow:
+
+Text shadow effect!
+Example
+h1 {
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+The following example shows a white text with black, blue, and darkblue shadow:
+
+Text shadow effect!
+Example
+h1 {
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+You can also use the text-shadow property to create a plain border around some text (without shadows):
+
+Border around text!
+Example
+h1 {
+  color: coral;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+CSS Box Shadow
+CSS box-shadow Property
+The CSS box-shadow property is used to apply one or more shadows to an element.
+
+Specify a Horizontal and a Vertical Shadow
+In its simplest use, you only specify a horizontal and a vertical shadow. The default color of the shadow is the current text-color.
+
+A <div> element with a box-shadow
+Example
+Specify a horizontal and a vertical shadow:
+
+div {
+  box-shadow: 10px 10px;
+}
+Specify a Color for the Shadow
+The color parameter defines the color of the shadow.
+
+A <div> element with a lightblue box-shadow
+Example
+Specify a color for the shadow:
+
+div {
+  box-shadow: 10px 10px lightblue;
+}
+Add a Blur Effect to the Shadow
+The blur parameter defines the blur radius. The higher the number, the more blurred the shadow will be.
+
+A <div> element with a 5px blurred, lightblue box-shadow
+Example
+Add a blur effect to the shadow:
+
+div {
+  box-shadow: 10px 10px 5px lightblue;
+}
+Set the Spread Radius of the Shadow
+The spread parameter defines the spread radius. A positive value increases the size of the shadow, a negative value decreases the size of the shadow.
+
+A <div> element with a blurred, lightblue box-shadow, with a spread radius of 12px
+Example
+Set the spread radius of the shadow:
+
+div {
+  box-shadow: 10px 10px 5px 12px lightblue;
+}
+ADVERTISEMENT
+
+Set the inset Parameter
+The inset parameter changes the shadow from an outer shadow (outset) to an inner shadow.
+
+A <div> element with a blurred, lightblue, inset box-shadow
+Example
+Add the inset parameter:
+
+div {
+  box-shadow: 10px 10px 5px lightblue inset;
+}
+Add Multiple Shadows
+An element can also have multiple shadows:
+
+Example
+div {
+  box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green;
+}
+Cards
+You can also use the box-shadow property to create paper-like cards:
+
+1
+January 1, 2021
+
+Norway
+Hardanger, Norway
+
+Example
+div.card {
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+CSS Shadow Properties
+The following table lists the CSS shadow properties:
+
+Property	Description
+box-shadow	Adds one or more shadows to an element
+text-shadow	Adds one or more shadows to a text
+
+Continue from css text effects
