@@ -9407,7 +9407,7 @@ div {
   animation-duration: 4s;
   animation-iteration-count: 3;
 }
-The following example uses the value "infinite" to make the animation continue for ever:
+The following example uses the value "infinite" to make the animation continue forever:
 
 Example
 div {
@@ -9790,3 +9790,7 @@ Example
 .tooltip:hover .tooltiptext {
   opacity: 1;
 }
+
+                            /*  CHAPTER 11    CSS ADVANCED ********************************************************************* */  
+
+                            
