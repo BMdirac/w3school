@@ -9793,4 +9793,3486 @@ Example
 
                             /*  CHAPTER 11    CSS ADVANCED ********************************************************************* */  
 
-                            
+                            CSS Styling Images
+
+Learn how to style images using CSS.
+
+Rounded Images
+Use the border-radius property to create rounded images:
+
+
+Paris
+Example
+Rounded Image:
+
+img {
+  border-radius: 8px;
+}
+Paris
+Example
+Circled Image:
+
+img {
+  border-radius: 50%;
+}
+Thumbnail Images
+Use the border property to create thumbnail images.
+
+Thumbnail Image:
+
+Paris
+Example
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+<img src="paris.jpg" alt="Paris">
+Thumbnail Image as Link:
+
+
+Example
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+<a href="paris.jpg">
+  <img src="paris.jpg" alt="Paris">
+</a>
+ADVERTISEMENT
+
+Responsive Images
+Responsive images will automatically adjust to fit the size of the screen.
+
+Resize the browser window to see the effect:
+
+Cinque Terre
+If you want an image to scale down if it has to, but never scale up to be larger than its original size, add the following:
+
+Example
+img {
+  max-width: 100%;
+  height: auto;
+}
+Tip: Read more about Responsive Web Design in our CSS RWD Tutorial.
+
+Center an Image
+To center an image, set left and right margin to auto and make it into a block element:
+
+Paris
+Example
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+Polaroid Images / Cards
+Cinque Terre
+Cinque Terre
+
+Norway
+Northern Lights
+
+Example
+div.polaroid {
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+img {width: 100%}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+Transparent Image
+The opacity property can take a value from 0.0 - 1.0. The lower value, the more transparent:
+
+Forest
+opacity 0.2
+
+Forest
+opacity 0.5
+
+Forest
+opacity 1
+(default)
+
+Example
+img {
+  opacity: 0.5;
+}
+Image Text
+How to position text in an image:
+
+Example
+Cingue TerreBottom LeftTop LeftTop RightBottom RightCentered
+Try it Yourself:
+
+    
+Image Filters
+The CSS filter property adds visual effects (like blur and saturation) to an element.
+
+Note: The filter property is not supported in Internet Explorer or Edge 12.
+
+Example
+Change the color of all images to black and white (100% gray):
+
+img {
+  filter: grayscale(100%);
+}
+
+Tip: Go to our CSS filter Reference to learn more about CSS filters.
+
+Image Hover Overlay
+Create an overlay effect on hover:
+
+Example
+Fade in text:
+
+AvatarHello World
+Example
+Fade in a box:
+
+Avatar
+John
+Example
+Slide in (top):
+
+AvatarHello World
+Example
+Slide in (bottom):
+
+AvatarHello World
+Example
+Slide in (left):
+
+AvatarHello World
+Example
+Slide in (right):
+
+AvatarHello World
+Flip an Image
+Move your mouse over the image:
+
+Paris
+Example
+img:hover {
+  transform: scaleX(-1);
+}
+Responsive Image Gallery
+CSS can be used to create image galleries. This example use media queries to re-arrange the images on different screen sizes. Resize the browser window to see the effect:
+
+Cinque Terre
+Add a description of the image here
+Forest
+Add a description of the image here
+Northern Lights
+Add a description of the image here
+Mountains
+Add a description of the image here
+Example
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px){
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .responsive {
+    width: 100%;
+  }
+}
+Tip: Read more about Responsive Web Design in our CSS RWD Tutorial.
+
+Image Modal (Advanced)
+This is an example to demonstrate how CSS and JavaScript can work together.
+
+First, use CSS to create a modal window (dialog box), and hide it by default.
+
+Then, use a JavaScript to show the modal window and to display the image inside the modal, when a user clicks on the image:
+
+Northern Lights, Norway
+Example
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+                                                          CSS Image Reflection
+
+In this chapter you will learn how to reflect an image.
+
+
+CSS Image Reflections
+The box-reflect property is used to create an image reflection.
+
+The value of the box-reflect property can be: below, above, left , or right.
+
+Browser Support
+The numbers in the table specify the first browser version that fully supports the property.
+
+Numbers followed by -webkit- specify the first version that worked with a prefix.
+
+Property					
+box-reflect	4.0 -webkit-	79.0 -webkit-	Not supported	4.0 -webkit-	15.0 -webkit-
+ADVERTISEMENT
+
+Examples
+Example
+Here we want the reflection below the image:
+
+img {
+  -webkit-box-reflect: below;
+}
+Example
+Here we want the reflection to the right of the image:
+
+img {
+  -webkit-box-reflect: right;
+}
+CSS Reflection Offset
+To specify the gap between the image and the reflection, add the size of the gap to the box-reflect property.
+
+Example
+Here we want the reflection below the image, with a 20px offset:
+
+img {
+  -webkit-box-reflect: below 20px;
+}
+CSS Reflection With Gradient
+We can also create a fade-out effect on the reflection.
+
+Example
+Create a fade-out effect on the reflection:
+
+img {
+  -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+}
+
+                                              CSS The object-fit Property
+
+The CSS object-fit property is used to specify how an <img> or <video> should be resized to fit its container.
+
+The CSS object-fit Property
+The CSS object-fit property is used to specify how an <img> or <video> should be resized to fit its container.
+
+This property tells the content to fill the container in a variety of ways; such as "preserve that aspect ratio" or "stretch up and take up as much space as possible".
+
+Look at the following image from Paris. This image is 400 pixels wide and 300 pixels high:
+
+Paris
+However, if we style the image above to be half its width (200 pixels) and same height (300 pixels), it will look like this:
+
+Paris
+Example
+img {
+  width: 200px;
+  height: 300px;
+}
+We see that the image is being squished to fit the container of 200x300 pixels (its original aspect ratio is destroyed).
+
+Here is where the object-fit property comes in. The object-fit property can take one of the following values:
+
+fill - This is default. The image is resized to fill the given dimension. If necessary, the image will be stretched or squished to fit
+contain - The image keeps its aspect ratio, but is resized to fit within the given dimension
+cover - The image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit
+none - The image is not resized
+scale-down - the image is scaled down to the smallest version of none or contain
+Using object-fit: cover;
+If we use object-fit: cover; the image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit:
+
+Paris
+Example
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}
+ADVERTISEMENT
+
+Using object-fit: contain;
+If we use object-fit: contain; the image keeps its aspect ratio, but is resized to fit within the given dimension:
+
+Paris
+Example
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: contain;
+}
+Using object-fit: fill;
+If we use object-fit: fill; the image is resized to fill the given dimension. If necessary, the image will be stretched or squished to fit:
+
+Paris
+Example
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: fill;
+}
+Using object-fit: none;
+If we use object-fit: none; the image is not resized:
+
+Paris
+Example
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: none;
+}
+Using object-fit: scale-down;
+If we use object-fit: scale-down; the image is scaled down to the smallest version of none or contain:
+
+Paris
+Example
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: scale-down;
+}
+Another Example
+Here we have two images and we want them to fill the width of 50% of the browser window and 100% of the height.
+
+In the following example we do NOT use object-fit, so when we resize the browser window, the aspect ratio of the images will be destroyed:
+
+Example
+NorwayParis
+In the next example, we use object-fit: cover;, so when we resize the browser window, the aspect ratio of the images is preserved:
+
+Example
+NorwayParis
+ CSS object-fit More Examples
+The following example demonstrates all the possible values of the object-fit property in one example:
+
+Example
+.fill {object-fit: fill;}
+.contain {object-fit: contain;}
+.cover {object-fit: cover;}
+.scale-down {object-fit: scale-down;}
+.none {object-fit: none;}
+CSS Object-* Properties
+The following table lists the CSS object-* properties:
+
+Property	Description
+object-fit	Specifies how an <img> or <video> should be resized to fit its container
+object-position	Specifies how an <img> or <video> should be positioned with x/y coordinates inside its "own content box"
+
+                                                CSS The object-position Property
+
+The CSS object-position property is used to specify how an <img> or <video> should be positioned within its container.
+
+The Image
+Look at the following image from Paris, which is 400x300 pixels:
+
+Paris
+Next, we use object-fit: cover; to keep the aspect ratio and to fill the given dimension. However, the image will be clipped to fit, like this:
+
+Paris
+Example
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}
+ADVERTISEMENT
+
+Using the object-position Property
+Let's say that the part of the image that is shown, is not positioned as we want. To position the image, we will use the object-position property.
+
+Here we will use the object-position property to position the image so that the great old building is in center:
+
+Paris
+Example
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  object-position: 80% 100%;
+}
+Here we will use the object-position property to position the image so that the famous Eiffel Tower is in center:
+
+Paris
+Example
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  object-position: 15% 100%;
+}
+CSS Object-* Properties
+The following table lists the CSS object-* properties:
+
+Property	Description
+object-fit	Specifies how an <img> or <video> should be resized to fit its container
+object-posititon	Specifies how an <img> or <video> should be positioned with x/y coordinates inside its "own content box"
+
+                                                          CSS Masking
+
+With CSS masking you create a mask layer to place over an element to partially or fully hide portions of the element.
+
+The CSS mask-image Property
+The CSS mask-image property specifies a mask layer image.
+
+The mask layer image can be a PNG image, an SVG image, a CSS gradient, or an SVG <mask> element.
+
+Browser Support
+Note: Most browsers only have partial support for CSS masking. You will need to use the -webkit- prefix in addition to the standard property in most browsers.
+
+The numbers in the table below specify the first browser version that fully supports the property. Numbers followed by -webkit- specify the first version that worked with a prefix.
+
+Property					
+mask-image	4.0 -webkit-	79.0 -webkit-	53.0	4.0 -webkit-	15.0 -webkit-
+Use an Image as the Mask Layer
+To use a PNG or an SVG image as the mask layer, use a url() value to pass in the mask layer image.
+
+The mask image needs to have a transparent or semi-transparent area. Black indicates fully transparent.
+
+Here is the mask image (a PNG image) we will use:
+
+W3Schools.com
+Here is an image from Cinque Terre, in Italy:
+
+Cinque Terre
+Now, we apply the mask image (the PNG image above) as the mask layer for the image from Cinque Terre, Italy:
+
+Cinque Terre
+Example
+Here is the source code:
+
+.mask1 {
+  -webkit-mask-image: url(w3logo.png);
+  mask-image: url(w3logo.png);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+Example Explained
+The mask-image property specifies the image to be used as a mask layer for an element.
+
+The mask-repeat property specifies if or how a mask image will be repeated. The no-repeat value indicates that the mask image will not be repeated (the mask image will only be shown once).
+
+Another Example
+If we omit the mask-repeat property, the mask image will be repeated all over the image from Cinque Terre, Italy:
+
+Cinque Terre
+Example
+Here is the source code:
+
+.mask1 {
+  -webkit-mask-image: url(w3logo.png);
+  mask-image: url(w3logo.png);
+}
+ADVERTISEMENT
+
+Use Gradients as the Mask Layer
+CSS linear and radial gradients can also be used as mask images.
+
+Linear Gradient Examples
+Here, we use a linear-gradient as the mask layer for our image. This linear gradient goes from top (black) to bottom (transparent):
+
+Cinque Terre
+ 
+Example
+Use a linear gradient as a mask layer:
+
+.mask1 {
+  -webkit-mask-image: linear-gradient(black, transparent);
+  mask-image: linear-gradient(black, transparent);
+}
+Here, we use a linear-gradient along with text masking as the mask layer for our image:
+
+The Cinque Terre is a coastal area within Liguria, in the northwest of Italy. It lies in the west of La Spezia Province, and comprises five villages: Monterosso al Mare, Vernazza, Corniglia, Manarola, and Riomaggiore.
+
+The Cinque Terre is a coastal area within Liguria, in the northwest of Italy. It lies in the west of La Spezia Province, and comprises five villages: Monterosso al Mare, Vernazza, Corniglia, Manarola, and Riomaggiore.
+
+The Cinque Terre is a coastal area within Liguria, in the northwest of Italy. It lies in the west of La Spezia Province, and comprises five villages: Monterosso al Mare, Vernazza, Corniglia, Manarola, and Riomaggiore.
+
+Example
+Use a linear gradient along with text masking as a mask layer:
+
+.mask1 {
+  max-width: 600px;
+  height: 350px;
+  overflow-y: scroll;
+  background: url(img_5terre.jpg) no-repeat;
+  -webkit-mask-image: linear-gradient(black, transparent);
+  mask-image: linear-gradient (black, transparent);
+}
+Radial Gradient Examples
+Here, we use a radial-gradient (shaped as a circle) as the mask layer for our image:
+
+Cinque Terre
+Example
+Use a radial gradient as a mask layer (a circle):
+
+.mask2 {
+  -webkit-mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0.5) 50%);
+  mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0.5) 50%);
+}
+Here, we use a radial-gradient (shaped as an ellipse) as the mask layer for our image:
+
+Cinque Terre
+Example
+Use another radial gradient as a mask layer (an ellipse):
+
+.mask3 {
+  -webkit-mask-image: radial-gradient(ellipse, black 50%, rgba(0, 0, 0, 0.5) 50%);
+  mask-image: radial-gradient(ellipse, black 50%, rgba(0, 0, 0, 0.5));
+}
+Use SVG as the Mask Layer
+The SVG <mask> element can be used inside an SVG graphic to create masking effects.
+
+Here, we use the SVG <mask> element to create different mask layers for our image:
+
+Example
+An SVG mask layer (formed as a triangle):
+
+<svg width="600" height="400">
+  <mask id="svgmask1">
+    <polygon fill="#ffffff" points="200 0, 400 400, 0 400"></polygon>
+  </mask>
+  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img_5terre.jpg" mask="url(#svgmask1)"></image>
+</svg>
+Example
+An SVG mask layer (formed as a star):
+
+<svg width="600" height="400">
+  <mask id="svgmask2">
+    <polygon fill="#ffffff" points="100,10 40,198 190,78 10,78 160,198"></polygon>
+  </mask>
+  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img_5terre.jpg" mask="url(#svgmask2)"></image>
+</svg>
+Example
+An SVG mask layer (formed as circles):
+
+<svg width="600" height="400">
+  <mask id="svgmask3">
+    <circle fill="#ffffff" cx="75" cy="75" r="75"></circle>
+    <circle fill="#ffffff" cx="80" cy="260" r="75"></circle>
+    <circle fill="#ffffff" cx="270" cy="160" r="75"></circle>
+  </mask>
+  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img_5terre.jpg" mask="url(#svgmask3)"></image>
+</svg>
+CSS Masking Properties
+The following table lists all the CSS masking properties:
+
+Property	Description
+mask-image	Specifies an image to be used as a mask layer for an element
+mask-mode	Specifies whether the mask layer image is treated as a luminance mask or as an alpha mask
+mask-origin	Specifies the origin position (the mask position area) of a mask layer image
+mask-position	Sets the starting position of a mask layer image (relative to the mask position area)
+mask-repeat	Specifies how the mask layer image is repeated
+mask-size	Specifies the size of a mask layer image
+
+                                                CSS Buttons
+
+Learn how to style buttons using CSS.
+
+Basic Button Styling
+Default Button CSS Button
+
+Example
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+Button Colors
+Green Blue Red Gray Black
+Use the background-color property to change the background color of a button:
+
+Example
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */
+.button5 {background-color: #555555;} /* Black */
+ADVERTISEMENT
+
+Button Sizes
+10px 12px 16px 20px 24px
+Use the font-size property to change the font size of a button:
+
+Example
+.button1 {font-size: 10px;}
+.button2 {font-size: 12px;}
+.button3 {font-size: 16px;}
+.button4 {font-size: 20px;}
+.button5 {font-size: 24px;}
+Use the padding property to change the padding of a button:
+
+10px 24px 12px 28px 14px 40px 32px 16px 16px
+Example
+.button1 {padding: 10px 24px;}
+.button2 {padding: 12px 28px;}
+.button3 {padding: 14px 40px;}
+.button4 {padding: 32px 16px;}
+.button5 {padding: 16px;}
+Rounded Buttons
+2px 4px 8px 12px 50%
+Use the border-radius property to add rounded corners to a button:
+
+Example
+.button1 {border-radius: 2px;}
+.button2 {border-radius: 4px;}
+.button3 {border-radius: 8px;}
+.button4 {border-radius: 12px;}
+.button5 {border-radius: 50%;}
+Colored Button Borders
+Green Blue Red Gray Black
+Use the border property to add a colored border to a button:
+
+Example
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50; /* Green */
+}
+...
+Hoverable Buttons
+Green Blue Red Grey Black
+Green Blue Red Grey Black
+Use the :hover selector to change the style of a button when you move the mouse over it.
+
+Tip: Use the transition-duration property to determine the speed of the "hover" effect:
+
+Example
+.button {
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+...
+Shadow Buttons
+Shadow Button Shadow on hover
+Use the box-shadow property to add shadows to a button:
+
+Example
+.button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+Disabled Buttons
+Normal Button Disabled Button
+Use the opacity property to add transparency to a button (creates a "disabled" look).
+
+Tip: You can also add the cursor property with a value of "not-allowed", which will display a "no parking sign" when you mouse over the button:
+
+Example
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+Button Width
+250px
+50% 100%
+By default, the size of the button is determined by its text content (as wide as its content). Use the width property to change the width of a button:
+
+Example
+.button1 {width: 250px;}
+.button2 {width: 50%;}
+.button3 {width: 100%;}
+Button Groups
+ButtonButtonButtonButton
+
+Remove margins and add float:left to each button to create a button group:
+
+Example
+.button {
+  float: left;
+}
+Bordered Button Group
+ButtonButtonButtonButton
+
+Use the border property to create a bordered button group:
+
+Example
+.button {
+  float: left;
+  border: 1px solid green;
+}
+Vertical Button Group
+Button
+Button
+Button
+Button
+
+Use display:block instead of float:left to group the buttons below each other, instead of side by side:
+
+Example
+.button {
+  display: block;
+}
+Button on Image
+Snow
+Animated Buttons
+Example
+Add an arrow on hover:
+
+Hover
+Example
+Add a "pressed" effect on click:
+
+Click
+Example
+Fade in on hover:
+
+Fade In
+Example
+Add a "ripple" effect on click:
+
+                                                    CSS Pagination Examples
+
+Learn how to create a responsive pagination using CSS.
+
+Simple Pagination
+If you have a website with lots of pages, you may wish to add some sort of pagination to each page:
+
+«123456»❮    ❯
+Example
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+Active and Hoverable Pagination
+«1234567»
+Highlight the current page with an .active class, and use the :hover selector to change the color of each page link when moving the mouse over them:
+
+Example
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+Rounded Active and Hoverable Buttons
+«1234567»
+Add the border-radius property if you want a rounded "active" and "hover" button:
+
+Example
+.pagination a {
+  border-radius: 5px;
+}
+
+.pagination a.active {
+  border-radius: 5px;
+}
+Hoverable Transition Effect
+«1234567»
+Add the transition property to the page links to create a transition effect on hover:
+
+Example
+.pagination a {
+  transition: background-color .3s;
+}
+ADVERTISEMENT
+
+Bordered Pagination
+«1234567»
+Use the border property to add borders to the pagination:
+
+Example
+.pagination a {
+  border: 1px solid #ddd; /* Gray */
+}
+Rounded Borders
+Tip: Add rounded borders to your first and last link in the pagination:
+
+«1234567»
+Example
+.pagination a:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+Space Between Links
+Tip: Add the margin property if you do not want to group the page links:
+
+«1234567»
+Example
+.pagination a {
+  margin: 0 4px; /* 0 is for top and bottom. Feel free to change it */
+}
+Pagination Size
+«1234567»
+Change the size of the pagination with the font-size property:
+
+Example
+.pagination a {
+  font-size: 22px;
+}
+Centered Pagination
+«1234567»
+To center the pagination, wrap a container element (like <div>) around it with text-align:center
+
+Example
+.center {
+  text-align: center;
+}
+More Examples
+Example
+
+Breadcrumbs
+Home Pictures Summer 15 Italy
+Another variation of pagination is so-called "breadcrumbs":
+
+Example
+ul.breadcrumb {
+  padding: 8px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+
+ul.breadcrumb li {display: inline;}
+
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+                                  /*  CHAPTER 12    CSS ADVANCED ********************************************************************* */  
+
+                                                CSS Multiple Columns
+
+CSS Multi-column Layout
+The CSS multi-column layout allows easy definition of multiple columns of text - just like in newspapers:
+
+Daily Ping
+Lorem ipsum
+dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.
+
+CSS Multi-column Properties
+In this chapter you will learn about the following multi-column properties:
+
+column-count
+column-gap
+column-rule-style
+column-rule-width
+column-rule-color
+column-rule
+column-span
+column-width
+Browser Support
+The numbers in the table specify the first browser version that fully supports the property.
+
+Property					
+column-count	50.0	10.0	52.0	9.0	37.0
+column-gap	50.0	10.0	52.0	9.0	37.0
+column-rule	50.0	10.0	52.0	9.0	37.0
+column-rule-color	50.0	10.0	52.0	9.0	37.0
+column-rule-style	50.0	10.0	52.0	9.0	37.0
+column-rule-width	50.0	10.0	52.0	9.0	37.0
+column-span	50.0	10.0	71.0	9.0	37.0
+column-width	50.0	10.0	52.0	9.0	37.0
+ADVERTISEMENT
+
+CSS Create Multiple Columns
+The column-count property specifies the number of columns an element should be divided into.
+
+The following example will divide the text in the <div> element into 3 columns: 
+
+Example
+div {
+  column-count: 3;
+}
+CSS Specify the Gap Between Columns
+The column-gap property specifies the gap between the columns.
+
+The following example specifies a 40 pixels gap between the columns:
+
+Example
+div {
+  column-gap: 40px;
+}
+CSS Column Rules
+The column-rule-style property specifies the style of the rule between columns:
+
+Example
+div {
+  column-rule-style: solid;
+}
+The column-rule-width property specifies the width of the rule between columns:
+
+Example
+div {
+  column-rule-width: 1px;
+}
+The column-rule-color property specifies the color of the rule between columns:
+
+Example
+div {
+  column-rule-color: lightblue;
+}
+The column-rule property is a shorthand property for setting all the column-rule-* properties above.
+
+The following example sets the width, style, and color of the rule between columns:
+
+Example
+div {
+  column-rule: 1px solid lightblue;
+}
+Specify How Many Columns an Element Should Span
+The column-span property specifies how many columns an element should span across.
+
+The following example specifies that the <h2> element should span across all columns:
+
+Example
+h2 {
+  column-span: all;
+}
+Specify The Column Width
+The column-width property specifies a suggested, optimal width for the columns.
+
+The following example specifies that the suggested, optimal width for the columns should be 100px:
+
+Example
+div {
+  column-width: 100px;
+}
+CSS Multi-columns Properties
+The following table lists all the multi-columns properties: 
+
+Property	Description
+column-count	Specifies the number of columns an element should be divided into
+column-fill	Specifies how to fill columns
+column-gap	Specifies the gap between the columns
+column-rule	A shorthand property for setting all the column-rule-* properties
+column-rule-color	Specifies the color of the rule between columns
+column-rule-style	Specifies the style of the rule between columns
+column-rule-width	Specifies the width of the rule between columns
+column-span	Specifies how many columns an element should span across
+column-width	Specifies a suggested, optimal width for the columns
+columns	A shorthand property for setting column-width and column-count
+
+                                                  CSS User Interface
+
+CSS User Interface
+In this chapter you will learn about the following CSS user interface properties:
+
+resize
+outline-offset
+Browser Support
+The numbers in the table specify the first browser version that fully supports the property.
+
+Property					
+resize	4.0	79.0	5.0	4.0	15.0
+outline-offset	4.0	15.0	5.0	4.0	9.5
+CSS Resizing
+The resize property specifies if (and how) an element should be resizable by the user.
+
+This div element is resizable by the user!
+
+To resize: Click and drag the bottom right corner of this div element.
+
+The following example lets the user resize only the width of a <div> element:
+
+Example
+div {
+  resize: horizontal;
+  overflow: auto;
+}
+The following example lets the user resize only the height of a <div> element:
+
+Example
+div {
+  resize: vertical;
+  overflow: auto;
+}
+The following example lets the user resize both the height and width of a <div> element:
+
+Example
+div {
+  resize: both;
+  overflow: auto;
+}
+In many browsers, <textarea> is resizable by default. Here, we have used the resize property to disable the resizability:
+
+Example
+textarea {
+  resize: none;
+}
+ADVERTISEMENT
+
+CSS Outline Offset
+The outline-offset property adds space between an outline and the edge or border of an element.
+
+This div has an outline 15px outside the border edge.
+Note: Outline differs from borders! Unlike border, the outline is drawn outside the element's border, and may overlap other content. Also, the outline is NOT a part of the element's dimensions; the element's total width and height is not affected by the width of the outline.
+
+The following example uses the outline-offset property to add space between the border and the outline:
+
+Example
+div.ex1 {
+  margin: 20px;
+  border: 1px solid black;
+  outline: 4px solid red;
+  outline-offset: 15px;
+}
+
+div.ex2 {
+  margin: 10px;
+  border: 1px solid black;
+  outline: 5px dashed blue;
+  outline-offset: 5px;
+}
+CSS User Interface Properties
+The following table lists all the user interface properties:
+
+Property	Description
+outline-offset	Adds space between an outline and the edge or border of an element
+resize	Specifies whether or not an element is resizable by the user
+
+                                              CSS Variables - The var() Function
+
+CSS Variables
+The var() function is used to insert the value of a CSS variable.
+
+CSS variables have access to the DOM, which means that you can create variables with local or global scope, change the variables with JavaScript, and change the variables based on media queries.
+
+A good way to use CSS variables is when it comes to the colors of your design. Instead of copy and paste the same colors over and over again, you can place them in variables.
+
+The Traditional Way
+The following example shows the traditional way of defining some colors in a style sheet (by defining the colors to use, for each specific element):
+
+Example
+body { background-color: #1e90ff; }
+
+h2 { border-bottom: 2px solid #1e90ff; }
+
+.container {
+  color: #1e90ff;
+  background-color: #ffffff;
+  padding: 15px;
+}
+
+button {
+  background-color: #ffffff;
+  color: #1e90ff;
+  border: 1px solid #1e90ff;
+  padding: 5px;
+}
+
+Syntax of the var() Function
+The var() function is used to insert the value of a CSS variable.
+
+The syntax of the var() function is as follows:
+
+var(--name, value)
+Value	Description
+name	Required. The variable name (must start with two dashes)
+value	Optional. The fallback value (used if the variable is not found)
+Note: The variable name must begin with two dashes (--) and it is case sensitive!
+
+ADVERTISEMENT
+
+How var() Works
+First of all: CSS variables can have a global or local scope.
+
+Global variables can be accessed/used through the entire document, while local variables can be used only inside the selector where it is declared.
+
+To create a variable with global scope, declare it inside the :root selector. The :root selector matches the document's root element.
+
+To create a variable with local scope, declare it inside the selector that is going to use it.
+
+The following example is equal to the example above, but here we use the var() function.
+
+First, we declare two global variables (--blue and --white). Then, we use the var() function to insert the value of the variables later in the style sheet:
+
+Example
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+}
+
+body { background-color: var(--blue); }
+
+h2 { border-bottom: 2px solid var(--blue); }
+
+.container {
+  color: var(--blue);
+  background-color: var(--white);
+  padding: 15px;
+}
+
+button {
+  background-color: var(--white);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  padding: 5px;
+}
+
+Advantages of using var() are:
+
+makes the code easier to read (more understandable)
+makes it much easier to change the color values
+To change the blue and white color to a softer blue and white, you just need to change the two variable values:
+
+Example
+:root {
+  --blue: #6495ed;
+  --white: #faf0e6;
+}
+
+body { background-color: var(--blue); }
+
+h2 { border-bottom: 2px solid var(--blue); }
+
+.container {
+  color: var(--blue);
+  background-color: var(--white);
+  padding: 15px;
+}
+
+button {
+  background-color: var(--white);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  padding: 5px;
+}
+
+Browser Support
+The numbers in the table specify the first browser version that fully supports the var() function.
+
+Function					
+var()	49.0	15.0	31.0	9.1	36.0
+CSS var() Function
+Property	Description
+var()	Inserts the value of a CSS variable
+
+                                                    CSS Overriding Variables
+
+Override Global Variable With Local Variable
+From the previous page we have learned that global variables can be accessed/used through the entire document, while local variables can be used only inside the selector where it is declared.
+
+Look at the example from the previous page:
+
+Example
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+}
+
+body {
+  background-color: var(--blue);
+}
+
+h2 {
+  border-bottom: 2px solid var(--blue);
+}
+
+.container {
+  color: var(--blue);
+  background-color: var(--white);
+  padding: 15px;
+}
+
+button {
+  background-color: var(--white);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  padding: 5px;
+}
+
+Sometimes we want the variables to change only in a specific section of the page.
+
+Assume we want a different color of blue for button elements. Then, we can re-declare the --blue variable inside the button selector. When we use var(--blue) inside this selector, it will use the local --blue variable value declared here.
+
+We see that the local --blue variable will override the global --blue variable for the button elements:
+
+Example
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+}
+
+body {
+  background-color: var(--blue);
+}
+
+h2 {
+  border-bottom: 2px solid var(--blue);
+}
+
+.container {
+  color: var(--blue);
+  background-color: var(--white);
+  padding: 15px;
+}
+
+button {
+  --blue: #0000ff; /* local variable will override global */
+  background-color: var(--white);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  padding: 5px;
+}
+
+ADVERTISEMENT
+
+Add a New Local Variable
+If a variable is to be used at only one single place, we could also have declared a new local variable, like this:
+
+Example
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+}
+
+body {
+  background-color: var(--blue);
+}
+
+h2 {
+  border-bottom: 2px solid var(--blue);
+}
+
+.container {
+  color: var(--blue);
+  background-color: var(--white);
+  padding: 15px;
+}
+
+button {
+  --button-blue: #0000ff; /* new local variable */
+  background-color: var(--white);
+  color: var(--button-blue);
+  border: 1px solid var(--button-blue);
+  padding: 5px;
+}
+
+Browser Support
+The numbers in the table specify the first browser version that fully supports the var() function.
+
+Function					
+var()	49.0	15.0	31.0	9.1	36.0
+CSS var() Function
+Property	Description
+var()	Inserts the value of a CSS variable
+
+                                                  CSS Change Variables With JavaScript
+
+Change Variables With JavaScript
+CSS variables have access to the DOM, which means that you can change them with JavaScript.
+
+Here is an example of how you can create a script to display and change the --blue variable from the example used in the previous pages. For now, do not worry if you are not familiar with JavaScript. You can learn more about JavaScript in our JavaScript Tutorial:
+
+Example
+<script>
+// Get the root element
+var r = document.querySelector(':root');
+
+// Create a function for getting a variable value
+function myFunction_get() {
+  // Get the styles (properties and values) for the root
+  var rs = getComputedStyle(r);
+  // Alert the value of the --blue variable
+  alert("The value of --blue is: " + rs.getPropertyValue('--blue'));
+}
+
+// Create a function for setting a variable value
+function myFunction_set() {
+  // Set the value of variable --blue to another value (in this case "lightblue")
+  r.style.setProperty('--blue', 'lightblue');
+}
+</script>
+
+Browser Support
+The numbers in the table specify the first browser version that fully supports the var() function.
+
+Function					
+var()	49.0	15.0	31.0	9.1	36.0
+CSS var() Function
+Property	Description
+var()	Inserts the value of a CSS variable
+
+                                                    CSS Using Variables in Media Queries
+
+Using Variables in Media Queries
+Now we want to change a variable value inside a media query.
+
+Tip: Media Queries are about defining different style rules for different devices (screens, tablets, mobile phones, etc.). You can learn more Media Queries in our Media Queries Chapter.
+
+Here, we first declare a new local variable named --fontsize for the .container class. We set its value to 25 pixels. Then we use it in the .container class further down. Then, we create a @media rule that says "When the browser's width is 450px or wider, change the --fontsize variable value of the .container class to 50px."
+
+Here is the complete example:
+
+Example
+/* Variable declarations */
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+}
+
+.container {
+  --fontsize: 25px;
+}
+
+/* Styles */
+body {
+  background-color: var(--blue);
+}
+
+h2 {
+  border-bottom: 2px solid var(--blue);
+}
+
+.container {
+  color: var(--blue);
+  background-color: var(--white);
+  padding: 15px;
+  font-size: var(--fontsize);
+}
+
+@media screen and (min-width: 450px) {
+  .container {
+    --fontsize: 50px;
+  }
+}
+
+ADVERTISEMENT
+
+Here is another example where we also change the value of the --blue variable in the @media rule:
+
+Example
+/* Variable declarations */
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+}
+
+.container {
+  --fontsize: 25px;
+}
+
+/* Styles */
+body {
+  background-color: var(--blue);
+}
+
+h2 {
+  border-bottom: 2px solid var(--blue);
+}
+
+.container {
+  color: var(--blue);
+  background-color: var(--white);
+  padding: 15px;
+  font-size: var(--fontsize);
+}
+
+@media screen and (min-width: 450px) {
+  .container {
+    --fontsize: 50px;
+  }
+   :root {
+    --blue: lightblue;
+  }
+}
+
+Browser Support
+The numbers in the table specify the first browser version that fully supports the var() function.
+
+Function					
+var()	49.0	15.0	31.0	9.1	36.0
+CSS var() Function
+Property	Description
+var()	Inserts the value of a CSS variable
+
+                                                  CSS Box Sizing
+
+CSS Box Sizing
+The CSS box-sizing property allows us to include the padding and border in an element's total width and height.
+
+Without the CSS box-sizing Property
+By default, the width and height of an element is calculated like this:
+
+width + padding + border = actual width of an element
+height + padding + border = actual height of an element
+
+This means: When you set the width/height of an element, the element often appears bigger than you have set (because the element's border and padding are added to the element's specified width/height).
+
+The following illustration shows two <div> elements with the same specified width and height:
+
+This div is smaller (width is 300px and height is 100px).
+
+This div is bigger (width is also 300px and height is 100px).
+
+The two <div> elements above end up with different sizes in the result (because div2 has a padding specified):
+
+Example
+.div1 {
+  width: 300px;
+  height: 100px;
+  border: 1px solid blue;
+}
+
+.div2 {
+  width: 300px;
+  height: 100px;
+  padding: 50px;
+  border: 1px solid red;
+}
+The box-sizing property solves this problem.
+
+ADVERTISEMENT
+
+With the CSS box-sizing Property
+The box-sizing property allows us to include the padding and border in an element's total width and height.
+
+If you set box-sizing: border-box; on an element, padding and border are included in the width and height:
+
+Both divs are the same size now!
+
+Hooray!
+
+Here is the same example as above, with box-sizing: border-box; added to both <div> elements:
+
+Example
+.div1 {
+  width: 300px;
+  height: 100px;
+  border: 1px solid blue;
+  box-sizing: border-box;
+}
+
+.div2 {
+  width: 300px;
+  height: 100px;
+  padding: 50px;
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+Since the result of using the box-sizing: border-box; is so much better, many developers want all elements on their pages to work this way.
+
+The code below ensures that all elements are sized in this more intuitive way. Many browsers already use box-sizing: border-box; for many form elements (but not all - which is why inputs and text areas look different at width: 100%;).
+
+Applying this to all elements is safe and wise:
+
+Example
+* {
+  box-sizing: border-box;
+}
+CSS Box Sizing Property
+Property	Description
+box-sizing	Defines how the width and height of an element are calculated: should they include padding and borders, or not
+
+                                                      CSS Media Queries
+
+CSS2 Introduced Media Types
+The @media rule, introduced in CSS2, made it possible to define different style rules for different media types.
+
+Examples: You could have one set of style rules for computer screens, one for printers, one for handheld devices, one for television-type devices, and so on.
+
+Unfortunately these media types never got a lot of support by devices, other than the print media type.
+
+CSS3 Introduced Media Queries
+Media queries in CSS3 extended the CSS2 media types idea: Instead of looking for a type of device, they look at the capability of the device.
+
+Media queries can be used to check many things, such as:
+
+width and height of the viewport
+width and height of the device
+orientation (is the tablet/phone in landscape or portrait mode?)
+resolution
+Using media queries are a popular technique for delivering a tailored style sheet to desktops, laptops, tablets, and mobile phones (such as iPhone and Android phones).
+
+Browser Support
+The numbers in the table specifies the first browser version that fully supports the @media rule.
+
+Property					
+@media	21.0	9.0	3.5	4.0	9.0
+Media Query Syntax
+A media query consists of a media type and can contain one or more expressions, which resolve to either true or false.
+
+@media not|only mediatype and (expressions) {
+  CSS-Code;
+}
+The result of the query is true if the specified media type matches the type of device the document is being displayed on and all expressions in the media query are true. When a media query is true, the corresponding style sheet or style rules are applied, following the normal cascading rules.
+
+Unless you use the not or only operators, the media type is optional and the all type will be implied.
+
+You can also have different stylesheets for different media:
+
+<link rel="stylesheet" media="mediatype and|not|only (expressions)" href="print.css">
+ADVERTISEMENT
+
+CSS3 Media Types
+Value	Description
+all	Used for all media type devices
+print	Used for printers
+screen	Used for computer screens, tablets, smart-phones etc.
+speech	Used for screenreaders that "reads" the page out loud
+Media Queries Simple Examples
+One way to use media queries is to have an alternate CSS section right inside your style sheet.
+
+The following example changes the background-color to lightgreen if the viewport is 480 pixels wide or wider (if the viewport is less than 480 pixels, the background-color will be pink):
+
+Example
+@media screen and (min-width: 480px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+The following example shows a menu that will float to the left of the page if the viewport is 480 pixels wide or wider (if the viewport is less than 480 pixels, the menu will be on top of the content):
+
+Example
+@media screen and (min-width: 480px) {
+  #leftsidebar {width: 200px; float: left;}
+  #main {margin-left: 216px;}
+}
+More Media Query Examples
+For much more examples on media queries, go to the next page: CSS MQ Examples.
+
+CSS @media Reference
+For a full overview of all the media types and features/expressions, please look at the @media rule in our CSS reference.
+
+                                                CSS Media Queries - Examples
+
+CSS Media Queries - More Examples
+Let us look at some more examples of using media queries.
+
+Media queries are a popular technique for delivering a tailored style sheet to different devices. To demonstrate a simple example, we can change the background color for different devices:
+
+
+Example
+/* Set the background color of body to tan */
+body {
+  background-color: tan;
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+  body {
+    background-color: blue;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  body {
+    background-color: olive;
+  }
+}
+Do you wonder why we use exactly 992px and 600px? They are what we call "typical breakpoints" for devices. You can read more about typical breakpoints in our Responsive Web Design Tutorial.
+
+Media Queries For Menus
+In this example, we use media queries to create a responsive navigation menu, that varies in design on different screen sizes.
+
+Large screens:
+
+Small screens:
+
+Example
+/* The navbar container */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* On screens that are 600px wide or less, make the menu links stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+ADVERTISEMENT
+
+Media Queries For Columns
+A common use of media queries, is to create a flexible layout. In this example, we create a layout that varies between four, two and full-width columns, depending on different screen sizes:
+
+Large screens:
+
+Medium screens:
+
+Small screens:
+
+Example
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+                                                  CSS Flexbox
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+CSS Flexbox Layout Module
+Before the Flexbox Layout module, there were four layout modes:
+
+Block, for sections in a webpage
+Inline, for text
+Table, for two-dimensional table data
+Positioned, for explicit position of an element
+The Flexible Box Layout Module, makes it easier to design flexible responsive layout structure without using float or positioning.
+
+Browser Support
+The flexbox properties are supported in all modern browsers.
+
+29.0	11.0	22.0	10	48
+Flexbox Elements
+To start using the Flexbox model, you need to first define a flex container.
+
+1
+2
+3
+The element above represents a flex container (the blue area) with three flex items.
+
+Example
+A flex container with three flex items:
+
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+                                                      CSS Flex Container
+
+Parent Element (Container)
+Like we specified in the previous chapter, this is a flex container (the blue area) with three flex items:
+
+1
+2
+3
+The flex container becomes flexible by setting the display property to flex:
+
+Example
+.flex-container {
+  display: flex;
+}
+The flex container properties are:
+
+flex-direction
+flex-wrap
+flex-flow
+justify-content
+align-items
+align-content
+ADVERTISEMENT
+
+The flex-direction Property
+The flex-direction property defines in which direction the container wants to stack the flex items.
+
+1
+2
+3
+Example
+The column value stacks the flex items vertically (from top to bottom):
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+Example
+The column-reverse value stacks the flex items vertically (but from bottom to top):
+
+.flex-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+Example
+The row value stacks the flex items horizontally (from left to right):
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+Example
+The row-reverse value stacks the flex items horizontally (but from right to left):
+
+.flex-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+The flex-wrap Property
+The flex-wrap property specifies whether the flex items should wrap or not.
+
+The examples below have 12 flex items, to better demonstrate the flex-wrap property.
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+Example
+The wrap value specifies that the flex items will wrap if necessary:
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+Example
+The nowrap value specifies that the flex items will not wrap (this is default):
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+Example
+The wrap-reverse value specifies that the flexible items will wrap if necessary, in reverse order:
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+
+The flex-flow Property
+The flex-flow property is a shorthand property for setting both the flex-direction and flex-wrap properties.
+
+Example
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+The justify-content Property
+The justify-content property is used to align the flex items:
+
+1
+2
+3
+Example
+The center value aligns the flex items at the center of the container:
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+Example
+The flex-start value aligns the flex items at the beginning of the container (this is default):
+
+.flex-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+Example
+The flex-end value aligns the flex items at the end of the container:
+
+.flex-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+Example
+The space-around value displays the flex items with space before, between, and after the lines:
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+Example
+The space-between value displays the flex items with space between the lines:
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+The align-items Property
+The align-items property is used to align the flex items.
+
+1
+2
+3
+In these examples we use a 200 pixels high container, to better demonstrate the align-items property.
+
+Example
+The center value aligns the flex items in the middle of the container:
+
+.flex-container {
+  display: flex;
+  height: 200px;
+  align-items: center;
+}
+
+Example
+The flex-start value aligns the flex items at the top of the container:
+
+.flex-container {
+  display: flex;
+  height: 200px;
+  align-items: flex-start;
+}
+
+Example
+The flex-end value aligns the flex items at the bottom of the container:
+
+.flex-container {
+  display: flex;
+  height: 200px;
+  align-items: flex-end;
+}
+
+Example
+The stretch value stretches the flex items to fill the container (this is default):
+
+.flex-container {
+  display: flex;
+  height: 200px;
+  align-items: stretch;
+}
+
+Example
+The baseline value aligns the flex items such as their baselines aligns:
+
+.flex-container {
+  display: flex;
+  height: 200px;
+  align-items: baseline;
+}
+Note: the example uses different font-size to demonstrate that the items gets aligned by the text baseline:
+
+1
+2
+3
+4
+
+The align-content Property
+The align-content property is used to align the flex lines.
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+In these examples we use a 600 pixels high container, with the flex-wrap property set to wrap, to better demonstrate the align-content property.
+
+Example
+The space-between value displays the flex lines with equal space between them:
+
+.flex-container {
+  display: flex;
+  height: 600px;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+Example
+The space-around value displays the flex lines with space before, between, and after them:
+
+.flex-container {
+  display: flex;
+  height: 600px;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+
+Example
+The stretch value stretches the flex lines to take up the remaining space (this is default):
+
+.flex-container {
+  display: flex;
+  height: 600px;
+  flex-wrap: wrap;
+  align-content: stretch;
+}
+
+Example
+The center value displays display the flex lines in the middle of the container:
+
+.flex-container {
+  display: flex;
+  height: 600px;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+Example
+The flex-start value displays the flex lines at the start of the container:
+
+.flex-container {
+  display: flex;
+  height: 600px;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+Example
+The flex-end value displays the flex lines at the end of the container: 
+
+.flex-container {
+  display: flex;
+  height: 600px;
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+
+Perfect Centering
+In the following example we will solve a very common style problem: perfect centering.
+
+SOLUTION: Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered:
+
+Example
+.flex-container {
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+The CSS Flexbox Container Properties
+The following table lists all the CSS Flexbox Container properties:
+
+Property	Description
+align-content	Modifies the behavior of the flex-wrap property. It is similar to align-items, but instead of aligning flex items, it aligns flex lines
+align-items	Vertically aligns the flex items when the items do not use all available space on the cross-axis
+display	Specifies the type of box used for an HTML element
+flex-direction	Specifies the direction of the flexible items inside a flex container
+flex-flow	A shorthand property for flex-direction and flex-wrap
+flex-wrap	Specifies whether the flex items should wrap or not, if there is not enough room for them on one flex line
+justify-content	Horizontally aligns the flex items when the items do not use all available space on the main-axis
+
+                                                          CSS Flex Items
+
+Child Elements (Items)
+The direct child elements of a flex container automatically becomes flexible (flex) items.
+
+1
+2
+3
+4
+The element above represents four blue flex items inside a grey flex container.
+
+Example
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+</div>
+
+The flex item properties are:
+
+order
+flex-grow
+flex-shrink
+flex-basis
+flex
+align-self
+The order Property
+The order property specifies the order of the flex items.
+
+1
+2
+3
+4
+The first flex item in the code does not have to appear as the first item in the layout.
+
+The order value must be a number, default value is 0.
+
+Example
+The order property can change the order of the flex items:
+
+<div class="flex-container">
+  <div style="order: 3">1</div>
+  <div style="order: 2">2</div>
+  <div style="order: 4">3</div>
+  <div style="order: 1">4</div>
+</div>
+
+The flex-grow Property
+The flex-grow property specifies how much a flex item will grow relative to the rest of the flex items.
+
+1
+2
+3
+The value must be a number, default value is 0.
+
+Example
+Make the third flex item grow eight times faster than the other flex items:
+
+<div class="flex-container">
+  <div style="flex-grow: 1">1</div>
+  <div style="flex-grow: 1">2</div>
+  <div style="flex-grow: 8">3</div>
+</div>
+
+ADVERTISEMENT
+
+The flex-shrink Property
+The flex-shrink property specifies how much a flex item will shrink relative to the rest of the flex items.
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+The value must be a number, default value is 1.
+
+Example
+Do not let the third flex item shrink as much as the other flex items:
+
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div style="flex-shrink: 0">3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+  <div>8</div>
+  <div>9</div>
+  <div>10</div>
+</div>
+
+The flex-basis Property
+The flex-basis property specifies the initial length of a flex item.
+
+1
+2
+3
+4
+Example
+Set the initial length of the third flex item to 200 pixels:
+
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div style="flex-basis: 200px">3</div>
+  <div>4</div>
+</div>
+
+The flex Property
+The flex property is a shorthand property for the flex-grow, flex-shrink, and flex-basis properties.
+
+Example
+Make the third flex item not growable (0), not shrinkable (0), and with an initial length of 200 pixels:
+
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div style="flex: 0 0 200px">3</div>
+  <div>4</div>
+</div>
+
+The align-self Property
+The align-self property specifies the alignment for the selected item inside the flexible container.
+
+The align-self property overrides the default alignment set by the container's align-items property.
+
+1
+2
+3
+4
+In these examples we use a 200 pixels high container, to better demonstrate the align-self property:
+
+Example
+Align the third flex item in the middle of the container:
+
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div style="align-self: center">3</div>
+  <div>4</div>
+</div>
+
+Example
+Align the second flex item at the top of the container, and the third flex item at the bottom of the container:
+
+<div class="flex-container">
+  <div>1</div>
+  <div style="align-self: flex-start">2</div>
+  <div style="align-self: flex-end">3</div>
+  <div>4</div>
+</div>
+
+The CSS Flexbox Items Properties
+The following table lists all the CSS Flexbox Items properties:
+
+Property	Description
+align-self	Specifies the alignment for a flex item (overrides the flex container's align-items property)
+flex	A shorthand property for the flex-grow, flex-shrink, and the flex-basis properties
+flex-basis	Specifies the initial length of a flex item
+flex-grow	Specifies how much a flex item will grow relative to the rest of the flex items inside the same container
+flex-shrink	Specifies how much a flex item will shrink relative to the rest of the flex items inside the same container
+order	Specifies the order of the flex items inside the same container
+
+                                                        CSS Flex Responsive
+
+Responsive Flexbox
+You learned from the CSS Media Queries chapter that you can use media queries to create different layouts for different screen sizes and devices.
+
+Laptop and Desktops:
+
+1
+2
+3
+Mobile phones and Tablets:
+
+1
+2
+3
+
+For example, if you want to create a two-column layout for most screen sizes, and a one-column layout for small screen sizes (such as phones and tablets), you can change the flex-direction from row to column at a specific breakpoint (800px in the example below):
+
+Example
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+Another way is to change the percentage of the flex property of the flex items to create different layouts for different screen sizes. Note that we also have to include flex-wrap: wrap; on the flex container for this example to work:
+
+Example
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-item-left {
+  flex: 50%;
+}
+
+.flex-item-right {
+  flex: 50%;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .flex-item-right, .flex-item-left {
+    flex: 100%;
+  }
+}
+
+ADVERTISEMENT
+
+Responsive Image Gallery using Flexbox
+Use flexbox to create a responsive image gallery that varies between four, two or full-width images, depending on screen size:
+
+ 
+Responsive Website using Flexbox
+Use flexbox to create a responsive website, containing a flexible navigation bar and flexible content:
+
+                      /*  CHAPTER 13    CSS RESPONSIVE ********************************************************************* */  
+                    
+                                      Responsive Web Design - Introduction
+
+What is Responsive Web Design?
+Responsive web design makes your web page look good on all devices.
+
+Responsive web design uses only HTML and CSS.
+
+Responsive web design is not a program or a JavaScript.
+
+Designing For The Best Experience For All Users
+Web pages can be viewed using many different devices: desktops, tablets, and phones. Your web page should look good, and be easy to use, regardless of the device.
+
+Web pages should not leave out information to fit smaller devices, but rather adapt its content to fit any device:
+
+
+
+Desktop
+Tablet
+Phone
+It is called responsive web design when you use CSS and HTML to resize, hide, shrink, enlarge, or move the content to make it look good on any screen.
+
+                                              Responsive Web Design - The Viewport
+
+What is The Viewport?
+The viewport is the user's visible area of a web page.
+
+The viewport varies with the device, and will be smaller on a mobile phone than on a computer screen.
+
+Before tablets and mobile phones, web pages were designed only for computer screens, and it was common for web pages to have a static design and a fixed size.
+
+Then, when we started surfing the internet using tablets and mobile phones, fixed size web pages were too large to fit the viewport. To fix this, browsers on those devices scaled down the entire web page to fit the screen.
+
+This was not perfect!! But a quick fix.
+
+Setting The Viewport
+HTML5 introduced a method to let web designers take control over the viewport, through the <meta> tag.
+
+You should include the following <meta> viewport element in all your web pages:
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+This gives the browser instructions on how to control the page's dimensions and scaling.
+
+The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).
+
+The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser.
+
+Here is an example of a web page without the viewport meta tag, and the same web page with the viewport meta tag:
+
+
+
+
+Without the viewport meta tag
+
+
+
+With the viewport meta tag
+
+Tip: If you are browsing this page with a phone or a tablet, you can click on the two links above to see the difference.
+
+Size Content to The Viewport
+Users are used to scroll websites vertically on both desktop and mobile devices - but not horizontally!
+
+So, if the user is forced to scroll horizontally, or zoom out, to see the whole web page it results in a poor user experience.
+
+Some additional rules to follow:
+
+1. Do NOT use large fixed width elements - For example, if an image is displayed at a width wider than the viewport it can cause the viewport to scroll horizontally. Remember to adjust this content to fit within the width of the viewport.
+
+2. Do NOT let the content rely on a particular viewport width to render well - Since screen dimensions and width in CSS pixels vary widely between devices, content should not rely on a particular viewport width to render well.
+
+3. Use CSS media queries to apply different styling for small and large screens - Setting large absolute CSS widths for page elements will cause the element to be too wide for the viewport on a smaller device. Instead, consider using relative width values, such as width: 100%. Also, be careful of using large absolute positioning values. It may cause the element to fall outside the viewport on small devices.
+
+                                                      Responsive Web Design - Grid-View
+
+What is a Grid-View?
+Many web pages are based on a grid-view, which means that the page is divided into columns:
+
+
+Using a grid-view is very helpful when designing web pages. It makes it easier to place elements on the page.
+
+
+A responsive grid-view often has 12 columns, and has a total width of 100%, and will shrink and expand as you resize the browser window.
+
+
+ADVERTISEMENT
+
+Building a Responsive Grid-View
+Lets start building a responsive grid-view.
+
+First ensure that all HTML elements have the box-sizing property set to border-box. This makes sure that the padding and border are included in the total width and height of the elements.
+
+Add the following code in your CSS:
+
+* {
+  box-sizing: border-box;
+}
+Read more about the box-sizing property in our CSS Box Sizing chapter.
+
+The following example shows a simple responsive web page, with two columns:
+
+25%75%
+Example
+.menu {
+  width: 25%;
+  float: left;
+}
+.main {
+  width: 75%;
+  float: left;
+}
+The example above is fine if the web page only contains two columns.
+
+However, we want to use a responsive grid-view with 12 columns, to have more control over the web page.
+
+First we must calculate the percentage for one column: 100% / 12 columns = 8.33%.
+
+Then we make one class for each of the 12 columns, class="col-" and a number defining how many columns the section should span:
+
+CSS:
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+ All these columns should be floating to the left, and have a padding of 15px:
+
+CSS:
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+  border: 1px solid red;
+}
+Each row should be wrapped in a <div>. The number of columns inside a row should always add up to 12:
+
+HTML:
+<div class="row">
+  <div class="col-3">...</div> <!-- 25% -->
+  <div class="col-9">...</div> <!-- 75% -->
+</div>
+The columns inside a row are all floating to the left, and are therefore taken out of the flow of the page, and other elements will be placed as if the columns do not exist. To prevent this, we will add a style that clears the flow:
+
+CSS:
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+We also want to add some styles and colors to make it look better:
+
+Example
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #9933cc;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color :#33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu li:hover {
+  background-color: #0099cc;
+}
+Notice that the webpage in the example does not look good when you resize the browser window to a very small width. In the next chapter you will learn how to fix that.
+
+                                                    Responsive Web Design - Media Queries
+
+What is a Media Query?
+Media query is a CSS technique introduced in CSS3.
+
+It uses the @media rule to include a block of CSS properties only if a certain condition is true.
+
+Example
+If the browser window is 600px or smaller, the background color will be lightblue:
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+Add a Breakpoint
+Earlier in this tutorial we made a web page with rows and columns, and it was responsive, but it did not look good on a small screen.
+
+Media queries can help with that. We can add a breakpoint where certain parts of the design will behave differently on each side of the breakpoint.
+
+
+Desktop
+Phone
+Use a media query to add a breakpoint at 768px:
+
+Example
+When the screen (browser window) gets smaller than 768px, each column should have a width of 100%:
+
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+ADVERTISEMENT
+
+Always Design for Mobile First
+Mobile First means designing for mobile before designing for desktop or any other device (This will make the page display faster on smaller devices).
+
+This means that we must make some changes in our CSS.
+
+Instead of changing styles when the width gets smaller than 768px, we should change the design when the width gets larger than 768px. This will make our design Mobile First:
+
+Example
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+Another Breakpoint
+You can add as many breakpoints as you like.
+
+We will also insert a breakpoint between tablets and mobile phones.
+
+
+Desktop
+Tablet
+Phone
+We do this by adding one more media query (at 600px), and a set of new classes for devices larger than 600px (but smaller than 768px):
+
+Example
+Note that the two sets of classes are almost identical, the only difference is the name (col- and col-s-):
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+It might seem odd that we have two sets of identical classes, but it gives us the opportunity in HTML, to decide what will happen with the columns at each breakpoint:
+
+HTML Example
+For desktop:
+
+The first and the third section will both span 3 columns each. The middle section will span 6 columns.
+
+For tablets:
+
+The first section will span 3 columns, the second will span 9, and the third section will be displayed below the first two sections, and it will span 12 columns:
+
+<div class="row">
+  <div class="col-3 col-s-3">...</div>
+  <div class="col-6 col-s-9">...</div>
+  <div class="col-3 col-s-12">...</div>
+</div>
+Typical Device Breakpoints
+There are tons of screens and devices with different heights and widths, so it is hard to create an exact breakpoint for each device. To keep things simple you could target five groups:
+
+Example
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {...}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {...}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {...}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {...}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {...}
+Orientation: Portrait / Landscape
+Media queries can also be used to change layout of a page depending on the orientation of the browser.
+
+You can have a set of CSS properties that will only apply when the browser window is wider than its height, a so called "Landscape" orientation:
+
+Example
+The web page will have a lightblue background if the orientation is in landscape mode:
+
+@media only screen and (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+}
+Hide Elements With Media Queries
+Another common use of media queries, is to hide elements on different screen sizes:
+
+I will be hidden on small screens.
+Example
+/* If the screen size is 600px wide or less, hide the element */
+@media only screen and (max-width: 600px) {
+  div.example {
+    display: none;
+  }
+}
+Change Font Size With Media Queries
+You can also use media queries to change the font size of an element on different screen sizes:
+
+Variable Font Size.
+Example
+/* If the screen size is 601px or more, set the font-size of <div> to 80px */
+@media only screen and (min-width: 601px) {
+  div.example {
+    font-size: 80px;
+  }
+}
+
+/* If the screen size is 600px or less, set the font-size of <div> to 30px */
+@media only screen and (max-width: 600px) {
+  div.example {
+    font-size: 30px;
+  }
+}
+CSS @media Reference
+For a full overview of all the media types and features/expressions, please look at the @media rule in our CSS reference.
+
+                                                        Responsive Web Design - Images
+
+Resize the browser window to see how the image scales to fit the page.
+
+Using The width Property
+If the width property is set to a percentage and the height property is set to "auto", the image will be responsive and scale up and down:
+
+Example
+img {
+  width: 100%;
+  height: auto;
+}
+Notice that in the example above, the image can be scaled up to be larger than its original size. A better solution, in many cases, will be to use the max-width property instead.
+
+Using The max-width Property
+If the max-width property is set to 100%, the image will scale down if it has to, but never scale up to be larger than its original size:
+
+Example
+img {
+  max-width: 100%;
+  height: auto;
+}
+Add an Image to The Example Web Page
+Example
+img {
+  width: 100%;
+  height: auto;
+}
+ADVERTISEMENT
+
+Background Images
+Background images can also respond to resizing and scaling.
+
+Here we will show three different methods:
+
+1. If the background-size property is set to "contain", the background image will scale, and try to fit the content area. However, the image will keep its aspect ratio (the proportional relationship between the image's width and height):
+
+
+Here is the CSS code:
+
+Example
+div {
+  width: 100%;
+  height: 400px;
+  background-image: url('img_flowers.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid red;
+}
+2. If the background-size property is set to "100% 100%", the background image will stretch to cover the entire content area:
+
+
+Here is the CSS code:
+
+Example
+div {
+  width: 100%;
+  height: 400px;
+  background-image: url('img_flowers.jpg');
+  background-size: 100% 100%;
+  border: 1px solid red;
+}
+3. If the background-size property is set to "cover", the background image will scale to cover the entire content area. Notice that the "cover" value keeps the aspect ratio, and some part of the background image may be clipped:
+
+
+Here is the CSS code:
+
+Example
+div {
+  width: 100%;
+  height: 400px;
+  background-image: url('img_flowers.jpg');
+  background-size: cover;
+  border: 1px solid red;
+}
+Different Images for Different Devices
+A large image can be perfect on a big computer screen, but useless on a small device. Why load a large image when you have to scale it down anyway? To reduce the load, or for any other reasons, you can use media queries to display different images on different devices.
+
+Here is one large image and one smaller image that will be displayed on different devices:
+
+
+
+Example
+/* For width smaller than 400px: */
+body {
+  background-image: url('img_smallflower.jpg');
+}
+
+/* For width 400px and larger: */
+@media only screen and (min-width: 400px) {
+  body {
+    background-image: url('img_flowers.jpg');
+  }
+}
+You can use the media query min-device-width, instead of min-width, which checks the device width, instead of the browser width. Then the image will not change when you resize the browser window:
+
+Example
+/* For devices smaller than 400px: */
+body {
+  background-image: url('img_smallflower.jpg');
+}
+
+/* For devices 400px and larger: */
+@media only screen and (min-device-width: 400px) {
+  body {
+    background-image: url('img_flowers.jpg');
+  }
+}
+The HTML <picture> Element
+The HTML <picture> element gives web developers more flexibility in specifying image resources.
+
+The most common use of the <picture> element will be for images used in responsive designs. Instead of having one image that is scaled up or down based on the viewport width, multiple images can be designed to more nicely fill the browser viewport.
+
+The <picture> element works similar to the <video> and <audio> elements. You set up different sources, and the first source that fits the preferences is the one being used:
+
+Example
+<picture>
+  <source srcset="img_smallflower.jpg" media="(max-width: 400px)">
+  <source srcset="img_flowers.jpg">
+  <img src="img_flowers.jpg" alt="Flowers">
+</picture>
+The srcset attribute is required, and defines the source of the image.
+
+The media attribute is optional, and accepts the media queries you find in CSS @media rule.
+
+You should also define an <img> element for browsers that do not support the <picture> element.
+
+                                                    Responsive Web Design - Videos
+
+Using The width Property
+If the width property is set to 100%, the video player will be responsive and scale up and down:
+
+Example
+video {
+  width: 100%;
+  height: auto;
+}
+Notice that in the example above, the video player can be scaled up to be larger than its original size. A better solution, in many cases, will be to use the max-width property instead.
+
+Using The max-width Property
+If the max-width property is set to 100%, the video player will scale down if it has to, but never scale up to be larger than its original size:
+
+Example
+video {
+  max-width: 100%;
+  height: auto;
+}
+Add a Video to the Example Web Page
+We want to add a video in our example web page. The video will be resized to always take up all the available space:
+
+Example
+video {
+  width: 100%;
+  height: auto;
+}
+
+                                              Responsive Web Design - Frameworks
+
+There are many free CSS Frameworks that offer Responsive Design.
+
+Using W3.CSS
+A great way to create a responsive design, is to use a responsive style sheet, like W3.CSS
+
+W3.CSS makes it easy to develop sites that look nice at any size!
+
+W3.CSS Demo
+Resize the page to see the responsiveness!
+
+London
+London is the capital city of England.
+
+It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.
+
+Paris
+Paris is the capital of France.
+
+The Paris area is one of the largest population centers in Europe, with more than 12 million inhabitants.
+
+Tokyo
+Tokyo is the capital of Japan.
+
+It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.
+
+Example
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-container w3-blue">
+  <h1>W3Schools Demo</h1>
+  <p>Resize this responsive page!</p>
+</div>
+
+<div class="w3-row-padding">
+  <div class="w3-third">
+    <h2>London</h2>
+    <p>London is the capital city of England.</p>
+    <p>It is the most populous city in the United Kingdom,
+    with a metropolitan area of over 13 million inhabitants.</p>
+  </div>
+
+  <div class="w3-third">
+    <h2>Paris</h2>
+    <p>Paris is the capital of France.</p>
+    <p>The Paris area is one of the largest population centers in Europe,
+    with more than 12 million inhabitants.</p>
+  </div>
+
+  <div class="w3-third">
+    <h2>Tokyo</h2>
+    <p>Tokyo is the capital of Japan.</p>
+    <p>It is the center of the Greater Tokyo Area,
+    and the most populous metropolitan area in the world.</p>
+  </div>
+</div>
+
+</body>
+</html>
+To learn more about W3.CSS, read our W3.CSS Tutorial.
+
+ADVERTISEMENT
+
+Bootstrap
+Another popular framework is Bootstrap. It uses HTML and CSS to make responsive web pages:
+
+Example
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bootstrap 5 Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Column 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 3</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+To learn more about Bootstrap, go to our Bootstrap Tutorial.
+
+Ever heard about W3Schools Spaces? Here you can create your website from scratch or use a template, and host it for free.
+
+
+                        /*  CHAPTER 14  CSS Grid ********************************************************************* */
+
+                                                    CSS Grid Layout Module
+
+Header
+Menu
+Main
+Right
+Footer
+
+Grid Layout
+The CSS Grid Layout Module offers a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning.
+
+Browser Support
+The grid properties are supported in all modern browsers.
+
+57.0	16.0	52.0	10	44
+Grid Elements
+A grid layout consists of a parent element, with one or more child elements.
+
+Example
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+  <div class="grid-item">7</div>
+  <div class="grid-item">8</div>
+  <div class="grid-item">9</div>
+</div>
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+ADVERTISEMENT
+
+Display Property
+An HTML element becomes a grid container when its display property is set to grid or inline-grid.
+
+Example
+.grid-container {
+  display: grid;
+}
+
+Example
+.grid-container {
+  display: inline-grid;
+}
+
+All direct children of the grid container automatically become grid items.
+
+Grid Columns
+The vertical lines of grid items are called columns.
+
+
+Grid Rows
+The horizontal lines of grid items are called rows.
+
+
+Grid Gaps
+The spaces between each column/row are called gaps.
+
+
+You can adjust the gap size by using one of the following properties:
+
+column-gap
+row-gap
+gap
+Example
+The column-gap property sets the gap between the columns:
+
+.grid-container {
+  display: grid;
+  column-gap: 50px;
+}
+
+Example
+The row-gap property sets the gap between the rows:
+
+.grid-container {
+  display: grid;
+  row-gap: 50px;
+}
+
+Example
+The gap property is a shorthand property for the row-gap and the column-gap properties:
+
+.grid-container {
+  display: grid;
+  gap: 50px 100px;
+}
+
+Example
+The gap property can also be used to set both the row gap and the column gap in one value:
+
+.grid-container {
+  display: grid;
+  gap: 50px;
+}
+
+Grid Lines
+The lines between columns are called column lines.
+
+The lines between rows are called row lines.
+
+
+Refer to line numbers when placing a grid item in a grid container:
+
+Example
+Place a grid item at column line 1, and let it end on column line 3:
+
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+Example
+Place a grid item at row line 1, and let it end on row line 3:
+
+.item1 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+All CSS Grid Properties
+Property	Description
+column-gap	Specifies the gap between the columns
+gap	A shorthand property for the row-gap and the column-gap properties
+grid	A shorthand property for the grid-template-rows, grid-template-columns, grid-template-areas, grid-auto-rows, grid-auto-columns, and the grid-auto-flow properties
+grid-area	Either specifies a name for the grid item, or this property is a shorthand property for the grid-row-start, grid-column-start, grid-row-end, and grid-column-end properties
+grid-auto-columns	Specifies a default column size
+grid-auto-flow	Specifies how auto-placed items are inserted in the grid
+grid-auto-rows	Specifies a default row size
+grid-column	A shorthand property for the grid-column-start and the grid-column-end properties
+grid-column-end	Specifies where to end the grid item
+grid-column-gap	Specifies the size of the gap between columns
+grid-column-start	Specifies where to start the grid item
+grid-gap	A shorthand property for the grid-row-gap and grid-column-gap properties
+grid-row	A shorthand property for the grid-row-start and the grid-row-end properties
+grid-row-end	Specifies where to end the grid item
+grid-row-gap	Specifies the size of the gap between rows
+grid-row-start	Specifies where to start the grid item
+grid-template	A shorthand property for the grid-template-rows, grid-template-columns and grid-areas properties
+grid-template-areas	Specifies how to display columns and rows, using named grid items
+grid-template-columns	Specifies the size of the columns, and how many columns in a grid layout
+grid-template-rows	Specifies the size of the rows in a grid layout
+row-gap	Specifies the gap between the grid rows
+
+                                                  CSS Grid Container
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+Grid Container
+To make an HTML element behave as a grid container, you have to set the display property to grid or inline-grid.
+
+Grid containers consist of grid items, placed inside columns and rows.
+
+The grid-template-columns Property
+The grid-template-columns property defines the number of columns in your grid layout, and it can define the width of each column.
+
+The value is a space-separated-list, where each value defines the width of the respective column.
+
+If you want your grid layout to contain 4 columns, specify the width of the 4 columns, or "auto" if all columns should have the same width.
+
+Example
+Make a grid with 4 columns:
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+Note: If you have more than 4 items in a 4 columns grid, the grid will automatically add a new row to put the items in.
+
+The grid-template-columns property can also be used to specify the size (width) of the columns.
+
+Example
+Set a size for the 4 columns:
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 80px 200px auto 40px;
+}
+
+The grid-template-rows Property
+The grid-template-rows property defines the height of each row.
+
+1
+2
+3
+4
+5
+6
+7
+8
+The value is a space-separated-list, where each value defines the height of the respective row:
+
+Example
+.grid-container {
+  display: grid;
+  grid-template-rows: 80px 200px;
+}
+
+ADVERTISEMENT
+
+The justify-content Property
+The justify-content property is used to align the whole grid inside the container.
+
+1
+2
+3
+4
+5
+6
+Note: The grid's total width has to be less than the container's width for the justify-content property to have any effect.
+
+Example
+.grid-container {
+  display: grid;
+  justify-content: space-evenly;
+}
+
+Example
+.grid-container {
+  display: grid;
+  justify-content: space-around;
+}
+
+Example
+.grid-container {
+  display: grid;
+  justify-content: space-between;
+}
+
+Example
+.grid-container {
+  display: grid;
+  justify-content: center;
+}
+
+Example
+.grid-container {
+  display: grid;
+  justify-content: start;
+}
+
+Example
+.grid-container {
+  display: grid;
+  justify-content: end;
+}
+
+The align-content Property
+The align-content property is used to vertically align the whole grid inside the container.
+
+1
+2
+3
+4
+5
+6
+Note: The grid's total height has to be less than the container's height for the align-content property to have any effect.
+
+Example
+.grid-container {
+  display: grid;
+  height: 400px;
+  align-content: center;
+}
+
+Example
+.grid-container {
+  display: grid;
+  height: 400px;
+  align-content: space-evenly;
+}
+
+Example
+.grid-container {
+  display: grid;
+  height: 400px;
+  align-content: space-around;
+}
+
+Example
+.grid-container {
+  display: grid;
+  height: 400px;
+  align-content: space-between;
+}
+
+Example
+.grid-container {
+  display: grid;
+  height: 400px;
+  align-content: start;
+}
+
+Example
+.grid-container {
+  display: grid;
+  height: 400px;
+  align-content: end;
+}
+
+                                                                CSS Grid Item
+
+1
+2
+3
+4
+5
+
+Child Elements (Items)
+A grid container contains grid items.
+
+By default, a container has one grid item for each column, in each row, but you can style the grid items so that they will span multiple columns and/or rows.
+
+The grid-column Property:
+The grid-column property defines on which column(s) to place an item.
+
+You define where the item will start, and where the item will end.
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+Note: The grid-column property is a shorthand property for the grid-column-start and the grid-column-end properties.
+
+To place an item, you can refer to line numbers, or use the keyword "span" to define how many columns the item will span.
+
+Example
+Make "item1" start on column 1 and end before column 5:
+
+.item1 {
+  grid-column: 1 / 5;
+}
+
+Example
+Make "item1" start on column 1 and span 3 columns:
+
+.item1 {
+  grid-column: 1 / span 3;
+}
+
+Example
+Make "item2" start on column 2 and span 3 columns:
+
+.item2 {
+  grid-column: 2 / span 3;
+}
+
+The grid-row Property:
+The grid-row property defines on which row to place an item.
+
+You define where the item will start, and where the item will end.
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+Note: The grid-row property is a shorthand property for the grid-row-start and the grid-row-end properties.
+
+To place an item, you can refer to line numbers, or use the keyword "span" to define how many rows the item will span:
+
+Example
+Make "item1" start on row-line 1 and end on row-line 4:
+
+.item1 {
+  grid-row: 1 / 4;
+}
+
+Example
+Make "item1" start on row 1 and span 2 rows:
+
+.item1 {
+  grid-row: 1 / span 2;
+}
+
+ADVERTISEMENT
+
+The grid-area Property
+The grid-area property can be used as a shorthand property for the grid-row-start, grid-column-start, grid-row-end and the grid-column-end properties.
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+Example
+Make "item8" start on row-line 1 and column-line 2, and end on row-line 5 and column line 6:
+
+.item8 {
+  grid-area: 1 / 2 / 5 / 6;
+}
+
+Example
+Make "item8" start on row-line 2 and column-line 1, and span 2 rows and 3 columns:
+
+.item8 {
+  grid-area: 2 / 1 / span 2 / span 3;
+}
+
+Naming Grid Items
+The grid-area property can also be used to assign names to grid items.
+
+Header
+Menu
+Main
+Right
+Footer
+Named grid items can be referred to by the grid-template-areas property of the grid container.
+
+Example
+Item1 gets the name "myArea" and spans all five columns in a five columns grid layout:
+
+.item1 {
+  grid-area: myArea;
+}
+.grid-container {
+  grid-template-areas: 'myArea myArea myArea myArea myArea';
+}
+
+Each row is defined by apostrophes (' ')
+
+The columns in each row is defined inside the apostrophes, separated by a space.
+
+Note: A period sign represents a grid item with no name.
+
+Example
+Let "myArea" span two columns in a five columns grid layout (period signs represent items with no name):
+
+.item1 {
+  grid-area: myArea;
+}
+.grid-container {
+  grid-template-areas: 'myArea myArea . . .';
+}
+
+To define two rows, define the column of the second row inside another set of apostrophes:
+
+Example
+Make "item1" span two columns and two rows:
+
+.grid-container {
+  grid-template-areas: 'myArea myArea . . .' 'myArea myArea . . .';
+}
+
+Example
+Name all items, and make a ready-to-use webpage template:
+
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+}
+
+The Order of the Items
+The Grid Layout allows us to position the items anywhere we like.
+
+The first item in the HTML code does not have to appear as the first item in the grid.
+
+1
+2
+3
+4
+5
+6
+Example
+.item1 { grid-area: 1 / 3 / 2 / 4; }
+.item2 { grid-area: 2 / 3 / 3 / 4; }
+.item3 { grid-area: 1 / 1 / 2 / 2; }
+.item4 { grid-area: 1 / 2 / 2 / 3; }
+.item5 { grid-area: 2 / 1 / 3 / 2; }
+.item6 { grid-area: 2 / 2 / 3 / 3; }
+
+You can re-arrange the order for certain screen sizes, by using media queries:
+
+Example
+@media only screen and (max-width: 500px) {
+  .item1 { grid-area: 1 / span 3 / 2 / 4; }
+  .item2 { grid-area: 3 / 3 / 4 / 4; }
+  .item3 { grid-area: 2 / 1 / 3 / 2; }
+  .item4 { grid-area: 2 / 2 / span 2 / 3; }
+  .item5 { grid-area: 3 / 1 / 4 / 2; }
+  .item6 { grid-area: 2 / 3 / 3 / 4; }
+}
+
