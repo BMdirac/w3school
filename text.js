@@ -597,4 +597,1004 @@ Unicode covers (almost) all the characters, punctuations, and symbols in the wor
 
 For a closer look, please study our Complete Unicode Reference.
 
-{/* continue from comments */}
+
+                                    // ********************** chapter 2 ****************** 
+
+                                    JavaScript Comments
+JavaScript comments can be used to explain JavaScript code, and to make it more readable.
+
+JavaScript comments can also be used to prevent execution, when testing alternative code.
+
+Single Line Comments
+Single line comments start with //.
+
+Any text between // and the end of the line will be ignored by JavaScript (will not be executed).
+
+This example uses a single-line comment before each code line:
+
+Example
+// Change heading:
+document.getElementById("myH").innerHTML = "My First Page";
+
+// Change paragraph:
+document.getElementById("myP").innerHTML = "My first paragraph.";
+This example uses a single line comment at the end of each line to explain the code:
+
+Example
+let x = 5;      // Declare x, give it the value of 5
+let y = x + 2;  // Declare y, give it the value of x + 2
+Multi-line Comments
+Multi-line comments start with /* and end with */.
+
+Any text between /* and */ will be ignored by JavaScript.
+
+This example uses a multi-line comment (a comment block) to explain the code:
+
+Example
+/*
+The code below will change
+the heading with id = "myH"
+and the paragraph with id = "myP"
+in my web page:
+*/
+document.getElementById("myH").innerHTML = "My First Page";
+document.getElementById("myP").innerHTML = "My first paragraph.";
+It is most common to use single line comments.
+Block comments are often used for formal documentation.
+
+ADVERTISEMENT
+
+Using Comments to Prevent Execution
+Using comments to prevent execution of code is suitable for code testing.
+
+Adding // in front of a code line changes the code lines from an executable line to a comment.
+
+This example uses // to prevent execution of one of the code lines:
+
+Example
+//document.getElementById("myH").innerHTML = "My First Page";
+document.getElementById("myP").innerHTML = "My first paragraph.";
+This example uses a comment block to prevent execution of multiple lines:
+
+Example
+/*
+document.getElementById("myH").innerHTML = "My First Page";
+document.getElementById("myP").innerHTML = "My first paragraph.";
+*/
+
+                                                      JavaScript Variables
+
+4 Ways to Declare a JavaScript Variable:
+Using var
+Using let
+Using const
+Using nothing
+What are Variables?
+Variables are containers for storing data (storing data values).
+
+In this example, x, y, and z, are variables, declared with the var keyword:
+
+Example
+var x = 5;
+var y = 6;
+var z = x + y;
+In this example, x, y, and z, are variables, declared with the let keyword:
+
+Example
+let x = 5;
+let y = 6;
+let z = x + y;
+In this example, x, y, and z, are undeclared variables:
+
+Example
+x = 5;
+y = 6;
+z = x + y;
+From all the examples above, you can guess:
+
+x stores the value 5
+y stores the value 6
+z stores the value 11
+When to Use JavaScript var?
+Always declare JavaScript variables with var,let, orconst.
+
+The var keyword is used in all JavaScript code from 1995 to 2015.
+
+The let and const keywords were added to JavaScript in 2015.
+
+If you want your code to run in older browser, you must use var.
+
+When to Use JavaScript const?
+If you want a general rule: always declare variables with const.
+
+If you think the value of the variable can change, use let.
+
+In this example, price1, price2, and total, are variables:
+
+Example
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Variables</h1>
+
+<p>In this example, price, price2, and total are variables.</p>
+
+<p id="demo"></p>
+
+<script>
+const price1 = 5;
+const price2 = 6;
+let total = price1 + price2;
+document.getElementById("demo").innerHTML =
+"The total is: " + total;
+</script>
+
+</body>
+</html>
+
+These are constant values and cannot be changed.
+
+The variable total is declared with the let keyword.
+
+This is a value that can be changed.
+
+Just Like Algebra
+Just like in algebra, variables hold values:
+
+let x = 5;
+let y = 6;
+Just like in algebra, variables are used in expressions:
+
+let z = x + y;
+From the example above, you can guess that the total is calculated to be 11.
+
+Note
+Variables are containers for storing values.
+
+ADVERTISEMENT
+
+JavaScript Identifiers
+All JavaScript variables must be identified with unique names.
+
+These unique names are called identifiers.
+
+Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).
+
+The general rules for constructing names for variables (unique identifiers) are:
+
+Names can contain letters, digits, underscores, and dollar signs.
+Names must begin with a letter
+Names can also begin with $ and _ (but we will not use it in this tutorial)
+Names are case sensitive (y and Y are different variables)
+Reserved words (like JavaScript keywords) cannot be used as names
+Note
+JavaScript identifiers are case-sensitive.
+
+The Assignment Operator
+In JavaScript, the equal sign (=) is an "assignment" operator, not an "equal to" operator.
+
+This is different from algebra. The following does not make sense in algebra:
+
+x = x + 5
+In JavaScript, however, it makes perfect sense: it assigns the value of x + 5 to x.
+
+(It calculates the value of x + 5 and puts the result into x. The value of x is incremented by 5.)
+
+Note
+The "equal to" operator is written like == in JavaScript.
+
+JavaScript Data Types
+JavaScript variables can hold numbers like 100 and text values like "John Doe".
+
+In programming, text values are called text strings.
+
+JavaScript can handle many types of data, but for now, just think of numbers and strings.
+
+Strings are written inside double or single quotes. Numbers are written without quotes.
+
+If you put a number in quotes, it will be treated as a text string.
+
+Example
+const pi = 3.14;
+let person = "John Doe";
+let answer = 'Yes I am!';
+Declaring a JavaScript Variable
+Creating a variable in JavaScript is called "declaring" a variable.
+
+You declare a JavaScript variable with the var or the let keyword:
+
+var carName;
+or:
+let carName;
+After the declaration, the variable has no value (technically it is undefined).
+
+To assign a value to the variable, use the equal sign:
+
+carName = "Volvo";
+You can also assign a value to the variable when you declare it:
+
+let carName = "Volvo";
+In the example below, we create a variable called carName and assign the value "Volvo" to it.
+
+Then we "output" the value inside an HTML paragraph with id="demo":
+
+Example
+<p id="demo"></p>
+
+<script>
+let carName = "Volvo";
+document.getElementById("demo").innerHTML = carName;
+</script>
+Note
+It's a good programming practice to declare all variables at the beginning of a script.
+
+One Statement, Many Variables
+You can declare many variables in one statement.
+
+Start the statement with let and separate the variables by comma:
+
+Example
+let person = "John Doe", carName = "Volvo", price = 200;
+A declaration can span multiple lines:
+
+Example
+let person = "John Doe",
+carName = "Volvo",
+price = 200;
+Value = undefined
+In computer programs, variables are often declared without a value. The value can be something that has to be calculated, or something that will be provided later, like user input.
+
+A variable declared without a value will have the value undefined.
+
+The variable carName will have the value undefined after the execution of this statement:
+
+Example
+let carName;
+Re-Declaring JavaScript Variables
+If you re-declare a JavaScript variable declared with var, it will not lose its value.
+
+The variable carName will still have the value "Volvo" after the execution of these statements:
+
+Example
+var carName = "Volvo";
+var carName;
+Note
+You cannot re-declare a variable declared with let or const.
+
+This will not work:
+
+let carName = "Volvo";
+let carName;
+JavaScript Arithmetic
+As with algebra, you can do arithmetic with JavaScript variables, using operators like = and +:
+
+Example
+let x = 5 + 2 + 3;
+You can also add strings, but strings will be concatenated:
+
+Example
+let x = "John" + " " + "Doe";
+Also try this:
+
+Example
+let x = "5" + 2 + 3;
+Note
+If you put a number in quotes, the rest of the numbers will be treated as strings, and concatenated.
+
+Now try this:
+
+Example
+let x = 2 + 3 + "5";
+JavaScript Dollar Sign $
+Since JavaScript treats a dollar sign as a letter, identifiers containing $ are valid variable names:
+
+Example
+let $ = "Hello World";
+let $$$ = 2;
+let $myMoney = 5;
+Using the dollar sign is not very common in JavaScript, but professional programmers often use it as an alias for the main function in a JavaScript library.
+
+In the JavaScript library jQuery, for instance, the main function $ is used to select HTML elements. In jQuery $("p"); means "select all p elements".
+
+JavaScript Underscore (_)
+Since JavaScript treats underscore as a letter, identifiers containing _ are valid variable names:
+
+Example
+let _lastName = "Johnson";
+let _x = 2;
+let _100 = 5;
+Using the underscore is not very common in JavaScript, but a convention among professional programmers is to use it as an alias for "private (hidden)" variables.
+
+                                                          JavaScript Let
+
+The let keyword was introduced in ES6 (2015).
+
+Variables defined with let cannot be Redeclared.
+
+Variables defined with let must be Declared before use.
+
+Variables defined with let have Block Scope.
+
+Cannot be Redeclared
+Variables defined with let cannot be redeclared.
+
+You cannot accidentally redeclare a variable.
+
+With let you can not do this:
+
+Example
+let x = "John Doe";
+
+let x = 0;
+
+// SyntaxError: 'x' has already been declared
+With var you can:
+
+Example
+var x = "John Doe";
+
+var x = 0;
+Block Scope
+Before ES6 (2015), JavaScript had only Global Scope and Function Scope.
+
+ES6 introduced two important new JavaScript keywords: let and const.
+
+These two keywords provide Block Scope in JavaScript.
+
+Variables declared inside a { } block cannot be accessed from outside the block:
+
+Example
+{
+  let x = 2;
+}
+// x can NOT be used here
+Variables declared with the var keyword can NOT have block scope.
+
+Variables declared inside a { } block can be accessed from outside the block.
+
+Example
+{
+  var x = 2;
+}
+// x CAN be used here
+Redeclaring Variables
+Redeclaring a variable using the var keyword can impose problems.
+
+Redeclaring a variable inside a block will also redeclare the variable outside the block:
+
+Example
+var x = 10;
+// Here x is 10
+
+{
+var x = 2;
+// Here x is 2
+}
+
+// Here x is 2
+Redeclaring a variable using the let keyword can solve this problem.
+
+Redeclaring a variable inside a block will not redeclare the variable outside the block:
+
+Example
+let x = 10;
+// Here x is 10
+
+{
+let x = 2;
+// Here x is 2
+}
+
+// Here x is 10
+Browser Support
+The let keyword is not fully supported in Internet Explorer 11 or earlier.
+
+The following table defines the first browser versions with full support for the let keyword:
+
+Chrome 49	Edge 12	Firefox 44	Safari 11	Opera 36
+Mar, 2016	Jul, 2015	Jan, 2015	Sep, 2017	Mar, 2016
+ADVERTISEMENT
+
+Redeclaring
+Redeclaring a JavaScript variable with var is allowed anywhere in a program:
+
+Example
+var x = 2;
+// Now x is 2
+
+var x = 3;
+// Now x is 3
+With let, redeclaring a variable in the same block is NOT allowed:
+
+Example
+var x = 2;    // Allowed
+let x = 3;    // Not allowed
+
+{
+let x = 2;    // Allowed
+let x = 3     // Not allowed
+}
+
+{
+let x = 2;    // Allowed
+var x = 3     // Not allowed
+}
+Redeclaring a variable with let, in another block, IS allowed:
+
+Example
+let x = 2;    // Allowed
+
+{
+let x = 3;    // Allowed
+}
+
+{
+let x = 4;    // Allowed
+}
+Let Hoisting
+Variables defined with var are hoisted to the top and can be initialized at any time.
+
+Meaning: You can use the variable before it is declared:
+
+Example
+This is OK:
+
+carName = "Volvo";
+var carName;
+If you want to learn more about hoisting, study the chapter JavaScript Hoisting.
+
+Variables defined with let are also hoisted to the top of the block, but not initialized.
+
+Meaning: Using a let variable before it is declared will result in a ReferenceError:
+
+Example
+carName = "Saab";
+let carName = "Volvo";
+
+                                            JavaScript Const
+
+The const keyword was introduced in ES6 (2015).
+
+Variables defined with const cannot be Redeclared.
+
+Variables defined with const cannot be Reassigned.
+
+Variables defined with const have Block Scope.
+
+Cannot be Reassigned
+A const variable cannot be reassigned:
+
+Example
+const PI = 3.141592653589793;
+PI = 3.14;      // This will give an error
+PI = PI + 10;   // This will also give an error
+Must be Assigned
+JavaScript const variables must be assigned a value when they are declared:
+
+Correct
+const PI = 3.14159265359;
+Incorrect
+const PI;
+PI = 3.14159265359;
+When to use JavaScript const?
+As a general rule, always declare a variable with const unless you know that the value will change.
+
+Use const when you declare:
+
+A new Array
+A new Object
+A new Function
+A new RegExp
+Constant Objects and Arrays
+The keyword const is a little misleading.
+
+It does not define a constant value. It defines a constant reference to a value.
+
+Because of this you can NOT:
+
+Reassign a constant value
+Reassign a constant array
+Reassign a constant object
+But you CAN:
+
+Change the elements of constant array
+Change the properties of constant object
+Constant Arrays
+You can change the elements of a constant array:
+
+Example
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript const</h2>
+
+<p>Declaring a constant array does NOT make the elements unchangeable:</p>
+
+<p id="demo"></p>
+
+<script>
+// Create an Array:
+const cars = ["Saab", "Volvo", "BMW"];
+
+// Change an element:
+cars[0] = "Toyota";
+
+// Add an element:
+cars.push("Audi");      /* push adds element at the end of an array  */
+
+// Display the Array:
+document.getElementById("demo").innerHTML = cars; 
+</script>
+
+</body>
+</html>
+
+But you can NOT reassign the array:
+
+Example
+const cars = ["Saab", "Volvo", "BMW"];
+
+cars = ["Toyota", "Volvo", "Audi"];    // ERROR
+Constant Objects
+You can change the properties of a constant object:
+
+Example
+// You can create a const object:
+const car = {type:"Fiat", model:"500", color:"white"};
+
+// You can change a property:
+car.color = "red";
+
+// You can add a property:
+car.owner = "Johnson";
+But you can NOT reassign the object:
+
+Example
+const car = {type:"Fiat", model:"500", color:"white"};
+
+car = {type:"Volvo", model:"EX60", color:"red"};    // ERROR
+Browser Support
+The const keyword is not supported in Internet Explorer 10 or earlier.
+
+The following table defines the first browser versions with full support for the const keyword:
+
+Chrome 49	IE 11 / Edge	Firefox 36	Safari 10	Opera 36
+Mar, 2016	Oct, 2013	Feb, 2015	Sep, 2016	Mar, 2016
+ADVERTISEMENT
+
+Block Scope
+Declaring a variable with const is similar to let when it comes to Block Scope.
+
+The x declared in the block, in this example, is not the same as the x declared outside the block:
+
+Example
+const x = 10;
+// Here x is 10
+
+{
+const x = 2;
+// Here x is 2
+}
+
+// Here x is 10
+You can learn more about block scope in the chapter JavaScript Scope.
+
+Redeclaring
+Redeclaring a JavaScript var variable is allowed anywhere in a program:
+
+Example
+var x = 2;     // Allowed
+var x = 3;     // Allowed
+x = 4;         // Allowed
+Redeclaring an existing var or let variable to const, in the same scope, is not allowed:
+
+Example
+var x = 2;     // Allowed
+const x = 2;   // Not allowed
+
+{
+let x = 2;     // Allowed
+const x = 2;   // Not allowed
+}
+
+{
+const x = 2;   // Allowed
+const x = 2;   // Not allowed
+}
+Reassigning an existing const variable, in the same scope, is not allowed:
+
+Example
+const x = 2;     // Allowed
+x = 2;           // Not allowed
+var x = 2;       // Not allowed
+let x = 2;       // Not allowed
+const x = 2;     // Not allowed
+
+{
+  const x = 2;   // Allowed
+  x = 2;         // Not allowed
+  var x = 2;     // Not allowed
+  let x = 2;     // Not allowed
+  const x = 2;   // Not allowed
+}
+Redeclaring a variable with const, in another scope, or in another block, is allowed:
+
+Example
+const x = 2;       // Allowed
+
+{
+  const x = 3;   // Allowed
+}
+
+{
+  const x = 4;   // Allowed
+}
+Const Hoisting
+Variables defined with var are hoisted to the top and can be initialized at any time.
+
+Meaning: You can use the variable before it is declared:
+
+Example
+This is OK:
+
+carName = "Volvo";
+var carName;
+If you want to learn more about hoisting, study the chapter JavaScript Hoisting.
+
+Variables defined with const are also hoisted to the top, but not initialized.
+
+Meaning: Using a const variable before it is declared will result in a ReferenceError:
+
+Example
+alert (carName);
+const carName = "Volvo";
+
+                                            JavaScript Operators
+
+Example
+Assign values to variables and add them together:
+
+let x = 5;         // assign the value 5 to x
+let y = 2;         // assign the value 2 to y
+let z = x + y;     // assign the value 7 to z (5 + 2)
+The assignment operator (=) assigns a value to a variable.
+
+Assignment
+let x = 10;
+The addition operator (+) adds numbers:
+
+Adding
+let x = 5;
+let y = 2;
+let z = x + y;
+The multiplication operator (*) multiplies numbers.
+
+Multiplying
+let x = 5;
+let y = 2;
+let z = x * y;
+ADVERTISEMENT
+
+JavaScript Arithmetic Operators
+Arithmetic operators are used to perform arithmetic on numbers:
+
+Operator	Description
++	Addition
+-	Subtraction
+*	Multiplication
+**	Exponentiation (ES2016)
+/	Division
+%	Modulus (Division Remainder)
+++	Increment
+--	Decrement
+Arithmetic operators are fully described in the JS Arithmetic chapter.
+
+JavaScript Assignment Operators
+Assignment operators assign values to JavaScript variables.
+
+Operator	Example	Same As
+=	x = y	x = y
++=	x += y	x = x + y
+-=	x -= y	x = x - y
+*=	x *= y	x = x * y
+/=	x /= y	x = x / y
+%=	x %= y	x = x % y
+**=	x **= y	x = x ** y
+The addition assignment operator (+=) adds a value to a variable.
+
+Assignment
+let x = 10;
+x += 5;
+Assignment operators are fully described in the JS Assignment chapter.
+
+JavaScript String Operators
+The + operator can also be used to add (concatenate) strings.
+
+Example
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Operators</h2>
+
+<p>The + operator concatenates (adds) strings.</p>
+
+<p id="demo"></p>
+
+<script>
+let text1 = "John";
+let text2 = "Doe";
+let text3 = text1 + " " + text2;
+document.getElementById("demo").innerHTML = text3;
+</script>
+
+</body>
+</html>
+
+
+The result of text3 will be:
+
+John Doe
+The += assignment operator can also be used to add (concatenate) strings:
+
+Example
+let text1 = "What a very ";
+text1 += "nice day";
+The result of text1 will be:
+
+What a very nice day
+When used on strings, the + operator is called the concatenation operator.
+
+Adding Strings and Numbers
+Adding two numbers, will return the sum, but adding a number and a string will return a string:
+
+Example
+let x = 5 + 5;
+let y = "5" + 5;
+let z = "Hello" + 5;
+The result of x, y, and z will be:
+
+10
+55
+Hello5
+If you add a number and a string, the result will be a string!
+
+JavaScript Comparison Operators
+Operator	Description
+==	equal to
+===	equal value and equal type
+!=	not equal
+!==	not equal value or not equal type
+>	greater than
+<	less than
+>=	greater than or equal to
+<=	less than or equal to
+?	ternary operator
+Comparison operators are fully described in the JS Comparisons chapter.
+
+JavaScript Logical Operators
+Operator	Description
+&&	logical and
+||	logical or
+!	logical not
+Logical operators are fully described in the JS Comparisons chapter.
+
+JavaScript Type Operators
+Operator	Description
+typeof	Returns the type of a variable
+instanceof	Returns true if an object is an instance of an object type
+Type operators are fully described in the JS Type Conversion chapter.
+
+JavaScript Bitwise Operators
+Bit operators work on 32 bits numbers.
+
+Any numeric operand in the operation is converted into a 32 bit number. The result is converted back to a JavaScript number.
+Operator	Description	Example	Same as	Result	Decimal
+&	AND	5 & 1	0101 & 0001	0001	 1
+|	OR	5 | 1	0101 | 0001	0101	 5
+~	NOT	~ 5	 ~0101	1010	 10
+^	XOR	5 ^ 1	0101 ^ 0001	0100	 4
+<<	left shift	5 << 1	0101 << 1	1010	 10
+>>	right shift	5 >> 1	0101 >> 1	0010	  2
+>>>	unsigned right shift	5 >>> 1	0101 >>> 1	0010	  2
+The examples above uses 4 bits unsigned examples. But JavaScript uses 32-bit signed numbers.
+Because of this, in JavaScript, ~ 5 will not return 10. It will return -6.
+~00000000000000000000000000000101 will return 11111111111111111111111111111010
+
+Bitwise operators are fully described in the JS Bitwise chapter.
+
+                                            JavaScript Arithmetic
+
+JavaScript Arithmetic Operators
+Arithmetic operators perform arithmetic on numbers (literals or variables).
+
+Operator	Description
++	Addition
+-	Subtraction
+*	Multiplication
+**	Exponentiation (ES2016)
+/	Division
+%	Modulus (Remainder)
+++	Increment
+--	Decrement
+Arithmetic Operations
+A typical arithmetic operation operates on two numbers.
+
+The two numbers can be literals:
+
+Example
+let x = 100 + 50;
+or variables:
+
+Example
+let x = a + b;
+or expressions:
+
+Example
+let x = (100 + 50) * a;
+Operators and Operands
+The numbers (in an arithmetic operation) are called operands.
+
+The operation (to be performed between the two operands) is defined by an operator.
+
+Operand	Operator	Operand
+100	+	50
+ADVERTISEMENT
+
+Adding
+The addition operator (+) adds numbers:
+
+Example
+let x = 5;
+let y = 2;
+let z = x + y;
+Subtracting
+The subtraction operator (-) subtracts numbers.
+
+Example
+let x = 5;
+let y = 2;
+let z = x - y;
+Multiplying
+The multiplication operator (*) multiplies numbers.
+
+Example
+let x = 5;
+let y = 2;
+let z = x * y;
+Dividing
+The division operator (/) divides numbers.
+
+Example
+let x = 5;
+let y = 2;
+let z = x / y;
+Remainder
+The modulus operator (%) returns the division remainder.
+
+Example
+let x = 5;
+let y = 2;
+let z = x % y;
+In arithmetic, the division of two integers produces a quotient and a remainder.
+
+In mathematics, the result of a modulo operation is the remainder of an arithmetic division.
+
+Incrementing
+The increment operator (++) increments numbers.
+
+Example
+let x = 5;
+x++;
+let z = x;
+Decrementing
+The decrement operator (--) decrements numbers.
+
+Example
+let x = 5;
+x--;
+let z = x;
+Exponentiation
+The exponentiation operator (**) raises the first operand to the power of the second operand.
+
+Example
+let x = 5;
+let z = x ** 2;          // result is 25
+x ** y produces the same result as Math.pow(x,y):
+
+Example
+let x = 5;
+let z = Math.pow(x,2);   // result is 25
+Operator Precedence
+Operator precedence describes the order in which operations are performed in an arithmetic expression.
+
+Example
+let x = 100 + 50 * 3;
+Is the result of example above the same as 150 * 3, or is it the same as 100 + 150?
+
+Is the addition or the multiplication done first?
+
+As in traditional school mathematics, the multiplication is done first.
+
+Multiplication (*) and division (/) have higher precedence than addition (+) and subtraction (-).
+
+And (as in school mathematics) the precedence can be changed by using parentheses:
+
+Example
+let x = (100 + 50) * 3;
+When using parentheses, the operations inside the parentheses are computed first.
+
+When many operations have the same precedence (like addition and subtraction), they are computed from left to right:
+
+Example
+let x = 100 + 50 - 3;
+JavaScript Operator Precedence Values
+Pale red entries indicates ECMAScript 2015 (ES6) or higher.
+
+Value	Operator	Description	Example
+21	( )	Expression grouping	(3 + 4)
+ 	 	 	 
+20	.	Member	person.name
+20	[]	Member	person["name"]
+20	()	Function call	myFunction()
+20	new	Create	new Date()
+ 	 	 	 
+18	++	Postfix Increment	i++
+18	--	Postfix Decrement	i--
+ 	 	 	 
+17	++	Prefix Increment	++i
+17	--	Prefix Decrement	--i
+17	!	Logical not	!(x==y)
+17	typeof	Type	typeof x
+ 	 	 	 
+16	**	Exponentiation (ES2016)	10 ** 2
+ 	 	 	 
+15	*	Multiplication	10 * 5
+15	/	Division	10 / 5
+15	%	Division Remainder	10 % 5
+ 	 	 	 
+14	+	Addition	10 + 5
+14	-	Subtraction	10 - 5
+ 	 	 	 
+13	<<	Shift left	x << 2
+13	>>	Shift right	x >> 2
+13	>>>	Shift right (unsigned)	x >>> 2
+ 	 	 	 
+12	<	Less than	x < y 
+12	<=	Less than or equal	x <= y
+12	>	Greater than	x > y
+12	>=	Greater than or equal	x >= y
+12	in	Property in Object	"PI" in Math
+12	instanceof	Instance of Object	instanceof Array
+ 	 	 	 
+11	==	Equal	x == y
+11	===	Strict equal	x === y
+11	!=	Unequal	x != y
+11	!==	Strict unequal	x !== y
+ 	 	 	 
+10	&	Bitwise AND	x & y
+9	^	Bitwise XOR	x ^ y
+8	|	Bitwise OR	x | y
+7	&&	Logical AND	x && y
+6	||	Logical OR	x || y
+5	??	Nullish Coalescing	x ?? y
+4	? :	Condition	? "Yes" : "No"
+ 	 	 	 
+3	+=	Assignment	x += y
+3	/=	Assignment	x /= y
+3	-=	Assignment	x -= y
+3	*=	Assignment	x *= y
+3	%=	Assignment	x %= y
+3	<<=	Assignment	x <<= y
+3	>>=	Assignment	x >>= y
+3	>>>=	Assignment	x >>>= y
+3	&=	Assignment	x &= y
+3	^=	Assignment	x ^= y
+3	|=	Assignment	x |= y
+ 	 	 	 
+2	yield	Pause Function	yield x
+1	,	Comma	5 , 6
+
+{/* continue from assignment */}
