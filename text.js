@@ -1952,3 +1952,305 @@ Since local variables are only recognized inside their functions, variables with
 
 Local variables are created when a function starts, and deleted when the function is completed.
 
+                                            JavaScript Objects
+
+Real Life Objects, Properties, and Methods
+In real life, a car is an object.
+
+A car has properties like weight and color, and methods like start and stop:
+
+Object	Properties	Methods
+	
+car.name = Fiat
+
+car.model = 500
+
+car.weight = 850kg
+
+car.color = white	
+car.start()
+
+car.drive()
+
+car.brake()
+
+car.stop()
+All cars have the same properties, but the property values differ from car to car.
+
+All cars have the same methods, but the methods are performed at different times.
+
+JavaScript Objects
+You have already learned that JavaScript variables are containers for data values.
+
+This code assigns a simple value (Fiat) to a variable named car:
+
+let car = "Fiat";
+Objects are variables too. But objects can contain many values.
+
+This code assigns many values (Fiat, 500, white) to a variable named car:
+
+const car = {type:"Fiat", model:"500", color:"white"};
+The values are written as name:value pairs (name and value separated by a colon).
+
+It is a common practice to declare objects with the const keyword.
+
+Learn more about using const with objects in the chapter: JS Const.
+
+ADVERTISEMENT
+
+Object Definition
+You define (and create) a JavaScript object with an object literal:
+
+Example
+const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+Spaces and line breaks are not important. An object definition can span multiple lines:
+
+Example
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+Object Properties
+The name:values pairs in JavaScript objects are called properties:
+
+Property	Property Value
+firstName	John
+lastName	Doe
+age	50
+eyeColor	blue
+Accessing Object Properties
+You can access object properties in two ways:
+
+objectName.propertyName
+or
+
+objectName["propertyName"]
+Example1
+person.lastName;
+Example2
+person["lastName"];
+JavaScript objects are containers for named values called properties.
+
+Object Methods
+Objects can also have methods.
+
+Methods are actions that can be performed on objects.
+
+Methods are stored in properties as function definitions.
+
+Property	Property Value
+firstName	John
+lastName	Doe
+age	50
+eyeColor	blue
+fullName	function() {return this.firstName + " " + this.lastName;}
+A method is a function stored as a property.
+
+Example
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+In the example above, this refers to the person object.
+
+I.E. this.firstName means the firstName property of this.
+
+I.E. this.firstName means the firstName property of person.
+
+What is this?
+In JavaScript, the this keyword refers to an object.
+
+Which object depends on how this is being invoked (used or called).
+
+The this keyword refers to different objects depending on how it is used:
+
+In an object method, this refers to the object.
+Alone, this refers to the global object.
+In a function, this refers to the global object.
+In a function, in strict mode, this is undefined.
+In an event, this refers to the element that received the event.
+Methods like call(), apply(), and bind() can refer this to any object.
+Note
+this is not a variable. It is a keyword. You cannot change the value of this.
+See Also:
+The JavaScript this Tutorial
+
+The this Keyword
+In a function definition, this refers to the "owner" of the function.
+
+In the example above, this is the person object that "owns" the fullName function.
+
+In other words, this.firstName means the firstName property of this object.
+
+Learn more about this in The JavaScript this Tutorial.
+
+Accessing Object Methods
+You access an object method with the following syntax:
+
+objectName.methodName()
+
+Example
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+<p>An object method is a function definition, stored as a property value.</p>
+
+<p id="demo"></p>
+
+<script>
+// Create an object:
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  id: 5566,
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+// Display data from the object:
+document.getElementById("demo").innerHTML = person.fullName();
+</script>
+
+</body>
+</html>
+
+name = person.fullName();
+
+If you access a method without the () parentheses, it will return the function definition:
+
+Example
+name = person.fullName;
+Do Not Declare Strings, Numbers, and Booleans as Objects!
+When a JavaScript variable is declared with the keyword "new", the variable is created as an object:
+
+x = new String();        // Declares x as a String object
+y = new Number();        // Declares y as a Number object
+z = new Boolean();       // Declares z as a Boolean object
+Avoid String, Number, and Boolean objects. They complicate your code and slow down execution speed.
+
+You will learn more about objects later in this tutorial.
+
+                                                  JavaScript Events
+
+HTML events are "things" that happen to HTML elements.
+
+When JavaScript is used in HTML pages, JavaScript can "react" on these events.
+
+HTML Events
+An HTML event can be something the browser does, or something a user does.
+
+Here are some examples of HTML events:
+
+An HTML web page has finished loading
+An HTML input field was changed
+An HTML button was clicked
+Often, when events happen, you may want to do something.
+
+JavaScript lets you execute code when events are detected.
+
+HTML allows event handler attributes, with JavaScript code, to be added to HTML elements.
+
+With single quotes:
+
+<element event='some JavaScript'>
+With double quotes:
+
+<element event="some JavaScript">
+In the following example, an onclick attribute (with code), is added to a <button> element:
+
+Example
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="document.getElementById('demo').innerHTML=Date()">The time is?</button>
+
+<p id="demo"></p>
+
+</body>
+</html>
+
+In the example above, the JavaScript code changes the content of the element with id="demo".
+
+In the next example, the code changes the content of its own element (using this.innerHTML):
+
+Example
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript HTML Events</h2>
+<button onclick="this.innerHTML=Date()">The time is?</button>
+
+</body>
+</html>
+
+JavaScript code is often several lines long. It is more common to see event attributes calling functions:
+
+Example
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript HTML Events</h2>
+<p>Click the button to display the date.</p>
+
+<button onclick="displayDate()">The time is?</button>
+
+<script>
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+</script>
+
+<p id="demo"></p>
+
+</body>
+</html> 
+
+
+ADVERTISEMENT
+
+Common HTML Events
+Here is a list of some common HTML events:
+
+Event	Description
+onchange	An HTML element has been changed
+onclick	The user clicks an HTML element
+onmouseover	The user moves the mouse over an HTML element
+onmouseout	The user moves the mouse away from an HTML element
+onkeydown	The user pushes a keyboard key
+onload	The browser has finished loading the page
+The list is much longer: W3Schools JavaScript Reference HTML DOM Events.
+
+JavaScript Event Handlers
+Event handlers can be used to handle and verify user input, user actions, and browser actions:
+
+Things that should be done every time a page loads
+Things that should be done when the page is closed
+Action that should be performed when a user clicks a button
+Content that should be verified when a user inputs data
+And more ...
+Many different methods can be used to let JavaScript work with events:
+
+HTML event attributes can execute JavaScript code directly
+HTML event attributes can call JavaScript functions
+You can assign your own event handler functions to HTML elements
+You can prevent events from being sent or being handled
+And more ...
+You will learn a lot more about events and event handlers in the HTML DOM chapters.
+
+{/* continue from strings */}
