@@ -1134,7 +1134,7 @@ document.getElementById("demo").innerHTML = cars;
 But you can NOT reassign the array:
 
 Example
-const cars = ["Saab", "Volvo", "BMW"];
+const cars = ["Saab", "Volvo", "BMW"];  {/* note the bracket used here  */}
 
 cars = ["Toyota", "Volvo", "Audi"];    // ERROR
 Constant Objects
@@ -1142,7 +1142,7 @@ You can change the properties of a constant object:
 
 Example
 // You can create a const object:
-const car = {type:"Fiat", model:"500", color:"white"};
+const car = {type:"Fiat", model:"500", color:"white"};  {/* note the bracket used here  */
 
 // You can change a property:
 car.color = "red";
@@ -1597,4 +1597,358 @@ Value	Operator	Description	Example
 2	yield	Pause Function	yield x
 1	,	Comma	5 , 6
 
-{/* continue from assignment */}
+                                                // ********************** chapter 3 ****************** 
+
+                                                JavaScript Assignment
+JavaScript Assignment Operators
+Assignment operators assign values to JavaScript variables.
+
+Operator	Example	Same As
+=	x = y	x = y
++=	x += y	x = x + y
+-=	x -= y	x = x - y
+*=	x *= y	x = x * y
+/=	x /= y	x = x / y
+%=	x %= y	x = x % y
+<<=	x <<= y	x = x << y
+>>=	x >>= y	x = x >> y
+>>>=	x >>>= y	x = x >>> y
+&=	x &= y	x = x & y
+^=	x ^= y	x = x ^ y
+|=	x |= y	x = x | y
+**=	x **= y	x = x ** y
+The **= operator is a part of ECMAScript 2016.
+
+Assignment Examples
+The = assignment operator assigns a value to a variable.
+
+Assignment
+let x = 10;
+The += assignment operator adds a value to a variable.
+
+Assignment
+let x = 10;
+x += 5;
+The -= assignment operator subtracts a value from a variable.
+
+Assignment
+let x = 10;
+x -= 5;
+The *= assignment operator multiplies a variable.
+
+Assignment
+let x = 10;
+x *= 5;
+The /= assignment divides a variable.
+
+Assignment
+let x = 10;
+x /= 5;
+The %= assignment operator assigns a remainder to a variable.
+
+Assignment
+let x = 10;
+x %= 5;
+
+                                                  JavaScript Data Types
+
+JavaScript variables can hold different data types: numbers, strings, objects and more:
+
+let length = 16;                               // Number
+let lastName = "Johnson";                      // String
+let x = {firstName:"John", lastName:"Doe"};    // Object
+The Concept of Data Types
+In programming, data types is an important concept.
+
+To be able to operate on variables, it is important to know something about the type.
+
+Without data types, a computer cannot safely solve this:
+
+let x = 16 + "Volvo";
+Does it make any sense to add "Volvo" to sixteen? Will it produce an error or will it produce a result?
+
+JavaScript will treat the example above as:
+
+let x = "16" + "Volvo";
+When adding a number and a string, JavaScript will treat the number as a string.
+
+Example
+let x = 16 + "Volvo";
+Example
+let x = "Volvo" + 16;
+JavaScript evaluates expressions from left to right. Different sequences can produce different results:
+
+JavaScript:
+let x = 16 + 4 + "Volvo";
+Result:
+
+20Volvo
+JavaScript:
+let x = "Volvo" + 16 + 4;
+Result:
+
+Volvo164
+In the first example, JavaScript treats 16 and 4 as numbers, until it reaches "Volvo".
+
+In the second example, since the first operand is a string, all operands are treated as strings.
+
+ADVERTISEMENT
+
+JavaScript Types are Dynamic
+JavaScript has dynamic types. This means that the same variable can be used to hold different data types:
+
+Example
+let x;           // Now x is undefined
+x = 5;           // Now x is a Number
+x = "John";      // Now x is a String
+JavaScript Strings
+A string (or a text string) is a series of characters like "John Doe".
+
+Strings are written with quotes. You can use single or double quotes:
+Example
+let carName1 = "Volvo XC60";   // Using double quotes
+let carName2 = 'Volvo XC60';   // Using single quotes
+You can use quotes inside a string, as long as they don't match the quotes surrounding the string:
+
+Example
+let answer1 = "It's alright";             // Single quote inside double quotes
+let answer2 = "He is called 'Johnny'";    // Single quotes inside double quotes
+let answer3 = 'He is called "Johnny"';    // Double quotes inside single quotes
+You will learn more about strings later in this tutorial.
+
+JavaScript Numbers
+JavaScript has only one type of numbers.
+
+Numbers can be written with, or without decimals:
+
+Example
+let x1 = 34.00;     // Written with decimals
+let x2 = 34;        // Written without decimals
+Extra large or extra small numbers can be written with scientific (exponential) notation:
+
+Example
+let y = 123e5;      // 12300000
+let z = 123e-5;     // 0.00123
+You will learn more about numbers later in this tutorial.
+
+JavaScript Booleans
+Booleans can only have two values: true or false.
+
+Example
+let x = 5;
+let y = 5;
+let z = 6;
+(x == y)       // Returns true
+(x == z)       // Returns false
+Booleans are often used in conditional testing.
+
+You will learn more about conditional testing later in this tutorial.
+
+JavaScript Arrays
+JavaScript arrays are written with square brackets.
+
+Array items are separated by commas.
+
+The following code declares (creates) an array called cars, containing three items (car names):
+
+Example
+const cars = ["Saab", "Volvo", "BMW"];
+Array indexes are zero-based, which means the first item is [0], second is [1], and so on.
+
+You will learn more about arrays later in this tutorial.
+
+JavaScript Objects
+JavaScript objects are written with curly braces {}.
+
+Object properties are written as name:value pairs, separated by commas.
+
+Example
+const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+The object (person) in the example above has 4 properties: firstName, lastName, age, and eyeColor.
+
+You will learn more about objects later in this tutorial.
+
+The typeof Operator
+You can use the JavaScript typeof operator to find the type of a JavaScript variable.
+
+The typeof operator returns the type of a variable or an expression:
+
+Example
+typeof ""             // Returns "string"
+typeof "John"         // Returns "string"
+typeof "John Doe"     // Returns "string"
+
+Example
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript typeof</h2>
+<p>The typeof operator returns the type of a variable or an expression.</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 
+typeof 0 + "<br>" + 
+typeof 314 + "<br>" +
+typeof 3.14 + "<br>" +
+typeof (3) + "<br>" +
+typeof (3 + 4);
+</script>
+
+</body>
+</html>
+
+typeof 0              // Returns "number"
+typeof 314            // Returns "number"
+typeof 3.14           // Returns "number"
+typeof (3)            // Returns "number"
+typeof (3 + 4)        // Returns "number"
+You will learn more about typeof later in this tutorial.
+
+Undefined
+In JavaScript, a variable without a value, has the value undefined. The type is also undefined.
+
+Example
+let car;    // Value is undefined, type is undefined
+Any variable can be emptied, by setting the value to undefined. The type will also be undefined.
+
+Example
+car = undefined;    // Value is undefined, type is undefined
+Empty Values
+An empty value has nothing to do with undefined.
+
+An empty string has both a legal value and a type.
+
+Example
+let car = "";    // The value is "", the typeof is "string"
+
+                                                      JavaScript Functions
+
+A JavaScript function is a block of code designed to perform a particular task.
+
+A JavaScript function is executed when "something" invokes it (calls it).
+
+Example
+function myFunction(p1, p2) {
+  return p1 * p2;   // The function returns the product of p1 and p2
+}
+JavaScript Function Syntax
+A JavaScript function is defined with the function keyword, followed by a name, followed by parentheses ().
+
+Function names can contain letters, digits, underscores, and dollar signs (same rules as variables).
+
+The parentheses may include parameter names separated by commas:
+(parameter1, parameter2, ...)
+
+The code to be executed, by the function, is placed inside curly brackets: {}
+
+function name(parameter1, parameter2, parameter3) {
+  // code to be executed
+}
+Function parameters are listed inside the parentheses () in the function definition.
+
+Function arguments are the values received by the function when it is invoked.
+
+Inside the function, the arguments (the parameters) behave as local variables.
+
+A Function is much the same as a Procedure or a Subroutine, in other programming languages.
+
+Function Invocation
+The code inside the function will execute when "something" invokes (calls) the function:
+
+When an event occurs (when a user clicks a button)
+When it is invoked (called) from JavaScript code
+Automatically (self invoked)
+You will learn a lot more about function invocation later in this tutorial.
+
+ADVERTISEMENT
+
+Function Return
+When JavaScript reaches a return statement, the function will stop executing.
+
+If the function was invoked from a statement, JavaScript will "return" to execute the code after the invoking statement.
+
+Functions often compute a return value. The return value is "returned" back to the "caller":
+
+Example
+Calculate the product of two numbers, and return the result:
+
+let x = myFunction(4, 3);   // Function is called, return value will end up in x
+
+function myFunction(a, b) {
+  return a * b;             // Function returns the product of a and b
+}
+The result in x will be:
+
+12
+Why Functions?
+You can reuse code: Define the code once, and use it many times.
+
+You can use the same code many times with different arguments, to produce different results.
+
+Example
+Convert Fahrenheit to Celsius:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+
+<p>This example calls a function to convert from Fahrenheit to Celsius:</p>
+<p id="demo"></p>
+
+<script>
+function toCelsius(f) {
+  return (5/9) * (f-32);
+}
+document.getElementById("demo").innerHTML = toCelsius(77);
+</script>
+
+</body>
+</html>
+document.getElementById("demo").innerHTML = toCelsius(77);
+The () Operator Invokes the Function
+Using the example above, toCelsius refers to the function object, and toCelsius() refers to the function result.
+
+Accessing a function without () will return the function object instead of the function result.
+
+Example
+function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+}
+document.getElementById("demo").innerHTML = toCelsius;
+Functions Used as Variable Values
+Functions can be used the same way as you use variables, in all types of formulas, assignments, and calculations.
+
+Example
+Instead of using a variable to store the return value of a function:
+
+let x = toCelsius(77);
+let text = "The temperature is " + x + " Celsius";
+You can use the function directly, as a variable value:
+
+let text = "The temperature is " + toCelsius(77) + " Celsius";
+You will learn a lot more about functions later in this tutorial.
+
+Local Variables
+Variables declared within a JavaScript function, become LOCAL to the function.
+
+Local variables can only be accessed from within the function.
+
+Example
+// code here can NOT use carName
+
+function myFunction() {
+  let carName = "Volvo";
+  // code here CAN use carName
+}
+
+// code here can NOT use carName
+Since local variables are only recognized inside their functions, variables with the same name can be used in different functions.
+
+Local variables are created when a function starts, and deleted when the function is completed.
+
