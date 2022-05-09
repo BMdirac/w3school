@@ -2253,4 +2253,503 @@ You can prevent events from being sent or being handled
 And more ...
 You will learn a lot more about events and event handlers in the HTML DOM chapters.
 
-{/* continue from strings */}
+
+                                                        // ********************** chapter 4 ****************** 
+
+                                                        JavaScript Strings
+JavaScript strings are for storing and manipulating text.
+
+A JavaScript string is zero or more characters written inside quotes.
+
+Example
+let text = "John Doe";
+You can use single or double quotes:
+
+Example
+let carName1 = "Volvo XC60";  // Double quotes
+let carName2 = 'Volvo XC60';  // Single quotes
+You can use quotes inside a string, as long as they don't match the quotes surrounding the string:
+
+Example
+let answer1 = "It's alright";
+let answer2 = "He is called 'Johnny'";
+let answer3 = 'He is called "Johnny"';
+String Length
+To find the length of a string, use the built-in length property:
+
+Example
+let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let length = text.length;
+ADVERTISEMENT
+
+Escape Character
+Because strings must be written within quotes, JavaScript will misunderstand this string:
+
+let text = "We are the so-called "Vikings" from the north.";
+The string will be chopped to "We are the so-called ".
+
+The solution to avoid this problem, is to use the backslash escape character.
+
+The backslash (\) escape character turns special characters into string characters:
+
+Code	Result	Description
+\'	'	Single quote
+\"	"	Double quote
+\\	\	Backslash
+The sequence \"  inserts a double quote in a string:
+
+Example
+let text = "We are the so-called \"Vikings\" from the north.";
+The sequence \'  inserts a single quote in a string:
+
+Example
+let text= 'It\'s alright.';
+The sequence \\  inserts a backslash in a string:
+
+Example
+let text = "The character \\ is called backslash.";
+Six other escape sequences are valid in JavaScript:
+
+Code	Result
+\b	Backspace
+\f	Form Feed
+\n	New Line
+\r	Carriage Return
+\t	Horizontal Tabulator
+\v	Vertical Tabulator
+The 6 escape characters above were originally designed to control typewriters, teletypes, and fax machines. They do not make any sense in HTML.
+
+Breaking Long Code Lines
+For best readability, programmers often like to avoid code lines longer than 80 characters.
+
+If a JavaScript statement does not fit on one line, the best place to break it is after an operator:
+
+Example
+document.getElementById("demo").innerHTML =
+"Hello Dolly!";
+You can also break up a code line within a text string with a single backslash:
+
+Example
+document.getElementById("demo").innerHTML = "Hello \
+Dolly!";
+The \ method is not the preferred method. It might not have universal support.
+Some browsers do not allow spaces behind the \ character.
+
+A safer way to break up a string, is to use string addition:
+
+Example
+document.getElementById("demo").innerHTML = "Hello " +
+"Dolly!";
+You cannot break up a code line with a backslash:
+
+Example
+document.getElementById("demo").innerHTML = \
+"Hello Dolly!";
+JavaScript Strings as Objects
+Normally, JavaScript strings are primitive values, created from literals:
+
+let x = "John";
+But strings can also be defined as objects with the keyword new:
+
+let y = new String("John");
+Example
+let x = "John";
+let y = new String("John");
+Do not create Strings objects.
+
+The new keyword complicates the code and slows down execution speed.
+
+String objects can produce unexpected results:
+
+When using the == operator, x and y are equal:
+
+let x = "John";
+let y = new String("John");
+When using the === operator, x and y are not equal:
+
+let x = "John";
+let y = new String("John");
+Note the difference between (x==y) and (x===y).
+
+(x == y) true or false?
+
+let x = new String("John");
+let y = new String("John");
+(x === y) true or false?
+
+let x = new String("John");
+let y = new String("John");
+Comparing two JavaScript objects always returns false.
+
+Complete String Reference
+For a complete String reference, go to our:
+
+Complete JavaScript String Reference.
+
+The reference contains descriptions and examples of all string properties and methods.
+
+                                                      JavaScript String Methods
+
+String methods help you to work with strings.
+
+String Methods and Properties
+Primitive values, like "John Doe", cannot have properties or methods (because they are not objects).
+
+But with JavaScript, methods and properties are also available to primitive values, because JavaScript treats primitive values as objects when executing methods and properties.
+
+JavaScript String Length
+The length property returns the length of a string:
+
+Example
+let txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let length = txt.length;
+Extracting String Parts
+There are 3 methods for extracting a part of a string:
+
+slice(start, end)
+substring(start, end)
+substr(start, length)
+JavaScript String slice()
+slice() extracts a part of a string and returns the extracted part in a new string.
+
+The method takes 2 parameters: the start position, and the end position (end not included).
+
+Example
+Slice out a portion of a string from position 7 to position 13 (13 not included):
+
+let str = "Apple, Banana, Kiwi";
+let part = str.slice(7, 13);
+Note
+JavaScript counts positions from zero.
+
+First position is 0.
+
+Second position is 1.
+
+If a parameter is negative, the position is counted from the end of the string.
+
+This example slices out a portion of a string from position -12 to position -6:
+
+Example
+let str = "Apple, Banana, Kiwi";
+let part = str.slice(-12, -6);
+If you omit the second parameter, the method will slice out the rest of the string:
+
+Example
+let part = str.slice(7);
+or, counting from the end:
+
+Example
+let part = str.slice(-12);
+ADVERTISEMENT
+
+JavaScript String substring()
+substring() is similar to slice().
+
+The difference is that start and end values less than 0 are treated as 0 in substring().
+
+Example
+let str = "Apple, Banana, Kiwi";
+let part = str.substring(7, 13);
+If you omit the second parameter, substring() will slice out the rest of the string.
+
+JavaScript String substr()
+substr() is similar to slice().
+
+The difference is that the second parameter specifies the length of the extracted part.
+
+Example
+let str = "Apple, Banana, Kiwi";
+let part = str.substr(7, 6);
+If you omit the second parameter, substr() will slice out the rest of the string.
+
+Example
+let str = "Apple, Banana, Kiwi";
+let part = str.substr(7);
+If the first parameter is negative, the position counts from the end of the string.
+
+Example
+let str = "Apple, Banana, Kiwi";
+let part = str.substr(-4);
+Replacing String Content
+The replace() method replaces a specified value with another value in a string:
+
+Example
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h2>JavaScript String Methods</h2>
+
+<p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo">Please visit Microsoft!</p>
+
+<script>
+function myFunction() {
+  let text = document.getElementById("demo").innerHTML;
+  document.getElementById("demo").innerHTML =
+  text.replace("Microsoft","W3Schools");
+}
+</script>
+
+</body>
+</html>
+
+
+Note
+The replace() method does not change the string it is called on.
+
+The replace() method returns a new string.
+
+The replace() method replaces only the first match
+
+If you want to replace all matches, use a regular expression with the /g flag set. See examples below.
+
+By default, the replace() method replaces only the first match:
+
+Example
+let text = "Please visit Microsoft and Microsoft!";
+let newText = text.replace("Microsoft", "W3Schools");
+
+By default, the replace() method is case sensitive. Writing MICROSOFT (with upper-case) will not work:
+
+Example
+let text = "Please visit Microsoft!";
+let newText = text.replace("MICROSOFT", "W3Schools");
+
+To replace case insensitive, use a regular expression with an /i flag (insensitive):
+
+Example
+let text = "Please visit Microsoft!";
+let newText = text.replace(/MICROSOFT/i, "W3Schools");
+
+Note
+Regular expressions are written without quotes.
+
+To replace all matches, use a regular expression with a /g flag (global match):
+
+Example
+let text = "Please visit Microsoft and Microsoft!";
+let newText = text.replace(/Microsoft/g, "W3Schools");
+
+Note
+You will learn a lot more about regular expressions in the chapter JavaScript Regular Expressions.
+
+Converting to Upper and Lower Case
+A string is converted to upper case with toUpperCase():
+
+A string is converted to lower case with toLowerCase():
+
+JavaScript String toUpperCase()
+
+Example
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript String Methods</h2>
+<p>Convert string to upper case:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo">Hello World!</p>
+
+<script>
+function myFunction() {
+  let text = document.getElementById("demo").innerHTML;
+  document.getElementById("demo").innerHTML =
+  text.toUpperCase();
+}
+</script>
+
+</body>
+</html>
+
+JavaScript String toLowerCase()
+Example
+let text1 = "Hello World!";       // String
+let text2 = text1.toLowerCase();  // text2 is text1 converted to lower
+JavaScript String concat()
+concat() joins two or more strings:
+
+Example
+let text1 = "Hello";
+let text2 = "World";
+let text3 = text1.concat(" ", text2);
+The concat() method can be used instead of the plus operator. These two lines do the same:
+
+Example
+text = "Hello" + " " + "World!";
+text = "Hello".concat(" ", "World!");
+Note
+All string methods return a new string. They don't modify the original string.
+
+Formally said:
+
+Strings are immutable: Strings cannot be changed, only replaced.
+
+JavaScript String trim()
+The trim() method removes whitespace from both sides of a string:
+
+Example
+let text1 = "      Hello World!      ";
+let text2 = text1.trim();
+JavaScript String Padding
+ECMAScript 2017 added two String methods: padStart() and padEnd() to support padding at the beginning and at the end of a string.
+
+JavaScript String padStart()
+The padStart() method pads a string with another string:
+
+Example
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript String Methods</h2>
+
+<p>The padStart() method pads a string with another string:</p>
+
+<p id="demo"></p>
+
+<script>
+let text = "5";
+document.getElementById("demo").innerHTML = text.padStart(4,"x");
+</script>
+
+</body>
+</html>
+
+Example
+let text = "5";
+let padded = text.padStart(4,"0");
+Note
+The padStart() method is a string method.
+
+To pad a number, convert the number to a string first.
+
+See the example below.
+
+Example
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript String Methods</h2>
+
+<p>The padStart() method pads a string with another string:</p>
+
+<p id="demo"></p>
+
+<script>
+let numb = 5;
+let text = numb.toString();
+document.getElementById("demo").innerHTML = text.padStart(4,0);
+</script>
+
+</body>
+</html>
+
+Browser Support
+padStart() is an ECMAScript 2017 feature.
+
+It is supported in all modern browsers:
+
+Chrome	Edge	Firefox	Safari	Opera
+Yes	Yes	Yes	Yes	Yes
+padStart() is not supported in Internet Explorer.
+
+JavaScript String padEnd()
+The padEnd() method pads a string with another string:
+
+Example
+let text = "5";
+let padded = text.padEnd(4,"x");
+Example
+let text = "5";
+let padded = text.padEnd(4,"0");
+Note
+The padEnd() method is a string method.
+
+To pad a number, convert the number to a string first.
+
+See the example below.
+
+Example
+let numb = 5;
+let text = numb.toString();
+let padded = text.padEnd(4,"0");
+Browser Support
+padEnd() is an ECMAScript 2017 feature.
+
+It is supported in all modern browsers:
+
+Chrome	Edge	Firefox	Safari	Opera
+Yes	Yes	Yes	Yes	Yes
+padEnd() is not supported in Internet Explorer.
+
+Extracting String Characters
+There are 3 methods for extracting string characters:
+
+charAt(position)
+charCodeAt(position)
+Property access [ ]
+JavaScript String charAt()
+The charAt() method returns the character at a specified index (position) in a string:
+
+Example
+let text = "HELLO WORLD";
+let char = text.charAt(0);
+JavaScript String charCodeAt()
+The charCodeAt() method returns the unicode of the character at a specified index in a string:
+
+The method returns a UTF-16 code (an integer between 0 and 65535).
+
+Example
+let text = "HELLO WORLD";
+let char = text.charCodeAt(0);
+Property Access
+ECMAScript 5 (2009) allows property access [ ] on strings:
+
+Example
+let text = "HELLO WORLD";
+let char = text[0];
+Note
+Property access might be a little unpredictable:
+
+It makes strings look like arrays (but they are not)
+If no character is found, [ ] returns undefined, while charAt() returns an empty string.
+It is read only. str[0] = "A" gives no error (but does not work!)
+Example
+let text = "HELLO WORLD";
+text[0] = "A";    // Gives no error, but does not work
+Converting a String to an Array
+If you want to work with a string as an array, you can convert it to an array.
+
+JavaScript String split()
+A string can be converted to an array with the split() method:
+
+Example
+text.split(",")    // Split on commas
+text.split(" ")    // Split on spaces
+text.split("|")    // Split on pipe
+If the separator is omitted, the returned array will contain the whole string in index [0].
+
+If the separator is "", the returned array will be an array of single characters:
+
+Example
+text.split("")
+Complete String Reference
+For a complete String reference, go to our:
+
+Complete JavaScript String Reference.
+
+The reference contains descriptions and examples of all string properties and methods.
+
+{/* conitnue from JavaScript String Search */}
