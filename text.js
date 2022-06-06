@@ -4652,7 +4652,7 @@ const cars = ["Volvo", "BMW"];   // Allowed
 
 
                                               // ********************** chapter 6 ******************
-
+{/* continue from js Dates */}
 
 
 
