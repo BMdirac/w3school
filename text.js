@@ -4362,6 +4362,7 @@ let someOver18 = numbers.some(myFunction);
 function myFunction(value, index, array) {
   return value > 18;
 }
+
 Note that the function takes 3 arguments:
 
 The item value
