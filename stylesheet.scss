@@ -1,5 +1,4 @@
                                     // ****************** chapter 1 *********************
-
                                     Sass Tutorial
 Sass is a CSS pre-processor.
 
@@ -109,6 +108,7 @@ Read more about Sass at the official Sass web site: https://sass-lang.com/
 
 Install Sass
 There are several ways to install Sass in your system. There are many applications that will get you up and running with Sass in a few minutes for Mac, Windows, and Linux. Some of these are free, but some are paid apps.
+
 
 You can read more about them here: sass-lang.com/install
 
@@ -583,8 +583,6 @@ CSS Output:
 By using the @extend directive, you do not need to specify several classes for an element in your HTML code, like this: <button class="button-basic button-report">Report this</button>. You just need to specify .button-report to get both sets of styles.
 
 The @extend directive helps keep your Sass code very DRY.
-
-
                                                         
 
                                                     // ****************** chapter 2 *********************
