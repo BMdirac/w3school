@@ -4653,8 +4653,479 @@ const cars = ["Volvo", "BMW"];   // Allowed
 
 
                                               // ********************** chapter 6 ******************
-{/* continue from js Dates */}
 
+                                              JavaScript Date Objects
+JavaScript Date Object lets us work with dates:
 
+Fri Jun 10 2022 11:12:49 GMT+0100 (West Africa Standard Time)
 
+     
+Example
 
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript new Date()</h2>
+
+<p id="demo"></p>
+
+<script>
+const d = new Date();
+document.getElementById("demo").innerHTML = d;
+</script>
+
+</body>
+</html>
+
+JavaScript Date Output
+By default, JavaScript will use the browser's time zone and display a date as a full text string:
+
+Fri Jun 10 2022 11:12:49 GMT+0100 (West Africa Standard Time)
+
+You will learn much more about how to display dates, later in this tutorial.
+
+Creating Date Objects
+Date objects are created with the new Date() constructor.
+
+There are 4 ways to create a new date object:
+
+new Date()
+new Date(year, month, day, hours, minutes, seconds, milliseconds)
+new Date(milliseconds)
+new Date(date string)
+new Date()
+new Date() creates a new date object with the current date and time:
+
+Example
+const d = new Date();
+Date objects are static. The computer time is ticking, but date objects are not.
+
+new Date(year, month, ...)
+new Date(year, month, ...) creates a new date object with a specified date and time.
+
+7 numbers specify year, month, day, hour, minute, second, and millisecond (in that order):
+
+Example
+const d = new Date(2018, 11, 24, 10, 33, 30, 0);
+Note: JavaScript counts months from 0 to 11:
+
+January = 0.
+
+December = 11.
+
+Specifying a month higher than 11, will not result in an error but add the overflow to the next year:
+
+Specifying:
+
+const d = new Date(2018, 15, 24, 10, 33, 30);
+Is the same as:
+
+const d = new Date(2019, 3, 24, 10, 33, 30);
+Specifying a day higher than max, will not result in an error but add the overflow to the next month:
+
+Specifying:
+
+const d = new Date(2018, 5, 35, 10, 33, 30);
+Is the same as:
+
+const d = new Date(2018, 6, 5, 10, 33, 30);
+Using 6, 4, 3, or 2 Numbers
+6 numbers specify year, month, day, hour, minute, second:
+
+Example
+const d = new Date(2018, 11, 24, 10, 33, 30);
+5 numbers specify year, month, day, hour, and minute:
+
+Example
+const d = new Date(2018, 11, 24, 10, 33);
+4 numbers specify year, month, day, and hour:
+
+Example
+const d = new Date(2018, 11, 24, 10);
+3 numbers specify year, month, and day:
+
+Example
+const d = new Date(2018, 11, 24);
+2 numbers specify year and month:
+
+Example
+const d = new Date(2018, 11);
+You cannot omit month. If you supply only one parameter it will be treated as milliseconds.
+
+Example
+const d = new Date(2018);
+Previous Century
+One and two digit years will be interpreted as 19xx:
+
+Example
+const d = new Date(99, 11, 24);
+Example
+const d = new Date(9, 11, 24);
+new Date(dateString)
+new Date(dateString) creates a new date object from a date string:
+
+Example
+const d = new Date("October 13, 2014 11:13:00");
+Date strings are described in the next chapter.
+
+JavaScript Stores Dates as Milliseconds
+JavaScript stores dates as number of milliseconds since January 01, 1970, 00:00:00 UTC (Universal Time Coordinated).
+
+Zero time is January 01, 1970 00:00:00 UTC.
+
+Now the time is: 1654855969605 milliseconds past January 01, 1970
+
+new Date(milliseconds)
+new Date(milliseconds) creates a new date object as zero time plus milliseconds:
+
+Example
+const d = new Date(0);
+01 January 1970 plus 100 000 000 000 milliseconds is approximately 03 March 1973:
+
+Example
+const d = new Date(100000000000);
+January 01 1970 minus 100 000 000 000 milliseconds is approximately October 31 1966:
+
+Example
+const d = new Date(-100000000000);
+Example
+const d = new Date(86400000);
+One day (24 hours) is 86 400 000 milliseconds.
+
+ADVERTISEMENT
+
+Date Methods
+When a Date object is created, a number of methods allow you to operate on it.
+
+Date methods allow you to get and set the year, month, day, hour, minute, second, and millisecond of date objects, using either local time or UTC (universal, or GMT) time.
+
+Date methods and time zones are covered in the next chapters.
+
+Displaying Dates
+JavaScript will (by default) output dates in full text string format:
+
+Example
+Fri Jun 10 2022 11:12:50 GMT+0100 (West Africa Standard Time)
+When you display a date object in HTML, it is automatically converted to a string, with the toString() method.
+
+Example
+const d = new Date();
+d.toString();
+The toUTCString() method converts a date to a UTC string (a date display standard).
+
+Example
+const d = new Date();
+d.toUTCString();
+The toDateString() method converts a date to a more readable format:
+
+Example
+const d = new Date();
+d.toDateString();
+The toISOString() method converts a Date object to a string, using the ISO standard format:
+
+Example
+const d = new Date();
+d.toISOString();             
+
+                                                      JavaScript Date Formats
+JavaScript Date Input
+There are generally 3 types of JavaScript date input formats:
+
+Type	Example
+ISO Date	"2015-03-25" (The International Standard)
+Short Date	"03/25/2015"
+Long Date	"Mar 25 2015" or "25 Mar 2015"
+The ISO format follows a strict standard in JavaScript.
+
+The other formats are not so well defined and might be browser specific.
+
+JavaScript Date Output
+Independent of input format, JavaScript will (by default) output dates in full text string format:
+
+Fri Jun 10 2022 11:29:17 GMT+0100 (West Africa Standard Time)
+JavaScript ISO Dates
+ISO 8601 is the international standard for the representation of dates and times.
+
+The ISO 8601 syntax (YYYY-MM-DD) is also the preferred JavaScript date format:
+
+Example (Complete date)
+const d = new Date("2015-03-25");
+The computed date will be relative to your time zone.
+Depending on your time zone, the result above will vary between March 24 and March 25.
+
+ADVERTISEMENT
+
+ISO Dates (Year and Month)
+ISO dates can be written without specifying the day (YYYY-MM):
+
+Example
+const d = new Date("2015-03");
+Time zones will vary the result above between February 28 and March 01.
+
+ISO Dates (Only Year)
+ISO dates can be written without month and day (YYYY):
+
+Example
+const d = new Date("2015");
+Time zones will vary the result above between December 31 2014 and January 01 2015.
+
+ISO Dates (Date-Time)
+ISO dates can be written with added hours, minutes, and seconds (YYYY-MM-DDTHH:MM:SSZ):
+
+Example
+const d = new Date("2015-03-25T12:00:00Z");
+Date and time is separated with a capital T.
+
+UTC time is defined with a capital letter Z.
+
+If you want to modify the time relative to UTC, remove the Z and add +HH:MM or -HH:MM instead:
+
+Example
+const d = new Date("2015-03-25T12:00:00-06:30");
+UTC (Universal Time Coordinated) is the same as GMT (Greenwich Mean Time).
+
+Omitting T or Z in a date-time string can give different results in different browsers.
+
+Time Zones
+When setting a date, without specifying the time zone, JavaScript will use the browser's time zone.
+
+When getting a date, without specifying the time zone, the result is converted to the browser's time zone.
+
+In other words: If a date/time is created in GMT (Greenwich Mean Time), the date/time will be converted to CDT (Central US Daylight Time) if a user browses from central US.
+
+JavaScript Short Dates.
+Short dates are written with an "MM/DD/YYYY" syntax like this:
+
+Example
+const d = new Date("03/25/2015");
+WARNINGS !
+In some browsers, months or days with no leading zeroes may produce an error:
+
+const d = new Date("2015-3-25");
+The behavior of "YYYY/MM/DD" is undefined.
+Some browsers will try to guess the format. Some will return NaN.
+
+const d = new Date("2015/03/25");
+The behavior of  "DD-MM-YYYY" is also undefined.
+Some browsers will try to guess the format. Some will return NaN.
+
+const d = new Date("25-03-2015");
+JavaScript Long Dates.
+Long dates are most often written with a "MMM DD YYYY" syntax like this:
+
+Example
+const d = new Date("Mar 25 2015");
+Month and day can be in any order:
+
+Example
+const d = new Date("25 Mar 2015");
+And, month can be written in full (January), or abbreviated (Jan):
+
+Example
+const d = new Date("January 25 2015");
+Example
+const d = new Date("Jan 25 2015");
+Commas are ignored. Names are case insensitive:
+
+Example
+const d = new Date("JANUARY, 25, 2015");
+Date Input - Parsing Dates
+If you have a valid date string, you can use the Date.parse() method to convert it to milliseconds.
+
+Date.parse() returns the number of milliseconds between the date and January 1, 1970:
+
+Example
+let msec = Date.parse("March 21, 2012");
+You can then use the number of milliseconds to convert it to a date object:
+
+Example
+let msec = Date.parse("March 21, 2012");
+const d = new Date(msec);
+
+                                                          JavaScript Get Date Methods
+
+These methods can be used for getting information from a date object:
+
+Method	Description
+getFullYear()	Get the year as a four digit number (yyyy)
+getMonth()	Get the month as a number (0-11)
+getDate()	Get the day as a number (1-31)
+getHours()	Get the hour (0-23)
+getMinutes()	Get the minute (0-59)
+getSeconds()	Get the second (0-59)
+getMilliseconds()	Get the millisecond (0-999)
+getTime()	Get the time (milliseconds since January 1, 1970)
+getDay()	Get the weekday as a number (0-6)
+Date.now()	Get the time. ECMAScript 5.
+The getTime() Method
+The getTime() method returns the number of milliseconds since January 1, 1970:
+
+Example
+const d = new Date();
+d.getTime();
+The getFullYear() Method
+The getFullYear() method returns the year of a date as a four digit number:
+
+Example
+const d = new Date();
+d.getFullYear();
+ADVERTISEMENT
+
+The getMonth() Method
+The getMonth() method returns the month of a date as a number (0-11):
+
+Example
+const d = new Date();
+d.getMonth();
+In JavaScript, the first month (January) is month number 0, so December returns month number 11.
+
+You can use an array of names, and getMonth() to return the month as a name:
+
+Example
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+const d = new Date();
+let month = months[d.getMonth()];
+The getDate() Method
+The getDate() method returns the day of a date as a number (1-31):
+
+Example
+const d = new Date();
+d.getDate();
+The getHours() Method
+The getHours() method returns the hours of a date as a number (0-23):
+
+Example
+const d = new Date();
+d.getHours();
+The getMinutes() Method
+The getMinutes() method returns the minutes of a date as a number (0-59):
+
+Example
+const d = new Date();
+d.getMinutes();
+The getSeconds() Method
+The getSeconds() method returns the seconds of a date as a number (0-59):
+
+Example
+const d = new Date();
+d.getSeconds();
+The getMilliseconds() Method
+The getMilliseconds() method returns the milliseconds of a date as a number (0-999):
+
+Example
+const d = new Date();
+d.getMilliseconds();
+The getDay() Method
+The getDay() method returns the weekday of a date as a number (0-6):
+
+Example
+const d = new Date();
+d.getDay();
+In JavaScript, the first day of the week (0) means "Sunday", even if some countries in the world consider the first day of the week to be "Monday"
+
+You can use an array of names, and getDay() to return the weekday as a name:
+
+Example
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+const d = new Date();
+let day = days[d.getDay()];
+UTC Date Methods
+UTC date methods are used for working with UTC dates (Universal Time Zone dates):
+
+Method	Description
+getUTCDate()	Same as getDate(), but returns the UTC date
+getUTCDay()	Same as getDay(), but returns the UTC day
+getUTCFullYear()	Same as getFullYear(), but returns the UTC year
+getUTCHours()	Same as getHours(), but returns the UTC hour
+getUTCMilliseconds()	Same as getMilliseconds(), but returns the UTC milliseconds
+getUTCMinutes()	Same as getMinutes(), but returns the UTC minutes
+getUTCMonth()	Same as getMonth(), but returns the UTC month
+getUTCSeconds()	Same as getSeconds(), but returns the UTC seconds
+
+                                                                  JavaScript Set Date Methods
+
+Set Date methods let you set date values (years, months, days, hours, minutes, seconds, milliseconds) for a Date Object.
+
+Set Date Methods
+Set Date methods are used for setting a part of a date:
+
+Method	Description
+setDate()	Set the day as a number (1-31)
+setFullYear()	Set the year (optionally month and day)
+setHours()	Set the hour (0-23)
+setMilliseconds()	Set the milliseconds (0-999)
+setMinutes()	Set the minutes (0-59)
+setMonth()	Set the month (0-11)
+setSeconds()	Set the seconds (0-59)
+setTime()	Set the time (milliseconds since January 1, 1970)
+The setFullYear() Method
+The setFullYear() method sets the year of a date object. In this example to 2020:
+
+Example
+const d = new Date();
+d.setFullYear(2020);
+The setFullYear() method can optionally set month and day:
+
+Example
+const d = new Date();
+d.setFullYear(2020, 11, 3);
+ADVERTISEMENT
+
+The setMonth() Method
+The setMonth() method sets the month of a date object (0-11):
+
+Example
+const d = new Date();
+d.setMonth(11);
+The setDate() Method
+The setDate() method sets the day of a date object (1-31):
+
+Example
+const d = new Date();
+d.setDate(15);
+The setDate() method can also be used to add days to a date:
+
+Example
+const d = new Date();
+d.setDate(d.getDate() + 50);
+If adding days shifts the month or year, the changes are handled automatically by the Date object.
+
+The setHours() Method
+The setHours() method sets the hours of a date object (0-23):
+
+Example
+const d = new Date();
+d.setHours(22);
+The setMinutes() Method
+The setMinutes() method sets the minutes of a date object (0-59):
+
+Example
+const d = new Date();
+d.setMinutes(30);
+The setSeconds() Method
+The setSeconds() method sets the seconds of a date object (0-59):
+
+Example
+const d = new Date();
+d.setSeconds(30);
+Compare Dates
+Dates can easily be compared.
+
+The following example compares today's date with January 14, 2100:
+
+Example
+let text = "";
+const today = new Date();
+const someday = new Date();
+someday.setFullYear(2100, 0, 14);
+
+if (someday > today) {
+  text = "Today is before January 14, 2100.";
+} else {
+  text = "Today is after January 14, 2100.";
+}
+
+{/* continue from javascript Math */}
