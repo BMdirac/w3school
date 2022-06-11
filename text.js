@@ -5128,4 +5128,578 @@ if (someday > today) {
   text = "Today is after January 14, 2100.";
 }
 
-{/* continue from javascript Math */}
+                                                          JavaScript Math Object
+
+The JavaScript Math object allows you to perform mathematical tasks on numbers.
+
+Example
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Math.PI</h2>
+
+<p>Math.PI returns the ratio of a circle's circumference to its diameter:</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = Math.PI;
+</script>
+
+</body>
+</html>
+
+
+The Math Object
+Unlike other objects, the Math object has no constructor.
+
+The Math object is static.
+
+All methods and properties can be used without creating a Math object first.
+
+Math Properties (Constants)
+The syntax for any Math property is : Math.property.
+
+JavaScript provides 8 mathematical constants that can be accessed as Math properties:
+
+Example
+Math.E        // returns Euler's number
+Math.PI       // returns PI
+Math.SQRT2    // returns the square root of 2
+Math.SQRT1_2  // returns the square root of 1/2
+Math.LN2      // returns the natural logarithm of 2
+Math.LN10     // returns the natural logarithm of 10
+Math.LOG2E    // returns base 2 logarithm of E
+Math.LOG10E   // returns base 10 logarithm of E
+Math Methods
+The syntax for Math any methods is : Math.method(number)
+
+Number to Integer
+There are 4 common methods to round a number to an integer:
+
+Math.round(x)	Returns x rounded to its nearest integer
+Math.ceil(x)	Returns x rounded up to its nearest integer
+Math.floor(x)	Returns x rounded down to its nearest integer
+Math.trunc(x)	Returns the integer part of x (new in ES6)
+Math.round()
+Math.round(x) returns the nearest integer:
+
+Examples
+Math.round(4.6);
+Math.round(4.5);
+Math.round(4.4);
+Math.ceil()
+Math.ceil(x) returns the value of x rounded up to its nearest integer:
+
+Example
+Math.ceil(4.9);
+Math.ceil(4.7);
+Math.ceil(4.4);
+Math.ceil(4.2);
+Math.ceil(-4.2);
+Math.floor()
+Math.floor(x) returns the value of x rounded down to its nearest integer:
+
+Example
+Math.floor(4.9);
+Math.floor(4.7);
+Math.floor(4.4);
+Math.floor(4.2);
+Math.floor(-4.2);
+Math.trunc()
+Math.trunc(x) returns the integer part of x:
+
+Example
+Math.trunc(4.9);
+Math.trunc(4.7);
+Math.trunc(4.4);
+Math.trunc(4.2);
+Math.trunc(-4.2);
+Math.sign()
+Math.sign(x) returns if x is negative, null or positive:
+
+Example
+Math.sign(-4);
+Math.sign(0);
+Math.sign(4);
+Math.trunc() and Math.sign() were added to JavaScript 2015 - ES6.
+
+Math.pow()
+Math.pow(x, y) returns the value of x to the power of y:
+
+Example
+Math.pow(8, 2);
+Math.sqrt()
+Math.sqrt(x) returns the square root of x:
+
+Example
+Math.sqrt(64);
+Math.abs()
+Math.abs(x) returns the absolute (positive) value of x:
+
+Example
+Math.abs(-4.7);
+Math.sin()
+Math.sin(x) returns the sine (a value between -1 and 1) of the angle x (given in radians).
+
+If you want to use degrees instead of radians, you have to convert degrees to radians:
+
+Angle in radians = Angle in degrees x PI / 180.
+
+Example
+Math.sin(90 * Math.PI / 180);     // returns 1 (the sine of 90 degrees)
+Math.cos()
+Math.cos(x) returns the cosine (a value between -1 and 1) of the angle x (given in radians).
+
+If you want to use degrees instead of radians, you have to convert degrees to radians:
+
+Angle in radians = Angle in degrees x PI / 180.
+
+Example
+Math.cos(0 * Math.PI / 180);     // returns 1 (the cos of 0 degrees)
+Math.min() and Math.max()
+Math.min() and Math.max() can be used to find the lowest or highest value in a list of arguments:
+
+Example
+Math.min(0, 150, 30, 20, -8, -200);
+Example
+Math.max(0, 150, 30, 20, -8, -200);
+Math.random()
+Math.random() returns a random number between 0 (inclusive), and 1 (exclusive):
+
+Example
+Math.random();
+You will learn more about Math.random() in the next chapter of this tutorial.
+
+The Math.log() Method
+Math.log(x) returns the natural logarithm of x.
+
+The natural logarithm returns the time needed to reach a certain level of growth:
+
+Examples
+Math.log(1);
+Math.log(2);
+Math.log(3);
+Math.E and Math.log() are twins.
+
+How many times must we multiply Math.E to get 10?
+
+Math.log(10);
+The Math.log2() Method
+Math.log2(x) returns the base 2 logarithm of x.
+
+How many times must we multiply 2 to get 8?
+
+Math.log2(8);
+The Math.log10() Method
+Math.log10(x) returns the base 10 logarithm of x.
+
+How many times must we multiply 10 to get 1000?
+
+Math.log10(1000);
+JavaScript Math Methods
+Method	Description
+abs(x)	Returns the absolute value of x
+acos(x)	Returns the arccosine of x, in radians
+acosh(x)	Returns the hyperbolic arccosine of x
+asin(x)	Returns the arcsine of x, in radians
+asinh(x)	Returns the hyperbolic arcsine of x
+atan(x)	Returns the arctangent of x as a numeric value between -PI/2 and PI/2 radians
+atan2(y, x)	Returns the arctangent of the quotient of its arguments
+atanh(x)	Returns the hyperbolic arctangent of x
+cbrt(x)	Returns the cubic root of x
+ceil(x)	Returns x, rounded upwards to the nearest integer
+cos(x)	Returns the cosine of x (x is in radians)
+cosh(x)	Returns the hyperbolic cosine of x
+exp(x)	Returns the value of Ex
+floor(x)	Returns x, rounded downwards to the nearest integer
+log(x)	Returns the natural logarithm (base E) of x
+max(x, y, z, ..., n)	Returns the number with the highest value
+min(x, y, z, ..., n)	Returns the number with the lowest value
+pow(x, y)	Returns the value of x to the power of y
+random()	Returns a random number between 0 and 1
+round(x)	Rounds x to the nearest integer
+sign(x)	Returns if x is negative, null or positive (-1, 0, 1)
+sin(x)	Returns the sine of x (x is in radians)
+sinh(x)	Returns the hyperbolic sine of x
+sqrt(x)	Returns the square root of x
+tan(x)	Returns the tangent of an angle
+tanh(x)	Returns the hyperbolic tangent of a number
+trunc(x)	Returns the integer part of a number (x)
+
+                                                                      JavaScript Random
+Math.random()
+Math.random() returns a random number between 0 (inclusive),  and 1 (exclusive):
+
+Example
+// Returns a random number:
+Math.random();
+Math.random() always returns a number lower than 1.
+
+JavaScript Random Integers
+Math.random() used with Math.floor() can be used to return random integers.
+
+There is no such thing as JavaScript integers.
+
+We are talking about numbers with no decimals here.
+
+Example
+// Returns a random integer from 0 to 9:
+Math.floor(Math.random() * 10);
+Example
+// Returns a random integer from 0 to 10:
+Math.floor(Math.random() * 11);
+Example
+// Returns a random integer from 0 to 99:
+Math.floor(Math.random() * 100);
+Example
+// Returns a random integer from 0 to 100:
+Math.floor(Math.random() * 101);
+Example
+// Returns a random integer from 1 to 10:
+Math.floor(Math.random() * 10) + 1;
+Example
+// Returns a random integer from 1 to 100:
+Math.floor(Math.random() * 100) + 1;
+ADVERTISEMENT
+
+A Proper Random Function
+As you can see from the examples above, it might be a good idea to create a proper random function to use for all random integer purposes.
+
+This JavaScript function always returns a random number between min (included) and max (excluded):
+
+Example
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Math.random()</h2>
+
+<p>Every time you click the button, getRndInteger(min, max) returns a random number between 0 
+and 9 (both included):</p>
+
+<button onclick="document.getElementById('demo').innerHTML = getRndInteger(0,10)">Click Me</button>
+
+<p id="demo"></p>
+
+<script>
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+</script>
+
+</body>
+</html>
+
+This JavaScript function always returns a random number between min and max (both included):
+
+Example
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Math.random()</h2>
+
+<p>Every time you click the button, getRndInteger(min, max) returns a random number between 1 and 10 (both included):</p>
+
+<button onclick="document.getElementById('demo').innerHTML = getRndInteger(1,10)">Click Me</button>
+
+<p id="demo"></p>
+
+<script>
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+</script>
+
+</body>
+</html>
+
+                                                            JavaScript Booleans
+
+A JavaScript Boolean represents one of two values: true or false.
+
+Boolean Values
+Very often, in programming, you will need a data type that can only have one of two values, like
+
+YES / NO
+ON / OFF
+TRUE / FALSE
+For this, JavaScript has a Boolean data type. It can only take the values true or false.
+
+The Boolean() Function
+You can use the Boolean() function to find out if an expression (or a variable) is true:
+
+Example
+Boolean(10 > 9)
+Or even easier:
+
+Example
+(10 > 9)
+10 > 9
+Comparisons and Conditions
+The chapter JS Comparisons gives a full overview of comparison operators.
+
+The chapter JS Conditions gives a full overview of conditional statements.
+
+Here are some examples:
+
+Operator	Description	Example
+==	equal to	if (day == "Monday")
+>	greater than	if (salary > 9000)
+<	less than	if (age < 18)
+The Boolean value of an expression is the basis for all JavaScript comparisons and conditions.
+
+ADVERTISEMENT
+
+Everything With a "Value" is True
+Examples
+100
+
+3.14
+
+-15
+
+"Hello"
+
+"false"
+
+7 + 1 + 3.14
+Everything Without a "Value" is False
+The Boolean value of 0 (zero) is false:
+
+let x = 0;
+Boolean(x);
+The Boolean value of -0 (minus zero) is false:
+
+let x = -0;
+Boolean(x);
+The Boolean value of "" (empty string) is false:
+
+let x = "";
+Boolean(x);
+The Boolean value of undefined is false:
+
+let x;
+Boolean(x);
+The Boolean value of null is false:
+
+let x = null;
+Boolean(x);
+The Boolean value of false is (you guessed it) false:
+
+let x = false;
+Boolean(x);
+The Boolean value of NaN is false:
+
+let x = 10 / "Hallo";
+Boolean(x);
+JavaScript Booleans as Objects
+Normally JavaScript booleans are primitive values created from literals:
+
+let x = false;
+But booleans can also be defined as objects with the keyword new:
+
+let y = new Boolean(false);
+Example
+let x = false;
+let y = new Boolean(false);
+
+// typeof x returns boolean
+// typeof y returns object
+Do not create Boolean objects.
+
+The new keyword complicates the code and slows down execution speed.
+
+Boolean objects can produce unexpected results:
+
+When using the == operator, x and y are equal:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Booleans</h2>
+<p>Booleans and Boolean objects cannot be safely compared:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = false;         // x is a boolean
+let y = new Boolean(false);  // y is an object
+document.getElementById("demo").innerHTML = (x==y);
+</script>
+
+</body>
+</html>
+
+code output is true
+
+When using the === operator, x and y are not equal:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Booleans</h2>
+<p>Booleans and Boolean objects cannot be safely compared:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = false;         // x is a Boolean
+let y = new Boolean(false);  // y is an object
+document.getElementById("demo").innerHTML = (x===y);
+</script>
+
+</body>
+</html>
+
+code output is false
+
+Note the difference between (x==y) and (x===y).
+
+(x == y) true of false?
+
+let x = new Boolean(false);
+let y = new Boolean(false);
+
+output is false
+
+(x === y) true of false?
+
+let x = new Boolean(false);
+let y = new Boolean(false);
+
+output is false
+
+Comparing two JavaScript objects always return false. so the output above is false in both instances
+
+
+                                              JavaScript Comparison and Logical Operators
+
+Comparison and Logical operators are used to test for true or false.
+
+Comparison Operators
+Comparison operators are used in logical statements to determine equality or difference between variables or values.
+
+Given that x = 5, the table below explains the comparison operators:
+
+Operator	Description	Comparing	Returns	Try it
+==	equal to	x == 8	false	
+x == 5	true	
+x == "5"	true	
+===	equal value and equal type	x === 5	true	
+x === "5"	false	
+!=	not equal	x != 8	true	
+!==	not equal value or not equal type	x !== 5	false	
+x !== "5"	true	
+x !== 8	true	
+>	greater than	x > 8	false	
+<	less than	x < 8	true	
+>=	greater than or equal to	x >= 8	false	
+<=	less than or equal to	x <= 8	true	
+ADVERTISEMENT
+
+How Can it be Used
+Comparison operators can be used in conditional statements to compare values and take action depending on the result:
+
+if (age < 18) text = "Too young to buy alcohol";
+You will learn more about the use of conditional statements in the next chapter of this tutorial.
+
+Logical Operators
+Logical operators are used to determine the logic between variables or values.
+
+Given that x = 6 and y = 3, the table below explains the logical operators:
+
+Operator	Description	Example	Try it
+&&	and	(x < 10 && y > 1) is true	
+||	or	(x == 5 || y == 5) is false	
+!	not	!(x == y) is true	
+Conditional (Ternary) Operator
+JavaScript also contains a conditional operator that assigns a value to a variable based on some condition.
+
+Syntax
+variablename = (condition) ? value1:value2 
+Example
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Comparison</h2>
+
+<p>Input your age and click the button:</p>
+
+<input id="age" value="18" />
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  let age = document.getElementById("age").value;
+  let voteable = (age < 18) ? "Too young":"Old enough";
+  document.getElementById("demo").innerHTML = voteable + " to vote.";
+}
+</script>
+
+</body>
+</html>
+
+Comparing Different Types
+Comparing data of different types may give unexpected results.
+
+When comparing a string with a number, JavaScript will convert the string to a number when doing the comparison. An empty string converts to 0. A non-numeric string converts to NaN which is always false.
+
+Case	Value	Try
+2 < 12	true	
+2 < "12"	true	
+2 < "John"	false	
+2 > "John"	false	
+2 == "John"	false	
+"2" < "12"	false	
+"2" > "12"	true	
+"2" == "12"	false	
+When comparing two strings, "2" will be greater than "12", because (alphabetically) 1 is less than 2.
+
+To secure a proper result, variables should be converted to the proper type before comparison:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Comparisons</h2>
+
+<p>Input your age and click the button:</p>
+
+<input id="age" value="18" />
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  let voteable;
+  let age = Number(document.getElementById("age").value);
+  if (isNaN(age)) {
+    voteable = "Input is not a number";
+  } else {
+    voteable = (age < 18) ? "Too young" : "Old enough";
+  }
+  document.getElementById("demo").innerHTML = voteable + " to vote";
+}
+</script>
+
+</body>
+</html>
+
+
+                                              // ********************** chapter 7 ******************
+{/* continue from js if else */}
