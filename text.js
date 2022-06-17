@@ -6103,4 +6103,534 @@ The for/in loop and the for/of loop are explained in the next chapter.
 While Loops
 The while loop and the do/while are explained in the next chapters.
 
-{/* continue from loop for  */}
+
+                                                  // ********************** chapter 8 ******************
+
+                                                  JavaScript For In
+The For In Loop
+The JavaScript for in statement loops through the properties of an Object:
+
+Syntax
+for (key in object) {
+  // code block to be executed
+}
+Example
+const person = {fname:"John", lname:"Doe", age:25};
+
+let text = "";
+for (let x in person) {
+  text += person[x];
+}
+Example Explained
+The for in loop iterates over a person object
+Each iteration returns a key (x)
+The key is used to access the value of the key
+The value of the key is person[x]
+For In Over Arrays
+The JavaScript for in statement can also loop over the properties of an Array:
+
+Syntax
+for (variable in array) {
+  code
+}
+Example
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+for (let x in numbers) {
+  txt += numbers[x];
+}
+Do not use for in over an Array if the index order is important.
+
+The index order is implementation-dependent, and array values may not be accessed in the order you expect.
+
+It is better to use a for loop, a for of loop, or Array.forEach() when the order is important.
+
+ADVERTISEMENT
+
+Array.forEach()
+The forEach() method calls a function (a callback function) once for each array element.
+
+Example
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+numbers.forEach(myFunction);
+
+function myFunction(value, index, array) {
+  txt += value;
+}
+Note that the function takes 3 arguments:
+
+The item value
+The item index
+The array itself
+The example above uses only the value parameter. It can be rewritten to:
+
+Example
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+numbers.forEach(myFunction);
+
+function myFunction(value) {
+  txt += value;
+}
+
+                                                          JavaScript For Of
+The For Of Loop
+The JavaScript for of statement loops through the values of an iterable object.
+
+It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more:
+
+Syntax
+for (variable of iterable) {
+  // code block to be executed
+}
+variable - For every iteration the value of the next property is assigned to the variable. Variable can be declared with const, let, or var.
+
+iterable - An object that has iterable properties.
+
+Browser Support
+For/of was added to JavaScript in 2015 (ES6)
+
+Safari 7 was the first browser to support for of:
+
+Chrome 38	Edge 12	Firefox 51	Safari 7	Opera 25
+Oct 2014	Jul 2015	Oct 2016	Oct 2013	Oct 2014
+For/of is not supported in Internet Explorer.
+
+Looping over an Array
+Example
+const cars = ["BMW", "Volvo", "Mini"];
+
+let text = "";
+for (let x of cars) {
+  text += x;
+}
+Looping over a String
+Example
+let language = "JavaScript";
+
+let text = "";
+for (let x of language) {
+text += x;
+}
+The While Loop
+The while loop and the do/while loop are explained in the next chapter.
+
+                                                                      JavaScript While Loop
+
+Loops can execute a block of code as long as a specified condition is true.
+
+The While Loop
+The while loop loops through a block of code as long as a specified condition is true.
+
+Syntax
+while (condition) {
+  // code block to be executed
+}
+Example
+In the following example, the code in the loop will run, over and over again, as long as a variable (i) is less than 10:
+
+Example
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript While Loop</h2>
+
+<p id="demo"></p>
+
+<script>
+let text = "";
+let i = 0;
+while (i < 10) {
+  text += "<br>The number is " + i;
+  i++;
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+If you forget to increase the variable used in the condition, the loop will never end. This will crash your browser.
+
+The Do While Loop
+The do while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.
+
+Syntax
+do {
+  // code block to be executed
+}
+while (condition);
+Example
+The example below uses a do while loop. The loop will always be executed at least once, even if the condition is false, because the code block is executed before the condition is tested:
+
+Example
+do {
+  text += "The number is " + i;
+  i++;
+}
+while (i < 10);
+Do not forget to increase the variable used in the condition, otherwise the loop will never end!
+
+Comparing For and While
+If you have read the previous chapter, about the for loop, you will discover that a while loop is much the same as a for loop, with statement 1 and statement 3 omitted.
+
+The loop in this example uses a for loop to collect the car names from the cars array:
+
+Example
+const cars = ["BMW", "Volvo", "Saab", "Ford"];
+let i = 0;
+let text = "";
+
+for (;cars[i];) {
+  text += cars[i];
+  i++;
+}
+The loop in this example uses a while loop to collect the car names from the cars array:
+
+Example
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+const cars = ["BMW", "Volvo", "Saab", "Ford"];
+
+let i = 0;
+let text = "";
+while (cars[i]) {
+  text += cars[i] + "<br>";
+  i++;
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+
+                                                              JavaScript Break and Continue
+
+The break statement "jumps out" of a loop.
+
+The continue statement "jumps over" one iteration in the loop.
+
+The Break Statement
+You have already seen the break statement used in an earlier chapter of this tutorial. It was used to "jump out" of a switch() statement.
+
+The break statement can also be used to jump out of a loop:
+
+Example
+for (let i = 0; i < 10; i++) {
+  if (i === 3) { break; }
+  text += "The number is " + i + "<br>";
+}
+In the example above, the break statement ends the loop ("breaks" the loop) when the loop counter (i) is 3.
+
+The Continue Statement
+The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
+
+This example skips the value of 3:
+
+Example
+for (let i = 0; i < 10; i++) {
+  if (i === 3) { continue; }
+  text += "The number is " + i + "<br>";
+}
+ADVERTISEMENT
+
+JavaScript Labels
+To label JavaScript statements you precede the statements with a label name and a colon:
+
+label:
+statements
+The break and the continue statements are the only JavaScript statements that can "jump out of" a code block.
+
+Syntax:
+
+break labelname;
+
+continue labelname;
+The continue statement (with or without a label reference) can only be used to skip one loop iteration.
+
+The break statement, without a label reference, can only be used to jump out of a loop or a switch.
+
+With a label reference, the break statement can be used to jump out of any code block:
+
+Example
+const cars = ["BMW", "Volvo", "Saab", "Ford"];
+list: {
+  text += cars[0] + "<br>";
+  text += cars[1] + "<br>";
+  break list;
+  text += cars[2] + "<br>";
+  text += cars[3] + "<br>";
+}
+A code block is a block of code between { and }.
+
+                                                              JavaScript Iterables
+
+Iterables are iterable objects (like Arrays).
+
+Iterables can be accessed with simple and efficient code.
+
+Iterables can be iterated over with for..of loops
+
+The For Of Loop
+The JavaScript for..of statement loops through the elements of an iterable object.
+
+Syntax
+for (variable of iterable) {
+  // code block to be executed
+}
+Iterating
+Iterating is easy to understand.
+
+It simply means looping over a sequence of elements.
+
+Here are some easy examples:
+
+Iterating over a String
+Iterating over an Array
+Iterating Over a String
+You can use a for..of loop to iterate over the elements of a string:
+
+Example
+const name = "W3Schools";
+
+for (const x of name) {
+  // code block to be executed
+}
+Iterating Over an Array
+You can use a for..of loop to iterate over the elements of an Array:
+
+Example
+const letters = ["a","b","c"];
+
+for (const x of letters) {
+  // code block to be executed
+}
+You can learn more details about Iterables in the chapter JS Object Iterables.
+
+Iterating Over a Set
+You can use a for..of loop to iterate over the elements of a Set:
+
+Example
+const letters = new Set(["a","b","c"]);
+
+for (const x of letters) {
+  // code block to be executed
+}
+Sets and Maps are covered in the next chapters.
+
+Iterating Over a Map
+You can use a for..of loop to iterate over the elements of a Map:
+
+Example
+const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);
+
+for (const x of fruits) {
+  // code block to be executed
+}
+
+                                                                  JavaScript Sets
+
+A JavaScript Set is a collection of unique values.
+
+Each value can only occur once in a Set.
+
+Essential Set Methods
+Method	Description
+new Set()	Creates a new Set
+add()	Adds a new element to the Set
+delete()	Removes an element from a Set
+has()	Returns true if a value exists in the Set
+forEach()	Invokes a callback for each element in the Set
+values()	Returns an iterator with all the values in a Set
+Property	Description
+size	Returns the number of elements in a Set
+How to Create a Set
+You can create a JavaScript Set by:
+
+Passing an Array to new Set()
+Create a new Set and use add() to add values
+Create a new Set and use add() to add variables
+The new Set() Method
+Pass an Array to the new Set() constructor:
+
+Example
+// Create a Set
+const letters = new Set(["a","b","c"]);
+Create a Set and add values:
+
+Example
+// Create a Set
+const letters = new Set();
+
+// Add Values to the Set
+letters.add("a");
+letters.add("b");
+letters.add("c");
+Create a Set and add variables:
+
+Example
+// Create a Set
+const letters = new Set();
+
+// Create Variables
+const a = "a";
+const b = "b";
+const c = "c";
+
+// Add Variables to the Set
+letters.add(a);
+letters.add(b);
+letters.add(c);
+The add() Method
+Example
+letters.add("d");
+letters.add("e");
+If you add equal elements, only the first will be saved:
+
+Example
+letters.add("a");
+letters.add("b");
+letters.add("c");
+letters.add("c");
+letters.add("c");
+letters.add("c");
+letters.add("c");
+letters.add("c");
+The forEach() Method
+The forEach() method invokes (calls) a function for each Set element:
+
+Example
+// Create a Set
+const letters = new Set(["a","b","c"]);
+
+// List all Elements
+let text = "";
+letters.forEach (function(value) {
+  text += value;
+})
+The values() Method
+The values() method returns a new iterator object containing all the values in a Set:
+
+Example
+letters.values()   // Returns [object Set Iterator]
+Now you can use the Iterator object to access the elements:
+
+Example
+// List all Elements
+let text = "";
+for (const x of letters.values()) {
+  text += x;
+}
+
+                                                            JavaScript Maps
+
+A Map holds key-value pairs where the keys can be any datatype.
+
+A Map remembers the original insertion order of the keys.
+
+Essential Map Methods
+Method	Description
+new Map()	Creates a new Map
+set()	Sets the value for a key in a Map
+get()	Gets the value for a key in a Map
+delete()	Removes a Map element specified by the key
+has()	Returns true if a key exists in a Map
+forEach()	Calls a function for each key/value pair in a Map
+entries()	Returns an iterator with the [key, value] pairs in a Map
+Property	Description
+size	Returns the number of elements in a Map
+How to Create a Map
+You can create a JavaScript Map by:
+
+Passing an Array to new Map()
+Create a Map and use Map.set()
+The new Map() Method
+You can create a Map by passing an Array to the new Map() constructor:
+
+Example
+// Create a Map
+const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);
+The set() Method
+You can add elements to a Map with the set() method:
+
+Example
+// Create a Map
+const fruits = new Map();
+
+// Set Map Values
+fruits.set("apples", 500);
+fruits.set("bananas", 300);
+fruits.set("oranges", 200);
+The set() method can also be used to change existing Map values:
+
+Example
+fruits.set("apples", 200);
+The get() Method
+The get() method gets the value of a key in a Map:
+
+Example
+fruits.get("apples");    // Returns 500
+The size Property
+The size property returns the number of elements in a Map:
+
+Example
+fruits.size;
+The delete() Method
+The delete() method removes a Map element:
+
+Example
+fruits.delete("apples");
+The has() Method
+The has() method returns true if a key exists in a Map:
+
+Example
+fruits.has("apples");
+Try This:
+fruits.delete("apples");
+fruits.has("apples");
+JavaScript Objects vs Maps
+Differences between JavaScript Objects and Maps:
+Object	Map
+Iterable	Not directly iterable	Directly iterable
+Size	Do not have a size property	Have a size property
+Key Types	Keys must be Strings (or Symbols)	Keys can be any datatype
+Key Order	Keys are not well ordered	Keys are ordered by insertion
+Defaults	Have default keys	Do not have default keys
+The forEach() Method
+The forEach() method calls a function for each key/value pair in a Map:
+
+Example
+// List all entries
+let text = "";
+fruits.forEach (function(value, key) {
+  text += key + ' = ' + value;
+})
+The entries() Method
+The entries() method returns an iterator object with the [key, values] in a Map:
+
+Example
+// List all entries
+let text = "";
+for (const x of fruits.entries()) {
+  text += x;
+}
+
+{/* continue from js Typeof */}
