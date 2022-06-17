@@ -5702,4 +5702,405 @@ function myFunction() {
 
 
                                               // ********************** chapter 7 ******************
-{/* continue from js if else */}
+
+                                              JavaScript if, else, and else if
+
+Conditional statements are used to perform different actions based on different conditions.
+
+Conditional Statements
+Very often when you write code, you want to perform different actions for different decisions.
+
+You can use conditional statements in your code to do this.
+
+In JavaScript we have the following conditional statements:
+
+Use if to specify a block of code to be executed, if a specified condition is true
+Use else to specify a block of code to be executed, if the same condition is false
+Use else if to specify a new condition to test, if the first condition is false
+Use switch to specify many alternative blocks of code to be executed
+The switch statement is described in the next chapter.
+
+The if Statement
+Use the if statement to specify a block of JavaScript code to be executed if a condition is true.
+
+Syntax
+if (condition) {
+  //  block of code to be executed if the condition is true
+}
+Note that if is in lowercase letters. Uppercase letters (If or IF) will generate a JavaScript error.
+
+Example
+Make a "Good day" greeting if the hour is less than 18:00:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript if</h2>
+
+<p>Display "Good day!" if the hour is less than 18:00:</p>
+
+<p id="demo">Good Evening!</p>
+
+<script>
+if (new Date().getHours() < 18) {
+  document.getElementById("demo").innerHTML = "Good day!";
+}
+</script>
+
+</body>
+</html>
+
+
+The result of greeting will be:
+
+ADVERTISEMENT
+
+The else Statement
+Use the else statement to specify a block of code to be executed if the condition is false.
+
+if (condition) {
+  //  block of code to be executed if the condition is true
+} else {
+  //  block of code to be executed if the condition is false
+}
+Example
+If the hour is less than 18, create a "Good day" greeting, otherwise "Good evening":
+
+if (hour < 18) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+The result of greeting will be:
+
+Good evening
+The else if Statement
+Use the else if statement to specify a new condition if the first condition is false.
+
+Syntax
+if (condition1) {
+  //  block of code to be executed if condition1 is true
+} else if (condition2) {
+  //  block of code to be executed if the condition1 is false and condition2 is true
+} else {
+  //  block of code to be executed if the condition1 is false and condition2 is false
+}
+
+Example
+
+<body>
+
+<h2>JavaScript if .. else</h2>
+
+<p>A time-based greeting:</p>
+
+<p id="demo"></p>
+
+<script>
+const time = new Date().getHours();
+let greeting;
+if (time < 10) {
+  greeting = "Good morning";
+} else if (time < 20) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+document.getElementById("demo").innerHTML = greeting;
+</script>
+
+</body>
+</html>
+
+                                              JavaScript Switch Statement
+
+The switch statement is used to perform different actions based on different conditions.
+
+The JavaScript Switch Statement
+Use the switch statement to select one of many code blocks to be executed.
+
+Syntax
+switch(expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
+}
+This is how it works:
+
+The switch expression is evaluated once.
+The value of the expression is compared with the values of each case.
+If there is a match, the associated block of code is executed.
+If there is no match, the default code block is executed.
+Example
+The getDay() method returns the weekday as a number between 0 and 6.
+
+(Sunday=0, Monday=1, Tuesday=2 ..)
+
+This example uses the weekday number to calculate the weekday name:
+
+switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+     day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case 6:
+    day = "Saturday";
+}
+The result of day will be:
+
+Thursday
+ADVERTISEMENT
+
+The break Keyword
+When JavaScript reaches a break keyword, it breaks out of the switch block.
+
+This will stop the execution inside the switch block.
+
+It is not necessary to break the last case in a switch block. The block breaks (ends) there anyway.
+
+Note: If you omit the break statement, the next case will be executed even if the evaluation does not match the case.
+
+The default Keyword
+The default keyword specifies the code to run if there is no case match:
+
+Example
+The getDay() method returns the weekday as a number between 0 and 6.
+
+If today is neither Saturday (6) nor Sunday (0), write a default message:
+
+switch (new Date().getDay()) {
+  case 6:
+    text = "Today is Saturday";
+    break;
+  case 0:
+    text = "Today is Sunday";
+    break;
+  default:
+    text = "Looking forward to the Weekend";
+}
+The result of text will be:
+
+Looking forward to the Weekend
+The default case does not have to be the last case in a switch block:
+
+Example
+switch (new Date().getDay()) {
+  default:
+    text = "Looking forward to the Weekend";
+    break;
+  case 6:
+    text = "Today is Saturday";
+    break;
+  case 0:
+    text = "Today is Sunday";
+}
+If default is not the last case in the switch block, remember to end the default case with a break.
+
+Common Code Blocks
+Sometimes you will want different switch cases to use the same code.
+
+In this example case 4 and 5 share the same code block, and 0 and 6 share another code block:
+
+Example
+switch (new Date().getDay()) {
+  case 4:
+  case 5:
+    text = "Soon it is Weekend";
+    break;
+  case 0:
+  case 6:
+    text = "It is Weekend";
+    break;
+  default:
+    text = "Looking forward to the Weekend";
+}
+Switching Details
+If multiple cases matches a case value, the first case is selected.
+
+If no matching cases are found, the program continues to the default label.
+
+If no default label is found, the program continues to the statement(s) after the switch.
+
+Strict Comparison
+Switch cases use strict comparison (===).
+
+The values must be of the same type to match.
+
+A strict comparison can only be true if the operands are of the same type.
+
+In this example there will be no match for x:
+
+Example
+let x = "0";
+switch (x) {
+  case 0:
+    text = "Off";
+    break;
+  case 1:
+    text = "On";
+    break;
+  default:
+    text = "No value found";
+}
+
+The result of greeting will be:
+
+Good evening
+More Examples
+Random link
+This example will write a link to either W3Schools or to the World Wildlife Foundation (WWF). By using a random number, there is a 50% chance for each of the links.
+
+                                                      JavaScript For Loop
+
+Loops can execute a block of code a number of times.
+
+JavaScript Loops
+Loops are handy, if you want to run the same code over and over again, each time with a different value.
+
+Often this is the case when working with arrays:
+
+Instead of writing:
+text += cars[0] + "<br>";
+text += cars[1] + "<br>";
+text += cars[2] + "<br>";
+text += cars[3] + "<br>";
+text += cars[4] + "<br>";
+text += cars[5] + "<br>";
+You can write:
+for (let i = 0; i < cars.length; i++) {
+  text += cars[i] + "<br>";
+}
+Different Kinds of Loops
+JavaScript supports different kinds of loops:
+
+for - loops through a block of code a number of times
+for/in - loops through the properties of an object
+for/of - loops through the values of an iterable object
+while - loops through a block of code while a specified condition is true
+do/while - also loops through a block of code while a specified condition is true
+The For Loop
+The for loop has the following syntax:
+
+for (statement 1; statement 2; statement 3) {
+  // code block to be executed
+}
+Statement 1 is executed (one time) before the execution of the code block.
+
+Statement 2 defines the condition for executing the code block.
+
+Statement 3 is executed (every time) after the code block has been executed.
+
+Example
+for (let i = 0; i < 5; i++) {
+  text += "The number is " + i + "<br>";
+}
+From the example above, you can read:
+
+Statement 1 sets a variable before the loop starts (let i = 0).
+
+Statement 2 defines the condition for the loop to run (i must be less than 5).
+
+Statement 3 increases a value (i++) each time the code block in the loop has been executed.
+
+ADVERTISEMENT
+
+Statement 1
+Normally you will use statement 1 to initialize the variable used in the loop (let i = 0).
+
+This is not always the case, JavaScript doesn't care. Statement 1 is optional.
+
+You can initiate many values in statement 1 (separated by comma):
+
+Example
+for (let i = 0, len = cars.length, text = ""; i < len; i++) {
+  text += cars[i] + "<br>";
+}
+And you can omit statement 1 (like when your values are set before the loop starts):
+
+Example
+let i = 2;
+let len = cars.length;
+let text = "";
+for (; i < len; i++) {
+  text += cars[i] + "<br>";
+}
+Statement 2
+Often statement 2 is used to evaluate the condition of the initial variable.
+
+This is not always the case, JavaScript doesn't care. Statement 2 is also optional.
+
+If statement 2 returns true, the loop will start over again, if it returns false, the loop will end.
+
+If you omit statement 2, you must provide a break inside the loop. Otherwise the loop will never end. This will crash your browser. Read about breaks in a later chapter of this tutorial.
+
+Statement 3
+Often statement 3 increments the value of the initial variable.
+
+This is not always the case, JavaScript doesn't care, and statement 3 is optional.
+
+Statement 3 can do anything like negative increment (i--), positive increment (i = i + 15), or anything else.
+
+Statement 3 can also be omitted (like when you increment your values inside the loop):
+
+Example
+let i = 0;
+let len = cars.length;
+let text = "";
+for (; i < len; ) {
+  text += cars[i] + "<br>";
+  i++;
+}
+Loop Scope
+Using var in a loop:
+
+Example
+var i = 5;
+
+for (var i = 0; i < 10; i++) {
+  // some code
+}
+
+// Here i is 10
+Using let in a loop:
+
+Example
+let i = 5;
+
+for (let i = 0; i < 10; i++) {
+  // some code
+}
+
+// Here i is 5
+In the first example, using var, the variable declared in the loop redeclares the variable outside the loop.
+
+In the second example, using let, the variable declared in the loop does not redeclare the variable outside the loop.
+
+When let is used to declare the i variable in a loop, the i variable will only be visible within the loop.
+
+For/Of and For/In Loops
+The for/in loop and the for/of loop are explained in the next chapter.
+
+While Loops
+The while loop and the do/while are explained in the next chapters.
+
+{/* continue from loop for  */}
