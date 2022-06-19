@@ -6633,4 +6633,18 @@ for (const x of fruits.entries()) {
   text += x;
 }
 
+                                                    // ********************** chapter 8 ******************
+
 {/* continue from js Typeof */}
+
+
+
+
+
+
+
+
+
+
+
+
