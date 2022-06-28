@@ -6828,11 +6828,492 @@ typeof null                // object
 null === undefined         // false
 null == undefined 
 
+                                                  JavaScript Type Conversion
 
+Converting Strings to Numbers
+Converting Numbers to Strings
+Converting Dates to Numbers
+Converting Numbers to Dates
+Converting Booleans to Numbers
+Converting Numbers to Booleans
+JavaScript Type Conversion
+JavaScript variables can be converted to a new variable and another data type:
 
+By the use of a JavaScript function
+Automatically by JavaScript itself
+Converting Strings to Numbers
+The global method Number() can convert strings to numbers.
 
+Strings containing numbers (like "3.14") convert to numbers (like 3.14).
 
+Empty strings convert to 0.
 
+Anything else converts to NaN (Not a Number).
+
+Number("3.14")    // returns 3.14
+Number(" ")       // returns 0
+Number("")        // returns 0
+Number("99 88")   // returns NaN
+Number Methods
+In the chapter Number Methods, you will find more methods that can be used to convert strings to numbers:
+
+Method	Description
+Number()	Returns a number, converted from its argument
+parseFloat()	Parses a string and returns a floating point number
+parseInt()	Parses a string and returns an integer
+The Unary + Operator
+The unary + operator can be used to convert a variable to a number:
+
+Example
+let y = "5";      // y is a string
+let x = + y;      // x is a number
+If the variable cannot be converted, it will still become a number, but with the value NaN (Not a Number):
+
+Example
+let y = "John";   // y is a string
+let x = + y;      // x is a number (NaN)
+ADVERTISEMENT
+
+Converting Numbers to Strings
+The global method String() can convert numbers to strings.
+
+It can be used on any type of numbers, literals, variables, or expressions:
+
+Example
+String(x)         // returns a string from a number variable x
+String(123)       // returns a string from a number literal 123
+String(100 + 23)  // returns a string from a number from an expression
+The Number method toString() does the same.
+
+Example
+x.toString()
+(123).toString()
+(100 + 23).toString()
+More Methods
+In the chapter Number Methods, you will find more methods that can be used to convert numbers to strings:
+
+Method	Description
+toExponential()	Returns a string, with a number rounded and written using exponential notation.
+toFixed()	Returns a string, with a number rounded and written with a specified number of decimals.
+toPrecision()	Returns a string, with a number written with a specified length
+Converting Dates to Numbers
+The global method Number() can be used to convert dates to numbers.
+
+d = new Date();
+Number(d)          // returns 1404568027739
+The date method getTime() does the same.
+
+d = new Date();
+d.getTime()        // returns 1404568027739
+Converting Dates to Strings
+The global method String() can convert dates to strings.
+
+String(Date())  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
+The Date method toString() does the same.
+
+Example
+Date().toString()  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
+In the chapter Date Methods, you will find more methods that can be used to convert dates to strings:
+
+Method	Description
+getDate()	Get the day as a number (1-31)
+getDay()	Get the weekday a number (0-6)
+getFullYear()	Get the four digit year (yyyy)
+getHours()	Get the hour (0-23)
+getMilliseconds()	Get the milliseconds (0-999)
+getMinutes()	Get the minutes (0-59)
+getMonth()	Get the month (0-11)
+getSeconds()	Get the seconds (0-59)
+getTime()	Get the time (milliseconds since January 1, 1970)
+Converting Booleans to Numbers
+The global method Number() can also convert booleans to numbers.
+
+Number(false)     // returns 0
+Number(true)      // returns 1
+Converting Booleans to Strings
+The global method String() can convert booleans to strings.
+
+String(false)      // returns "false"
+String(true)       // returns "true"
+The Boolean method toString() does the same.
+
+false.toString()   // returns "false"
+true.toString()    // returns "true"
+Automatic Type Conversion
+When JavaScript tries to operate on a "wrong" data type, it will try to convert the value to a "right" type.
+
+The result is not always what you expect:
+
+5 + null    // returns 5         because null is converted to 0
+"5" + null  // returns "5null"   because null is converted to "null"
+"5" + 2     // returns "52"      because 2 is converted to "2"
+"5" - 2     // returns 3         because "5" is converted to 5
+"5" * "2"   // returns 10        because "5" and "2" are converted to 5 and 2
+Automatic String Conversion
+JavaScript automatically calls the variable's toString() function when you try to "output" an object or a variable:
+
+document.getElementById("demo").innerHTML = myVar;
+
+// if myVar = {name:"Fjohn"}  // toString converts to "[object Object]"
+// if myVar = [1,2,3,4]       // toString converts to "1,2,3,4"
+// if myVar = new Date()      // toString converts to "Fri Jul 18 2014 09:08:55 GMT+0200"
+Numbers and booleans are also converted, but this is not very visible:
+
+// if myVar = 123             // toString converts to "123"
+// if myVar = true            // toString converts to "true"
+// if myVar = false           // toString converts to "false"
+JavaScript Type Conversion Table
+This table shows the result of converting different JavaScript values to Number, String, and Boolean:
+
+Original
+Value	Converted
+to Number	Converted
+to String	Converted
+to Boolean	Try it
+false	0	"false"	false	
+true	1	"true"	true	
+0	0	"0"	false	
+1	1	"1"	true	
+"0"	0	"0"	true	
+"000"	0	"000"	true	
+"1"	1	"1"	true	
+NaN	NaN	"NaN"	false	
+Infinity	Infinity	"Infinity"	true	
+-Infinity	-Infinity	"-Infinity"	true	
+""	0	""	false	
+"20"	20	"20"	true	
+"twenty"	NaN	"twenty"	true	
+[ ]	0	""	true	
+[20]	20	"20"	true	
+[10,20]	NaN	"10,20"	true	
+["twenty"]	NaN	"twenty"	true	
+["ten","twenty"]	NaN	"ten,twenty"	true	
+function(){}	NaN	"function(){}"	true	
+{ }	NaN	"[object Object]"	true	
+null	0	"null"	false	
+undefined	NaN	"undefined"	false	
+Values in quotes indicate string values.
+
+Red values indicate values (some) programmers might not expect.
+
+                                                                  JavaScript Bitwise Operations
+
+JavaScript Bitwise Operators
+Operator	Name	Description
+&	AND	Sets each bit to 1 if both bits are 1
+|	OR	Sets each bit to 1 if one of two bits is 1
+^	XOR	Sets each bit to 1 if only one of two bits is 1
+~	NOT	Inverts all the bits
+<<	Zero fill left shift	Shifts left by pushing zeros in from the right and let the leftmost bits fall off
+>>	Signed right shift	Shifts right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off
+>>>	Zero fill right shift	Shifts right by pushing zeros in from the left, and let the rightmost bits fall off
+Examples
+Operation	Result	Same as	Result
+5 & 1	1	0101 & 0001	 0001
+5 | 1	5	0101 | 0001	 0101
+~ 5	10	 ~0101	 1010
+5 << 1	10	0101 << 1	 1010
+5 ^ 1	4	0101 ^ 0001	 0100
+5 >> 1	2	0101 >> 1	 0010
+5 >>> 1	2	0101 >>> 1	 0010
+JavaScript Uses 32 bits Bitwise Operands
+JavaScript stores numbers as 64 bits floating point numbers, but all bitwise operations are performed on 32 bits binary numbers.
+
+Before a bitwise operation is performed, JavaScript converts numbers to 32 bits signed integers.
+
+After the bitwise operation is performed, the result is converted back to 64 bits JavaScript numbers.
+
+The examples above uses 4 bits unsigned binary numbers. Because of this ~ 5 returns 10.
+
+Since JavaScript uses 32 bits signed integers, it will not return 10. It will return -6.
+
+00000000000000000000000000000101 (5)
+
+11111111111111111111111111111010 (~5 = -6)
+
+A signed integer uses the leftmost bit as the minus sign.
+
+ADVERTISEMENT
+
+Bitwise AND
+When a bitwise AND is performed on a pair of bits, it returns 1 if both bits are 1.
+
+One bit example:
+Operation	Result
+0 & 0	0
+0 & 1	0
+1 & 0	0
+1 & 1	1
+4 bits example:
+Operation	Result
+1111 & 0000	0000
+1111 & 0001	0001
+1111 & 0010	0010
+1111 & 0100	0100
+Bitwise OR
+When a bitwise OR is performed on a pair of bits, it returns 1 if one of the bits are 1:
+
+One bit example:
+Operation	Result
+0 | 0	0
+0 | 1	1 
+1 | 0	1
+1 | 1	1
+4 bits example:
+Operation	Result
+1111 | 0000	1111
+1111 | 0001	1111
+1111 | 0010	1111
+1111 | 0100	1111
+Bitwise XOR
+When a bitwise XOR is performed on a pair of bits, it returns 1 if the bits are different:
+
+One bit example:
+Operation	Result
+0 ^ 0	0
+0 ^ 1	1 
+1 ^ 0	1
+1 ^ 1	0 
+4 bits example:
+Operation	Result
+1111 ^ 0000	1111
+1111 ^ 0001	1110
+1111 ^ 0010	1101
+1111 ^ 0100	1011
+JavaScript Bitwise AND (&)
+Bitwise AND returns 1 only if both bits are 1:
+
+Decimal	Binary
+5	00000000000000000000000000000101
+1	00000000000000000000000000000001
+5 & 1	00000000000000000000000000000001 (1)
+Example
+let x = 5 & 1;
+JavaScript Bitwise OR (|)
+Bitwise OR returns 1 if one of the bits are 1:
+
+Decimal	Binary
+5	00000000000000000000000000000101
+1	00000000000000000000000000000001
+5 | 1	00000000000000000000000000000101 (5)
+Example
+let x = 5 | 1;
+JavaScript Bitwise XOR (^)
+Bitwise XOR returns 1 if the bits are different:
+
+Decimal	Binary
+5	00000000000000000000000000000101
+1	00000000000000000000000000000001
+5 ^ 1	00000000000000000000000000000100 (4)
+Example
+let x = 5 ^ 1;
+JavaScript Bitwise NOT (~)
+Decimal	Binary
+5	00000000000000000000000000000101
+~5	11111111111111111111111111111010 (-6)
+Example
+let x = ~5;
+JavaScript (Zero Fill) Bitwise Left Shift (<<)
+This is a zero fill left shift. One or more zero bits are pushed in from the right, and the leftmost bits fall off:
+
+Decimal	Binary
+5	00000000000000000000000000000101
+5 << 1	00000000000000000000000000001010 (10)
+Example
+let x = 5 << 1;
+JavaScript (Sign Preserving) Bitwise Right Shift (>>)
+This is a sign preserving right shift. Copies of the leftmost bit are pushed in from the left, and the rightmost bits fall off:
+
+Decimal	Binary
+-5	11111111111111111111111111111011
+-5 >> 1	11111111111111111111111111111101 (-3)
+Example
+let x = -5 >> 1;
+JavaScript (Zero Fill) Right Shift (>>>)
+This is a zero fill right shift. One or more zero bits are pushed in from the left, and the rightmost bits fall off:
+
+Decimal	Binary
+5	00000000000000000000000000000101
+5 >>> 1	00000000000000000000000000000010 (2)
+Example
+let x = 5 >>> 1;
+Binary Numbers
+Binary numbers with only one bit set is easy to understand:
+
+Binary Representation	Decimal value
+00000000000000000000000000000001	1
+00000000000000000000000000000010	2
+00000000000000000000000000000100	4
+00000000000000000000000000001000	8
+00000000000000000000000000010000	16
+00000000000000000000000000100000	32
+00000000000000000000000001000000	64
+Setting a few more bits reveals the binary pattern:
+
+Binary Representation	Decimal value
+00000000000000000000000000000101	5 (4 + 1)
+00000000000000000000000000001101	13 (8 + 4 + 1)
+00000000000000000000000000101101	45 (32 + 8 + 4 + 1)
+JavaScript binary numbers are stored in two's complement format.
+
+This means that a negative number is the bitwise NOT of the number plus 1:
+
+Binary Representation	Decimal value
+00000000000000000000000000000101	5
+11111111111111111111111111111011	-5
+00000000000000000000000000000110	6
+11111111111111111111111111111010	-6
+00000000000000000000000000101000	40
+11111111111111111111111111011000	-40
+Converting Decimal to Binary
+Example
+function dec2bin(dec){
+  return (dec >>> 0).toString(2);
+}
+Converting Binary to Decimal
+Example
+function bin2dec(bin){
+  return parseInt(bin, 2).toString(10);
+}
+
+                                                    JavaScript Regular Expressions
+                                                    
+A regular expression is a sequence of characters that forms a search pattern.
+
+The search pattern can be used for text search and text replace operations.
+
+What Is a Regular Expression?
+A regular expression is a sequence of characters that forms a search pattern.
+
+When you search for data in a text, you can use this search pattern to describe what you are searching for.
+
+A regular expression can be a single character, or a more complicated pattern.
+
+Regular expressions can be used to perform all types of text search and text replace operations.
+
+Syntax
+/pattern/modifiers;
+Example
+/w3schools/i;
+Example explained:
+
+/w3schools/i  is a regular expression.
+
+w3schools  is a pattern (to be used in a search).
+
+i  is a modifier (modifies the search to be case-insensitive).
+
+Using String Methods
+In JavaScript, regular expressions are often used with the two string methods: search() and replace().
+
+The search() method uses an expression to search for a match, and returns the position of the match.
+
+The replace() method returns a modified string where the pattern is replaced.
+
+Using String search() With a String
+The search() method searches a string for a specified value and returns the position of the match:
+
+Example
+Use a string to do a search for "W3schools" in a string:
+
+let text = "Visit W3Schools!";
+let n = text.search("W3Schools");
+The result in n will be:
+
+6
+
+Using String search() With a Regular Expression
+Example
+Use a regular expression to do a case-insensitive search for "w3schools" in a string:
+
+let text = "Visit W3Schools";
+let n = text.search(/w3schools/i);
+The result in n will be:
+
+6
+
+ADVERTISEMENT
+
+Using String replace() With a String
+The replace() method replaces a specified value with another value in a string:
+
+let text = "Visit Microsoft!";
+let result = text.replace("Microsoft", "W3Schools");
+Use String replace() With a Regular Expression
+Example
+Use a case insensitive regular expression to replace Microsoft with W3Schools in a string:
+
+let text = "Visit Microsoft!";
+let result = text.replace(/microsoft/i, "W3Schools");
+The result in res will be:
+
+Visit W3Schools!
+Did You Notice?
+Regular expression arguments (instead of string arguments) can be used in the methods above.
+Regular expressions can make your search much more powerful (case insensitive for example).
+
+Regular Expression Modifiers
+Modifiers can be used to perform case-insensitive more global searches:
+
+Modifier	Description	Try it
+i	Perform case-insensitive matching	
+g	Perform a global match (find all matches rather than stopping after the first match)	
+m	Perform multiline matching	
+Regular Expression Patterns
+Brackets are used to find a range of characters:
+
+Expression	Description	Try it
+[abc]	Find any of the characters between the brackets	
+[0-9]	Find any of the digits between the brackets	
+(x|y)	Find any of the alternatives separated with |	
+Metacharacters are characters with a special meaning:
+
+Metacharacter	Description	Try it
+\d	Find a digit	
+\s	Find a whitespace character	
+\b	Find a match at the beginning of a word like this: \bWORD, or at the end of a word like this: WORD\b	
+\uxxxx	Find the Unicode character specified by the hexadecimal number xxxx	
+Quantifiers define quantities:
+
+Quantifier	Description	Try it
+n+	Matches any string that contains at least one n
+n*	Matches any string that contains zero or more occurrences of n
+n?	Matches any string that contains zero or one occurrences of n
+Using the RegExp Object
+In JavaScript, the RegExp object is a regular expression object with predefined properties and methods.
+
+Using test()
+The test() method is a RegExp expression method.
+
+It searches a string for a pattern, and returns true or false, depending on the result.
+
+The following example searches a string for the character "e":
+
+Example
+const pattern = /e/;
+pattern.test("The best things in life are free!");
+Since there is an "e" in the string, the output of the code above will be:
+
+true
+
+You don't have to put the regular expression in a variable first. The two lines above can be shortened to one:
+
+/e/.test("The best things in life are free!");
+Using exec()
+The exec() method is a RegExp expression method.
+
+It searches a string for a specified pattern, and returns the found text as an object.
+
+If no match is found, it returns an empty (null) object.
+
+The following example searches a string for the character "e":
+
+Example
+/e/.exec("The best things in life are free!");
+Complete RegExp Reference
+For a complete reference, go to our Complete JavaScript RegExp Reference.
+
+The reference contains descriptions and examples of all RegExp properties and methods.
 
 
 
