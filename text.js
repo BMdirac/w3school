@@ -7316,6 +7316,931 @@ For a complete reference, go to our Complete JavaScript RegExp Reference.
 The reference contains descriptions and examples of all RegExp properties and methods.
 
 
+                                                                  JavaScript Errors
+
+Throw, and Try...Catch...Finally
+The try statement defines a code block to run (to try).
+
+The catch statement defines a code block to handle any error.
+
+The finally statement defines a code block to run regardless of the result.
+
+The throw statement defines a custom error.
+
+Errors Will Happen!
+When executing JavaScript code, different errors can occur.
+
+Errors can be coding errors made by the programmer, errors due to wrong input, and other unforeseeable things.
+
+Example
+In this example we misspelled "alert" as "adddlert" to deliberately produce an error:
+
+<p id="demo"></p>
+
+<script>
+try {
+  adddlert("Welcome guest!");
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.message;
+}
+</script>
+JavaScript catches adddlert as an error, and executes the catch code to handle it.
+
+JavaScript try and catch
+The try statement allows you to define a block of code to be tested for errors while it is being executed.
+
+The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.
+
+The JavaScript statements try and catch come in pairs:
+
+try {
+  Block of code to try
+}
+catch(err) {
+  Block of code to handle errors
+}
+ADVERTISEMENT
+
+JavaScript Throws Errors
+When an error occurs, JavaScript will normally stop and generate an error message.
+
+The technical term for this is: JavaScript will throw an exception (throw an error).
+
+JavaScript will actually create an Error object with two properties: name and message.
+
+The throw Statement
+The throw statement allows you to create a custom error.
+
+Technically you can throw an exception (throw an error).
+
+The exception can be a JavaScript String, a Number, a Boolean or an Object:
+
+throw "Too big";    // throw a text
+throw 500;          // throw a number
+If you use throw together with try and catch, you can control program flow and generate custom error messages.
+
+Input Validation Example
+This example examines input. If the value is wrong, an exception (err) is thrown.
+
+The exception (err) is caught by the catch statement and a custom error message is displayed:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Please input a number between 5 and 10:</p>
+
+<input id="demo" type="text">
+<button type="button" onclick="myFunction()">Test Input</button>
+<p id="p01"></p>
+
+<script>
+function myFunction() {
+  const message = document.getElementById("p01");
+  message.innerHTML = "";
+  let x = document.getElementById("demo").value;
+  try {
+    if(x == "") throw "empty";
+    if(isNaN(x)) throw "not a number";
+    x = Number(x);
+    if(x < 5) throw "too low";
+    if(x > 10) throw "too high";
+  }
+  catch(err) {
+    message.innerHTML = "Input is " + err;
+  }
+}
+</script>
+
+</body>
+</html>
+HTML Validation
+The code above is just an example.
+
+Modern browsers will often use a combination of JavaScript and built-in HTML validation, using predefined validation rules defined in HTML attributes:
+
+<input id="demo" type="number" min="5" max="10" step="1">
+You can read more about forms validation in a later chapter of this tutorial.
+
+The finally Statement
+The finally statement lets you execute code, after try and catch, regardless of the result:
+
+Syntax
+try {
+  Block of code to try
+}
+catch(err) {
+  Block of code to handle errors
+}
+finally {
+  Block of code to be executed regardless of the try / catch result
+}
+Example
+function myFunction() {
+  const message = document.getElementById("p01");
+  message.innerHTML = "";
+  let x = document.getElementById("demo").value;
+  try {
+    if(x == "") throw "is empty";
+    if(isNaN(x)) throw "is not a number";
+    x = Number(x);
+    if(x > 10) throw "is too high";
+    if(x < 5) throw "is too low";
+  }
+  catch(err) {
+    message.innerHTML = "Error: " + err + ".";
+  }
+  finally {
+    document.getElementById("demo").value = "";
+  }
+}
+The Error Object
+JavaScript has a built in error object that provides error information when an error occurs.
+
+The error object provides two useful properties: name and message.
+
+Error Object Properties
+Property	Description
+name	Sets or returns an error name
+message	Sets or returns an error message (a string)
+Error Name Values
+Six different values can be returned by the error name property:
+
+Error Name	Description
+EvalError	An error has occurred in the eval() function
+RangeError	A number "out of range" has occurred
+ReferenceError	An illegal reference has occurred
+SyntaxError	A syntax error has occurred
+TypeError	A type error has occurred
+URIError	An error in encodeURI() has occurred
+The six different values are described below.
+
+Eval Error
+An EvalError indicates an error in the eval() function.
+
+Newer versions of JavaScript do not throw EvalError. Use SyntaxError instead.
+
+Range Error
+A RangeError is thrown if you use a number that is outside the range of legal values.
+
+For example: You cannot set the number of significant digits of a number to 500.
+
+Example
+let num = 1;
+try {
+  num.toPrecision(500);   // A number cannot have 500 significant digits
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.name;
+}
+Reference Error
+A ReferenceError is thrown if you use (reference) a variable that has not been declared:
+
+Example
+let x = 5;
+try {
+  x = y + 1;   // y cannot be used (referenced)
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.name;
+}
+Syntax Error
+A SyntaxError is thrown if you try to evaluate code with a syntax error.
+
+Example
+try {
+  eval("alert('Hello)");   // Missing ' will produce an error
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.name;
+}
+Type Error
+A TypeError is thrown if you use a value that is outside the range of expected types:
+
+Example
+let num = 1;
+try {
+  num.toUpperCase();   // You cannot convert a number to upper case
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.name;
+}
+URI (Uniform Resource Identifier) Error
+A URIError is thrown if you use illegal characters in a URI function:
+
+Example
+try {
+  decodeURI("%%%");   // You cannot URI decode percent signs
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.name;
+}
+Non-Standard Error Object Properties
+Mozilla and Microsoft defines some non-standard error object properties:
+
+fileName (Mozilla)
+lineNumber (Mozilla)
+columnNumber (Mozilla)
+stack (Mozilla)
+description (Microsoft)
+number (Microsoft)
+
+Do not use these properties in public web sites. They will not work in all browsers.
+
+Complete Error Reference
+For a complete reference of the Error object, go to our Complete JavaScript Error Reference.
+
+                                                                          JavaScript Scope
+
+Scope determines the accessibility (visibility) of variables.
+
+JavaScript has 3 types of scope:
+
+Block scope
+Function scope
+Global scope
+Block Scope
+Before ES6 (2015), JavaScript had only Global Scope and Function Scope.
+
+ES6 introduced two important new JavaScript keywords: let and const.
+
+These two keywords provide Block Scope in JavaScript.
+
+Variables declared inside a { } block cannot be accessed from outside the block:
+
+Example
+{
+  let x = 2;
+}
+// x can NOT be used here
+Variables declared with the var keyword can NOT have block scope.
+
+Variables declared inside a { } block can be accessed from outside the block.
+
+Example
+{
+  var x = 2;
+}
+// x CAN be used here
+Local Scope
+Variables declared within a JavaScript function, become LOCAL to the function.
+
+Example
+// code here can NOT use carName
+
+function myFunction() {
+  let carName = "Volvo";
+  // code here CAN use carName
+}
+
+// code here can NOT use carName
+Local variables have Function Scope:
+
+They can only be accessed from within the function.
+
+Since local variables are only recognized inside their functions, variables with the same name can be used in different functions.
+
+Local variables are created when a function starts, and deleted when the function is completed.
+
+Function Scope
+JavaScript has function scope: Each function creates a new scope.
+
+Variables defined inside a function are not accessible (visible) from outside the function.
+
+Variables declared with var, let and const are quite similar when declared inside a function.
+
+They all have Function Scope:
+
+function myFunction() {
+  var carName = "Volvo";   // Function Scope
+}
+function myFunction() {
+  let carName = "Volvo";   // Function Scope
+}
+function myFunction() {
+  const carName = "Volvo";   // Function Scope
+}
+Global JavaScript Variables
+A variable declared outside a function, becomes GLOBAL.
+
+Example
+let carName = "Volvo";
+// code here can use carName
+
+function myFunction() {
+// code here can also use carName
+}
+A global variable has Global Scope:
+
+All scripts and functions on a web page can access it. 
+
+Global Scope
+Variables declared Globally (outside any function) have Global Scope.
+
+Global variables can be accessed from anywhere in a JavaScript program.
+
+Variables declared with var, let and const are quite similar when declared outside a block.
+
+They all have Global Scope:
+
+var x = 2;       // Global scope
+let x = 2;       // Global scope
+const x = 2;       // Global scope
+JavaScript Variables
+In JavaScript, objects and functions are also variables.
+
+Scope determines the accessibility of variables, objects, and functions from different parts of the code.
+
+ADVERTISEMENT
+
+Automatically Global
+If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable.
+
+This code example will declare a global variable carName, even if the value is assigned inside a function.
+
+Example
+myFunction();
+
+// code here can use carName
+
+function myFunction() {
+  carName = "Volvo";
+}
+Strict Mode
+All modern browsers support running JavaScript in "Strict Mode".
+
+You will learn more about how to use strict mode in a later chapter of this tutorial.
+
+In "Strict Mode", undeclared variables are not automatically global.
+
+Global Variables in HTML
+With JavaScript, the global scope is the JavaScript environment.
+
+In HTML, the global scope is the window object.
+
+Global variables defined with the var keyword belong to the window object:
+
+Example
+var carName = "Volvo";
+// code here can use window.carName
+Global variables defined with the let keyword do not belong to the window object:
+
+Example
+let carName = "Volvo";
+// code here can not use window.carName
+Warning
+Do NOT create global variables unless you intend to.
+
+Your global variables (or functions) can overwrite window variables (or functions).
+Any function, including the window object, can overwrite your global variables and functions.
+
+The Lifetime of JavaScript Variables
+The lifetime of a JavaScript variable starts when it is declared.
+
+Function (local) variables are deleted when the function is completed.
+
+In a web browser, global variables are deleted when you close the browser window (or tab).
+
+Function Arguments
+Function arguments (parameters) work as local variables inside functions.
+
+                                                                  JavaScript Hoisting
+
+Hoisting is JavaScript's default behavior of moving declarations to the top.
+
+JavaScript Declarations are Hoisted
+In JavaScript, a variable can be declared after it has been used.
+
+In other words; a variable can be used before it has been declared.
+
+Example 1 gives the same result as Example 2:
+
+Example 1
+x = 5; // Assign 5 to x
+
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x;                     // Display x in the element
+
+var x; // Declare x
+Example 2
+var x; // Declare x
+x = 5; // Assign 5 to x
+
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x;                     // Display x in the element
+To understand this, you have to understand the term "hoisting".
+
+Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function).
+
+The let and const Keywords
+Variables defined with let and const are hoisted to the top of the block, but not initialized.
+
+Meaning: The block of code is aware of the variable, but it cannot be used until it has been declared.
+
+Using a let variable before it is declared will result in a ReferenceError.
+
+The variable is in a "temporal dead zone" from the start of the block until it is declared:
+
+Example
+This will result in a ReferenceError:
+carName = "Volvo";
+let carName;
+Using a const variable before it is declared, is a syntax errror, so the code will simply not run.
+
+Example
+This code will not run.
+
+carName = "Volvo";
+const carName;
+Read more about let and const in JS Let / Const.
+
+ADVERTISEMENT
+
+JavaScript Initializations are Not Hoisted
+JavaScript only hoists declarations, not initializations.
+
+Example 1 does not give the same result as Example 2:
+
+Example 1
+var x = 5; // Initialize x
+var y = 7; // Initialize y
+
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x + " " + y;           // Display x and y
+Example 2
+var x = 5; // Initialize x
+
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x + " " + y;           // Display x and y
+
+var y = 7; // Initialize y
+Does it make sense that y is undefined in the last example?
+
+This is because only the declaration (var y), not the initialization (=7) is hoisted to the top.
+
+Because of hoisting, y has been declared before it is used, but because initializations are not hoisted, the value of y is undefined.
+
+Example 2 is the same as writing:
+
+Example
+var x = 5; // Initialize x
+var y;     // Declare y
+
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x + " " + y;           // Display x and y
+
+y = 7;    // Assign 7 to y
+Declare Your Variables At the Top !
+Hoisting is (to many developers) an unknown or overlooked behavior of JavaScript.
+
+If a developer doesn't understand hoisting, programs may contain bugs (errors).
+
+To avoid bugs, always declare all variables at the beginning of every scope.
+
+Since this is how JavaScript interprets the code, it is always a good rule.
+
+JavaScript in strict mode does not allow variables to be used if they are not declared.
+Study "use strict" in the next chapter.
+
+                                                        JavaScript Use Strict
+
+"use strict"; Defines that JavaScript code should be executed in "strict mode".
+
+The "use strict" Directive
+The "use strict" directive was new in ECMAScript version 5.
+
+It is not a statement, but a literal expression, ignored by earlier versions of JavaScript.
+
+The purpose of "use strict" is to indicate that the code should be executed in "strict mode".
+
+With strict mode, you can not, for example, use undeclared variables.
+
+All modern browsers support "use strict" except Internet Explorer 9 and lower:
+
+Directive					
+"use strict"	13.0	10.0	4.0	6.0	12.1
+The numbers in the table specify the first browser version that fully supports the directive.
+
+You can use strict mode in all your programs. It helps you to write cleaner code, like preventing you from using undeclared variables.
+
+"use strict" is just a string, so IE 9 will not throw an error even if it does not understand it.
+
+Declaring Strict Mode
+Strict mode is declared by adding "use strict"; to the beginning of a script or a function.
+
+Declared at the beginning of a script, it has global scope (all code in the script will execute in strict mode):
+
+Example
+"use strict";
+x = 3.14;       // This will cause an error because x is not declared
+Example
+"use strict";
+myFunction();
+
+function myFunction() {
+  y = 3.14;   // This will also cause an error because y is not declared
+}
+Declared inside a function, it has local scope (only the code inside the function is in strict mode):
+
+x = 3.14;       // This will not cause an error.
+myFunction();
+
+function myFunction() {
+  "use strict";
+  y = 3.14;   // This will cause an error
+}
+ADVERTISEMENT
+
+The "use strict"; Syntax
+The syntax, for declaring strict mode, was designed to be compatible with older versions of JavaScript.
+
+Compiling a numeric literal (4 + 5;) or a string literal ("John Doe";) in a JavaScript program has no side effects. It simply compiles to a non existing variable and dies.
+
+So "use strict"; only matters to new compilers that "understand" the meaning of it.
+
+Why Strict Mode?
+Strict mode makes it easier to write "secure" JavaScript.
+
+Strict mode changes previously accepted "bad syntax" into real errors.
+
+As an example, in normal JavaScript, mistyping a variable name creates a new global variable. In strict mode, this will throw an error, making it impossible to accidentally create a global variable.
+
+In normal JavaScript, a developer will not receive any error feedback assigning values to non-writable properties.
+
+In strict mode, any assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object, will throw an error.
+
+Not Allowed in Strict Mode
+Using a variable, without declaring it, is not allowed:
+
+"use strict";
+x = 3.14;                // This will cause an error
+
+Objects are variables too.
+
+Using an object, without declaring it, is not allowed:
+
+"use strict";
+x = {p1:10, p2:20};      // This will cause an error
+
+Deleting a variable (or object) is not allowed.
+
+"use strict";
+let x = 3.14;
+delete x;                // This will cause an error
+
+Deleting a function is not allowed.
+
+"use strict";
+function x(p1, p2) {};
+delete x;                // This will cause an error 
+
+Duplicating a parameter name is not allowed:
+
+"use strict";
+function x(p1, p1) {};   // This will cause an error
+
+Octal numeric literals are not allowed:
+
+"use strict";
+let x = 010;             // This will cause an error
+
+Octal escape characters are not allowed:
+
+"use strict";
+let x = "\010";            // This will cause an error
+
+Writing to a read-only property is not allowed:
+
+"use strict";
+const obj = {};
+Object.defineProperty(obj, "x", {value:0, writable:false});
+
+obj.x = 3.14;            // This will cause an error
+
+Writing to a get-only property is not allowed:
+
+"use strict";
+const obj = {get x() {return 0} };
+
+obj.x = 3.14;            // This will cause an error
+
+Deleting an undeletable property is not allowed:
+
+"use strict";
+delete Object.prototype; // This will cause an error
+
+The word eval cannot be used as a variable:
+
+"use strict";
+let eval = 3.14;         // This will cause an error
+
+The word arguments cannot be used as a variable:
+
+"use strict";
+let arguments = 3.14;    // This will cause an error
+
+The with statement is not allowed:
+
+"use strict";
+with (Math){x = cos(2)}; // This will cause an error
+
+For security reasons, eval() is not allowed to create variables in the scope from which it was called:
+
+"use strict";
+eval ("let x = 2");
+alert (x);             // This will cause an error
+
+The this keyword in functions behaves differently in strict mode.
+
+The this keyword refers to the object that called the function.
+
+If the object is not specified, functions in strict mode will return undefined and functions in normal mode will return the global object (window):
+
+"use strict";
+function myFunction() {
+  alert(this); // will alert "undefined"
+}
+myFunction();
+
+Future Proof!
+Keywords reserved for future JavaScript versions can NOT be used as variable names in strict mode.
+
+These are:
+
+implements
+interface
+let
+package
+private
+protected
+public
+static
+yield
+"use strict";
+let public = 1500;      // This will cause an error
+
+Watch Out!
+The "use strict" directive is only recognized at the beginning of a script or a function.
+
+                                                                The JavaScript this Keyword
+
+Example
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+What is this?
+In JavaScript, the this keyword refers to an object.
+
+Which object depends on how this is being invoked (used or called).
+
+The this keyword refers to different objects depending on how it is used:
+
+In an object method, this refers to the object.
+Alone, this refers to the global object.
+In a function, this refers to the global object.
+In a function, in strict mode, this is undefined.
+In an event, this refers to the element that received the event.
+Methods like call(), apply(), and bind() can refer this to any object.
+Note
+this is not a variable. It is a keyword. You cannot change the value of this.
+this in a Method
+When used in an object method, this refers to the object.
+
+In the example on top of this page, this refers to the person object.
+
+Because the fullName method is a method of the person object.
+
+fullName : function() {
+  return this.firstName + " " + this.lastName;
+}
+this Alone
+When used alone, this refers to the global object.
+
+Because this is running in the global scope.
+
+In a browser window the global object is [object Window]:
+
+Example
+let x = this;
+ In strict mode, when used alone, this also refers to the global object:
+
+Example
+"use strict";
+let x = this;
+this in a Function (Default)
+In a function, the global object is the default binding for this.
+
+In a browser window the global object is [object Window]:
+
+Example
+function myFunction() {
+  return this;
+}
+ADVERTISEMENT
+
+this in a Function (Strict)
+JavaScript strict mode does not allow default binding.
+
+So, when used in a function, in strict mode, this is undefined.
+
+Example
+"use strict";
+function myFunction() {
+  return this;
+}
+this in Event Handlers
+In HTML event handlers, this refers to the HTML element that received the event:
+
+Example
+<button onclick="this.style.display='none'">
+  Click to Remove Me!
+</button>
+
+Object Method Binding
+In these examples, this is the person object:
+
+Example
+const person = {
+  firstName  : "John",
+  lastName   : "Doe",
+  id         : 5566,
+  myFunction : function() {
+    return this;
+  }
+};
+Example
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+i.e. this.firstName is the firstName property of this (the person object).
+
+Explicit Function Binding
+The call() and apply() methods are predefined JavaScript methods.
+
+They can both be used to call an object method with another object as argument.
+
+See Also:
+The Function call() Method
+
+The Function apply() Method
+
+The Function bind() Method
+
+The example below calls person1.fullName with person2 as an argument, this refers to person2, even if fullName is a method of person1:
+
+Example
+const person1 = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+
+const person2 = {
+  firstName:"John",
+  lastName: "Doe",
+}
+
+// Return "John Doe":
+person1.fullName.call(person2);
+
+Function Borrowing
+With the bind() method, an object can borrow a method from another object.
+
+This example creates 2 objects (person and member).
+
+The member object borrows the fullname method from the person object:
+
+Example
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+}
+
+const member = {
+  firstName:"Hege",
+  lastName: "Nilsen",
+}
+
+let fullName = person.fullName.bind(member);
+This Precedence
+To determine which object this refers to; Use the following precedence of order.
+
+Precedence	Object
+1	bind()
+2	apply() and call()
+3	Object method
+4	Global scope
+Is this in a function being called using bind()?
+
+Is this in a function is being called using apply()?
+
+Is this in a function is being called using call()?
+
+Is this in an object function (method)?
+
+Is this in a function in the global scope.
+
+                                                                  JavaScript Arrow Function
+
+Arrow functions were introduced in ES6.
+
+Arrow functions allow us to write shorter function syntax:
+
+let myFunction = (a, b) => a * b;
+
+Before:
+hello = function() {
+  return "Hello World!";
+}
+
+With Arrow Function:
+hello = () => {
+  return "Hello World!";
+}
+
+It gets shorter! If the function has only one statement, and the statement returns a value, you can remove the brackets and the return keyword:
+
+Arrow Functions Return Value by Default:
+hello = () => "Hello World!";
+
+Note: This works only if the function has only one statement.
+
+If you have parameters, you pass them inside the parentheses:
+
+Arrow Function With Parameters:
+hello = (val) => "Hello " + val;
+
+In fact, if you have only one parameter, you can skip the parentheses as well:
+
+Arrow Function Without Parentheses:
+hello = val => "Hello " + val;
+
+ADVERTISEMENT
+
+What About this?
+The handling of this is also different in arrow functions compared to regular functions.
+
+In short, with arrow functions there are no binding of this.
+
+In regular functions the this keyword represented the object that called the function, which could be the window, the document, a button or whatever.
+
+With arrow functions the this keyword always represents the object that defined the arrow function.
+
+Let us take a look at two examples to understand the difference.
+
+Both examples call a method twice, first when the page loads, and once again when the user clicks a button.
+
+The first example uses a regular function, and the second example uses an arrow function.
+
+The result shows that the first example returns two different objects (window and button), and the second example returns the window object twice, because the window object is the "owner" of the function.
+
+Example
+With a regular function this represents the object that calls the function:
+
+// Regular Function:
+hello = function() {
+  document.getElementById("demo").innerHTML += this;
+}
+
+// The window object calls the function:
+window.addEventListener("load", hello);
+
+// A button object calls the function:
+document.getElementById("btn").addEventListener("click", hello);
+
+Example
+With an arrow function this represents the owner of the function:
+
+// Arrow Function:
+hello = () => {
+  document.getElementById("demo").innerHTML += this;
+}
+
+// The window object calls the function:
+window.addEventListener("load", hello);
+
+// A button object calls the function:
+document.getElementById("btn").addEventListener("click", hello);
+
+Remember these differences when you are working with functions. Sometimes the behavior of regular functions is what you want, if not, use arrow functions.
 
 
 
+
+
+
+// continue from js classes
