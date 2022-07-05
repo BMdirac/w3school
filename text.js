@@ -8239,8 +8239,1488 @@ document.getElementById("btn").addEventListener("click", hello);
 Remember these differences when you are working with functions. Sometimes the behavior of regular functions is what you want, if not, use arrow functions.
 
 
+                                                     // ********************** chapter 9 ******************
+
+                                                      JavaScript Classes
+
+ECMAScript 2015, also known as ES6, introduced JavaScript Classes.
+
+JavaScript Classes are templates for JavaScript Objects.
+
+JavaScript Class Syntax
+Use the keyword class to create a class.
+
+Always add a method named constructor():
+
+Syntax
+class ClassName {
+  constructor() { ... }
+}
+Example
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}
+The example above creates a class named "Car".
+
+The class has two initial properties: "name" and "year".
+
+A JavaScript class is not an object.
+
+It is a template for JavaScript objects.
+
+Using a Class
+When you have a class, you can use the class to create objects:
+
+Example
+let myCar1 = new Car("Ford", 2014);
+let myCar2 = new Car("Audi", 2019);
+
+The example above uses the Car class to create two Car objects.
+
+The constructor method is called automatically when a new object is created.
+
+The Constructor Method
+The constructor method is a special method:
+
+It has to have the exact name "constructor"
+It is executed automatically when a new object is created
+It is used to initialize object properties
+If you do not define a constructor method, JavaScript will add an empty constructor method.
+
+ADVERTISEMENT
+
+Class Methods
+Class methods are created with the same syntax as object methods.
+
+Use the keyword class to create a class.
+
+Always add a constructor() method.
+
+Then add any number of methods.
+
+Syntax
+class ClassName {
+  constructor() { ... }
+  method_1() { ... }
+  method_2() { ... }
+  method_3() { ... }
+}
+Create a Class method named "age", that returns the Car age:
+
+Example
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+  age() {
+    let date = new Date();
+    return date.getFullYear() - this.year;
+  }
+}
+
+let myCar = new Car("Ford", 2014);
+document.getElementById("demo").innerHTML =
+"My car is " + myCar.age() + " years old.";
+
+You can send parameters to Class methods:
+
+Example
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+  age(x) {
+    return x - this.year;
+  }
+}
+
+let date = new Date();
+let year = date.getFullYear();
+
+let myCar = new Car("Ford", 2014);
+document.getElementById("demo").innerHTML=
+"My car is " + myCar.age(year) + " years old.";
+
+                                                          JavaScript Modules
+
+Modules
+JavaScript modules allow you to break up your code into separate files.
+
+This makes it easier to maintain the code-base.
+
+JavaScript modules rely on the import and export statements.
+
+Export
+You can export a function or variable from any file.
+
+Let us create a file named person.js, and fill it with the things we want to export.
+
+There are two types of exports: Named and Default.
+
+Named Exports
+You can create named exports two ways. In-line individually, or all at once at the bottom.
+
+In-line individually:
+person.js
+
+export const name = "Jesse";
+export const age = 40;
+All at once at the bottom:
+person.js
+
+const name = "Jesse";
+const age = 40;
+
+export {name, age};
+Default Exports
+Let us create another file, named message.js, and use it for demonstrating default export.
+
+You can only have one default export in a file.
+
+Example
+message.js
+
+const message = () => {
+const name = "Jesse";
+const age = 40;
+return name + ' is ' + age + 'years old.';
+};
+
+export default message;
+ADVERTISEMENT
+
+Import
+You can import modules into a file in two ways, based on if they are named exports or default exports.
+
+Named exports are constructed using curly braces. Default exports are not.
+
+Import from named exports
+Import named exports from the file person.js:
+
+import { name, age } from "./person.js";
+
+Import from default exports
+Import a default export from the file message.js:
+
+import message from "./message.js";
+
+Note
+Modules only work with the HTTP(s) protocol.
+
+A web-page opened via the file:// protocol cannot use import / export.
 
 
+                                                                    JavaScript JSON
+JSON is a format for storing and transporting data.
+
+JSON is often used when data is sent from a server to a web page.
+
+What is JSON?
+JSON stands for JavaScript Object Notation
+JSON is a lightweight data interchange format
+JSON is language independent *
+JSON is "self-describing" and easy to understand
+* The JSON syntax is derived from JavaScript object notation syntax, but the JSON format is text only. Code for reading and generating JSON data can be written in any programming language.
+
+JSON Example
+This JSON syntax defines an employees object: an array of 3 employee records (objects):
+
+JSON Example
+{
+"employees":[
+  {"firstName":"John", "lastName":"Doe"},
+  {"firstName":"Anna", "lastName":"Smith"},
+  {"firstName":"Peter", "lastName":"Jones"}
+]
+}
+The JSON Format Evaluates to JavaScript Objects
+The JSON format is syntactically identical to the code for creating JavaScript objects.
+
+Because of this similarity, a JavaScript program can easily convert JSON data into native JavaScript objects.
+
+JSON Syntax Rules
+Data is in name/value pairs
+Data is separated by commas
+Curly braces hold objects
+Square brackets hold arrays
+ADVERTISEMENT
+
+JSON Data - A Name and a Value
+JSON data is written as name/value pairs, just like JavaScript object properties.
+
+A name/value pair consists of a field name (in double quotes), followed by a colon, followed by a value:
+
+"firstName":"John"
+JSON names require double quotes. JavaScript names do not.
+
+JSON Objects
+JSON objects are written inside curly braces.
+
+Just like in JavaScript, objects can contain multiple name/value pairs:
+
+{"firstName":"John", "lastName":"Doe"}
+JSON Arrays
+JSON arrays are written inside square brackets.
+
+Just like in JavaScript, an array can contain objects:
+
+"employees":[
+  {"firstName":"John", "lastName":"Doe"},
+  {"firstName":"Anna", "lastName":"Smith"},
+  {"firstName":"Peter", "lastName":"Jones"}
+]
+In the example above, the object "employees" is an array. It contains three objects.
+
+Each object is a record of a person (with a first name and a last name).
+
+Converting a JSON Text to a JavaScript Object
+A common use of JSON is to read data from a web server, and display the data in a web page.
+
+For simplicity, this can be demonstrated using a string as input.
+
+First, create a JavaScript string containing JSON syntax:
+
+let text = '{ "employees" : [' +
+'{ "firstName":"John" , "lastName":"Doe" },' +
+'{ "firstName":"Anna" , "lastName":"Smith" },' +
+'{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+Then, use the JavaScript built-in function JSON.parse() to convert the string into a JavaScript object:
+
+const obj = JSON.parse(text);
+Finally, use the new JavaScript object in your page:
+
+Example
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML =
+obj.employees[1].firstName + " " + obj.employees[1].lastName;
+</script>
+You can read more about JSON in our JSON tutorial.
+
+                                                              JavaScript Debugging
+
+Errors can (will) happen, every time you write some new computer code.
+
+Code Debugging
+Programming code might contain syntax errors, or logical errors.
+
+Many of these errors are difficult to diagnose.
+
+Often, when programming code contains errors, nothing will happen. There are no error messages, and you will get no indications where to search for errors.
+
+Searching for (and fixing) errors in programming code is called code debugging.
+
+JavaScript Debuggers
+Debugging is not easy. But fortunately, all modern browsers have a built-in JavaScript debugger.
+
+Built-in debuggers can be turned on and off, forcing errors to be reported to the user.
+
+With a debugger, you can also set breakpoints (places where code execution can be stopped), and examine variables while the code is executing.
+
+Normally, otherwise follow the steps at the bottom of this page, you activate debugging in your browser with the F12 key, and select "Console" in the debugger menu.
+
+The console.log() Method
+If your browser supports debugging, you can use console.log() to display JavaScript values in the debugger window:
+
+Example
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Web Page</h1>
+
+<script>
+a = 5;
+b = 6;
+c = a + b;
+console.log(c);
+</script>
+
+</body>
+</html>
+Tip: Read more about the console.log() method in our JavaScript Console Reference.
+
+Setting Breakpoints
+In the debugger window, you can set breakpoints in the JavaScript code.
+
+At each breakpoint, JavaScript will stop executing, and let you examine JavaScript values.
+
+After examining values, you can resume the execution of code (typically with a play button).
+
+ADVERTISEMENT
+
+The debugger Keyword
+The debugger keyword stops the execution of JavaScript, and calls (if available) the debugging function.
+
+This has the same function as setting a breakpoint in the debugger.
+
+If no debugging is available, the debugger statement has no effect.
+
+With the debugger turned on, this code will stop executing before it executes the third line.
+
+Example
+let x = 15 * 5;
+debugger;
+document.getElementById("demo").innerHTML = x;
+Major Browsers' Debugging Tools
+Normally, you activate debugging in your browser with F12, and select "Console" in the debugger menu.
+
+Did You Know?
+Debugging is the process of testing, finding, and reducing bugs (errors) in computer programs.
+The first known computer bug was a real bug (an insect) stuck in the electronics.
+
+                                                        JavaScript Style Guide
+
+Always use the same coding conventions for all your JavaScript projects.
+
+JavaScript Coding Conventions
+Coding conventions are style guidelines for programming. They typically cover:
+
+Naming and declaration rules for variables and functions.
+Rules for the use of white space, indentation, and comments.
+Programming practices and principles
+Coding conventions secure quality:
+
+Improves code readability
+Make code maintenance easier
+Coding conventions can be documented rules for teams to follow, or just be your individual coding practice.
+
+This page describes the general JavaScript code conventions used by W3Schools.
+You should also read the next chapter "Best Practices", and learn how to avoid coding pitfalls.
+
+Variable Names
+At W3schools we use camelCase for identifier names (variables and functions).
+
+All names start with a letter.
+
+At the bottom of this page, you will find a wider discussion about naming rules.
+
+firstName = "John";
+lastName = "Doe";
+
+price = 19.90;
+tax = 0.20;
+
+fullPrice = price + (price * tax);
+Spaces Around Operators
+Always put spaces around operators ( = + - * / ), and after commas:
+
+Examples:
+let x = y + z;
+const myArray = ["Volvo", "Saab", "Fiat"];
+ADVERTISEMENT
+
+Code Indentation
+Always use 2 spaces for indentation of code blocks:
+
+Functions:
+function toCelsius(fahrenheit) {
+  return (5 / 9) * (fahrenheit - 32);
+}
+Do not use tabs (tabulators) for indentation. Different editors interpret tabs differently.
+
+Statement Rules
+General rules for simple statements:
+
+Always end a simple statement with a semicolon.
+Examples:
+const cars = ["Volvo", "Saab", "Fiat"];
+
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+General rules for complex (compound) statements:
+
+Put the opening bracket at the end of the first line.
+Use one space before the opening bracket.
+Put the closing bracket on a new line, without leading spaces.
+Do not end a complex statement with a semicolon.
+Functions:
+function toCelsius(fahrenheit) {
+  return (5 / 9) * (fahrenheit - 32);
+}
+Loops:
+for (let i = 0; i < 5; i++) {
+  x += i;
+}
+Conditionals:
+if (time < 20) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+Object Rules
+General rules for object definitions:
+
+Place the opening bracket on the same line as the object name.
+Use colon plus one space between each property and its value.
+Use quotes around string values, not around numeric values.
+Do not add a comma after the last property-value pair.
+Place the closing bracket on a new line, without leading spaces.
+Always end an object definition with a semicolon.
+Example
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+Short objects can be written compressed, on one line, using spaces only between properties, like this:
+
+const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+Line Length < 80
+For readability, avoid lines longer than 80 characters.
+
+If a JavaScript statement does not fit on one line, the best place to break it, is after an operator or a comma.
+
+Example
+document.getElementById("demo").innerHTML =
+"Hello Dolly.";
+Naming Conventions
+Always use the same naming convention for all your code. For example:
+
+Variable and function names written as camelCase
+Global variables written in UPPERCASE (We don't, but it's quite common)
+Constants (like PI) written in UPPERCASE
+Should you use hyp-hens, camelCase, or under_scores in variable names?
+
+This is a question programmers often discuss. The answer depends on who you ask:
+
+Hyphens in HTML and CSS:
+
+HTML5 attributes can start with data- (data-quantity, data-price).
+
+CSS uses hyphens in property-names (font-size).
+
+Hyphens can be mistaken as subtraction attempts. Hyphens are not allowed in JavaScript names.
+
+Underscores:
+
+Many programmers prefer to use underscores (date_of_birth), especially in SQL databases.
+
+Underscores are often used in PHP documentation.
+
+PascalCase:
+
+PascalCase is often preferred by C programmers.
+
+camelCase:
+
+camelCase is used by JavaScript itself, by jQuery, and other JavaScript libraries.
+
+Do not start names with a $ sign. It will put you in conflict with many JavaScript library names.
+
+Loading JavaScript in HTML
+Use simple syntax for loading external scripts (the type attribute is not necessary):
+
+<script src="myscript.js"></script>
+Accessing HTML Elements
+A consequence of using "untidy" HTML styles, might result in JavaScript errors.
+
+These two JavaScript statements will produce different results:
+
+const obj = getElementById("Demo")
+
+const obj = getElementById("demo")
+If possible, use the same naming convention (as JavaScript) in HTML.
+
+Visit the HTML Style Guide.
+
+File Extensions
+HTML files should have a .html extension (.htm is allowed).
+
+CSS files should have a .css extension.
+
+JavaScript files should have a .js extension.
+
+Use Lower Case File Names
+Most web servers (Apache, Unix) are case sensitive about file names:
+
+london.jpg cannot be accessed as London.jpg.
+
+Other web servers (Microsoft, IIS) are not case sensitive:
+
+london.jpg can be accessed as London.jpg or london.jpg.
+
+If you use a mix of upper and lower case, you have to be extremely consistent.
+
+If you move from a case insensitive, to a case sensitive server, even small errors can break your web site.
+
+To avoid these problems, always use lower case file names (if possible).
+
+Performance
+Coding conventions are not used by computers. Most rules have little impact on the execution of programs.
+
+Indentation and extra spaces are not significant in small scripts.
+
+For code in development, readability should be preferred. Larger production scripts should be minified.
+
+                                                                    JavaScript Best Practices
+
+Avoid global variables, avoid new, avoid ==, avoid eval()
+
+Avoid Global Variables
+Minimize the use of global variables.
+
+This includes all data types, objects, and functions.
+
+Global variables and functions can be overwritten by other scripts.
+
+Use local variables instead, and learn how to use closures.
+
+Always Declare Local Variables
+All variables used in a function should be declared as local variables.
+
+Local variables must be declared with the var keyword or the let keyword,or the const keyword, otherwise they will become global variables.
+
+Strict mode does not allow undeclared variables.
+
+Declarations on Top
+It is a good coding practice to put all declarations at the top of each script or function.
+
+This will:
+
+Give cleaner code
+Provide a single place to look for local variables
+Make it easier to avoid unwanted (implied) global variables
+Reduce the possibility of unwanted re-declarations
+// Declare at the beginning
+let firstName, lastName, price, discount, fullPrice;
+
+// Use later
+firstName = "John";
+lastName = "Doe";
+
+price = 19.90;
+discount = 0.10;
+
+fullPrice = price - discount;
+This also goes for loop variables:
+
+for (let i = 0; i < 5; i++) {
+ADVERTISEMENT
+
+Initialize Variables
+It is a good coding practice to initialize variables when you declare them.
+
+This will:
+
+Give cleaner code
+Provide a single place to initialize variables
+Avoid undefined values
+// Declare and initiate at the beginning
+let firstName = "",
+let lastName = "",
+let price = 0,
+let discount = 0,
+let fullPrice = 0,
+const myArray = [],
+const myObject = {};
+Initializing variables provides an idea of the intended use (and intended data type).
+
+Declare Objects with const
+Declaring objects with const will prevent any accidental change of type:
+
+Example
+let car = {type:"Fiat", model:"500", color:"white"};
+car = "Fiat";      // Changes object to string
+
+const car = {type:"Fiat", model:"500", color:"white"};
+car = "Fiat";      // Not possible
+Declare Arrays with const
+Declaring arrays with const will prevent any accidential change of type:
+
+Example
+let cars = ["Saab", "Volvo", "BMW"];
+cars = 3;    // Changes array to number
+
+const cars = ["Saab", "Volvo", "BMW"];
+cars = 3;    // Not possible
+Don't Use new Object()
+Use "" instead of new String()
+Use 0 instead of new Number()
+Use false instead of new Boolean()
+Use {} instead of new Object()
+Use [] instead of new Array()
+Use /()/ instead of new RegExp()
+Use function (){} instead of new Function()
+Example
+let x1 = "";             // new primitive string
+let x2 = 0;              // new primitive number
+let x3 = false;          // new primitive boolean
+const x4 = {};           // new object
+const x5 = [];           // new array object
+const x6 = /()/;         // new regexp object
+const x7 = function(){}; // new function object
+Beware of Automatic Type Conversions
+JavaScript is loosely typed.
+
+A variable can contain all data types.
+
+A variable can change its data type:
+
+Example
+let x = "Hello";     // typeof x is a string
+x = 5;               // changes typeof x to a number
+Beware that numbers can accidentally be converted to strings or NaN (Not a Number).
+
+When doing mathematical operations, JavaScript can convert numbers to strings:
+
+Example
+let x = 5 + 7;       // x.valueOf() is 12,  typeof x is a number
+let x = 5 + "7";     // x.valueOf() is 57,  typeof x is a string
+let x = "5" + 7;     // x.valueOf() is 57,  typeof x is a string
+let x = 5 - 7;       // x.valueOf() is -2,  typeof x is a number
+let x = 5 - "7";     // x.valueOf() is -2,  typeof x is a number
+let x = "5" - 7;     // x.valueOf() is -2,  typeof x is a number
+let x = 5 - "x";     // x.valueOf() is NaN, typeof x is a number
+Subtracting a string from a string, does not generate an error but returns NaN (Not a Number):
+
+Example
+"Hello" - "Dolly"    // returns NaN
+Use === Comparison
+The == comparison operator always converts (to matching types) before comparison.
+
+The === operator forces comparison of values and type:
+
+Example
+0 == "";        // true
+1 == "1";       // true
+1 == true;      // true
+
+0 === "";       // false
+1 === "1";      // false
+1 === true;     // false
+Use Parameter Defaults
+If a function is called with a missing argument, the value of the missing argument is set to undefined.
+
+Undefined values can break your code. It is a good habit to assign default values to arguments.
+
+Example
+function myFunction(x, y) {
+  if (y === undefined) {
+    y = 0;
+  }
+}
+ECMAScript 2015 allows default parameters in the function definition:
+
+function (a=1, b=1) { /*function code*/ }
+Read more about function parameters and arguments at Function Parameters
+
+End Your Switches with Defaults
+Always end your switch statements with a default. Even if you think there is no need for it.
+
+Example
+switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+    day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case 6:
+    day = "Saturday";
+    break;
+  default:
+    day = "Unknown";
+}
+Avoid Number, String, and Boolean as Objects
+Always treat numbers, strings, or booleans as primitive values. Not as objects.
+
+Declaring these types as objects, slows down execution speed, and produces nasty side effects:
+
+Example
+let x = "John";             
+let y = new String("John");
+(x === y) // is false because x is a string and y is an object.
+Or even worse:
+
+Example
+let x = new String("John");             
+let y = new String("John");
+(x == y) // is false because you cannot compare objects.
+Avoid Using eval()
+The eval() function is used to run text as code. In almost all cases, it should not be necessary to use it.
+
+Because it allows arbitrary code to be run, it also represents a security problem.
+
+                                                      JavaScript Common Mistakes
+
+This chapter points out some common JavaScript mistakes.
+
+Accidentally Using the Assignment Operator
+JavaScript programs may generate unexpected results if a programmer accidentally uses an assignment operator (=), instead of a comparison operator (==) in an if statement.
+
+This if statement returns false (as expected) because x is not equal to 10:
+
+let x = 0;
+if (x == 10)
+This if statement returns true (maybe not as expected), because 10 is true:
+
+let x = 0;
+if (x = 10)
+This if statement returns false (maybe not as expected), because 0 is false:
+
+let x = 0;
+if (x = 0)
+An assignment always returns the value of the assignment.
+
+Expecting Loose Comparison
+In regular comparison, data type does not matter. This if statement returns true:
+
+let x = 10;
+let y = "10";
+if (x == y)
+In strict comparison, data type does matter. This if statement returns false:
+
+let x = 10;
+let y = "10";
+if (x === y)
+It is a common mistake to forget that switch statements use strict comparison:
+
+This case switch will display an alert:
+
+let x = 10;
+switch(x) {
+  case 10: alert("Hello");
+}
+This case switch will not display an alert:
+
+let x = 10;
+switch(x) {
+  case "10": alert("Hello");
+}
+ADVERTISEMENT
+
+Confusing Addition & Concatenation
+Addition is about adding numbers.
+
+Concatenation is about adding strings.
+
+In JavaScript both operations use the same + operator.
+
+Because of this, adding a number as a number will produce a different result from adding a number as a string:
+
+let x = 10;
+x = 10 + 5;       // Now x is 15
+
+let y = 10;
+y += "5";        // Now y is "105"
+When adding two variables, it can be difficult to anticipate the result:
+
+let x = 10;
+let y = 5;
+let z = x + y;     // Now z is 15
+
+let x = 10;
+let y = "5";
+let z = x + y;     // Now z is "105"
+Misunderstanding Floats
+All numbers in JavaScript are stored as 64-bits Floating point numbers (Floats).
+
+All programming languages, including JavaScript, have difficulties with precise floating point values:
+
+let x = 0.1;
+let y = 0.2;
+let z = x + y            // the result in z will not be 0.3
+To solve the problem above, it helps to multiply and divide:
+
+Example
+let z = (x * 10 + y * 10) / 10;       // z will be 0.3
+Breaking a JavaScript String
+JavaScript will allow you to break a statement into two lines:
+
+Example 1
+let x =
+"Hello World!";
+But, breaking a statement in the middle of a string will not work:
+
+Example 2
+let x = "Hello
+World!";
+You must use a "backslash" if you must break a statement in a string:
+
+Example 3
+let x = "Hello \
+World!";
+Misplacing Semicolon
+Because of a misplaced semicolon, this code block will execute regardless of the value of x:
+
+if (x == 19);
+{
+  // code block 
+}
+Breaking a Return Statement
+It is a default JavaScript behavior to close a statement automatically at the end of a line.
+
+Because of this, these two examples will return the same result:
+
+Example 1
+function myFunction(a) {
+  let power = 10 
+  return a * power
+}
+Example 2
+function myFunction(a) {
+  let power = 10;
+  return a * power;
+}
+JavaScript will also allow you to break a statement into two lines.
+
+Because of this, example 3 will also return the same result:
+
+Example 3
+function myFunction(a) {
+  let
+  power = 10; 
+  return a * power;
+}
+But, what will happen if you break the return statement in two lines like this:
+
+Example 4
+function myFunction(a) {
+  let
+  power = 10; 
+  return
+  a * power;
+}
+The function will return undefined!
+
+Why? Because JavaScript thought you meant:
+
+Example 5
+function myFunction(a) {
+  let
+  power = 10; 
+  return;
+  a * power;
+}
+Explanation
+If a statement is incomplete like:
+
+let
+JavaScript will try to complete the statement by reading the next line:
+
+power = 10;
+But since this statement is complete:
+
+return
+JavaScript will automatically close it like this:
+
+return;
+This happens because closing (ending) statements with semicolon is optional in JavaScript.
+
+JavaScript will close the return statement at the end of the line, because it is a complete statement.
+
+Never break a return statement.
+
+Accessing Arrays with Named Indexes
+Many programming languages support arrays with named indexes.
+
+Arrays with named indexes are called associative arrays (or hashes).
+
+JavaScript does not support arrays with named indexes.
+
+In JavaScript, arrays use numbered indexes:  
+
+Example
+const person = [];
+person[0] = "John";
+person[1] = "Doe";
+person[2] = 46;
+person.length;       // person.length will return 3
+person[0];           // person[0] will return "John"
+In JavaScript, objects use named indexes.
+
+If you use a named index, when accessing an array, JavaScript will redefine the array to a standard object.
+
+After the automatic redefinition, array methods and properties will produce undefined or incorrect results:
+
+Example:
+const person = [];
+person["firstName"] = "John";
+person["lastName"] = "Doe";
+person["age"] = 46;
+person.length;      // person.length will return 0
+person[0];          // person[0] will return undefined
+Ending Definitions with a Comma
+Trailing commas in object and array definition are legal in ECMAScript 5.
+
+Object Example:
+person = {firstName:"John", lastName:"Doe", age:46,}
+Array Example:
+points = [40, 100, 1, 5, 25, 10,];
+WARNING !!
+
+Internet Explorer 8 will crash.
+
+JSON does not allow trailing commas.
+
+JSON:
+person = {"firstName":"John", "lastName":"Doe", "age":46}
+JSON:
+points = [40, 100, 1, 5, 25, 10];
+Undefined is Not Null
+JavaScript objects, variables, properties, and methods can be undefined.
+
+In addition, empty JavaScript objects can have the value null.
+
+This can make it a little bit difficult to test if an object is empty.
+
+You can test if an object exists by testing if the type is undefined:
+
+Example:
+if (typeof myObj === "undefined") 
+But you cannot test if an object is null, because this will throw an error if the object is undefined:
+
+Incorrect:
+if (myObj === null) 
+To solve this problem, you must test if an object is not null, and not undefined.
+
+But this can still throw an error:
+
+Incorrect:
+if (myObj !== null && typeof myObj !== "undefined") 
+Because of this, you must test for not undefined before you can test for not null:
+
+Correct:
+if (typeof myObj !== "undefined" && myObj !== null)
+
+                                                            JavaScript Performance
+
+How to speed up your JavaScript code.
+
+Reduce Activity in Loops
+Loops are often used in programming.
+
+Each statement in a loop, including the for statement, is executed for each iteration of the loop.
+
+Statements or assignments that can be placed outside the loop will make the loop run faster.
+
+Bad:
+for (let i = 0; i < arr.length; i++) {
+Better Code:
+let l = arr.length;
+for (let i = 0; i < l; i++) {
+The bad code accesses the length property of an array each time the loop is iterated.
+
+The better code accesses the length property outside the loop and makes the loop run faster.
+
+Reduce DOM Access
+Accessing the HTML DOM is very slow, compared to other JavaScript statements.
+
+If you expect to access a DOM element several times, access it once, and use it as a local variable:
+
+Example
+const obj = document.getElementById("demo");
+obj.innerHTML = "Hello";
+ADVERTISEMENT
+
+Reduce DOM Size
+Keep the number of elements in the HTML DOM small.
+
+This will always improve page loading, and speed up rendering (page display), especially on smaller devices.
+
+Every attempt to search the DOM (like getElementsByTagName) will benefit from a smaller DOM.
+
+Avoid Unnecessary Variables
+Don't create new variables if you don't plan to save values.
+
+Often you can replace code like this:
+
+let fullName = firstName + " " + lastName;
+document.getElementById("demo").innerHTML = fullName;
+With this:
+
+document.getElementById("demo").innerHTML = firstName + " " + lastName;
+Delay JavaScript Loading
+Putting your scripts at the bottom of the page body lets the browser load the page first.
+
+While a script is downloading, the browser will not start any other downloads. In addition all parsing and rendering activity might be blocked.
+
+The HTTP specification defines that browsers should not download more than two components in parallel.
+
+An alternative is to use defer="true" in the script tag. The defer attribute specifies that the script should be executed after the page has finished parsing, but it only works for external scripts.
+
+If possible, you can add your script to the page by code, after the page has loaded:
+
+Example
+<script>
+window.onload = function() {
+  const element = document.createElement("script");
+  element.src = "myScript.js";
+  document.body.appendChild(element);
+};
+</script>
+Avoid Using with
+Avoid using the with keyword. It has a negative effect on speed. It also clutters up JavaScript scopes.
+
+The with keyword is not allowed in strict mode.
+
+                                                        JavaScript Reserved Words
+
+In JavaScript you cannot use these reserved words as variables, labels, or function names:
+abstract	arguments	await*	boolean
+break	byte	case	catch
+char	class*	const	continue
+debugger	default	delete	do
+double	else	enum*	eval
+export*	extends*	false	final
+finally	float	for	function
+goto	if	implements	import*
+in	instanceof	int	interface
+let*	long	native	new
+null	package	private	protected
+public	return	short	static
+super*	switch	synchronized	this
+throw	throws	transient	true
+try	typeof	var	void
+volatile	while	with	yield
+Words marked with* are new in ECMAScript 5 and 6.
+You can read more about the different JavaScript versions in the chapter JS Versions.
+
+Removed Reserved Words
+The following reserved words have been removed from the ECMAScript 5/6 standard:
+abstract	boolean	byte	char
+double	final	float	goto
+int	long	native	short
+synchronized	throws	transient	volatile
+Do not use these words as variables. ECMAScript 5/6 does not have full support in all browsers.
+
+ADVERTISEMENT
+
+JavaScript Objects, Properties, and Methods
+You should also avoid using the name of JavaScript built-in objects, properties, and methods:
+Array	Date	eval	function
+hasOwnProperty	Infinity	isFinite	isNaN
+isPrototypeOf	length	Math	NaN
+name	Number	Object	prototype
+String	toString	undefined	valueOf
+Java Reserved Words
+JavaScript is often used together with Java. You should avoid using some Java objects and properties as JavaScript identifiers:
+getClass	java	JavaArray	javaClass
+JavaObject	JavaPackage		
+Other Reserved Words
+JavaScript can be used as the programming language in many applications.
+
+You should also avoid using the name of HTML and Window objects and properties:
+alert	all	anchor	anchors
+area	assign	blur	button
+checkbox	clearInterval	clearTimeout	clientInformation
+close	closed	confirm	constructor
+crypto	decodeURI	decodeURIComponent	defaultStatus
+document	element	elements	embed
+embeds	encodeURI	encodeURIComponent	escape
+event	fileUpload	focus	form
+forms	frame	innerHeight	innerWidth
+layer	layers	link	location
+mimeTypes	navigate	navigator	frames
+frameRate	hidden	history	image
+images	offscreenBuffering	open	opener
+option	outerHeight	outerWidth	packages
+pageXOffset	pageYOffset	parent	parseFloat
+parseInt	password	pkcs11	plugin
+prompt	propertyIsEnum	radio	reset
+screenX	screenY	scroll	secure
+select	self	setInterval	setTimeout
+status	submit	taint	text
+textarea	top	unescape	untaint
+window			
+HTML Event Handlers
+In addition you should avoid using the name of all HTML event handlers.
+
+Examples:
+onblur	onclick	onerror	onfocus
+onkeydown	onkeypress	onkeyup	onmouseover
+onload	onmouseup	onmousedown	onsubmit
+
+                                              // ********************** chapter 9 ******************
+
+                                                                    JavaScript Objects
+
+In JavaScript, objects are king. If you understand objects, you understand JavaScript.
+
+In JavaScript, almost "everything" is an object.
+
+Booleans can be objects (if defined with the new keyword)
+Numbers can be objects (if defined with the new keyword)
+Strings can be objects (if defined with the new keyword)
+Dates are always objects
+Maths are always objects
+Regular expressions are always objects
+Arrays are always objects
+Functions are always objects
+Objects are always objects
+All JavaScript values, except primitives, are objects.
+
+JavaScript Primitives
+A primitive value is a value that has no properties or methods.
+
+3.14 is a primitive value
+
+A primitive data type is data that has a primitive value.
+
+JavaScript defines 7 types of primitive data types:
+
+Examples
+string
+number
+boolean
+null
+undefined
+symbol
+bigint
+Immutable
+Primitive values are immutable (they are hardcoded and cannot be changed).
+
+if x = 3.14, you can change the value of x, but you cannot change the value of 3.14.
+
+Value	Type	Comment
+"Hello"	string	"Hello" is always "Hello"
+3.14	number	3.14 is always 3.14
+true	boolean	true is always true
+false	boolean	false is always false
+null	null (object)	null is always null
+undefined	undefined	undefined is always undefined
+Objects are Variables
+JavaScript variables can contain single values:
+
+Example
+let person = "John Doe";
+JavaScript variables can also contain many values.
+
+Objects are variables too. But objects can contain many values.
+
+Object values are written as name : value pairs (name and value separated by a colon).
+
+Example
+let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+A JavaScript object is a collection of named values
+
+It is a common practice to declare objects with the const keyword.
+
+Example
+const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+ADVERTISEMENT
+
+Object Properties
+The named values, in JavaScript objects, are called properties.
+
+Property	Value
+firstName	John
+lastName	Doe
+age	50
+eyeColor	blue
+Objects written as name value pairs are similar to:
+
+Associative arrays in PHP
+Dictionaries in Python
+Hash tables in C
+Hash maps in Java
+Hashes in Ruby and Perl
+Object Methods
+Methods are actions that can be performed on objects.
+
+Object properties can be both primitive values, other objects, and functions.
+
+An object method is an object property containing a function definition.
+
+Property	Value
+firstName	John
+lastName	Doe
+age	50
+eyeColor	blue
+fullName	function() {return this.firstName + " " + this.lastName;}
+JavaScript objects are containers for named values, called properties and methods.
+
+You will learn more about methods in the next chapters.
+
+Creating a JavaScript Object
+With JavaScript, you can define and create your own objects.
+
+There are different ways to create new objects:
+
+Create a single object, using an object literal.
+Create a single object, with the keyword new.
+Define an object constructor, and then create objects of the constructed type.
+Create an object using Object.create().
+Using an Object Literal
+This is the easiest way to create a JavaScript Object.
+
+Using an object literal, you both define and create an object in one statement.
+
+An object literal is a list of name:value pairs (like age:50) inside curly braces {}.
+
+The following example creates a new JavaScript object with four properties:
+
+Example
+const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+Spaces and line breaks are not important. An object definition can span multiple lines:
+
+Example
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+This example creates an empty JavaScript object, and then adds 4 properties:
+
+Example
+const person = {};
+person.firstName = "John";
+person.lastName = "Doe";
+person.age = 50;
+person.eyeColor = "blue";
+Using the JavaScript Keyword new
+The following example create a new JavaScript object using new Object(), and then adds 4 properties:
+
+Example
+const person = new Object();
+person.firstName = "John";
+person.lastName = "Doe";
+person.age = 50;
+person.eyeColor = "blue";
+The examples above do exactly the same.
+
+But there is no need to use new Object().
+
+For readability, simplicity and execution speed, use the object literal method.
+
+JavaScript Objects are Mutable
+Objects are mutable: They are addressed by reference, not by value.
+
+If person is an object, the following statement will not create a copy of person:
+
+const x = person;  // Will not create a copy of person.
+The object x is not a copy of person. It is person. Both x and person are the same object.
+
+Any changes to x will also change person, because x and person are the same object.
+
+Example
+const person = {
+  firstName:"John",
+  lastName:"Doe",
+  age:50, eyeColor:"blue"
+}
+
+const x = person;
+x.age = 10;      // Will change both x.age and person.age
+
+                                                              JavaScript Object Properties
+
+Properties are the most important part of any JavaScript object.
+
+JavaScript Properties
+Properties are the values associated with a JavaScript object.
+
+A JavaScript object is a collection of unordered properties.
+
+Properties can usually be changed, added, and deleted, but some are read only.
+
+Accessing JavaScript Properties
+The syntax for accessing the property of an object is:
+
+objectName.property      // person.age
+or
+
+objectName["property"]   // person["age"]
+or
+
+objectName[expression]   // x = "age"; person[x]
+The expression must evaluate to a property name.
+
+Example 1
+person.firstname + " is " + person.age + " years old.";
+Example 2
+person["firstname"] + " is " + person["age"] + " years old.";
+ADVERTISEMENT
+
+JavaScript for...in Loop
+The JavaScript for...in statement loops through the properties of an object.
+
+Syntax
+for (let variable in object) {
+  // code to be executed
+}
+The block of code inside of the for...in loop will be executed once for each property.
+
+Looping through the properties of an object:
+
+Example
+const person = {
+  fname:" John",
+  lname:" Doe",
+  age: 25
+};
+
+for (let x in person) {
+  txt += person[x];
+}
+Adding New Properties
+You can add new properties to an existing object by simply giving it a value.
+
+Assume that the person object already exists - you can then give it new properties:
+
+Example
+person.nationality = "English";
+Deleting Properties
+The delete keyword deletes a property from an object:
+
+Example
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+
+delete person.age;
+or delete person["age"];
+
+Example
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+
+delete person["age"];
+The delete keyword deletes both the value of the property and the property itself.
+
+After deletion, the property cannot be used before it is added back again.
+
+The delete operator is designed to be used on object properties. It has no effect on variables or functions.
+
+The delete operator should not be used on predefined JavaScript object properties. It can crash your application.
+
+Nested Objects
+Values in an object can be another object:
+
+Example
+myObj = {
+  name:"John",
+  age:30,
+  cars: {
+    car1:"Ford",
+    car2:"BMW",
+    car3:"Fiat"
+  }
+}
+You can access nested objects using the dot notation or the bracket notation:
+
+Example
+myObj.cars.car2;
+or:
+
+Example
+myObj.cars["car2"];
+or:
+
+Example
+myObj["cars"]["car2"];
+or:
+
+Example
+let p1 = "cars";
+let p2 = "car2";
+myObj[p1][p2];
+Nested Arrays and Objects
+Values in objects can be arrays, and values in arrays can be objects:
+
+Example
+const myObj = {
+  name: "John",
+  age: 30,
+  cars: [
+    {name:"Ford", models:["Fiesta", "Focus", "Mustang"]},
+    {name:"BMW", models:["320", "X3", "X5"]},
+    {name:"Fiat", models:["500", "Panda"]}
+  ]
+}
+To access arrays inside arrays, use a for-in loop for each array:
+
+Example
+for (let i in myObj.cars) {
+  x += "<h1>" + myObj.cars[i].name + "</h1>";
+  for (let j in myObj.cars[i].models) {
+    x += myObj.cars[i].models[j];
+  }
+}
+Property Attributes
+All properties have a name. In addition they also have a value.
+
+The value is one of the property's attributes.
+
+Other attributes are: enumerable, configurable, and writable.
+
+These attributes define how the property can be accessed (is it readable?, is it writable?)
+
+In JavaScript, all attributes can be read, but only the value attribute can be changed (and only if the property is writable).
+
+( ECMAScript 5 has methods for both getting and setting all property attributes)
+
+Prototype Properties
+JavaScript objects inherit the properties of their prototype.
+
+The delete keyword does not delete inherited properties, but if you delete a prototype property, it will affect all objects inherited from the prototype.
 
 
-// continue from js classes
+                                                // note the following carefully
+
+*** Using JSON.stringify()
+Any JavaScript object can be stringified (converted to a string) with the JavaScript function JSON.stringify():
+
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+let myString = JSON.stringify(person);
+
+*** Using the prototype Property
+The JavaScript prototype property allows you to add new properties to object constructors:
+
+*** A JavaScript iterable is an object that has a Symbol.iterator.
+
+The Symbol.iterator is a function that returns a next() function.
+
+An iterable can be iterated over with the code: for (const x of iterable) { }
+
+*** Arrow Functions
+Arrow functions allows a short syntax for writing function expressions.
+
+You don't need the function keyword, the return keyword, and the curly brackets.
+
+Example
+// ES5
+var x = function(x, y) {
+  return x * y;
+}
+
+// ES6
+const x = (x, y) => x * y;
+
