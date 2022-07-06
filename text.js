@@ -9724,3 +9724,63 @@ var x = function(x, y) {
 // ES6
 const x = (x, y) => x * y;
 
+*** Finding HTML Elements by CSS Selectors
+If you want to find all HTML elements that match a specified CSS selector (id, class names, types, attributes, values of attributes, etc), use the querySelectorAll() method.
+This example returns a list of all <p> elements with class="intro".
+
+Example
+const x = document.querySelectorAll("p.intro");
+
+*** <!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Validation</h2>
+
+<p>Please input a number between 1 and 10:</p>
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  // Get the value of the input field with id="numb"
+  let x = document.getElementById("numb").value;
+  // If x is Not a Number or less than one or greater than 10
+  let text;
+  if (isNaN(x) || x < 1 || x > 10) {
+    text = "Input not valid";
+  } else {
+    text = "Input OK";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html>
+
+*** Create an Animation Container
+All animations should be relative to a container element.
+
+Example
+<div id ="container">
+  <div id ="animate">My animation will go here</div>
+</div>
+Style the Elements
+The container element should be created with style = "position: relative".
+
+The animation element should be created with style = "position: absolute".
+
+*** Example
+const myNodeList = document.querySelectorAll("p");
+The elements in the NodeList can be accessed by an index number.
+
+To access the second <p> node you can write:
+
+myNodeList[1]
+Note: The index starts at 0.
+
